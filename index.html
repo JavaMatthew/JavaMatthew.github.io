@@ -136,445 +136,521 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/22/%E9%94%99%E8%AF%AF/Java/JedisDataException/">
-        <p class="h4 index-header">Redis的查询异常</p>
+      <a href="/2020/07/31/%E5%90%8E%E7%AB%AF/Java/%E4%BD%BF%E7%94%A8%E5%90%84%E7%A7%8D%E5%B5%8C%E5%A5%97%E7%B1%BB%E7%9A%84%E6%97%B6%E6%9C%BA/">
+        <p class="h4 index-header">使用各种嵌套类的时机</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">[MG][ERROR][2020-06-19 09:08:58,904]|REDIS查询异常|[qtp1371957475-16]
-redis.clients.jedis.exceptions.JedisDataException: value sent to redis cannot be null
-    at redis.clients.util.SafeEncoder.encode(SafeEncoder.java:28) ~[werewolf-client-jp.jar:?]
-    at redis.clients.jedis.Client.hget(Client.java:211) ~[werewolf-client-jp.jar:?]
-    at redis.clients.jedis.Jedis.hget(Jedis.java:760) ~[werewolf-client-jp.jar:?]
-    at com.mega.server.jedis.MegaJedisUtil.getHashValue(MegaJedisUtil.java:24) ~[werewol</div>
+          <div class="index-text mb-1">嵌套类（nested class）
+嵌套类是指被定义在另一个类内部的类
+
+嵌套类的分类：
+
+静态成员类（static member class）
+非静态成员类（nonstatic member class）
+匿名类（anonymous class）
+局部类（local class）
+
+除了第一种之外，其他三种被称为内部类（inner class）
+静态成员类用法
+常见的用法是作为公有的辅助类，仅当与它的外部类一起使用时才有意义。
+
+例如：考虑一个枚举类，它描述了计算机支持的各种操作。Operation枚举应该时Calculator类的公有静态成员类，然后，Calculator类的客户端就可以用诸如Calculator.Operation.PLUS和Calculator.Operation.MINUS这样的名称来引用 这些操作。
+非静态成员类用法
+常见的用法时定义一个Adapter，它允许外部类的实例被看作时另一个不相关的类的实例。
+
+例如：Map接口的是西安往往 使用非静态成员类来实现他们的集合试图（collection view），这些集合视图时由Map的keySet、entrySe</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-22&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-31&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/28/%E5%90%8E%E7%AB%AF/Docker/Docker%E5%91%BD%E4%BB%A4/">
+        <p class="h4 index-header">Docker命令</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">使用脚本自动安装$ curl -fsSL get.docker.com -o get-docker.sh
+$ sh get-docker.sh --mirror Aliyun           # 从阿里云国内资源上下载
+Ubuntu 16.04+、Debian8+、CentOS7对于使用systemd的系统，请在/etc/docker/daemon.json中写入如下内容（如果文件不存在请新建该文件）
+{
+    &quot;registry-mirrors&quot;: [
+        &quot;https://registry.docker-cn.com&quot;
+    ]
+}
+注意，一定要保证该文件符合json规范，否则Docker将不能启动之后重启服务
+systemctl daemon-reload
+systemctl restart docker
+获取镜像docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]
+docker images 展示所有镜像
+运行\相当于window里的回车
+$ docker run -</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-28&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Docker">Docker</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Docker">Docker</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/27/%E5%90%8E%E7%AB%AF/Docker/Docker%E7%AE%80%E4%BB%8B/">
+        <p class="h4 index-header">Docker简介</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">简介
+更高效的利用云资源
+更快速的启动时间
+一致的运行环境
+持续交付和部署
+更轻松的迁移
+更轻松的维护和扩展
+
+
+Docker使用客户端-服务器(C/S)架构模式，使用原厂API来管理和创建Docker容器。  Docker容器通过Docker镜像来创建。  容器与镜像的关系类似于面向对象编程中的对象与类
+
+
+
+
+标题
+说明
+
+
+
+镜像（Images）
+Docker镜像是用于创建Docker容器的模板
+
+
+容器（Container）
+容器是独立运行的一个或一组应用
+
+
+客户端（Client）
+Docker客户端通过命令行或者其他工具使用Docker API与Docker的守护进程通信。
+
+
+主机（Host）
+一个物理或者虚拟的机器用于执行DOcker守护进程和容器。
+
+
+仓库（Registry）
+Docker仓库用来保存镜像，可以理解为代码控制中的代码仓库。Docker Hub提供了庞大的镜像集合供使用。
+
+
+Docker Machine
+Docker Machine是一个简化Docker安装的命令行工具，通过一个简单的命令行即可在相应的平台撒花姑娘安装Docker，比如Vitrual</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-27&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Docker">Docker</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Docker">Docker</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+        <p class="h4 index-header">Linux文件权限管理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">查看文件和目录的权限ls -al使用ls不带参数只显示文件名称，通过ls -al可以显示文件或者目录的权限信息。ls -l 文件名 显示信息包括：第一个为文件类型，以后三个符号为一组。文件类型（d 目录，- 普通文件，l 链接文件），文件权限，文件的用户，文件的所属组，文件的大小，文件的创建时间，文件的名称|-rw-r–r–|  1 |root| root|  322 |7月  21 22:25 |.bash_history||———-|—-|—-|——|—–|————–|————-||文档类型及权限|连接数|文档所属用户|文档所属组|文档大小|文档最后被修改日期|文档名称|
+
+
+
+-
+rw-
+r–
+r–
+
+
+
+文档类型
+文档所有者权限（user）
+文档所属用户组权限（group）
+其他用户权限（other）
+
+
+
+-: 普通文件
+rw-: 说明用户组root有读写权限，没有运行权限
+r–: 表示用户root只有读权限，没有写和运行的权限
+r–: 其他用户只有读权限，没有写权限和运行的权限
+
+文档所属用户和所属组就是文档属于哪个用户和用户组。文件所属用户和组时可以更改的
+文档大小默认是</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux">Linux</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux">Linux</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%AE%A1%E7%90%86/">
+        <p class="h4 index-header">Linux用户和组管理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Linux操作系统个还是一个多用户系统，他允许多用户同时登录到系统上并使用资源。系统会根据账户来区分每个用户的文件，进程，任务和工作环境，是的每个用户工作都不受干扰。
+使用Root用户给root账户设置密码sudo passwd root切换到root账户su允许root账户远程连接 vi /etc/ssh/sshd_config
+# Authentication:
+
+LoginGraceTime 2m
+# PermiRootLogin prohibit-password  注释此行
+PermitRootLogin yes            #  加入此行
+StrictModes yes
+
+更改完文件后保存
+重启服务
+service ssh restart
+组账户说明私有组当创建一个用户时没有指定属于哪个组，Linux救护建立一个与用户同名的私有组，次私有组只含有该用户
+标准组当创建一个用户时可以选定一个标准组，如果一个用户同时属于多个组时，登录后所属的组为主组，其他的位附加组。
+账户文件说明/etc/passwd每一行代表一个账户，众多账户是系统正常运行所必须的，例如bin，no</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux">Linux</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux">Linux</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/">
+        <p class="h4 index-header">Linux软件的安装与卸载</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">软件的安装与卸载apt 软件包管理程序ubuntu 下载软件包管理是通过aptcentos通过yum来进行软件包管理程序
+安装文件    安装版    绿色版  压缩包
+命令安装：sudo apt-get install nano删除：sudo apt-get remove nano查看系统版本：lsb_release -a
+Distributor ID: Deepin
+Description:    Deepin 20 Beta
+Release:        20 Beta
+Codename:       n/a
+编辑数据源：vi /etc/apt/sources.list将数据源改为阿里的镜像数据源deb [by-hash=force] https://mirrors.aliyun.com/deepin/ panda main contrib non-free更新数据源：sudo apt-get update更新软件,就重新安装一遍纯净卸载：sudo apt-get autoremove nano,连带nano依赖一起删除
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux">Linux</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux">Linux</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/22/%E5%90%8E%E7%AB%AF/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/Java%E5%AE%9E%E4%BD%93%E7%B1%BB%E4%B8%AD%E4%B8%BA%E4%BD%95%E4%B8%8D%E7%94%A8%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">Java实体类中为何不用基本数据类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">阿里巴巴开发手册中写的很明确，基本类型接收NULL值有NPE风险（java.lang.NullPointerException  NPE 空值异常），而且默认值和NULL值不能传达同一种信息。
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/22/%E5%90%8E%E7%AB%AF/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/java%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%83%85%E5%86%B5/">
+        <p class="h4 index-header">java内存泄漏可能出现的情况</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+由于java的JVM引入了垃圾回收机制，垃圾回收器会自动回收不再使用的对象，了解JVM回收机制的都知道JVM是使用引用计数法和可达性分析算法来判断对象是否是不再使用的对象，本质都是判断一个对象是否还被引用。那么对于这种情况下，由于代码的实现不同就会出现很多种内存泄漏问题（让JVM误以为此对象还在引用中，无法回收，造成内存泄漏）。    在支持垃圾回收的语言中，内存泄漏是很隐蔽的（称这类内存泄漏为“无疑是的对象保持” unintentional object retention 更为恰当）如果一个对象
+
+
+静态集合类，如HashMap、LinkedList等等。如果这些容器为静态的，那么它们的生命周期与程序一致，则容器中的对象在程序结束之前将不能被释放，从而造成内存泄漏。简单而言，长生命周期的对象持有短生命周期对象的引用，尽管短生命周期的对象不再使用，但是因为长生命周期对象持有它的引用而导致不能被回收。
+
+各种连接，如数据库连接、网络连接和IO连接等。在对数据库进行操作的过程中，首先需要建立与数据库的连接，当不再使用时，需要调用close方法来释放与数据库的连接。只有连接被关闭后，垃圾</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
+        <p class="h4 index-header">Linux操作命令</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">系统管理命令参考手册
+交换空间内存 1GB 超过   内存溢出 会造成阻塞崩溃宕机磁盘 1TB swap 交换空间，虽然会防止内存溢出，但是会减慢速度拖垮系统云服务器    一台超级计算机 1TB 硬盘 128G 内存，云服务器是没有交换空间的                开辟一个空间    20GB 1G
+Linuxw文件操作命令如果无法找到ls或其他命令
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+压缩文件
+# tar -xzvf test.tar.gz
+重启
+reboot
+shutdown -r now
+
+关机
+shutdown -h now
+
+Linux编辑器vim
+编辑模式：等待编辑命令输入
+插入模式：编辑模式下，输入i进入插入模式，插入文本信息
+命令模式：在编辑模式下，输入:进行命令模式
+
+命令
+:q 直接退出vi
+:wq 保存后退出vi，并可以新建文件
+:q! 强制退出
+:w file 将当前内容保存成某个文件
+:set number 在编辑文件显示</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux">Linux</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux">Linux</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/21/%E9%94%99%E8%AF%AF/swagger/swagger%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">swagger跨域问题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Swagger的跨域问题
+
+必须保证三处ip相同,访问页面的url和Server的访问地址，以及index的url
+
+
+&lt;!-- HTML for static distribution bundle build --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Swagger UI&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./swagger-ui.css&quot; &gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;./favicon-32x32.png&quot; sizes=&quot;32x32&quot; /</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
           
-            <a href="/categories/Java">Java</a>&nbsp;
+            <a href="/categories/swagger">swagger</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E9%94%99%E8%AF%AF,Java">错误,Java</a>&nbsp;
+            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/12/%E5%90%8E%E7%AB%AF/Elasticsearch/Elasticsearch%20%E6%96%B0%E6%97%A7%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB(_reindex)/">
-        <p class="h4 index-header">Elasticsearch 新旧索引数据迁移(_reindex)</p>
-        
-        
+            <a href="/tags/swagger">swagger</a>&nbsp;
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Elasticsearch 新旧索引数据迁移(_reindex)
-举个例子，在输入“1992-02-27”这样格式的数据，es会把他默认为是date数据类型，但是有时候我们希望它是text类型，在原索引中已经有数据的情况下该如何操作。
-
-创建原索引
-
-PUT /aaron_index/aaron_type/1
-{
-  &quot;name&quot;:&quot;张辽&quot;,&quot;age&quot;:27,&quot;content&quot;:&quot;1992-02-27&quot;
-}
-PUT /aaron_index/aaron_type/2
-{
-  &quot;name&quot;:&quot;曹阿瞒&quot;,&quot;age&quot;:28,&quot;content&quot;:&quot;1991-02-19&quot;
-}
-创建新索引
-
-PUT /aaron_index_new
-{
-  &quot;mappings&quot;: {
-    &quot;aaron_type&quot;:{
-      &quot;properties&quot;</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Elasticsearch">Elasticsearch</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Elasticsearch">Elasticsearch</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/11/%E5%90%8E%E7%AB%AF/php/php%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
-        <p class="h4 index-header">php语法基础</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">读取文件readfile读取文件
-传入一个文件路径，输出一个文件。
-
-int readfile ( string $文件名)
-
-
-//linux类的读了方式
-readfile(&quot;/home/paul/test.txt&quot;);
-//windows类的读取方式
-readfile(&quot;c:\\boot.ini&quot;);
-注意：上面的代码中windows的斜线是\斜线，可能会转义掉一些字符。因此，我们写的时候写上两个斜线。
-file_get_contents打开文件
-传入一个文件或文件路径，打开这个文件返回文件的内容。文件的内容是一个字符串。
-
-string file_get_contents ( string filename)
-
-
-//假设我们有一个多行的文件叫NoAlike.txt，没有的话你可以新建一个这个文件
-$filename = &#39;NoAlike.txt&#39;;
-
-
-//打开这个文件，将文件内容赋值给$filestring
-$filestring = file_get_contents($filename);
-
-//因为每一行有一个回车</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/php">php</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/php">php</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/php/php%E6%95%B0%E7%BB%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-        <p class="h4 index-header">php语法基础</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">数组数组声明
-数组可以存入多个不同类型的数据，是一个复合数据类型。
-数组的英文是array，学一了一下最简单的数组声明。
-
-$shu = array(1 , 1.5 , true ,&#39;天王盖地虎，小鸡炖蘑菇&#39;);
-
-echo &#39;&lt;pre&gt;&#39;;
-var_dump($shu);
-echo &#39;&lt;/pre&gt;&#39;;
-
-结果是：
-array(4) {
-  [0]=&gt;
-  int(1)
-  [1]=&gt;
-  float(1.5)
-  [2]=&gt;
-  bool(true)
-  [3]=&gt;
-  string(33) &quot;天王盖地虎，小鸡炖蘑菇&quot;
-}
-
-array(size = 4) 说明里面有4个元素
-0 =&gt; int 1 我们知道int是整型的意思，1是一个整型的数值。那前面的0,1,2,3和=&gt;代表什么意思呢？
-最新前的0，1，2，3代表的是值的读取标识号，我们称之为下标或者键（英文：key）
-=&gt; 是一个符号标准叫法叫作：键值对应符。因此，以后再看到 0=&gt; int</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/php">php</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/php">php</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResultSet/">
-        <p class="h4 index-header">ResultSet</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">继承Wrapper接口和AutoCloseable接口
-Wrapper是包装类，对原生的int、float。。。进行封装AutoCloseable是自动关闭资源
-ResultSet虽然继承了AutoCloseable可以自动关闭连接释放资源，但是还是要手动关闭，因为官方文档中说：通常，立即释放此Statement对象的数据库和JDBC资源，而不是等待它自动关闭时发生。 最好在资源使用完毕后立即释放资源，以避免占用数据库资源。
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResourceBundle/">
-        <p class="h4 index-header">ResourceBundle</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-这个类主要用来解决国际化和本地化问题。国际化和本地化可不是两个概念，两者都是一起出现的。可以说，国际化的目的就是为了实现本地化。比如对于“取消”，中文中我们使用“取消”来表示，而英文中我们使用“cancel”。若我们的程序是面向国际的（这也是软件发展的一个趋势），那么使用的人群必然是多语言环境的，实现国际化就非常有必要。而ResourceBundle可以帮助我们轻松完成这个任务：当程序需要一个特定于语言环境的资源时（如 String），程序可以从适合当前用户语言环境的资源包（大多数情况下也就是.properties文件）中加载它。这样可以编写很大程度上独立于用户语言环境的程序代码，它将资源包中大部分（即便不是全部）特定于语言环境的信息隔离开来。
-
-这使编写的程序可以：    轻松地本地化或翻译成不同的语言    一次处理多个语言环境    以后可以轻松进行修改，以便支持更多的语言环境
-说的简单点，这个类的作用就是读取资源属性文件（properties），然后根据.properties文件的名称信息（本地化信息），匹配当前系统的国别语言信息（也可以程序指定），然后获取相应的proper</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/PreparedStatement%E5%92%8CStatement/">
-        <p class="h4 index-header">PreparedStatement和Statement</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">网上有很多文章讨论PrepardStatement与Statement的区别，不过要完完全全的作出比较难度很大，因为每个数据库对底层的实现及应用场合不一样，Oracle对PrepardStatement的支持最好，Mysql对PrepardStatement支持最差。Statement执行单个sql语句速度较快而PrepardStatement执行批处理的效率较高。
-以Oracle为例
-
-Statement为每一条Sql语句生成执行计划， 如果要执行两条sql语句 select colume from table where colume=1; select colume from table where colume=2; 会生成两个执行计划，一千个查询就生成一千个执行计划。而生成计划是非常消耗资源的
-
-PreparedStatement用于使用绑定变量重用执行计划 select * from xxx.sometable t where t.id=?; 通过set方法给sql语句按占位符”?”先后顺序赋值，只需要生成一个执行计划，可以重复使用。
-
-
-当处理批量SQL语句时，这个时候就</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E9%98%BF%E9%87%8C%E9%9D%A2%E8%AF%95%E9%A2%98/">
-        <p class="h4 index-header">前端/JS/堆栈练习题/阿里面试题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">let a = {
-    n:1
-}
-let b = a
-a.x = a = {
-    n:2
-}
-
-console.log(a.x)
-console.log(b)</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/">
-        <p class="h4 index-header">前端/JS/堆栈练习题/数据类型检测</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">/*
-基于typeof检测出来的结果
-1. 首先是一个字符串
-2. 字符串中包含对应的类型
-局限性
-1. typeof null => "object" 但是null并不是对象
-2. 基于typeof无法细分出当前值是普通对象还是数组对象等，应为只要是对象数据类型，返回的结果都是"object"
-*/
-console.log(typeof 1)
-let a = NaN
-console.log(typeof a)
-console.log(1)
-
-console.log(typeof typeof typeof [])</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/index/">
-        <p class="h4 index-header">前端/JS/堆栈练习题/index</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-
-    
-    Document
-    
-
-
-    
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
         
       </div>
     </div>
@@ -584,7 +660,7 @@ console.log(typeof typeof typeof [])</div>
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

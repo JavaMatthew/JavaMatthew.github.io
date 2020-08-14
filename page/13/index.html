@@ -136,287 +136,61 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E7%BC%96%E8%BE%91%E5%99%A8/IDEA/">
-        <p class="h4 index-header">IDEA</p>
+      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/JS%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
+        <p class="h4 index-header">JS命名规范</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">IDE（Integrated Development Environment）集成开发环境
-NetBeans http://netbeans.org/
-Intellij IDEA (公认最好的Java开发工具之一）
-Eclipse
+          <div class="index-text mb-1">JS中的命名规范
+严格区分大小写
 
-修改IDEA的快捷提示按键，使它只能按回车才使用提示eclipse的快捷提示无论你按空格按回车都会强迫你使用它的提示，但是当我们不想使用它的提示的时候就显得非常难受了，所以IDEA的这个设置，能够给我们更强的自主性。
+let Test=100;
+console.log(test);//=&gt;无法输出，因为第一个字母小写了
 
+使用数字、字母、下划线、$，数字不能作为开头
 
-快捷键
-IDEA在当前类中查找方法快捷键例如在String类中查找contains方法。Ctrl + F12
+let $box; //=&gt;一般用JQ获取的以$开头
+let _box; //=&gt;一般公共变量都是_开头
+let 1box; //=&gt;不可以，但是可以写box1
 
-格式化：Ctrl+Alt+L
+使用驼峰命名法：首字母小写，其余每一个有意义单词的首字母都要大写（命名尽可能语义化明显，使用英文单词）
 
-Alt + Ins 快速创建构造方法
+let studentInformation;
+let studentInfo;
+//常用的缩写：add/insert/create/new（新增）、update（修改）、delete/del/remove/rm（删除）、sel/select/query/get（查询）、info（信息）...
 
-Ctrl + Alt + O 自动清楚无用包
+//不正确的写法
+let xueshengInfo;
+let xueshengxinxi;
+let xsxx;
 
+不能使用关键字和保留字
 
-</div>
+当下有特殊含义的是关键字，未来可能会成为关键字的叫做保留字(？)
+var le</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8">编辑器</a>&nbsp;
-          
-            <a href="/categories/IDEA">IDEA</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/IDEA">IDEA</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E5%90%8E%E7%AB%AF/Java/Collection/">
-        <p class="h4 index-header">集合</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">集合Collection概念
-对于 Java 中的常量的命名规则：所有单词的字母都是大写，如果有多个单词， 那么使用下划线连接即可。 比如说： public static final int AGE_0F_PERSON = 20;
-在 Java 中声明 final 常量时通常都会加上 static 关键字，这样对象的每个实例 都会访问唯一一份常量值。
-
-
-Interface Collection&lt;E&gt;public interface Collection&lt;E&gt;extends Iterable&lt;E&gt;E可以先当作Object类型具体后面学。
-Collection的Java API中的定义The root interface in the collection hierarchy.继承层次的根接口 A collection represents a group of objects,known as its elements.一个集合代表一组对象 ，这些对象我们称为元素Some collections allow duplicate elements an</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/">
-        <p class="h4 index-header">查找</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">二分查找（Binary Search）待查找的数组要有序。
-public class ArraySearchTest {
-
-    public static int search(int[] array, int value) {
-        int low = 0;
-        int high = array.length - 1;
-        int middle;
-        while(low &lt;= high) {
-            middle = (low + high) / 2;
-            if(array[middle] == value) {
-                return middle;
-            }
-            if(value &lt; array[middle]) {
-                high = middle - 1;
-            }
-            if(value &gt; array[middle]) {
-             </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          
-            <a href="/categories/%E6%9F%A5%E6%89%BE">查找</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          
-            <a href="/tags/%E6%9F%A5%E6%89%BE">查找</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">
-        <p class="h4 index-header">排序</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">冒泡排序。（掌握交换排序，快速排序的原理与实现方式）arraycopy方法这个方法是JDK提供的API，这个方法在java.lang.System。public static void arraycopy(Object src,int srcPos,Object dest,int destPos,int length)
-Parameters:src - the source array（原数组）.srcPos - starting position in the source array（原数组中的起始位置，从此位置开始拷贝）.dest - the destination array（目标数组）.destPos - starting position in the destination data（目标数组的起始位置，从此位置开始接收）.length - the number of array elements to be copied（待拷贝的的数组的个数）.
-public class ArrayCopy {
-
-    public static void main(String[]</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          
-            <a href="/categories/%E6%8E%92%E5%BA%8F">排序</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          
-            <a href="/tags/%E6%8E%92%E5%BA%8F">排序</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E5%90%8E%E7%AB%AF/Java/%E6%95%B0%E7%BB%84%E5%89%96%E6%9E%90/">
-        <p class="h4 index-header">数组剖析</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">包装类（Wrapper Class）
-针对于原生数据类型的包装，所有的包装类（8 个）都位于java.lang 包下。 例如：Integer把原生数据类型int包装在对象中，类型Integer的对象包含了一个单独的一个int类型的值。
- public class IntegerTest {
-     public static void main(String[] args) {
-         int a = 10;
-         Integer integer = new Integer(a);
-         int b = integer.intValue();
-         System.out.println(a == b);
-     }
- }
- 结果是：true 其他的类型同理
-
-Java 中的 8 个包装类分别是：Byte,Short,Integer,Long,Float,Double,Character, Boolean。 他们的使用方式都是一样的，可以实现原生数据类型与包装类型的双向转换。
-
-
-数组（Array）
-相同类型数据的集合就叫做数组。
-
-如何</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/24/%E5%89%8D%E7%AB%AF/Vue/v-router/">
-        <p class="h4 index-header">v-router</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">vue-router使用详情SPA(single page application):单一页面应用程序，只有一个完整的页面；它在加载页面时，不会加载整个页面，而是只更新某个指定的容器中内容。单页面应用(SPA)的核心之一是:更新视图而不重新请求页面;vue-router在实现单页面前端路由时，提供了两种方式：Hash模式和History模式。
-1、hash模式随着 ajax 的流行，异步数据请求交互运行在不刷新浏览器的情况下进行。而异步交互体验的更高级版本就是 SPA —— 单页应用。单页应用不仅仅是在页面交互是无刷新的，连页面跳转都是无刷新的，为了实现单页应用，所以就有了前端路由。类似于服务端路由，前端路由实现起来其实也很简单，就是匹配不同的 url 路径，进行解析，然后动态的渲染出区域 html 内容。但是这样存在一个问题，就是 url 每次变化的时候，都会造成页面的刷新。那解决问题的思路便是在改变url的情况下，保证页面的不刷新。在 2014 年之前，大家是通过 hash 来实现路由，url hash 就是类似于：
-    http://www.xxx.com/#/login
-这</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-24&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
           
-            <a href="/categories/Vue">Vue</a>&nbsp;
+            <a href="/categories/JS">JS</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Vue">Vue</a>&nbsp;
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
           
         
       </div>
@@ -427,41 +201,138 @@ Java 中的 8 个包装类分别是：Byte,Short,Integer,Long,Float,Double,Chara
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/24/%E5%89%8D%E7%AB%AF/JS/%E8%B5%8B%E5%80%BC%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
-        <p class="h4 index-header">赋值、浅拷贝和深拷贝的区别</p>
+      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E5%B8%B8%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8/">
+        <p class="h4 index-header">常用浏览器</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">赋值（Copy）赋值是将某一数值或对象赋给某个变量的过程，分为：
+          <div class="index-text mb-1">常用的浏览器
+webkit内核(V8引擎)
+谷歌Chrome
+Safari
+Opera &gt;=V14
+国产浏览器
+手机浏览器
+…
 
-基本数据类型：赋值，赋值之后两个变量互不影响
 
-引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响对基本类型进行赋值操作，两个变量互不影响。
- // saucxs
- let a = &quot;saucxs&quot;;
- let b = a;
- console.log(b);  // saucxs
+Gecko
+火狐Firefox
 
- a = &quot;change&quot;;
- console.log(a);   // change
 
- console.log(b);    // saucxs
- 对引用类型进行赋址操作，两个变量指向同一个对象，改变变量 a 之后会影响变量 b，哪怕改变的只是对象 a 中的基本类型数据。
- // saucxs
- let a = {
-     name: &quot;saucxs&quot;,
-     book: {
-         title: &quot;You Don&#39;t Know JS&quot;,
-         price: &quot;45&quot;
-     </div>
+Presto
+Opera &lt;V14
+
+
+Trident
+IE
+IE EDGE开始采用双内核（其中包含chrome迷你）
+
+
+
+谷歌浏览器的控制台（F12/Fn+F12）    - Elements：查看结构样式，可以修改这些内容    - Console：查看输出结果和报错信息，是JS调试的利器    - Sources：查看项目源码    - Network：查看当前网站所有资源的请求信息（包括和服务器传输的HTTP报文信息）、加载时间等（根据加载时间进行项目优化）    - Application：查看当前网站的数据存储和资源文件（可以盗图）
+JS做客户端语言
+按照相关的JS语法，去操作页面中的元素，有时还要操作浏览器里面的一些功能    - ECMAScript3/5/6…：JS的语法规范（变量、数据类型、操作语句等等）    - DOM（document object model）：文档对象模型，提供</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-24&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Stream/">
+        <p class="h4 index-header">Stream</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是 StreamJava8中有两大最为重要的改变。第一个是 Lambda 表达式；另外一个则是 Stream API(java.util.stream.*)。Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。使用Stream API 对集合数据进行操作，就类似于使用 SQL 执行的数据库查询。也可以使用 Stream API 来并行执行操作。简而言之，Stream API 提供了一种高效且易于使用的处理数据的方式。
+流(Stream) 到底是什么呢？是数据渠道，用于操作数据源（集合、数组等）所生成的元素序列。“集合讲的是数据，流讲的是计算！”注意：    1. Stream 自己不会存储元素。    2. Stream 不会改变源对象。相反，他们会返回一个持有结果的新Stream。    3. Stream 操作是延迟执行的。这意味着他们会等到需要结果的时候才执行。
+Stream 的操作三个步骤
+创建 Stream  一个数据源（如：集合、数组），获取一个流
+中间操作  一个中间操作链，对数据源的</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">
+        <p class="h4 index-header">数据过滤</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">filter对象中包含子对象如果需要用子对象中的属性过滤，需要用forEach套filter，然后再filter过滤
+// 声明中间变量，用于第一层filter过滤的深拷贝
+let newArr = []
+// 先将所有数据深拷贝给需要过滤的数据
+this.pzLeftData = JSON.parse(JSON.stringify(this.AllData))
+// 第一层过滤
+this.pzLeftData.forEach((value, index) =&gt; {
+    newArr[index] = value
+    // 将里层pzlist数组按照evidenceTypeCode过滤并声明一个新的数组复制给pzList
+    newArr[index].pzList = value.pzList.filter(item =&gt; item.evidenceTypeCode === &#39;2&#39;)
+})
+// 第二层过滤，讲里层数组个数为0的分类过滤掉
+this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -485,52 +356,40 @@ Java 中的 8 个包装类分别是：Byte,Short,Integer,Long,Float,Double,Chara
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/23/%E9%94%99%E8%AF%AF/HEXO%E7%9A%84%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">HEXO的图片上传问题</p>
+      <a href="/2019/12/09/%E5%89%8D%E7%AB%AF/JS/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95%E5%8F%B2/">
+        <p class="h4 index-header">前端发展史</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">问题状况
-如果你的hexo安装了img插件但是还是不显示，后台输出地址404。
-解决办法
-首先找到你的node_modules\hexo-asset-image@0.0.5@hexo-asset-image和node_modules\hexo-asset-image这两个文件包，删除。
+          <div class="index-text mb-1">服务器渲染时代
 
-接下来
- npm install https://github.com/CodeFalling/hexo-asset-image --save
- 执行这条指令。
+客户端渲染时代
 
-打开/node_modules/hexo-asset-image/index.js，将内容更换为下面的代码
- &#39;use strict&#39;;
- var cheerio = require(&#39;cheerio&#39;);
-
- // http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
- function getPosition(str, m, i) {
- return str.split(m, i).joi</div>
+前端侵占移动端APP市场
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-23&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-09&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
           
-            <a href="/categories/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          
-            <a href="/categories/%E5%9B%BE%E7%89%87">图片</a>&nbsp;
+            <a href="/categories/JS">JS</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
           
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+            <a href="/tags/JS">JS</a>&nbsp;
           
         
       </div>
@@ -541,35 +400,21 @@ Java 中的 8 个包装类分别是：Byte,Short,Integer,Long,Float,Double,Chara
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/">
-        <p class="h4 index-header">计算机网络</p>
+      <a href="/2019/12/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%89%A9%E7%90%86%E5%B1%82/">
+        <p class="h4 index-header">物理层</p>
         
         
           
+          
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">计算机网络概述
-局域网 覆盖范围小 自己花钱购买设备 带宽固定 自己维护 100米 带宽 10M 100M 1000M 设计的时候应该分层设计，一个交换机作为汇聚层（作为中心，接入其他接入层交换机），其余的交换机作为接入层（接入每台电脑，要求接口多）； 接入层的交换机都连接到汇聚层交换机上，并且汇聚层每条线的带宽应该等于接入层带宽总和，这样既不会浪费，也不会限制。
-
-广域网 距离远 花钱租带宽
-
-Internet ISP 自己的机房 对网民提供访问Internet连接
-
-
-规划IP地址介绍MAC地址IP地址IP地址分为网络部分和主机部分，具体如何分辨看子网掩码例如：
-IP        13.0.0.0子网掩码  255.0.0.0
-那么13就是网络部分0.0.0是主机部分，加入子网掩码是255.255那么13.0就是网络部分，0.0就是主机部分。
-互联网连接的路由器的地址往往是这个网段的第一个地址。如果你这个电脑想要给其他网段传输信息，需要配置网关，这个网关就是路由器的IP地址
-
-
-如图，ip地址的网络部分就是前三个部分，主机就是最后一个部分。
-MAC地址在计算机出厂的时候就布置到芯</div>
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">网络设备的机械特性 电器特性 功能特性 过程特性数据通信的基础知识    数字信号    模拟信号频分多路复用时分多路复用...</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-23&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-09&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -591,36 +436,107 @@ MAC地址在计算机出厂的时候就布置到芯</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/%E5%90%8E%E7%AB%AF/Java/String%E7%B1%BB%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B8%97%E6%9E%90/">
-        <p class="h4 index-header">String类源代码渗析</p>
+      <a href="/2019/12/08/%E5%89%8D%E7%AB%AF/Vue/%E9%94%9A%E7%82%B9%E6%A0%91/">
+        <p class="h4 index-header">锚点树</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">相等性的比较（==）
-对于原生数据类型来说，比较的是左右两边的值是否相等。
-对于引用类型来说，比较左右两边的引用是否指向同一个对象，或者说左右两边的引用地址是否相同。
-java.lang.Object 类。 java.lang 包在使用的时候无需显式导入，编译时由编译器自动帮助我们导入。
-API （Application Programming Interface），应用编程接口。
-当打印引用时，实际上会打印出引用所指对象的 toString()方法的返回值，因为每个类都直接或间接地继承自 Object，而 Object 类中定义了 toString()，因此每个类都有toString()这个方法。
-
-equals方法该方法定义在 Object 类当中，因此 Java 中的每个类都具有该方法，对于 Object 类的 equals()方法来说，它是判断调用 equals()方法的引用与传进来的引用是否一致，即这两个引用是否指向的是同一个对象。对于 Object 类的 equals()方法来说，它等价于==。
-public class StringTest {
- public stati</div>
+          <div class="index-text mb-1">锚点树
+通过右侧的滚轮滚动，激活左侧目录，同时点击左侧目录右侧滚动
+锚点树代码
+&lt;template&gt;
+  &lt;div class=&quot;time-line&quot;&gt;
+    &lt;div v-for=&quot;(item,index) in array&quot;  :key=&quot;index&quot; class=&quot;time-item&quot; :id=&quot;&#39;timeline&#39; + index&quot; @click=&quot;scrolljump(item.fname)&quot;&gt;
+      &lt;!--点--&gt;
+      &lt;div class=&quot;time-item-point&quot;&gt;
+        &lt;div class=&quot;time-item-point-img&quot;  :class=&quot;active(item.fname)&quot;&gt;&lt;/div&gt;
+        &lt;div :class=&qu</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/Vue">Vue</a>&nbsp;
+          
+            <a href="/categories/%E9%94%9A%E7%82%B9%E6%A0%91">锚点树</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+            <a href="/tags/Vue">Vue</a>&nbsp;
+          
+            <a href="/tags/%E9%94%9A%E7%82%B9%E6%A0%91">锚点树</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        <p class="h4 index-header">Lambda表达式</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">主要内容
+Lambda 表达式
+函数式接口
+方法引用与构造器引用
+Stream API
+接口中的默认方法与静态方法
+新时间日期 API
+其他新特性
+
+Java 8新特性简介
+速度更快
+代码更少（增加了新的语法 Lambda 表达式）
+强大的 Stream API
+便于并行
+最大化减少空指针异常 Optional
+其中最为核心的为 Lambda 表达式与Stream API
+
+Lambda表达式
+Lambda表达式的基础语法：Java8中引入了一个新的操作符“-&gt;”该操作符成为箭头操作符或Lambda操作符 箭头操作符将Lambda表达式拆分成两部分： 左侧：Lambda表达式的参数列表 右侧：Lambda表达式中所需执行的功能，即Lambda体
+
+语法格式一：无参数，无返回值  ()-&gt;System.out.println(&quot;hello Lambda!&quot;);
+
+语法格式二：有一个参数，并且无返回值
+
+语法格式三：若只有一个参数，小括号可以省略不写
+
+语法格式四：又两个以上的参数，并且有多条语句
+
+语法格式五：若Lambda体中只有一条语句，return和</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
           &nbsp;
         
         
@@ -633,11 +549,115 @@ public class StringTest {
     </div>
   </div>
 
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD/">
+        <p class="h4 index-header">计算机网络性能</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">计算机网络的性能指标
+
+速率连接在计算机网络上的主机在数字信道上传送数据位数的速率，也成为data rate或bit rate单位是b/s,kb/s,Mb/s,Gb/s
+带宽数据通信领域中，数组信道所能传送的最高数据率单位是b/s,kb/s,Mb/s,Gb/s
+吞吐量在单位时间内通过某个网络的数据量；单位是b/s,kb/s,Mb/s,Gb/s
+时延
+
+时延带宽积
+
+往返时间RTT（Round-Trip Time）从发送方发送数据开始，到发送方收到接受方确认使用 ping 网址 测试
+利用率
+信道利用率：有数据通过时间/（有+无）数据通过时间
+网络利用率：信道利用率甲醛平均值
+
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/OSI/">
+        <p class="h4 index-header">OSI</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">OSI参考模型
+应用层 所有能产生网络流量的程序
+表示层 在传输之前是否进行加密或压缩处理 二进制 ASCII（编码和解码一致才不会乱码）
+会话层 查木马 neststat -n查看所有会话，netstat -nb查看会话是由谁建立的
+传输层 可靠传输（发送后需要确认） 流量控制 不可靠传输（发送数据包，不管结果，如果丢包，再次请求）
+网络层 负责选择最佳路径 规划IP地址
+数据链路层 帧的开始和结束 透明传输 差错校验
+物理层 接口标准 电器标准 如何在物理链路上传输更快的速度
+
+网络排错指导
+物理层故障 查看连接状态，查看发送和接受的数据包 
+数据链路层故障 MAC地址冲突，ADSL欠费，网速没办法协商，计算机连接到错误的VLAN 
+网络层故障 配置错误的IP地址，子网掩码，配置错误的网关，路由器没有配置到达目标网络的路由
+应用层故障 应用程序配置错误
+
+网络安全
+物理层安全 把不用的网线拔掉或者把这个口通过命令shut down
+数据链路层安全 ADSL，账户密码，VLAN交换机端口绑定MAC地址
+网络层安全 在路由器上使用ACL控制数据包流量，网络防火墙
+应用层安全 开发的应用</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/12/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/14/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/12/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

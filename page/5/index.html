@@ -136,58 +136,43 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/24/%E5%90%8E%E7%AB%AF/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">
-        <p class="h4 index-header">类加载子系统</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/">
+        <p class="h4 index-header">前端/JS/JS中的逻辑语句/JS中的逻辑语句</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">内存结构概述
+          <div class="index-text mb-1">let a = 10;
+if (a  0 && a < 10) {
+    console.log('呵呵')
+} else {
+    console.log('吼吼')
+}
+if(!a) {
+    // 条件可以多样性：等于、大于、小于的比较或一个值或者取反等 =>最后都是要计算出TRUE或FALSE
+}
 
-类加载子系统类加载子系统的作用
+// 三元运算符
+// 条件？条件成立处理的事情：不成立处理的事情
+// 1. 如果处理的事情比较多，我们用括号抱起来，每一件事情用逗号分隔
+// 2. 如果不需要处理事情，可以使用null/undefined占位
+a >= 10 ? console.log('呵呵') : console.log('吼吼')
 
+(a > 0 && a < 20) ? (a++, console.log(a)) : null
 
-类加载子系统负责从文件系统或者网络中加载Class文件，class文件在文件开头有特定的文件表示
-ClassLoader治负责class文件的加载，至于它是否可以运行则由Execution Engine决定。
-加载的类信息存放于一块成为方法区的内存空间。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串紫米那里和数字常量（这部分常量信息是Class文件中常量池部分的内存映射）
-
-类的加载过程加载
-通过一个类的全限定名获取定义此类的二进制字节流
-讲这个字节流所代表的静态存储结构转化为方法区的运行时数据结构
-在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口
-
-链接验证（Verify）：
-
-目的在于确保Class文件的字节流中包含信息符合当前虚拟机的要求，保证加载类的正确性，不会危害虚拟机自身安全。
-主要包括四种验证：文件格式验证，元数据验证，字节码验证，符号引用验证
-
-准备（Prepare）：
-
-为类变了分配内存并且设置该类变了的默认初始值，即零值。
-这里不包含用fina</div>
+// switch case: 一个变量再不同值情况下的不同操作
+// 1. 每一种case情况结束后最好都加上BREAK
+// 2. default等价于else，以上都不成立干的事情
+// 3. 不加break，当前条件成立执行完成后，后面条件不论是否成立都要执行，</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-24&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/JVM">JVM</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/JVM">JVM</a>&nbsp;
-          
         
       </div>
     </div>
@@ -197,451 +182,23 @@ ClassLoader治负责class文件的加载，至于它是否可以运行则由Exec
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/21/%E5%90%8E%E7%AB%AF/Java/JVM/JVM%E4%B8%8EJava%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-        <p class="h4 index-header">JVM与Java体系结构</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/JS%E7%A7%8D%E7%9A%84for%E5%BE%AA%E7%8E%AF/">
+        <p class="h4 index-header">前端/JS/JS中的逻辑语句/JS种的for循环</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">JVM的位置
-JVM是运行在操作系统之上的，它与硬件没有直接的交互。
-JVM的整体结构HotSpot VM是目前市面上高性能虚拟机的代表作之一
-
-它采用解释器与即时编译器并存的架构。在今天，Java程序的云心性能早已脱胎换骨，已经达到了可以和C/C++程序一较高下的地步。
-JVM的架构模型Java编译器输入的指令流基本上是一种基于栈的指令集架构，另外一种指令集结构则是基于寄存器的指令集架构。
-具体来说：这两种架构之间的区别：
-
-基于栈式架构的特点
-设计和实现更简单，适用于资源受限的系统；
-避开了寄存器的分配难题，使用领地址指令方式分配。
-指令流中的指令大部分是零地址指令，其执行过程依赖于操作栈。指令集更小，编译器更容易实现。
-不需要硬件支持，可移植性更好，更好实现跨平台
-
-
-基于寄存器架构的特点
-典型的应用是x86的二进制指令集:比如传统的PC以及Android的Davlik虚拟机
-指令集架构则完全依赖硬件，可移植性差
-性能优秀和执行更高效；
-花费更少的指令去完成一项操作。
-在大部分情况下，基于寄存器架构的指令集往往都以一地址指令、二地址指令和三地址指令为主，而基于栈式架构的指令集却是</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/JVM">JVM</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/JVM">JVM</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/20/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98/">
-        <p class="h4 index-header">高性能缓存</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">最简单缓存入手————HashMap并发安全要保证————用synchronized实现
-性能差
-代码复用能力差
-
-给HashMap加final关键字
-属性被声明为final后，该变量则只能被复制一次，且一旦被复制，final的百年来就不能再被改变。
-所以我们把它加上final关键字，增强安全性。
-
-代码有重构空间————用装饰者模式
-我们假设ExpensiveFunction类是耗时计算的实现类，实现了Computable接口，但是其本身不具备缓存功能，也不需要考虑缓存的事情
-缺点
-性能差
-当多个线程同时想计算的时候，需要慢慢等待，严重时，性能甚至比不用缓存更差
-
-
-
-性能待优化————引出锁性能优化经验：缩小锁的粒度
-虽然提高了并发效率，但是并不意味着就是线程安全的，还需要考虑到同时读写等情况
-但是起始没必要自己实现线程安全的HashMap，也不应该加synchronized，因为我们自己实现的性能远不如现有的并发集合
-我们来使用ConcurrentHashMap优化我们的缓存
-
-用并发集合————ConcurrentHashMap
-缺点：在计算完成前，另一个要求计算相同值得请求到</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Future%E5%92%8CCallable/">
-        <p class="h4 index-header">Future和Callable</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Runnable的缺陷
-不能返回一个返回值
-不能抛出checked Exception
-
-Callable接口类似于Runnable，被其他线程执行的任务
-
-实现call方法
-有返回值
-
-Future主要方法：一共5个get()方法：获取结果get方法的行为取决于Callable任务的状态，只有以下这5种情况：
-
-任务正常完成：get方法回立刻返回结果
-任务尚未完成（任务还没开始或进行中）：get将阻塞并直到任务完成
-任务执行过程中抛出Exception：get方法回抛出ExecutionException：这里的抛出异常，是call()执行时产生的那个异常，看到这个异常类型时java.util.concurrent.ExecutionException。不论call()执行时抛出的异常类型时什么，最后get方法抛出的异常类型都是ExecutionException。
-任务呗取消：get方法会抛出CancellationException
-任务超时：get方法有一个重载方法，时传入一共延迟时间的，如果时间到了还没有获得结果，get方法就会抛出TimeoutException。
-
-get</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/10/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/AQS/">
-        <p class="h4 index-header">AQS</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">学习AQS的思路
-学习AQS的目的主要是想理解原理、提高技术、以及应对面试
-先从应用层面理解为什么需要他如何使用它，然后再看一看我们Java代码的设计者是如何使用它的了解它的应用场景
-这样之后我们再去分析它的结构，这样的话我们就学习得更加轻松了
-
-为什么需要AQS
-锁和协作类有共同点：闸门
-我们已经学过了ReentrantLock和Semaphore，有没有发现他们有共同点？很相似?
-事实上，不仅是ReentrantLock和Semaphore，包括CountDownLatch、ReentrantReadWriteLock都有这样类似得协作（或叫同步）功能，起始他们底层都用了一个共同得基类，这就是AQS
-
-
-因为上面得那些协作类，它们有很多工作都是类似得，所以如果能提取出一个工具类，那么就可以直接用，对于ReentrantLock和Semaphore而言就可以屏蔽很多细节，只关注它们自己得“业务逻辑”就可以了
-
-Semaphore和AQS得关系
-Semaphore内部有一个Sync类，Sync类继承了AQS
-CountDownLatch也是一样的
-
-如果没有AQS
-就需要每个协作工具自</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/10/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%B5%81%E7%A8%8B/">
-        <p class="h4 index-header">并发流程</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是控制并发流程
-控制并发流程的工具类，作用就是帮助我们程序眼更容易得让线程之间合作
-让线程之间相互配合，来满足业务逻辑
-比如让线程A等待线程B执行完毕后再执行等合作策略
-
-
-
-CountDownLatch倒计时门闩CountDownLatch类的作用并发流程控制工具
-
-倒数门闩
-例子：购物拼团；大巴（游乐园坐过山车排队），人满发车
-流程：倒数结束之前，一直处于等待状态，直到倒计时结束了，此线程才继续工作。
-
-类的主要方法介绍
-CountDownLatch（int count）：仅有一个构造函数，参数count为需要倒数的数值。
-await（）：调用await（）方法的线程会被挂起，它会等待直到count值为0才继续执行
-countDown（）：将count值减1，直到为0时，等待的线程会被唤起。
-
-
-
-两个典型用法
-类的主要方法介绍
-用法一：一个线程邓艾多个线程都执行完毕，再继续自己的工作。
-用法二：多个线程等待某一个线程的信号，同时开始执行。
-
-CountDownLatch注意点
-扩展用法：多个线程等待多个线程完成执行后，再同时执行
-CountDownLatch是不能够重用的，如</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E9%98%9F%E5%88%97/">
-        <p class="h4 index-header">并发队列</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">为什么要适用队列
-队列可以在线程间传递数据：生产者消费者模式、银行转账
-考虑锁等线程安全问题的重任从你转移到了队列上
-
-什么是阻塞队列
-简介、地位
-
-阻塞队列是具有阻塞功能的队列，所以它首先是一个队列，其次是具有阻塞功能。
-通常，阻塞队列的一端是给生产者方数据用，另一端给消费者拿数据用。阻塞队列线程安全的，所以生产者和消费者都可以是多线程的
-
-
-阻塞功能：最有特色的两个带有阻塞功能的方法是
-
-take()方法：获取并逸出队列的头结点，一旦执行take的时候，队列里误数据，则阻塞，直到队列有数据
-
-put()方法：插入元素。但是如果队列已满，那么就无法继续插入，则阻塞，知道队列有了空闲空间
-
-是否有界（容量有多大）：这是一个非常重要的属性，无界队列意味着里面可以容纳非常多（Integer.MAX_VALUE,约为2的31次，是非常大的一个数，可以近似认为是无线容量）
-
-阻塞队列和线程池的关系：阻塞队列是线程池的重要组成部分
-
-
-BlockingQueue主要方法
-put，take
-add，remove，element
-offer，poll，peek
-
-常用实现
-ArrayBlocking</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/">
-        <p class="h4 index-header">并发容器</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">古老和过时的同步容器
-Vector和Hashtable
-并发性能差（synchronized修饰方法）
-
-
-ArrayList和HashMap
-虽然这两个类不是线程安全的，但是可以用Collections.synchronizedList(new ArrayList())和Collections.synchronizedMap(new HashMap&lt;K,V&gt;())使之变成线程安全的，用的同步代码块
-
-
-ConcurrentHashMap和CopyOnWriteArrayList
-取代同步的HashMap和同步的Arraylist（时代巨轮滚滚向前）
-绝大多数并发情况下，ConcurrentHashMap和CopyOnWriteArrayList的性能都更好
-
-
-
-ConcurrentHashMap（重点、面试常考）为什么需要ConcurrentHashMap
-为什么不用Collections.synchronizedMap()?
-为什么HashMap使线程不安全的？
-同时put碰撞导致数据丢失
-同时put扩容导致数据丢失
-死循环造成的CPU100%
-
-
-
-JDK1.7的C</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/nginx/nginx%E5%AE%89%E8%A3%85/">
-        <p class="h4 index-header">nginx安装</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">准备工作
-打开虚拟机，使用远程连接工具连接 linux 操作系统
-到 nginx 官网下载软件 http://nginx.org
-
-
-
-开始进行 nginx 安装
-安装 pcre 依赖第一步 联网下载 pcre 压缩文件依赖wget http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz
-
+          <div class="index-text mb-1">/**
+ * 1. 创建循环初始值
+ * 2. 设置（验证）循环执行的条件
+ * 3. 条件成立执行循环体种的内容
+ * 4. 当前循环结束执行步长累计操作
+ */
+// for (var i = 0; i < 5; i++) {
+//     console.log(i)
+// }
+// console.log(i)
 
 </div>
         </div>
@@ -649,19 +206,9 @@ JDK1.7的C</div>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/nginx">nginx</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/nginx">nginx</a>&nbsp;
-          
         
       </div>
     </div>
@@ -671,24 +218,257 @@ JDK1.7的C</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/nginx/nginx%E4%BB%8B%E7%BB%8D/">
-        <p class="h4 index-header">nginx介绍</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/数据类型的区别</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">nginx基本概念nginx是什么，做什么事情Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好Nginx专为性能优化而开发，性能是其最重要的考量，实现上非常注重效率，能经受高负载的考研，有报告表明能支持高达50,000个并发连接数。
-正向代理在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问
+          <div class="index-text mb-1">// let a = 12
+// let b = a
+// b = 13
+// console.log(a)
+
+// let n = { name: '张议' }
+// let m = n
+// m.name = '周家豪'
+// console.log(n.name)
+
+// let n = [10,20]
+// let m = n
+// let x = m
+// m[0] = 100
+// x = [30,40]
+// x[0] = 200
+// m = x
+// m[1] = 300
+// n[2] = 400
+// // n,m,x分别时多少
+// console.log('n:',n)
+// console.log('m:',m)
+// console.log('x:',x)
+// 答案 n：【100，20，400】m：【200，300】x：【200，300】
+
+let a = {
+    n:1
+}
+let b = a
+a.x = a = {
+    n:2
+}
+console.log(a.x)
+console.log(b)</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/string%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/string字符串数据类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">// let a = 12
+// console.log(a.toString()) // =>'12'
+// console.log((NaN).toString())
+
+//null和undefined是禁止直接toString的
+//(null).toString // =>报错
+// 但是和undefined一样转换为字符串的结果就是'null'/'undefined'
+
+// console.log([].toString())
+// console.log([12].toString())
+// console.log([12,23].toString())
+// console.log(/^$/.toString())
+//普通对象.toString()的结果是"[object Object]" => ?
+//Object.prototype.toString方法不是转换为字符串的，而是用来检测数据类型的
+console.log({name:'xxx',age:12}.toString())
+
+//===========字符串拼接
+//四则运算法则中，除加法之外，其余都是</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/number%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/number数字类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">//console.log([val]):在控制台输出内容
+//==:进行比较
+// console.log(1==2)
+// console.log('AA'==NaN)
+// console.log(10==NaN)
+// console.log(NaN==NaN)
+// console.log('---------------')
+
+//isNaN([val])
+// console.log(isNaN(10))//false
+// console.log(isNaN('AAA'))//true
+/*
+ * Number('AAA') => NaN
+ * isNaN(NaN) =>true
+ */
+// console.log(isNaN('10'))//false
+/*
+ * Number('10') => 10
+ * isNaN(10) =>FALSE
+ */
+// console.log(isNaN(NaN))//ture
+//把字符串转换为数字，只要字符串中包含任意一个非有效数字字符（第一个点除外）结果都是NaN，空字符串会变为数字零
+// console.log(Num</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/object对象数据类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">// let person = {
+//     "name" : '易烊千玺',
+//     'age' : 40,
+//     height : '185cm',
+//     weight : '70kg',
+//     1 : 100
+// }
+// // 获取属性名对应的属性值
+// // 对象.属性名
+// // 对象[属性名] 属性名是数字或者字符串格式的
+// console.log(person.name)
+// console.log(person['age'])
+// // console.log(person[age]) 会报错
+// // 如果当前属性名不存在，默认的属性值是undefined
+// console.log(person.sex)//undefined
+// console.log(person['1'])
+// console.log(person[1])
+// // 如果属性名是数字，则不能使用点的方式获取属性值
+// // console.log(person.1) 报错SyntaxError：语法错误
+
+// //设置属性名属性值</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/Boolean%E5%B8%83%E5%B0%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/Boolean布尔数据类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">console.log(Boolean(0))
+console.log(Boolean(''))
+console.log(Boolean(' '))
+console.log(Boolean(null))
+console.log(Boolean(undefined))
+console.log(Boolean([]))
+console.log(Boolean([12]))
+// !:取反（先转为布尔，然后取反）
+// !!:取反（取反再取反，只相当于转换为布尔）《=》Boolean
+console.log(![12])//false
+console.log(!![12])//true
+
+//如果条件只是一个值，不是==/===/!=/>=/NaN
+    console.log('哈哈')
+}</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/index</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
 
 
-反向代理我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户其，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器IP地址。
+    
+    number数字类型
 
 
-负载均衡单个服务器解决不了，我们增加服务器的数量，然后将请求分发到各个服务器上，将原先请求几种到单个服务器上的情况改为将请求分发到多个服务器中，将负载分发到不同的服务器，也就是我们所说的负载均衡
-
-
-动静分离为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。
+    
+    
+    
+    
+    
+    
 
 </div>
         </div>
@@ -696,18 +476,105 @@ JDK1.7的C</div>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-02&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/CSS/CSS%E6%A0%B7%E4%BE%8B/%E9%BC%A0%E6%A0%87%E6%BB%91%E8%BF%87%E6%98%BE%E7%A4%BA%E8%AF%A6%E6%83%85/">
+        <p class="h4 index-header">前端/CSS/CSS样例/鼠标滑过显示详情</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    鼠标滑过显示详情
+    
+    
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            /* CSS3新盒子模型属性：控制WIDTH/HEIGHT是盒子最终的宽高*/
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid lightcoral;
+            position: relative;
+        }
+
+        .box:hover {
+            border-bottom-color: #ffffff;
+  </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/28/%E5%90%8E%E7%AB%AF/php/php%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">php语法基础</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">PHP语法
+PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中
+
+ASP标记：&lt;% php代码 %&gt;短标记：  ，以上两种基本启用，如果要使用那么需要在配置文件中开启脚本标记: &lt; script script script language=”php”&gt;php代码&lt; / script&gt;标准标记（常用）：&lt;?php php代码 ?&gt;
+PHP注释行注释//: 后面的所有内容都是注释#: 与//一样
+块注释/* */
+PHP语句分隔符语句分隔符：在PHP照片那个，代码是以行为单位，系统需要通过判断行的结束，该结束通常都是一个符号：分号
+特殊说明
+PHP中标记结束符?&gt;有自带语句结束符的效果，最后一行PHP代码可以没有语句结束符”;”
+PHP中起始很多代码的书写并不是嵌入到HTML中，而是单独存在，通常书写习惯中就不建议使用标记结束符?&gt;,PHP会自动从开始到最后全部认为是PHP代码，从而解析。
+
+变量PHP是一种动态网站开发的脚本语言，动态语言特点是交互性，会有数据的传递，而PHP作为中间人，需要进行数据的传递，传递的前提就</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/nginx">nginx</a>&nbsp;
+            <a href="/categories/php">php</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/nginx">nginx</a>&nbsp;
+            <a href="/tags/php">php</a>&nbsp;
           
         
       </div>
@@ -718,7 +585,7 @@ JDK1.7的C</div>
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

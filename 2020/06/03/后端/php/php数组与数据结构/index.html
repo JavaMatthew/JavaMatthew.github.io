@@ -15,7 +15,7 @@
   <meta name="description" content="仅限学习参考，有兴趣可以互相交流">
   <meta name="author" content="张议">
   <meta name="keywords" content="张议,Matthew,Java,java,spring,SpringBoot,zhangyi">
-  <title>php语法基础 ~ 人生展馆</title>
+  <title>php数组与数据结构 ~ 人生展馆</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    1.6k 字
+                    2k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      7 分钟
+                      8 分钟
                   </span>&nbsp;
                 
 
@@ -423,6 +423,36 @@ while(list($key,$value) = each($kongjie)){
 gao-----穿黑衣服的
 shou-----退特别长特别细
 mei-----好白</code></pre>
+<h2 id="PHP中的替代语法"><a href="#PHP中的替代语法" class="headerlink" title="PHP中的替代语法"></a>PHP中的替代语法</h2><p>PHP中具体有哪些替代语法呢？<br>PHP应该在HTML中制作数据输出，输出通常伴有条件判断和循环操作，因此PHP提供了对应分支结构和循环结构的替代语法：全部都是对应的一个模式：<br>左大括号{使用冒号替代:<br>有大括号}使用end+对应的起始标记替代</p>
+<pre><code class="php">if,switch,for,while,foreach
+都可以进行替代</code></pre>
+<h2 id="数组相关函数"><a href="#数组相关函数" class="headerlink" title="数组相关函数"></a>数组相关函数</h2><h3 id="排序函数"><a href="#排序函数" class="headerlink" title="排序函数"></a>排序函数</h3><ol>
+<li>sort(): 顺序排序(下标重排)</li>
+<li>rsort(): 逆序排序</li>
+<li>asort(): 顺序排序（下表保留）</li>
+<li>arsort(): 逆序排序</li>
+<li>ksort(): 顺序排序，按照键名（下标）</li>
+<li>kesort(): 逆序排序</li>
+</ol>
+<h3 id="指针排序"><a href="#指针排序" class="headerlink" title="指针排序"></a>指针排序</h3><ol>
+<li>reset(): 重置指针，将数组指针回到首位</li>
+<li>end(): 重置指针，将数组指针指到末尾</li>
+<li>next(): 指针下移，取得下一个元素的值，可能会移出数组</li>
+<li>prev(): 指针上移，取得上一个元素的值，可能会移出数组</li>
+<li>current(): 获得当前指针对应的元素值</li>
+<li>key(): 或崎岖当前指针对应的下标值</li>
+</ol>
+<h3 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h3><ol>
+<li>count(): 统计数组中元素的数量</li>
+<li>array_count: 往数组中加入一个元素(数组后面)</li>
+<li>array_pop(): 从数组中取出一个元素(数组后面)</li>
+<li>array_shift(): 从数组中取出一个元素(数组)</li>
+<li>array_unshift(): 从数组中加入一个元素(数组前面)</li>
+<li>array_reverse(): 数组翻转</li>
+<li>in_array(): 判断一个元素在数组中是否存在</li>
+<li>array_keys(): 获取一个数组的所有下标，返回一个索引数组</li>
+<li>array_values(): 获取一个数组的所有值，返回一个索引数组</li>
+</ol>
 
             <hr>
           </div>
@@ -599,7 +629,7 @@ mei-----好白</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "php语法基础&nbsp;",
+        "php数组与数据结构&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

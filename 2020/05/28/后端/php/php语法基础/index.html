@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    4.5k 字
+                    4.9k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      16 分钟
+                      18 分钟
                   </span>&nbsp;
                 
 
@@ -244,7 +244,9 @@ $dingjie = &lt;&lt;&lt;ABC
       加上一段
    &lt;i&gt;距离的话&lt;/i&gt;
    我想说：&lt;h1&gt;思想有多远，你就跟我滚多远&lt;/h1&gt;
-ABC;</code></pre>
+ABC;
+
+$str1= &quot;asb{$str}dwqd&quot; // asb如果非要在滚犊子前面加上一个时间的话我愿意是马上。dwqd</code></pre>
 <h5 id="双引号和单引号有什么区别"><a href="#双引号和单引号有什么区别" class="headerlink" title="双引号和单引号有什么区别"></a>双引号和单引号有什么区别</h5><ol>
 <li>双引号解析变量，但是单引号不解析变量。</li>
 <li>在双引号里面插入变量，变量后面如果有英文或中文字符，它会把这个字符和变量拼接起来，视为一整个变量。一定要在变量后面接上特殊字符，例如空格等分开。</li>
@@ -255,7 +257,19 @@ ABC;</code></pre>
 <li>神奇的字符串拼接胶水——（.）点，用来拼接字符串。</li>
 <li>我们将定界符声明字符串视为双引号一样的功能来看待。</li>
 </ol>
-<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><p>声明方式分为两种：普通声明，科学声明</p>
+<h5 id="字符串相关函数"><a href="#字符串相关函数" class="headerlink" title="字符串相关函数"></a>字符串相关函数</h5><ol>
+<li>转换函数：implode() , explode() , str_split()</li>
+<li>截取函数：trim() , ltrim() , rtrim()</li>
+<li>截取函数：substr(), strstr()</li>
+<li>大小转换函数：strtltlower() , strtoupper() , ucfirst()</li>
+<li>查找函数: strpos() , strrpos()<br>Strops(): 判断字符在目标字符串中出现的位置（首次）。注意判断为null需要用全等<br>Strrpos(): 判断字符在目标字符串中最后出现的位置</li>
+<li>替换函数：str_replace()<br>Str_replace(匹配目标，替换内容, 字符串本身): 将目标字符串中部分字符串进行替换</li>
+<li>格式化函数：printf() , sprintf()</li>
+<li>其他：str_repeat() , str_shuffle()<br>str_repeat(): 重复某个字符串N次<br>str_shuffle(): 随机打乱字符串</li>
+</ol>
+<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><p>小数类型以及超过整形所能存储范围的整数（不保证精度），精度范围大概在15个有效数字左右<br>声明方式分为两种：普通声明，科学声明</p>
+<pre><code class="php">$f = 1.23;
+$f = 1.23e10 // 科学计数法，其中e表示底10</code></pre>
 <h4 id="NULL类型"><a href="#NULL类型" class="headerlink" title="NULL类型"></a>NULL类型</h4><p>主要有以下三空情况会产生空（null）类型：</p>
 <p>1.通过变量赋值明确指定为变量的值为NULL<br>2.一个变量没有给任何值<br>3.使用函数unset()将变量销毁掉</p>
 <h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>类型转换：在很多的条件下，需要指定的数据类型，需要外部数据（当前PHP取得的数据），转换成目标数据类型</p>
@@ -271,7 +285,7 @@ ABC;</code></pre>
 <p>我想把函数体外的变量拿到函数体内来使用</p>
 <p>这个时候我们就需要用到超全局变量。</p>
 <h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><blockquote>
-<p>声明一个静态变量，第二次调用函数的时候，静态变量不会再初始化变量，会在原值的基础上读取执行。</p>
+<p>static，是在函数内部定义的变量，使用static关键字修饰，用来实现跨函数共享数据的变量：函数运行结束所有局部变量都会清空，如果重新运行一下函数，所有的局部变量优惠重新初始化。声明一个静态变量，第二次调用函数的时候，静态变量不会再初始化变量，会在原值的基础上读取执行。</p>
 </blockquote>
 <pre><code class="php">&lt;?php
 function demo(){
@@ -492,6 +506,8 @@ bool(true) bool(false)</code></pre>
 <li>少用_once带once，因为它会消耗更多的资源去做检测的工作。</li>
 <li>Include文件只需要编译一次，因为每次包含include都会再执行一次对应的代码，如何减少include再次执行时，需要重新解析的过程。</li>
 </ol>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="连接运算符"><a href="#连接运算符" class="headerlink" title="连接运算符"></a>连接运算符</h3><p>. 将两个字符串连接到一起<br>.= 复合运算，将左边的内容与右边的内容连接起来，然后重新赋值给左边变量<br><code>A.=b   =&gt; A = A . b</code></p>
+<h3 id="错误抑制符"><a href="#错误抑制符" class="headerlink" title="错误抑制符"></a>错误抑制符</h3><p><code>@()</code>()内填写语句，如果报错可以抑制不显示，直接继续执行，一般用在生产环境</p>
 
             <hr>
           </div>

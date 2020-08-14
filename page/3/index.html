@@ -136,43 +136,45 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/">
-        <p class="h4 index-header">前端/JS/JS中的逻辑语句/JS中的逻辑语句</p>
+      <a href="/2020/06/21/%E5%90%8E%E7%AB%AF/php/%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0/">
+        <p class="h4 index-header">常用系统函数</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">let a = 10;
-if (a  0 && a < 10) {
-    console.log('呵呵')
-} else {
-    console.log('吼吼')
-}
-if(!a) {
-    // 条件可以多样性：等于、大于、小于的比较或一个值或者取反等 =>最后都是要计算出TRUE或FALSE
-}
+          <div class="index-text mb-1">函数函数的基本概念函数：function,是一种语法结构，将实现某一个功能的代码块（多行代码）封装到一个结构中，从而实现代码的重复利用（复用）。
+函数定义语法函数有几个对应的关键点：function关键字、函数名、参数（形参和实参）、函数体和返回值
+基本语法如下：Function 函数名([参数]){    // 函数体    // 返回值：return 结果}
+定义函数的目的：是为了实现代码的重复利用，一个功能一个函数（简单明了）函数的使用：通过访问函数的名字+(); // 如果函数在定义的过程中有参数，那么在调用的时候就必须传入对应的参数：函数是一种结构不会自动运行，必须通过调用才会执行。函数是在代码执行阶段，碰到函数名字的时候才会调用，不是在编译阶段。
+函数执行的内存分析：
 
-// 三元运算符
-// 条件？条件成立处理的事情：不成立处理的事情
-// 1. 如果处理的事情比较多，我们用括号抱起来，每一件事情用逗号分隔
-// 2. 如果不需要处理事情，可以使用null/undefined占位
-a >= 10 ? console.log('呵呵') : console.log('吼吼')
+读取代码进入到代码段（编译：将代码编程字节码存储带内存）
+根据代码逐行执行
 
-(a > 0 && a < 20) ? (a++, console.log(a)) : null
-
-// switch case: 一个变量再不同值情况下的不同操作
-// 1. 每一种case情况结束后最好都加上BREAK
-// 2. default等价于else，以上都不成立干的事情
-// 3. 不加break，当前条件成立执行完成后，后面条件不论是否成立都要执行，</div>
+以上原因：编译和执行时分开的（先编译后执行）
+参数函数的参数分为两种：形参和实参
+形参形参：形式参数，不具有实际意义的参数，是在函数定义时使用的参数
+实参实参：实际参数，具有实际数据意义的参数，是在函数调用时使用的参数
+形参是实参</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-21&nbsp;&nbsp;
         
         
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/php">php</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/php">php</a>&nbsp;
+          
         
       </div>
     </div>
@@ -182,33 +184,210 @@ a >= 10 ? console.log('呵呵') : console.log('吼吼')
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/JS%E7%A7%8D%E7%9A%84for%E5%BE%AA%E7%8E%AF/">
-        <p class="h4 index-header">前端/JS/JS中的逻辑语句/JS种的for循环</p>
+      <a href="/2020/06/12/%E5%90%8E%E7%AB%AF/Elasticsearch/Elasticsearch%20%E6%96%B0%E6%97%A7%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB(_reindex)/">
+        <p class="h4 index-header">Elasticsearch 新旧索引数据迁移(_reindex)</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">/**
- * 1. 创建循环初始值
- * 2. 设置（验证）循环执行的条件
- * 3. 条件成立执行循环体种的内容
- * 4. 当前循环结束执行步长累计操作
- */
-// for (var i = 0; i < 5; i++) {
-//     console.log(i)
-// }
-// console.log(i)
+          <div class="index-text mb-1">Elasticsearch 新旧索引数据迁移(_reindex)
+举个例子，在输入“1992-02-27”这样格式的数据，es会把他默认为是date数据类型，但是有时候我们希望它是text类型，在原索引中已经有数据的情况下该如何操作。
 
+创建原索引
+
+PUT /aaron_index/aaron_type/1
+{
+  &quot;name&quot;:&quot;张辽&quot;,&quot;age&quot;:27,&quot;content&quot;:&quot;1992-02-27&quot;
+}
+PUT /aaron_index/aaron_type/2
+{
+  &quot;name&quot;:&quot;曹阿瞒&quot;,&quot;age&quot;:28,&quot;content&quot;:&quot;1991-02-19&quot;
+}
+创建新索引
+
+PUT /aaron_index_new
+{
+  &quot;mappings&quot;: {
+    &quot;aaron_type&quot;:{
+      &quot;properties&quot;</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Elasticsearch">Elasticsearch</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Elasticsearch">Elasticsearch</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/11/%E5%90%8E%E7%AB%AF/php/php%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+        <p class="h4 index-header">php文件操作</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">读取文件readfile读取文件
+传入一个文件路径，输出一个文件。
+
+int readfile ( string $文件名)
+
+
+//linux类的读了方式
+readfile(&quot;/home/paul/test.txt&quot;);
+//windows类的读取方式
+readfile(&quot;c:\\boot.ini&quot;);
+注意：上面的代码中windows的斜线是\斜线，可能会转义掉一些字符。因此，我们写的时候写上两个斜线。
+file_get_contents打开文件
+传入一个文件或文件路径，打开这个文件返回文件的内容。文件的内容是一个字符串。
+
+string file_get_contents ( string filename)
+
+
+//假设我们有一个多行的文件叫NoAlike.txt，没有的话你可以新建一个这个文件
+$filename = &#39;NoAlike.txt&#39;;
+
+
+//打开这个文件，将文件内容赋值给$filestring
+$filestring = file_get_contents($filename);
+
+//因为每一行有一个回车</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/php">php</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/php">php</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/php/php%E6%95%B0%E7%BB%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+        <p class="h4 index-header">php数组与数据结构</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">数组数组声明
+数组可以存入多个不同类型的数据，是一个复合数据类型。
+数组的英文是array，学一了一下最简单的数组声明。
+
+$shu = array(1 , 1.5 , true ,&#39;天王盖地虎，小鸡炖蘑菇&#39;);
+
+echo &#39;&lt;pre&gt;&#39;;
+var_dump($shu);
+echo &#39;&lt;/pre&gt;&#39;;
+
+结果是：
+array(4) {
+  [0]=&gt;
+  int(1)
+  [1]=&gt;
+  float(1.5)
+  [2]=&gt;
+  bool(true)
+  [3]=&gt;
+  string(33) &quot;天王盖地虎，小鸡炖蘑菇&quot;
+}
+
+array(size = 4) 说明里面有4个元素
+0 =&gt; int 1 我们知道int是整型的意思，1是一个整型的数值。那前面的0,1,2,3和=&gt;代表什么意思呢？
+最新前的0，1，2，3代表的是值的读取标识号，我们称之为下标或者键（英文：key）
+=&gt; 是一个符号标准叫法叫作：键值对应符。因此，以后再看到 0=&gt; int</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/php">php</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/php">php</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResultSet/">
+        <p class="h4 index-header">ResultSet</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">继承Wrapper接口和AutoCloseable接口
+Wrapper是包装类，对原生的int、float。。。进行封装AutoCloseable是自动关闭资源
+ResultSet虽然继承了AutoCloseable可以自动关闭连接释放资源，但是还是要手动关闭，因为官方文档中说：通常，立即释放此Statement对象的数据库和JDBC资源，而不是等待它自动关闭时发生。 最好在资源使用完毕后立即释放资源，以避免占用数据库资源。
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
         
         
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
         
       </div>
     </div>
@@ -218,45 +397,107 @@ a >= 10 ? console.log('呵呵') : console.log('吼吼')
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/数据类型的区别</p>
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResourceBundle/">
+        <p class="h4 index-header">ResourceBundle</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">// let a = 12
-// let b = a
-// b = 13
-// console.log(a)
+          <div class="index-text mb-1">
+这个类主要用来解决国际化和本地化问题。国际化和本地化可不是两个概念，两者都是一起出现的。可以说，国际化的目的就是为了实现本地化。比如对于“取消”，中文中我们使用“取消”来表示，而英文中我们使用“cancel”。若我们的程序是面向国际的（这也是软件发展的一个趋势），那么使用的人群必然是多语言环境的，实现国际化就非常有必要。而ResourceBundle可以帮助我们轻松完成这个任务：当程序需要一个特定于语言环境的资源时（如 String），程序可以从适合当前用户语言环境的资源包（大多数情况下也就是.properties文件）中加载它。这样可以编写很大程度上独立于用户语言环境的程序代码，它将资源包中大部分（即便不是全部）特定于语言环境的信息隔离开来。
 
-// let n = { name: '张议' }
-// let m = n
-// m.name = '周家豪'
-// console.log(n.name)
+这使编写的程序可以：    轻松地本地化或翻译成不同的语言    一次处理多个语言环境    以后可以轻松进行修改，以便支持更多的语言环境
+说的简单点，这个类的作用就是读取资源属性文件（properties），然后根据.properties文件的名称信息（本地化信息），匹配当前系统的国别语言信息（也可以程序指定），然后获取相应的proper</div>
+        </div>
+      </a>
 
-// let n = [10,20]
-// let m = n
-// let x = m
-// m[0] = 100
-// x = [30,40]
-// x[0] = 200
-// m = x
-// m[1] = 300
-// n[2] = 400
-// // n,m,x分别时多少
-// console.log('n:',n)
-// console.log('m:',m)
-// console.log('x:',x)
-// 答案 n：【100，20，400】m：【200，300】x：【200，300】
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
 
-let a = {
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/PreparedStatement%E5%92%8CStatement/">
+        <p class="h4 index-header">PreparedStatement和Statement</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">网上有很多文章讨论PrepardStatement与Statement的区别，不过要完完全全的作出比较难度很大，因为每个数据库对底层的实现及应用场合不一样，Oracle对PrepardStatement的支持最好，Mysql对PrepardStatement支持最差。Statement执行单个sql语句速度较快而PrepardStatement执行批处理的效率较高。
+以Oracle为例
+
+Statement为每一条Sql语句生成执行计划， 如果要执行两条sql语句 select colume from table where colume=1; select colume from table where colume=2; 会生成两个执行计划，一千个查询就生成一千个执行计划。而生成计划是非常消耗资源的
+
+PreparedStatement用于使用绑定变量重用执行计划 select * from xxx.sometable t where t.id=?; 通过set方法给sql语句按占位符”?”先后顺序赋值，只需要生成一个执行计划，可以重复使用。
+
+
+当处理批量SQL语句时，这个时候就</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E9%98%BF%E9%87%8C%E9%9D%A2%E8%AF%95%E9%A2%98/">
+        <p class="h4 index-header">前端/JS/堆栈练习题/阿里面试题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">let a = {
     n:1
 }
 let b = a
 a.x = a = {
     n:2
 }
+
 console.log(a.x)
 console.log(b)</div>
         </div>
@@ -276,31 +517,27 @@ console.log(b)</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/string%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/string字符串数据类型</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/">
+        <p class="h4 index-header">前端/JS/堆栈练习题/数据类型检测</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">// let a = 12
-// console.log(a.toString()) // =>'12'
-// console.log((NaN).toString())
+          <div class="index-text mb-1">/*
+基于typeof检测出来的结果
+1. 首先是一个字符串
+2. 字符串中包含对应的类型
+局限性
+1. typeof null => "object" 但是null并不是对象
+2. 基于typeof无法细分出当前值是普通对象还是数组对象等，应为只要是对象数据类型，返回的结果都是"object"
+*/
+console.log(typeof 1)
+let a = NaN
+console.log(typeof a)
+console.log(1)
 
-//null和undefined是禁止直接toString的
-//(null).toString // =>报错
-// 但是和undefined一样转换为字符串的结果就是'null'/'undefined'
-
-// console.log([].toString())
-// console.log([12].toString())
-// console.log([12,23].toString())
-// console.log(/^$/.toString())
-//普通对象.toString()的结果是"[object Object]" => ?
-//Object.prototype.toString方法不是转换为字符串的，而是用来检测数据类型的
-console.log({name:'xxx',age:12}.toString())
-
-//===========字符串拼接
-//四则运算法则中，除加法之外，其余都是</div>
+console.log(typeof typeof typeof [])</div>
         </div>
       </a>
 
@@ -318,139 +555,8 @@ console.log({name:'xxx',age:12}.toString())
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/number%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/number数字类型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">//console.log([val]):在控制台输出内容
-//==:进行比较
-// console.log(1==2)
-// console.log('AA'==NaN)
-// console.log(10==NaN)
-// console.log(NaN==NaN)
-// console.log('---------------')
-
-//isNaN([val])
-// console.log(isNaN(10))//false
-// console.log(isNaN('AAA'))//true
-/*
- * Number('AAA') => NaN
- * isNaN(NaN) =>true
- */
-// console.log(isNaN('10'))//false
-/*
- * Number('10') => 10
- * isNaN(10) =>FALSE
- */
-// console.log(isNaN(NaN))//ture
-//把字符串转换为数字，只要字符串中包含任意一个非有效数字字符（第一个点除外）结果都是NaN，空字符串会变为数字零
-// console.log(Num</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/object对象数据类型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">// let person = {
-//     "name" : '易烊千玺',
-//     'age' : 40,
-//     height : '185cm',
-//     weight : '70kg',
-//     1 : 100
-// }
-// // 获取属性名对应的属性值
-// // 对象.属性名
-// // 对象[属性名] 属性名是数字或者字符串格式的
-// console.log(person.name)
-// console.log(person['age'])
-// // console.log(person[age]) 会报错
-// // 如果当前属性名不存在，默认的属性值是undefined
-// console.log(person.sex)//undefined
-// console.log(person['1'])
-// console.log(person[1])
-// // 如果属性名是数字，则不能使用点的方式获取属性值
-// // console.log(person.1) 报错SyntaxError：语法错误
-
-// //设置属性名属性值</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/Boolean%E5%B8%83%E5%B0%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/Boolean布尔数据类型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">console.log(Boolean(0))
-console.log(Boolean(''))
-console.log(Boolean(' '))
-console.log(Boolean(null))
-console.log(Boolean(undefined))
-console.log(Boolean([]))
-console.log(Boolean([12]))
-// !:取反（先转为布尔，然后取反）
-// !!:取反（取反再取反，只相当于转换为布尔）《=》Boolean
-console.log(![12])//false
-console.log(!![12])//true
-
-//如果条件只是一个值，不是==/===/!=/>=/NaN
-    console.log('哈哈')
-}</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/index</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/index/">
+        <p class="h4 index-header">前端/JS/堆栈练习题/index</p>
         
         
           
@@ -460,14 +566,10 @@ console.log(!![12])//true
 
 
     
-    number数字类型
+    Document
+    
 
 
-    
-    
-    
-    
-    
     
 
 </div>
@@ -484,108 +586,11 @@ console.log(!![12])//true
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/CSS/CSS%E6%A0%B7%E4%BE%8B/%E9%BC%A0%E6%A0%87%E6%BB%91%E8%BF%87%E6%98%BE%E7%A4%BA%E8%AF%A6%E6%83%85/">
-        <p class="h4 index-header">前端/CSS/CSS样例/鼠标滑过显示详情</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-
-    
-    鼠标滑过显示详情
-    
-    
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .box {
-            /* CSS3新盒子模型属性：控制WIDTH/HEIGHT是盒子最终的宽高*/
-            box-sizing: border-box;
-            margin: 20px auto;
-            width: 200px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            border: 1px solid lightcoral;
-            position: relative;
-        }
-
-        .box:hover {
-            border-bottom-color: #ffffff;
-  </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/28/%E5%90%8E%E7%AB%AF/php/php%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">php语法基础</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">PHP语法
-PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中
-
-ASP标记：&lt;% php代码 %&gt;短标记：  ，以上两种基本启用，如果要使用那么需要在配置文件中开启脚本标记: &lt; script script script language=”php”&gt;php代码&lt; / script&gt;标准标记（常用）：&lt;?php php代码 ?&gt;
-PHP注释行注释//: 后面的所有内容都是注释#: 与//一样
-块注释/* */
-PHP语句分隔符语句分隔符：在PHP照片那个，代码是以行为单位，系统需要通过判断行的结束，该结束通常都是一个符号：分号
-特殊说明
-PHP中标记结束符?&gt;有自带语句结束符的效果，最后一行PHP代码可以没有语句结束符”;”
-PHP中起始很多代码的书写并不是嵌入到HTML中，而是单独存在，通常书写习惯中就不建议使用标记结束符?&gt;,PHP会自动从开始到最后全部认为是PHP代码，从而解析。
-
-变量PHP是一种动态网站开发的脚本语言，动态语言特点是交互性，会有数据的传递，而PHP作为中间人，需要进行数据的传递，传递的前提就</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-28&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/php">php</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/php">php</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

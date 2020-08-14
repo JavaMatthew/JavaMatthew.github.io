@@ -136,245 +136,100 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/JS%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
-        <p class="h4 index-header">JS命名规范</p>
+      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/">
+        <p class="h4 index-header">JS样例</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">JS中的命名规范
-严格区分大小写
-
-let Test=100;
-console.log(test);//=&gt;无法输出，因为第一个字母小写了
-
-使用数字、字母、下划线、$，数字不能作为开头
-
-let $box; //=&gt;一般用JQ获取的以$开头
-let _box; //=&gt;一般公共变量都是_开头
-let 1box; //=&gt;不可以，但是可以写box1
-
-使用驼峰命名法：首字母小写，其余每一个有意义单词的首字母都要大写（命名尽可能语义化明显，使用英文单词）
-
-let studentInformation;
-let studentInfo;
-//常用的缩写：add/insert/create/new（新增）、update（修改）、delete/del/remove/rm（删除）、sel/select/query/get（查询）、info（信息）...
-
-//不正确的写法
-let xueshengInfo;
-let xueshengxinxi;
-let xsxx;
-
-不能使用关键字和保留字
-
-当下有特殊含义的是关键字，未来可能会成为关键字的叫做保留字(？)
-var le</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E5%B8%B8%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8/">
-        <p class="h4 index-header">常用浏览器</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">常用的浏览器
-webkit内核(V8引擎)
-谷歌Chrome
-Safari
-Opera &gt;=V14
-国产浏览器
-手机浏览器
-…
-
-
-Gecko
-火狐Firefox
-
-
-Presto
-Opera &lt;V14
-
-
-Trident
-IE
-IE EDGE开始采用双内核（其中包含chrome迷你）
-
-
-
-谷歌浏览器的控制台（F12/Fn+F12）    - Elements：查看结构样式，可以修改这些内容    - Console：查看输出结果和报错信息，是JS调试的利器    - Sources：查看项目源码    - Network：查看当前网站所有资源的请求信息（包括和服务器传输的HTTP报文信息）、加载时间等（根据加载时间进行项目优化）    - Application：查看当前网站的数据存储和资源文件（可以盗图）
-JS做客户端语言
-按照相关的JS语法，去操作页面中的元素，有时还要操作浏览器里面的一些功能    - ECMAScript3/5/6…：JS的语法规范（变量、数据类型、操作语句等等）    - DOM（document object model）：文档对象模型，提供</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Stream/">
-        <p class="h4 index-header">Stream</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是 StreamJava8中有两大最为重要的改变。第一个是 Lambda 表达式；另外一个则是 Stream API(java.util.stream.*)。Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。使用Stream API 对集合数据进行操作，就类似于使用 SQL 执行的数据库查询。也可以使用 Stream API 来并行执行操作。简而言之，Stream API 提供了一种高效且易于使用的处理数据的方式。
-流(Stream) 到底是什么呢？是数据渠道，用于操作数据源（集合、数组等）所生成的元素序列。“集合讲的是数据，流讲的是计算！”注意：    1. Stream 自己不会存储元素。    2. Stream 不会改变源对象。相反，他们会返回一个持有结果的新Stream。    3. Stream 操作是延迟执行的。这意味着他们会等到需要结果的时候才执行。
-Stream 的操作三个步骤
-创建 Stream  一个数据源（如：集合、数组），获取一个流
-中间操作  一个中间操作链，对数据源的</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">
-        <p class="h4 index-header">数据过滤</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">filter对象中包含子对象如果需要用子对象中的属性过滤，需要用forEach套filter，然后再filter过滤
-// 声明中间变量，用于第一层filter过滤的深拷贝
-let newArr = []
-// 先将所有数据深拷贝给需要过滤的数据
-this.pzLeftData = JSON.parse(JSON.stringify(this.AllData))
-// 第一层过滤
-this.pzLeftData.forEach((value, index) =&gt; {
-    newArr[index] = value
-    // 将里层pzlist数组按照evidenceTypeCode过滤并声明一个新的数组复制给pzList
-    newArr[index].pzList = value.pzList.filter(item =&gt; item.evidenceTypeCode === &#39;2&#39;)
-})
-// 第二层过滤，讲里层数组个数为0的分类过滤掉
-this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/09/%E5%89%8D%E7%AB%AF/JS/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95%E5%8F%B2/">
-        <p class="h4 index-header">前端发展史</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">服务器渲染时代
-
-客户端渲染时代
-
-前端侵占移动端APP市场
+          <div class="index-text mb-1">鼠标滑过显示详情鼠标滑过显示详情
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-09&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/%E6%A0%B7%E4%BE%8B">样例</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/">
+        <p class="h4 index-header">JS中的逻辑语句</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JS中的操作语句：判断、循环判断
+条件成立做什么? 不成立做什么?
+
+
+if/else if/ else
+三元运算符
+switch case
+
+
+if/else
+ if(条件){
+     条件成立执行
+ }else if(条件2){
+     条件2成立执行
+ }
+ ...
+ else{
+     以上条件都不成立
+ }
+
+== VS ===
+ == ：相等（如果左右两百年数据值类型不同，是默认向转换为相同的类型，然后比较） &#39;5&#39; == 5  =&gt;TRUE === : 绝对相等（如果类型不一样，肯定不相等） &#39;5&#39; == 5  =&gt;FALSE 项目中为了保证业务的严谨，推荐使用===
+
+
+循环
+重复做某些事情就是循环
+
+
+for循环
+for in循环
+for of循环（ES6新增）
+while循环
+do while循环
+
+for infor(var 变量(key) in 对象)对象中有多少组键值对，循环就执行几次（除非break结束）
+var obj = {
+    name: &#39;春亮&#39;,
+    age: 52,
+   </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -400,21 +255,127 @@ this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%89%A9%E7%90%86%E5%B1%82/">
-        <p class="h4 index-header">物理层</p>
+      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/">
+        <p class="h4 index-header">堆栈练习题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">阿里面试题&lt;% asset_img 阿里面试题.png 阿里面试题%&gt;根据js引擎语法解析，会先去从左到右寻找有没有未声明的变量，如果有就把该变量提升至作用域顶部并声明该变量。那么恭喜js引擎他找到a.x这个属性没有声明，那么他会在{n: 1}这个内存区声明一个x属性等待赋值！所以最终的执行顺序是先声明a.x，然后a的值变为{n:2}，最后a.x = a,注意这里的a.x已经不是现在的a.x，而是b.x因此，现在的a中只有{n:2}而没有x属性，所以a.x是undefined
+JS中的数据类型检测
+typeof[val] : 用来检测数据类型的运算符  基于typeof检测出来的结果
+
+首先是一个字符串
+
+字符串中包含对应的类型&lt;% asset_img typeof1.png typeof1%&gt;&lt;% asset_img typeof2.png typeof2%&gt;
+局限性
+
+typeof null =&gt; “object” 但是null并不是对象
+
+基于typeof无法细分出当前值是普通对象还是数组对象等，应为只要是对象数据类型，返回的结果都是”o</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/">
+        <p class="h4 index-header">忘记密码</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">如何强制更改Docker容器中的Mysql密码（忘记密码）问题描述使用docker容器时，通过镜像安装了Mysql5.7版本，但忘记了root密码，需要重新设置root密码
+解决步骤
+增加“忘记密码启动”模式
+
+重新设置root密码
+
+删掉“忘记密码启动”模式
+
+重启容器镜像即可
+
+
+具体操作
+通过docker exec命令进入容器内 docker exec -it mysql5.7.28 /bin/sh 注：mysql5.7.8是我安装mysql数据库的容器名
+
+编辑mysql配置文件，增加“忘记密码启动”模式：skip-grant-tables vi /etc/mysql/conf.d/docker.cnf 注：编辑的配置文件不是/etc/mysql/my.cnf，也不是/etc/mysql/mysql.cnf或/etc/mysql/conf.d/mysql.cnf 最终配置文件docker.cnf内容如下：
+ [mysqld]
+ skip-host-cache
+ skip-name-resolve
+ skip-grant-tables
+
+退出容器，重启容器实例
+ vi /etc/</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+        <p class="h4 index-header">数据链路层</p>
         
         
           
           
         
         <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">网络设备的机械特性 电器特性 功能特性 过程特性数据通信的基础知识    数字信号    模拟信号频分多路复用时分多路复用...</div>
+          <div class="index-text mb-1">封装成帧透明封装无差错接收点到点线路的数据链路层 PPP国博信道的数据链路层能 CSMA/CD以太网 集线器 网桥 交换机100M 1000M 10000M以太网...</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-09&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -436,29 +397,163 @@ this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/08/%E5%89%8D%E7%AB%AF/Vue/%E9%94%9A%E7%82%B9%E6%A0%91/">
-        <p class="h4 index-header">锚点树</p>
+      <a href="/2019/12/20/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/NIO/%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/">
+        <p class="h4 index-header">缓冲区的数据存取</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">锚点树
-通过右侧的滚轮滚动，激活左侧目录，同时点击左侧目录右侧滚动
-锚点树代码
-&lt;template&gt;
-  &lt;div class=&quot;time-line&quot;&gt;
-    &lt;div v-for=&quot;(item,index) in array&quot;  :key=&quot;index&quot; class=&quot;time-item&quot; :id=&quot;&#39;timeline&#39; + index&quot; @click=&quot;scrolljump(item.fname)&quot;&gt;
-      &lt;!--点--&gt;
-      &lt;div class=&quot;time-item-point&quot;&gt;
-        &lt;div class=&quot;time-item-point-img&quot;  :class=&quot;active(item.fname)&quot;&gt;&lt;/div&gt;
-        &lt;div :class=&qu</div>
+          <div class="index-text mb-1">缓冲区（buffer）的数据存取
+缓冲区（Buffer）：一个用于特定基本数据类型的容器。由 java.nio 包定义的，所有缓冲区都是 Buffer 抽象类的子类。
+Java NIO 中的 Buffer 主要用于与 NIO 通道进行交互，数据是从通道读入缓冲区，从缓冲区写入通道中的。
+
+缓冲区（Buffer）：在Java NIO中负责数据的 存取。缓冲区就是数组，用于存储不同数据类型的数据
+根据数据类型不同（boolean除外），提供了相应类型的缓冲区：
+
+ByteBuffer
+CharBuffer
+ShortBuffer
+IntBuffer
+LongBuffer
+FloatBuffer
+DoubleBuffer
+
+上述缓冲区的管理方式几乎一致，通过allocate()获取缓存区。static XxxBuffer allocate(int capacity) : 创建一个容量为 capacity 的 XxxBuffer 对象
+缓冲区的基本属性Buffer 中的重要概念：
+
+容量 (capacity) ：表示 Buffer 最大数据容量，缓冲区容量不能为负，并且创建后不能更改。
+限制 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-08&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          
+            <a href="/categories/NIO">NIO</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/20/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/NIO/NIO%E4%B8%8EIO%E5%8C%BA%E5%88%AB/">
+        <p class="h4 index-header">NIO与IO区别</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">NIO主要内容
+Java NIO简介
+Java NIO 与 IO 的主要区别
+缓冲区(Buffer)和通道(Channel)
+文件通道(FileChannel)
+NIO 的非阻塞式网络通信
+选择器(Selector)
+SocketChannel、ServerSocketChannel、DatagramChannel
+
+
+管道(Pipe)
+Java NIO2 (Path、Paths 与 Files
+
+Java NIO简介Java NIO（New IO）是从Java 1.4版本开始引入的一个新的IO API，可以替代标准的Java IO API。NIO与原来的IO有同样的作用和目的，但是使用的方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。
+Java NIO 与 IO 的主要区别
+
+
+IO
+NIO
+
+
+
+面向流(Stream Oriented)
+面向缓冲区(Buffer Oriented)
+
+
+阻塞IO(Blocking IO)
+非阻塞IO(Non Blocking IO)
+
+
+(无)
+选择器(Selectors)
+
+
+通道（Chann</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          
+            <a href="/categories/NIO">NIO</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/18/%E5%89%8D%E7%AB%AF/Vue/vuex/">
+        <p class="h4 index-header">vuex</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">vuex理解vuex 是什么1) github 站点: https://github.com/vuejs/vuex2) 在线文档: https://vuex.vuejs.org/zh-cn/3) 简单来说: 对 vue 应用中多个组件的共享状态进行集中式的管理(读/写)
+使用vuex后，页面的属性就多store,getters属性了
+状态自管理应用1) state: 驱动应用的数据源2) view: 以声明方式将 state 映射到视图3) actions: 响应在 view 上的用户输入导致的状态变化(包含 n 个更新状态的方法)
+
+
+多组件共享状态的问题1) 多个视图依赖于同一状态2) 来自不同视图的行为需要变更同一状态3) 以前的解决办法a. 将数据以及操作数据的行为都定义在父组件b. 将数据以及操作数据的行为传递给需要的各个子组件(有可能需要多级传递)4) vuex 就是用来解决这个问题的
+
+
+vuex 核心概念和 APIstate1) vuex 管理的状态对象2) 它应该是唯一的
+const state = {
+xxx: initValue
+}
+mutations1) 包含多</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -466,18 +561,12 @@ this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
             <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
           
             <a href="/categories/Vue">Vue</a>&nbsp;
-          
-            <a href="/categories/%E9%94%9A%E7%82%B9%E6%A0%91">锚点树</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/JS">JS</a>&nbsp;
-          
             <a href="/tags/Vue">Vue</a>&nbsp;
-          
-            <a href="/tags/%E9%94%9A%E7%82%B9%E6%A0%91">锚点树</a>&nbsp;
           
         
       </div>
@@ -488,48 +577,38 @@ this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-        <p class="h4 index-header">Lambda表达式</p>
+      <a href="/2019/12/18/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/JUC/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
+        <p class="h4 index-header">线程安全</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">主要内容
-Lambda 表达式
-函数式接口
-方法引用与构造器引用
-Stream API
-接口中的默认方法与静态方法
-新时间日期 API
-其他新特性
+          <div class="index-text mb-1">创建线程的方式
+继承Thread
+实现Runnable
+实现Callable 一、相较于实现Runnable接口的方式，方法可以有返回值，并且可以抛出异常。 二、执行Callable方式，需要FutureTask实现类的支持，用于接收运算结果。FutureTask是Futrue接口的实现类
+通过线程池声明
 
-Java 8新特性简介
-速度更快
-代码更少（增加了新的语法 Lambda 表达式）
-强大的 Stream API
-便于并行
-最大化减少空指针异常 Optional
-其中最为核心的为 Lambda 表达式与Stream API
+显示锁 Lock同步锁
+在 Java 5.0 之前，协调共享对象的访问时可以使用的机制只有 synchronized 和 volatile 。Java 5.0 后增加了一些新的机制，但并不是一种替代内置锁的方法，而是当内置锁不适用时，作为一种可选择的高级功能。
+ReentrantLock 实现了 Lock 接口，并提供了与synchronized 相同的互斥性和内存可见性。但相较于synchronized 提供了更高的处理锁的灵活性。
 
-Lambda表达式
-Lambda表达式的基础语法：Java8中引入了一个新的操作符“-&gt;”该操作符成为箭头操作符或Lambda操作符 箭头操作符将Lambda表达式拆分成两部分： 左侧：Lambda表达式的参数列表 右侧：Lambda表达式中所需执行的功能，即Lambda体
 
-语法格式一：无参数，无返回值  ()-&gt;System.out.println(&quot;hello Lambda!&quot;);
+用于解决多线程安全问题的范式： synchronized：隐式锁
+同步代码块
+同步方法jdk1.5后：
+同步锁Lock 注意：是一个显示锁，需要通过lock()方法上锁，必须通过unlock()方法进行释放锁
 
-语法格式二：有一个参数，并且无返回值
 
-语法格式三：若只有一个参数，小括号可以省略不写
 
-语法格式四：又两个以上的参数，并且有多条语句
-
-语法格式五：若Lambda体中只有一条语句，return和</div>
+注意：在可能出现线程异常的地方</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -537,6 +616,8 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符“-&gt;�
             <a href="/categories/Java">Java</a>&nbsp;
           
             <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          
+            <a href="/categories/JUC%E7%BA%BF%E7%A8%8B">JUC线程</a>&nbsp;
           &nbsp;
         
         
@@ -553,100 +634,46 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符“-&gt;�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD/">
-        <p class="h4 index-header">计算机网络性能</p>
+      <a href="/2019/12/17/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/JUC/volatile/">
+        <p class="h4 index-header">volatile</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">计算机网络的性能指标
+          <div class="index-text mb-1">Java JUC 简介在 Java 5.0 提供了 java.util.concurrent （简称JUC ）包，在此包中增加了在并发编程中很常用的实用工具类，用于定义类似于线程的自定义子系统，包括线程池、异步 IO 和轻量级任务框架。提供可调的、灵活的线程池。还提供了设计用于多线程上下文中的 Collection 实现等。
+内存可见性
+内存可见性（Memory Visibility）是指当某个线程正在使用对象状态而另一个线程在同时修改该状态，需要确保当一个线程修改了对象状态后，其他线程能够看到发生的状态变化。
+可见性错误是指当读操作与写操作在不同的线程中执行时，我们无法确保执行读操作的线程能适时地看到其他线程写入的值，有时甚至是根本不可能的事情。
+我们可以通过同步来保证对象被安全地发布。除此之外我们也可以使用一种更加轻量级的 volatile 变量。
 
-速率连接在计算机网络上的主机在数字信道上传送数据位数的速率，也成为data rate或bit rate单位是b/s,kb/s,Mb/s,Gb/s
-带宽数据通信领域中，数组信道所能传送的最高数据率单位是b/s,kb/s,Mb/s,Gb/s
-吞吐量在单位时间内通过某个网络的数据量；单位是b/s,kb/s,Mb/s,Gb/s
-时延
-
-时延带宽积
-
-往返时间RTT（Round-Trip Time）从发送方发送数据开始，到发送方收到接受方确认使用 ping 网址 测试
-利用率
-信道利用率：有数据通过时间/（有+无）数据通过时间
-网络利用率：信道利用率甲醛平均值
+volatile 关键字
+Java 提供了一种稍弱的同步机制，即 volatile 变量，用来确保将变量的更新操作通知到其他线程。可以将 volatile 看做一个轻量级的锁，但是又与锁有些不同：
 
 
-</div>
+对于多线程，不是一种互斥关系
+不</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-17&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          
+            <a href="/categories/JUC%E7%BA%BF%E7%A8%8B">JUC线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/OSI/">
-        <p class="h4 index-header">OSI</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">OSI参考模型
-应用层 所有能产生网络流量的程序
-表示层 在传输之前是否进行加密或压缩处理 二进制 ASCII（编码和解码一致才不会乱码）
-会话层 查木马 neststat -n查看所有会话，netstat -nb查看会话是由谁建立的
-传输层 可靠传输（发送后需要确认） 流量控制 不可靠传输（发送数据包，不管结果，如果丢包，再次请求）
-网络层 负责选择最佳路径 规划IP地址
-数据链路层 帧的开始和结束 透明传输 差错校验
-物理层 接口标准 电器标准 如何在物理链路上传输更快的速度
-
-网络排错指导
-物理层故障 查看连接状态，查看发送和接受的数据包 
-数据链路层故障 MAC地址冲突，ADSL欠费，网速没办法协商，计算机连接到错误的VLAN 
-网络层故障 配置错误的IP地址，子网掩码，配置错误的网关，路由器没有配置到达目标网络的路由
-应用层故障 应用程序配置错误
-
-网络安全
-物理层安全 把不用的网线拔掉或者把这个口通过命令shut down
-数据链路层安全 ADSL，账户密码，VLAN交换机端口绑定MAC地址
-网络层安全 在路由器上使用ACL控制数据包流量，网络防火墙
-应用层安全 开发的应用</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -657,7 +684,7 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符“-&gt;�
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/10/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/12/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/10/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

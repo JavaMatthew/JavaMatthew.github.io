@@ -136,38 +136,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/">
-        <p class="h4 index-header">JS样例</p>
+      <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
+        <p class="h4 index-header">多线程八大核心面试问题总结</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">鼠标滑过显示详情鼠标滑过显示详情
+          <div class="index-text mb-1">常见面试问题总结有多少种实现线程的方法思路有5点
+
+从不同的角度看，会有不同的答案。
+
+典型答案时两种，分别是实现Runnable接口和继承Thread类，然后具体展开说；
+
+但是我们看原理，其实Thread类实现了Runnable接口，并且看Thread类的run方法，会发现其实那两种本质都是一样的，run方法的代码如下：
+ @Override
+ public void run() {
+     if (target != null){
+         target.run();
+     }
+ }
+ 方法一和方法二，也就是“继承Thread类然后重写run()和实现Runnable接口并传入Thread类在实现多线程的本质上，并没有区别，都是最终调用了start()方法来新建线程。这两个方法的最主要区别在于run()方法的内容来源：
+ 方法一：最终调用target.run()
+ 方法二：run()整个都被重写
+然后具体展开说其他方式； 还有其他的实现线程的方法，例如线程池等，他们也能新建线程，但是细看源码，从没有逃出过本质，也就是实现Runnable接口和继承Thread类。
+
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/JS">JS</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
-            <a href="/tags/%E6%A0%B7%E4%BE%8B">样例</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -178,73 +193,50 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/">
-        <p class="h4 index-header">JS中的逻辑语句</p>
+      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BC%9A%E5%AF%BC%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">多线程会导致的问题</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">JS中的操作语句：判断、循环判断
-条件成立做什么? 不成立做什么?
+          <div class="index-text mb-1">线程安全问题什么是线程安全？
+《Java Concurrency In Practice》的左子Brian Gortz对“线程安全”有一共比较恰当的定义：“当多个线程访问一个对象是，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那这个对象是线程安全的。
+自己的理解：不管业务中遇到怎样的多个线程访问某对象或某方法的情况，而在编程这个业务逻辑的时候，都不需要额外做任何额外的处理（也就是可以想单线程编程一样）程序也可以正常运行（不会因为多线程而出错），就可以称为线程安全。
 
+线程不安全：get同时set、额外同步
+全都线程安全？：运行速度、设计成本、trade off
+完全不用于多线程：不过度设计
 
-if/else if/ else
-三元运算符
-switch case
+什么情况下会出现线程安全问题，怎么避免
+运行结果错误：a++多线程下出现消失的请求现象
+活跃性问题：死锁、活锁、饥饿
+对象发布和初始化的时候的安全问题
 
-
-if/else
- if(条件){
-     条件成立执行
- }else if(条件2){
-     条件2成立执行
- }
- ...
- else{
-     以上条件都不成立
- }
-
-== VS ===
- == ：相等（如果左右两百年数据值类型不同，是默认向转换为相同的类型，然后比较） &#39;5&#39; == 5  =&gt;TRUE === : 绝对相等（如果类型不一样，肯定不相等） &#39;5&#39; == 5  =&gt;FALSE 项目中为了保证业务的严谨，推荐使用===
-
-
-循环
-重复做某些事情就是循环
-
-
-for循环
-for in循环
-for of循环（ES6新增）
-while循环
-do while循环
-
-for infor(var 变量(key) in 对象)对象中有多少组键值对，循环就执行几次（除非break结束）
-var obj = {
-    name: &#39;春亮&#39;,
-    age: 52,
-   </div>
+什么是逸出
+方法返回一个private对象（private的本意是不让外部访问）
+还未完成初始化（构造函数没完全执行完毕）就把对象提供给外</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/JS">JS</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
-            <a href="/tags/JS">JS</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -255,46 +247,67 @@ var obj = {
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/">
-        <p class="h4 index-header">堆栈练习题</p>
+      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%BC%82%E5%B8%B8/">
+        <p class="h4 index-header">线程异常</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">阿里面试题&lt;% asset_img 阿里面试题.png 阿里面试题%&gt;根据js引擎语法解析，会先去从左到右寻找有没有未声明的变量，如果有就把该变量提升至作用域顶部并声明该变量。那么恭喜js引擎他找到a.x这个属性没有声明，那么他会在{n: 1}这个内存区声明一个x属性等待赋值！所以最终的执行顺序是先声明a.x，然后a的值变为{n:2}，最后a.x = a,注意这里的a.x已经不是现在的a.x，而是b.x因此，现在的a中只有{n:2}而没有x属性，所以a.x是undefined
-JS中的数据类型检测
-typeof[val] : 用来检测数据类型的运算符  基于typeof检测出来的结果
+          <div class="index-text mb-1">线程异常
+线程的未捕获异常UncaughtException应该如何处理？
 
-首先是一个字符串
+为什么需要UncaughtException?
 
-字符串中包含对应的类型&lt;% asset_img typeof1.png typeof1%&gt;&lt;% asset_img typeof2.png typeof2%&gt;
-局限性
+主线程可用轻松发现异常，子线程却不行
+子线程异常无法用传统方法捕获
+不能直接捕获的后果、提高健壮性
 
-typeof null =&gt; “object” 但是null并不是对象
 
-基于typeof无法细分出当前值是普通对象还是数组对象等，应为只要是对象数据类型，返回的结果都是”o</div>
+
+两个解决方案
+方案一（不推荐）：手动在每个run方法里面进行trycatch
+方案二（推荐）：利用UncaughtExceptionHandler
+UncaughtExceptionHandler接口
+void uncaughtException(Thread t, Throwable e);
+异常处理器的调用策略
+自己实现
+给程序统一设置
+给每个线程单独设置
+给线程池设置
+
+
+
+
+
+面试题
+Java异常体系
+如何全局处理异常？ 为什么要全局处理？ 不处理行不行？  设置一个自己的全局uncaughtException，不能不处理
+run方法是否可以抛出异常？如果抛出异常，线程的状态会怎么样？  不可以，如果抛出异常会离开终止执行
+线程中如何处理某个未处理异常？  使用全局处理器，对异常进行处理
+
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/JS">JS</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
-            <a href="/tags/JS">JS</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -305,52 +318,72 @@ typeof null =&gt; “object” 但是null并不是对象
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/">
-        <p class="h4 index-header">忘记密码</p>
+      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E4%B8%AA%E5%B1%9E%E6%80%A7/">
+        <p class="h4 index-header">线程各个属性</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">如何强制更改Docker容器中的Mysql密码（忘记密码）问题描述使用docker容器时，通过镜像安装了Mysql5.7版本，但忘记了root密码，需要重新设置root密码
-解决步骤
-增加“忘记密码启动”模式
+          <div class="index-text mb-1">线程各属性
 
-重新设置root密码
+线程IdID从1开始，JVM运行起来后，我们自己创建的线程的ID早已不是2.
+线程名字
+默认线程名字源码分析
+修改线程的名字（setName）
 
-删掉“忘记密码启动”模式
+守护线程
+作用：给用户线程提供服务
 
-重启容器镜像即可
+特性：
+
+线程类型默认继承自父线程
+被谁启动,(由JVM自动启动)
+不影响JVM退出
 
 
-具体操作
-通过docker exec命令进入容器内 docker exec -it mysql5.7.28 /bin/sh 注：mysql5.7.8是我安装mysql数据库的容器名
+守护线程和普通线程的区别
 
-编辑mysql配置文件，增加“忘记密码启动”模式：skip-grant-tables vi /etc/mysql/conf.d/docker.cnf 注：编辑的配置文件不是/etc/mysql/my.cnf，也不是/etc/mysql/mysql.cnf或/etc/mysql/conf.d/mysql.cnf 最终配置文件docker.cnf内容如下：
- [mysqld]
- skip-host-cache
- skip-name-resolve
- skip-grant-tables
+整体无区别
+唯一区别在于JVM的离开
 
-退出容器，重启容器实例
- vi /etc/</div>
+
+
+线程优先级
+10个级别，默认5
+程序设计不应依赖于优先级
+不同操作系统不一样
+优先级会被操作系统改变
+
+
+
+面试题
+什么时候我们需要设置守护线程？ 通常情况下我们不需要设置
+我们如何应用线程优先级来帮助程序运行？有哪些禁忌？ 我们不应该用优先级，来作为程序设计的逻辑，因为不同的操作系统有不同的优先级映射
+不同的操作系统如何处理优先级问题？ 不用优先级作为程序的设计逻辑
+
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -361,21 +394,264 @@ typeof null =&gt; “object” 但是null并不是对象
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
-        <p class="h4 index-header">数据链路层</p>
+      <a href="/2020/03/04/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%847%E4%B8%AA%E9%87%8D%E8%A6%81%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">线程的7个重要方法</p>
         
         
           
-          
         
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">封装成帧透明封装无差错接收点到点线路的数据链路层 PPP国博信道的数据链路层能 CSMA/CD以太网 集线器 网桥 交换机100M 1000M 10000M以太网...</div>
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Thread和Object类中的重要方法详解方法概览
+
+wait,notify,notifyAll方法详解
+用必须先拥有monitor
+notify只能唤醒其中一个
+属于Object类
+类似功能的Condition
+同时持有多个锁的情况，让一个线程wait必须让他释放所有的锁，否则会进入死锁因为如果程序不运行完，而单一的线程运行完并不会释放这个线程当前持有的锁
+
+notify唤醒的对象必须是调用wait的对象要不无法唤醒。
+public class WaitNotifyReleaseOwnMonitor {
+    private static volatile Object resourceA = new Object();
+    private static volatile Object resourceB = new Object();
+
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(() -&gt; {
+            synchronized (re</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-25&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/03/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+        <p class="h4 index-header">线程的生命周期</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">线程的生命周期
+New
+Runnable
+Blocked
+Waiting
+Time Waiting
+Terminated
+
+
+
+阻塞状态一般习惯而言，把Blocked（被阻塞）、Waiting（等待）、Timed_waiting（计时等待）都称为阻塞状态不仅仅是Blocked。
+状态转化的特殊情况
+从Object.wait()状态刚被唤醒时，通常不能立刻抢到monitor锁，那就会从Waiting先进入Blocked状态，抢到锁后再转换到Runnable状态
+如果发生异常，可用直接跳到终止Terminated状态，不必再遵守路径，比如可用从Waiting直接到Terminated
+
+常见面试问题
+线程有哪几种状态？生命周期是什么？
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/03/%E5%90%8E%E7%AB%AF/Java/%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90native%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">如何分析native方法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">分析navative方法
+进入github（也可以进openJDK网站）
+点“搜索文件”，搜索对应的c代码类Thread.c
+找到native方法对应的方法名
+去src/htspot/share/prims/jvm.cpp里看cpp代码
+
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/02/%E5%90%8E%E7%AB%AF/Java/Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB/">
+        <p class="h4 index-header">Java异常体系</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+Error和RuntimeException共同构成了非检查异常；IOException受检查异常，应该对其提前进行处理，提供程序的健壮性。
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/01/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B8%E5%A4%A7%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        <p class="h4 index-header">线程8大核心基础知识</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">多线程全部脉络
+
+多线程8大基础
+
+实现多线程的方法时1种2种还是4种
+实现多线程的官方正确方法：2种
+
+Oracle官网文档：There are two ways to create a new thread of execution. One is to declare a class to be a subclass of Thread. This subclass should override the run method of class Thread. An instance of the subclass can then be allocated and started. The other way to create a thread is to declare a class that implements the Runnable interface.创建一个新的执行线程有两种方法：一个是将一个类声明为Thread的子类，这个子类应该重写run类的方法Thread，然后可以分配并启动子类的实例。另一种方法来创建一个线程是声明实现类Runnable接口。
+两种方法</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+        <p class="h4 index-header">网络安全</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">网络安全数据存储安全应用程序安全操作系统安全网络安全物理安全用户安全教育
+计算机网络上的通信面来以下的四种威胁：（1） 截获–从网络上窃听他人的通信内容。（2） 中断–有意中断他人在网络上的通信（3） 篡改–故意篡改网络上传送的报文（4） 伪造–伪造信息在网络上传送截获信息的攻击称为被动攻击，而更改信息和拒绝用户使用资源的攻击称为主动攻击。
+恶意程序（rogue program）
+计算机病毒————会传染其他程序的程序，传染是通过修改其他程序来吧自身或其变种赋值进去完成的。
+计算机蠕虫————通过网络的通信功能将自身从一个结点发送到另一个结点并启动运行的程序。
+特洛伊木马————一种程序，它执行的功能超出所声称的功能
+逻辑炸弹————一种当运行环境满足某种特定条件时执行其他特殊功能的程序。
+
+木马程序
+查看会话 netstat -n 是否有可以的会话
+运行msconfig 服务 隐藏微软服务
+安装杀毒软件
+
+加密技术对称加密 优点：效率高        缺点：密钥不适合在网上传输 密钥维护麻烦
+非对称加密 加密密钥和解密密钥是不同 密钥对 公钥和私钥            公钥加密私钥</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -393,298 +669,11 @@ typeof null =&gt; “object” 但是null并不是对象
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/20/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/NIO/%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/">
-        <p class="h4 index-header">缓冲区的数据存取</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">缓冲区（buffer）的数据存取
-缓冲区（Buffer）：一个用于特定基本数据类型的容器。由 java.nio 包定义的，所有缓冲区都是 Buffer 抽象类的子类。
-Java NIO 中的 Buffer 主要用于与 NIO 通道进行交互，数据是从通道读入缓冲区，从缓冲区写入通道中的。
-
-缓冲区（Buffer）：在Java NIO中负责数据的 存取。缓冲区就是数组，用于存储不同数据类型的数据
-根据数据类型不同（boolean除外），提供了相应类型的缓冲区：
-
-ByteBuffer
-CharBuffer
-ShortBuffer
-IntBuffer
-LongBuffer
-FloatBuffer
-DoubleBuffer
-
-上述缓冲区的管理方式几乎一致，通过allocate()获取缓存区。static XxxBuffer allocate(int capacity) : 创建一个容量为 capacity 的 XxxBuffer 对象
-缓冲区的基本属性Buffer 中的重要概念：
-
-容量 (capacity) ：表示 Buffer 最大数据容量，缓冲区容量不能为负，并且创建后不能更改。
-限制 </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/NIO">NIO</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/20/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/NIO/NIO%E4%B8%8EIO%E5%8C%BA%E5%88%AB/">
-        <p class="h4 index-header">NIO与IO区别</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">NIO主要内容
-Java NIO简介
-Java NIO 与 IO 的主要区别
-缓冲区(Buffer)和通道(Channel)
-文件通道(FileChannel)
-NIO 的非阻塞式网络通信
-选择器(Selector)
-SocketChannel、ServerSocketChannel、DatagramChannel
-
-
-管道(Pipe)
-Java NIO2 (Path、Paths 与 Files
-
-Java NIO简介Java NIO（New IO）是从Java 1.4版本开始引入的一个新的IO API，可以替代标准的Java IO API。NIO与原来的IO有同样的作用和目的，但是使用的方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。
-Java NIO 与 IO 的主要区别
-
-
-IO
-NIO
-
-
-
-面向流(Stream Oriented)
-面向缓冲区(Buffer Oriented)
-
-
-阻塞IO(Blocking IO)
-非阻塞IO(Non Blocking IO)
-
-
-(无)
-选择器(Selectors)
-
-
-通道（Chann</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/NIO">NIO</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/18/%E5%89%8D%E7%AB%AF/Vue/vuex/">
-        <p class="h4 index-header">vuex</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">vuex理解vuex 是什么1) github 站点: https://github.com/vuejs/vuex2) 在线文档: https://vuex.vuejs.org/zh-cn/3) 简单来说: 对 vue 应用中多个组件的共享状态进行集中式的管理(读/写)
-使用vuex后，页面的属性就多store,getters属性了
-状态自管理应用1) state: 驱动应用的数据源2) view: 以声明方式将 state 映射到视图3) actions: 响应在 view 上的用户输入导致的状态变化(包含 n 个更新状态的方法)
-
-
-多组件共享状态的问题1) 多个视图依赖于同一状态2) 来自不同视图的行为需要变更同一状态3) 以前的解决办法a. 将数据以及操作数据的行为都定义在父组件b. 将数据以及操作数据的行为传递给需要的各个子组件(有可能需要多级传递)4) vuex 就是用来解决这个问题的
-
-
-vuex 核心概念和 APIstate1) vuex 管理的状态对象2) 它应该是唯一的
-const state = {
-xxx: initValue
-}
-mutations1) 包含多</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/Vue">Vue</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Vue">Vue</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/18/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/JUC/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
-        <p class="h4 index-header">线程安全</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">创建线程的方式
-继承Thread
-实现Runnable
-实现Callable 一、相较于实现Runnable接口的方式，方法可以有返回值，并且可以抛出异常。 二、执行Callable方式，需要FutureTask实现类的支持，用于接收运算结果。FutureTask是Futrue接口的实现类
-通过线程池声明
-
-显示锁 Lock同步锁
-在 Java 5.0 之前，协调共享对象的访问时可以使用的机制只有 synchronized 和 volatile 。Java 5.0 后增加了一些新的机制，但并不是一种替代内置锁的方法，而是当内置锁不适用时，作为一种可选择的高级功能。
-ReentrantLock 实现了 Lock 接口，并提供了与synchronized 相同的互斥性和内存可见性。但相较于synchronized 提供了更高的处理锁的灵活性。
-
-
-用于解决多线程安全问题的范式： synchronized：隐式锁
-同步代码块
-同步方法jdk1.5后：
-同步锁Lock 注意：是一个显示锁，需要通过lock()方法上锁，必须通过unlock()方法进行释放锁
-
-
-
-注意：在可能出现线程异常的地方</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/JUC%E7%BA%BF%E7%A8%8B">JUC线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/17/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/JUC/volatile/">
-        <p class="h4 index-header">volatile</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Java JUC 简介在 Java 5.0 提供了 java.util.concurrent （简称JUC ）包，在此包中增加了在并发编程中很常用的实用工具类，用于定义类似于线程的自定义子系统，包括线程池、异步 IO 和轻量级任务框架。提供可调的、灵活的线程池。还提供了设计用于多线程上下文中的 Collection 实现等。
-内存可见性
-内存可见性（Memory Visibility）是指当某个线程正在使用对象状态而另一个线程在同时修改该状态，需要确保当一个线程修改了对象状态后，其他线程能够看到发生的状态变化。
-可见性错误是指当读操作与写操作在不同的线程中执行时，我们无法确保执行读操作的线程能适时地看到其他线程写入的值，有时甚至是根本不可能的事情。
-我们可以通过同步来保证对象被安全地发布。除此之外我们也可以使用一种更加轻量级的 volatile 变量。
-
-volatile 关键字
-Java 提供了一种稍弱的同步机制，即 volatile 变量，用来确保将变量的更新操作通知到其他线程。可以将 volatile 看做一个轻量级的锁，但是又与锁有些不同：
-
-
-对于多线程，不是一种互斥关系
-不</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-17&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/JUC%E7%BA%BF%E7%A8%8B">JUC线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
