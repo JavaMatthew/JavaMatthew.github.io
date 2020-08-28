@@ -136,6 +136,135 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">数据类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Int类型
+
+属性
+UNSIGNED/SIGNED
+是否有符号
+
+
+ZEROFILL
+填充0（例如：0001）
+显式属性
+只不做任何修改
+
+
+AUTO_INCREMENT
+自增
+每张表一个
+必须是索引的一部分
+
+
+
+总结
+推荐不要使用UNSIGNED
+范围本质上没有大的改变
+UNSIGNED可能会有一处现象发生
+自增INT类型逐渐建议使用BIGINT
+
+数字类型• 单精度类型：FLOAT• 双精度类型：DOUBLE    单精度类型和双精度类型精度较低，M*G/G不一定等于M• 高精度类型：DECIMAL
+
+财务系统必须用DECIMAL类型FLOAT(M,D)/DOUBLE(M,D)/DECIMAL(M,D) 表示显示M位整数，其中D位位于小数点后面
+字符串类型
+BLOB =&gt; VARBINARYTEXT =&gt; VARCHAR
+
+在BLOB和TEXT列上创建索引时，必须制定索引前缀的长度
+VARCHAR和VARBINARY前缀长度是可选的。
+BLOB和TEXT列不能有默认值
+BLOB和TEXT列排序时只使用该列的前max_sort_length个字节
+
+mysql &gt;</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/25/%E5%90%8E%E7%AB%AF/Java/JVM/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA/">
+        <p class="h4 index-header">运行时数据区</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">运行时数据区
+
+Java虚拟机定义了若干种程序运行期间会使用到的运行时数据区,其中由一些会随着虚拟机启动而创建,随着虚拟机退出而销毁.另外一些则是与线程一一对应的,这些与线程对应的数据区域会随着线程开始和结束而创建和销毁.灰色的为单独线程私有的,红色的为多个线程共享的.即:
+
+每个线程:独立包括程序计数器、栈、本地栈线程间共享：堆、堆外内存（永久代或元空间、代码缓存）
+
+线程
+线程是一个程序里的运行单元。JVM允许一个应用有多个线程并行的执行。
+
+在Hotspot JVM里，每个线程都与操作系统的本地线程直接映射。
+
+当一个Java线程准备好执行以后，此时一个操作系统的本地线程也同事创建。Java线程执行终止后，本地线程也会回收。
+
+
+操作系统负责所有线程的安排调度到任何一个可用的CPU上。一旦本地线程初始化成功，它就会调用Java线程中的run()方法
+
+如果你是用jconsole或者是任何一个调试工具，都能看到在后台有许多线程在运行。这些后台线程不包括调用public static void main(String[])的main线程以及所有这个main线程自己创建的线程。
+
+这些</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/JVM">JVM</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/JVM">JVM</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/24/%E5%90%8E%E7%AB%AF/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">
         <p class="h4 index-header">类加载子系统</p>
         
@@ -616,98 +745,6 @@ JDK1.7的C</div>
             <a href="/tags/Java">Java</a>&nbsp;
           
             <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/nginx/nginx%E5%AE%89%E8%A3%85/">
-        <p class="h4 index-header">nginx安装</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">准备工作
-打开虚拟机，使用远程连接工具连接 linux 操作系统
-到 nginx 官网下载软件 http://nginx.org
-
-
-
-开始进行 nginx 安装
-安装 pcre 依赖第一步 联网下载 pcre 压缩文件依赖wget http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz
-
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/nginx">nginx</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/nginx">nginx</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/nginx/nginx%E4%BB%8B%E7%BB%8D/">
-        <p class="h4 index-header">nginx介绍</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">nginx基本概念nginx是什么，做什么事情Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好Nginx专为性能优化而开发，性能是其最重要的考量，实现上非常注重效率，能经受高负载的考研，有报告表明能支持高达50,000个并发连接数。
-正向代理在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问
-
-
-反向代理我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户其，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器IP地址。
-
-
-负载均衡单个服务器解决不了，我们增加服务器的数量，然后将请求分发到各个服务器上，将原先请求几种到单个服务器上的情况改为将请求分发到多个服务器中，将负载分发到不同的服务器，也就是我们所说的负载均衡
-
-
-动静分离为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/nginx">nginx</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/nginx">nginx</a>&nbsp;
           
         
       </div>

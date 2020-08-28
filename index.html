@@ -136,6 +136,112 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/08/28/%E5%90%8E%E7%AB%AF/Elasticsearch/ElasticSearch%E7%B4%A2%E5%BC%95/">
+        <p class="h4 index-header">ElasticSearch索引</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">索引的操作
+
+创建一个索引的基本流程：
+
+确定索引名
+创建索引轮循器
+创建索引模板
+上传索引
+创建索引模式
+观察数据
+
+创建索引轮循器Name：名称
+Hot phase先选择是否开启rollover三个max共同限制回滚界限
+Delect phase如果开启，超过设定时间会删除索引
+创建索引模板LogisticsName: 索引模板的名称Index patterns：适用于哪些索引例如：rongyun-*适用于所有以rongyun-开头的索引
+Index settingslifecycle.name: 轮循器的名称lifecycle.rollover_alias: 索引别名，用于轮循器迭代标记索引时使用refresh_interval: 索引刷新时间
+{
+  &quot;index&quot;: {
+    &quot;lifecycle&quot;: {
+      &quot;name&quot;: &quot;rongcloud-history&quot;,
+      &quot;rollover_alias&quot;: &quot;rongcloud-history&quo</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-28&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Elasticsearch">Elasticsearch</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Elasticsearch">Elasticsearch</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/08/05/%E5%90%8E%E7%AB%AF/Docker/Docker%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/">
+        <p class="h4 index-header">Docker容器数据持久化</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">数据卷
+数据卷是一个可供一个或多个容器使用的特殊目录，它绕过UFS，可以提供很多有用的特性：
+
+
+数据卷可以在容器之间共享和重用
+对数据卷的修改会立马生效
+对数据卷的更新，不会影响镜像
+数据卷默认会一直存在，及时容器被删除
+
+注意：数据卷的使用，类似于Linux下对目录或文件进行mount，镜像中的被指定为挂载点的目录中的文件会隐藏掉，能显示看的是挂载的数据卷
+docker run -p 3306:3306 --name mysql \
+-v /usr/local/docker/mysql/conf:/etc/mysql \
+-v /usr/local/docker/mysql/logs:/var/log/mysql \
+-v /usr/local/docker/mysql/data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=root \
+-d mysql
+如果执行sql失败吧/etc/mysql.conf.d/mysqldump.cnf的max_allowed_packet = 16M追加到配置文件末尾echo &quot;max_allow_p</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Docker">Docker</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Docker">Docker</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/07/31/%E5%90%8E%E7%AB%AF/Java/%E4%BD%BF%E7%94%A8%E5%90%84%E7%A7%8D%E5%B5%8C%E5%A5%97%E7%B1%BB%E7%9A%84%E6%97%B6%E6%9C%BA/">
         <p class="h4 index-header">使用各种嵌套类的时机</p>
         
@@ -541,115 +647,6 @@ Codename:       n/a
             <a href="/tags/Java">Java</a>&nbsp;
           
             <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
-        <p class="h4 index-header">Linux操作命令</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">系统管理命令参考手册
-交换空间内存 1GB 超过   内存溢出 会造成阻塞崩溃宕机磁盘 1TB swap 交换空间，虽然会防止内存溢出，但是会减慢速度拖垮系统云服务器    一台超级计算机 1TB 硬盘 128G 内存，云服务器是没有交换空间的                开辟一个空间    20GB 1G
-Linuxw文件操作命令如果无法找到ls或其他命令
-export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
-压缩文件
-# tar -xzvf test.tar.gz
-重启
-reboot
-shutdown -r now
-
-关机
-shutdown -h now
-
-Linux编辑器vim
-编辑模式：等待编辑命令输入
-插入模式：编辑模式下，输入i进入插入模式，插入文本信息
-命令模式：在编辑模式下，输入:进行命令模式
-
-命令
-:q 直接退出vi
-:wq 保存后退出vi，并可以新建文件
-:q! 强制退出
-:w file 将当前内容保存成某个文件
-:set number 在编辑文件显示</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux">Linux</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux">Linux</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/21/%E9%94%99%E8%AF%AF/swagger/swagger%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">swagger跨域问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Swagger的跨域问题
-
-必须保证三处ip相同,访问页面的url和Server的访问地址，以及index的url
-
-
-&lt;!-- HTML for static distribution bundle build --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Swagger UI&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./swagger-ui.css&quot; &gt;
-    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;./favicon-32x32.png&quot; sizes=&quot;32x32&quot; /</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/swagger">swagger</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/tags/swagger">swagger</a>&nbsp;
           
         
       </div>

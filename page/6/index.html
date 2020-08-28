@@ -136,6 +136,103 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/CSS/CSS%E6%A0%B7%E4%BE%8B/%E9%BC%A0%E6%A0%87%E6%BB%91%E8%BF%87%E6%98%BE%E7%A4%BA%E8%AF%A6%E6%83%85/">
+        <p class="h4 index-header">前端/CSS/CSS样例/鼠标滑过显示详情</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    鼠标滑过显示详情
+    
+    
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            /* CSS3新盒子模型属性：控制WIDTH/HEIGHT是盒子最终的宽高*/
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid lightcoral;
+            position: relative;
+        }
+
+        .box:hover {
+            border-bottom-color: #ffffff;
+  </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/28/%E5%90%8E%E7%AB%AF/php/php%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">php语法基础</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">PHP语法
+PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中
+
+ASP标记：&lt;% php代码 %&gt;短标记：  ，以上两种基本启用，如果要使用那么需要在配置文件中开启脚本标记: &lt; script script script language=”php”&gt;php代码&lt; / script&gt;标准标记（常用）：&lt;?php php代码 ?&gt;
+PHP注释行注释//: 后面的所有内容都是注释#: 与//一样
+块注释/* */
+PHP语句分隔符语句分隔符：在PHP照片那个，代码是以行为单位，系统需要通过判断行的结束，该结束通常都是一个符号：分号
+特殊说明
+PHP中标记结束符?&gt;有自带语句结束符的效果，最后一行PHP代码可以没有语句结束符”;”
+PHP中起始很多代码的书写并不是嵌入到HTML中，而是单独存在，通常书写习惯中就不建议使用标记结束符?&gt;,PHP会自动从开始到最后全部认为是PHP代码，从而解析。
+
+变量PHP是一种动态网站开发的脚本语言，动态语言特点是交互性，会有数据的传递，而PHP作为中间人，需要进行数据的传递，传递的前提就</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-28&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/php">php</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/php">php</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/05/28/%E9%94%99%E8%AF%AF/GO/%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/">
         <p class="h4 index-header">安装问题</p>
         
@@ -515,135 +612,6 @@ col_name column_definition
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/MySQL">MySQL</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">数据类型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Int类型
-
-属性
-UNSIGNED/SIGNED
-是否有符号
-
-
-ZEROFILL
-填充0（例如：0001）
-显式属性
-只不做任何修改
-
-
-AUTO_INCREMENT
-自增
-每张表一个
-必须是索引的一部分
-
-
-
-总结
-推荐不要使用UNSIGNED
-范围本质上没有大的改变
-UNSIGNED可能会有一处现象发生
-自增INT类型逐渐建议使用BIGINT
-
-数字类型• 单精度类型：FLOAT• 双精度类型：DOUBLE    单精度类型和双精度类型精度较低，M*G/G不一定等于M• 高精度类型：DECIMAL
-
-财务系统必须用DECIMAL类型FLOAT(M,D)/DOUBLE(M,D)/DECIMAL(M,D) 表示显示M位整数，其中D位位于小数点后面
-字符串类型
-BLOB =&gt; VARBINARYTEXT =&gt; VARCHAR
-
-在BLOB和TEXT列上创建索引时，必须制定索引前缀的长度
-VARCHAR和VARBINARY前缀长度是可选的。
-BLOB和TEXT列不能有默认值
-BLOB和TEXT列排序时只使用该列的前max_sort_length个字节
-
-mysql &gt;</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/25/%E5%90%8E%E7%AB%AF/Java/JVM/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA/">
-        <p class="h4 index-header">运行时数据区</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">运行时数据区
-
-Java虚拟机定义了若干种程序运行期间会使用到的运行时数据区,其中由一些会随着虚拟机启动而创建,随着虚拟机退出而销毁.另外一些则是与线程一一对应的,这些与线程对应的数据区域会随着线程开始和结束而创建和销毁.灰色的为单独线程私有的,红色的为多个线程共享的.即:
-
-每个线程:独立包括程序计数器、栈、本地栈线程间共享：堆、堆外内存（永久代或元空间、代码缓存）
-
-线程
-线程是一个程序里的运行单元。JVM允许一个应用有多个线程并行的执行。
-
-在Hotspot JVM里，每个线程都与操作系统的本地线程直接映射。
-
-当一个Java线程准备好执行以后，此时一个操作系统的本地线程也同事创建。Java线程执行终止后，本地线程也会回收。
-
-
-操作系统负责所有线程的安排调度到任何一个可用的CPU上。一旦本地线程初始化成功，它就会调用Java线程中的run()方法
-
-如果你是用jconsole或者是任何一个调试工具，都能看到在后台有许多线程在运行。这些后台线程不包括调用public static void main(String[])的main线程以及所有这个main线程自己创建的线程。
-
-这些</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/JVM">JVM</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/JVM">JVM</a>&nbsp;
           
         
       </div>

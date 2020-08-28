@@ -136,6 +136,104 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/11/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Synchronized/">
+        <p class="h4 index-header">Synchronized</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">synchronized的作用
+同步方法支持一种简单的策略来防止线程干扰和内存一致性错误：如果一个对象对多个线程可见，则对该对象变量的所有读取或写入都是通过同步方法完成的。
+
+能够保证在同一时刻最多只有一个线程执行该段代码，以达到保证并发安全的效果。
+Synchronized的地位
+Synchronized是Java的关键字，被Java语言原生支持
+是最基本的额互斥同步手段
+是并发编程中的元老级角色，是并发编程的必学内容
+
+不使用并发手段会有什么后果代码实战：两个线程同时a++，最后结果会比预计的少
+代码public class DisppearRequest1 implements Runnable{
+
+    static DisppearRequest1 instance = new DisppearRequest1();
+
+    static int i = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(in</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/11/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E5%B9%B6%E8%A1%8C%E6%B5%81%E5%92%8C%E4%B8%B2%E8%A1%8C%E6%B5%81/">
+        <p class="h4 index-header">并行流和串行流</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">并行流与串行流并行流就是把一个内容分成多个数据块，并用不同的线程分别处理每个数据块的流。Java 8 中将并行进行了优化，我们可以很容易的对数据进行并行操作。Stream API 可以声明性地通过 parallel() 与sequential() 在并行流与顺序流之间进行切换。
+Fork/Join 框架Fork/Join 框架：就是在必要的情况下，将一个大任务，进行拆分(fork)成若干个小任务（拆到不可再拆时），再将一个个的小任务运算的结果进行 join 汇总。
+
+
+Fork/Join 框架与传统线程池的区别
+采用 “工作窃取”模式（work-stealing）：    当执行新的任务时它可以将其拆分分成更小的任务执行，并将小任务加到线程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己的队列中。相对于一般的线程池实现,fork/join框架的优势体现在对其中包含的任务的处理方式上.在一般的线程池中,如果一个线程正在执行的任务由于某些原因无法继续运行,那么该线程会处于等待状态.而在fork/join框架实现中,如果某个子问题由于等待另外一个子问题的完成而无法继续运行.那么处理该</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/JS%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
         <p class="h4 index-header">JS命名规范</p>
         
@@ -543,110 +641,6 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符“-&gt;�
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD/">
-        <p class="h4 index-header">计算机网络性能</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">计算机网络的性能指标
-
-速率连接在计算机网络上的主机在数字信道上传送数据位数的速率，也成为data rate或bit rate单位是b/s,kb/s,Mb/s,Gb/s
-带宽数据通信领域中，数组信道所能传送的最高数据率单位是b/s,kb/s,Mb/s,Gb/s
-吞吐量在单位时间内通过某个网络的数据量；单位是b/s,kb/s,Mb/s,Gb/s
-时延
-
-时延带宽积
-
-往返时间RTT（Round-Trip Time）从发送方发送数据开始，到发送方收到接受方确认使用 ping 网址 测试
-利用率
-信道利用率：有数据通过时间/（有+无）数据通过时间
-网络利用率：信道利用率甲醛平均值
-
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/OSI/">
-        <p class="h4 index-header">OSI</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">OSI参考模型
-应用层 所有能产生网络流量的程序
-表示层 在传输之前是否进行加密或压缩处理 二进制 ASCII（编码和解码一致才不会乱码）
-会话层 查木马 neststat -n查看所有会话，netstat -nb查看会话是由谁建立的
-传输层 可靠传输（发送后需要确认） 流量控制 不可靠传输（发送数据包，不管结果，如果丢包，再次请求）
-网络层 负责选择最佳路径 规划IP地址
-数据链路层 帧的开始和结束 透明传输 差错校验
-物理层 接口标准 电器标准 如何在物理链路上传输更快的速度
-
-网络排错指导
-物理层故障 查看连接状态，查看发送和接受的数据包 
-数据链路层故障 MAC地址冲突，ADSL欠费，网速没办法协商，计算机连接到错误的VLAN 
-网络层故障 配置错误的IP地址，子网掩码，配置错误的网关，路由器没有配置到达目标网络的路由
-应用层故障 应用程序配置错误
-
-网络安全
-物理层安全 把不用的网线拔掉或者把这个口通过命令shut down
-数据链路层安全 ADSL，账户密码，VLAN交换机端口绑定MAC地址
-网络层安全 在路由器上使用ACL控制数据包流量，网络防火墙
-应用层安全 开发的应用</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
           
         
       </div>

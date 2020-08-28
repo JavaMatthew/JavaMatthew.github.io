@@ -136,6 +136,124 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/09/%E5%90%8E%E7%AB%AF/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+        <p class="h4 index-header">单例模式</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">单例模式饿汉式（静态常量）【可用】public class Singleton1 {
+    private final static Singleton1 INSTANCE = new Singleton1();
+
+    private Singleton1(){
+
+    }
+
+    public static Singleton1 getInstance() {
+        return INSTANCE;
+    }
+}
+饿汉式（静态代码块）（可用）public class Singleton2 {
+    private final static Singleton2 INSTANCE;
+
+    static {
+        INSTANCE = new Singleton2();
+    }
+
+    private Singleton2(){
+
+    }
+
+    public static Singleton2 getInstance() {
+        return INSTANCE;
+    }
+}
+懒汉式（线程不安全）【不可用】
+public </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/JVM/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+        <p class="h4 index-header">Java内存模型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">底层原理
+重要性：Java面试的必考知识点，只有学会了这个，才能说呢真正懂了并发。
+
+从Java代码到CPU指令的变化过程
+
+我们在Java代码中，使用的控制并发的手段例如synchronized关键字，最终也是要转化为CPU指令来生效的，我们来回顾一下从Java代码到最终执行的CPU指令的流程：
+
+最开始，我们编写的Java代码，是*.java文件
+在编译（javac命令）后，从刚才的.java文件会变出一个新的Java字节码文件（.class）
+JVM会执行刚才生成的字节码文件（*.class），并把字节码文件转化为机器指令
+机器指令可以直接在CPU上运行，也就是最终的程序执行
+
+而不同的JVM实现会带来不同的“翻译”，不同的CPU平台的机器指令又千差万别；所以我们在java代码层写的各种Lock，其实最后依赖的是JVM的具体实现（不同版本会有不同实现）和CPU的指令，才能帮我们达到线程安全的效果。由于最终效果依赖处理器，不同处理器结果不一样，这样无法保证并发安全，所以需要一个标准，让多线程运行的结果可预期，这个标准就是JMM。
+三兄弟：JVM内存结构 VS Java内存模型 VS</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/JVM">JVM</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/JVM">JVM</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
         <p class="h4 index-header">多线程八大核心面试问题总结</p>
         
@@ -567,102 +685,6 @@ Error和RuntimeException共同构成了非检查异常；IOException受检查异
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/01/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B8%E5%A4%A7%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-        <p class="h4 index-header">线程8大核心基础知识</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">多线程全部脉络
-
-多线程8大基础
-
-实现多线程的方法时1种2种还是4种
-实现多线程的官方正确方法：2种
-
-Oracle官网文档：There are two ways to create a new thread of execution. One is to declare a class to be a subclass of Thread. This subclass should override the run method of class Thread. An instance of the subclass can then be allocated and started. The other way to create a thread is to declare a class that implements the Runnable interface.创建一个新的执行线程有两种方法：一个是将一个类声明为Thread的子类，这个子类应该重写run类的方法Thread，然后可以分配并启动子类的实例。另一种方法来创建一个线程是声明实现类Runnable接口。
-两种方法</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-        <p class="h4 index-header">网络安全</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">网络安全数据存储安全应用程序安全操作系统安全网络安全物理安全用户安全教育
-计算机网络上的通信面来以下的四种威胁：（1） 截获–从网络上窃听他人的通信内容。（2） 中断–有意中断他人在网络上的通信（3） 篡改–故意篡改网络上传送的报文（4） 伪造–伪造信息在网络上传送截获信息的攻击称为被动攻击，而更改信息和拒绝用户使用资源的攻击称为主动攻击。
-恶意程序（rogue program）
-计算机病毒————会传染其他程序的程序，传染是通过修改其他程序来吧自身或其变种赋值进去完成的。
-计算机蠕虫————通过网络的通信功能将自身从一个结点发送到另一个结点并启动运行的程序。
-特洛伊木马————一种程序，它执行的功能超出所声称的功能
-逻辑炸弹————一种当运行环境满足某种特定条件时执行其他特殊功能的程序。
-
-木马程序
-查看会话 netstat -n 是否有可以的会话
-运行msconfig 服务 隐藏微软服务
-安装杀毒软件
-
-加密技术对称加密 优点：效率高        缺点：密钥不适合在网上传输 密钥维护麻烦
-非对称加密 加密密钥和解密密钥是不同 密钥对 公钥和私钥            公钥加密私钥</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-28&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
           
         
       </div>

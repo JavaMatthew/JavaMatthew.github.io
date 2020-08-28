@@ -136,6 +136,98 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/nginx/nginx%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">nginx安装</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">准备工作
+打开虚拟机，使用远程连接工具连接 linux 操作系统
+到 nginx 官网下载软件 http://nginx.org
+
+
+
+开始进行 nginx 安装
+安装 pcre 依赖第一步 联网下载 pcre 压缩文件依赖wget http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz
+
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/nginx">nginx</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/nginx">nginx</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/nginx/nginx%E4%BB%8B%E7%BB%8D/">
+        <p class="h4 index-header">nginx介绍</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">nginx基本概念nginx是什么，做什么事情Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好Nginx专为性能优化而开发，性能是其最重要的考量，实现上非常注重效率，能经受高负载的考研，有报告表明能支持高达50,000个并发连接数。
+正向代理在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问
+
+
+反向代理我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户其，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器IP地址。
+
+
+负载均衡单个服务器解决不了，我们增加服务器的数量，然后将请求分发到各个服务器上，将原先请求几种到单个服务器上的情况改为将请求分发到多个服务器中，将负载分发到不同的服务器，也就是我们所说的负载均衡
+
+
+动静分离为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/nginx">nginx</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/nginx">nginx</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/final/">
         <p class="h4 index-header">final</p>
         
@@ -635,124 +727,6 @@ ThreadMXBean代码演示
             <a href="/tags/Java">Java</a>&nbsp;
           
             <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/09/%E5%90%8E%E7%AB%AF/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-        <p class="h4 index-header">单例模式</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">单例模式饿汉式（静态常量）【可用】public class Singleton1 {
-    private final static Singleton1 INSTANCE = new Singleton1();
-
-    private Singleton1(){
-
-    }
-
-    public static Singleton1 getInstance() {
-        return INSTANCE;
-    }
-}
-饿汉式（静态代码块）（可用）public class Singleton2 {
-    private final static Singleton2 INSTANCE;
-
-    static {
-        INSTANCE = new Singleton2();
-    }
-
-    private Singleton2(){
-
-    }
-
-    public static Singleton2 getInstance() {
-        return INSTANCE;
-    }
-}
-懒汉式（线程不安全）【不可用】
-public </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/JVM/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
-        <p class="h4 index-header">Java内存模型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">底层原理
-重要性：Java面试的必考知识点，只有学会了这个，才能说呢真正懂了并发。
-
-从Java代码到CPU指令的变化过程
-
-我们在Java代码中，使用的控制并发的手段例如synchronized关键字，最终也是要转化为CPU指令来生效的，我们来回顾一下从Java代码到最终执行的CPU指令的流程：
-
-最开始，我们编写的Java代码，是*.java文件
-在编译（javac命令）后，从刚才的.java文件会变出一个新的Java字节码文件（.class）
-JVM会执行刚才生成的字节码文件（*.class），并把字节码文件转化为机器指令
-机器指令可以直接在CPU上运行，也就是最终的程序执行
-
-而不同的JVM实现会带来不同的“翻译”，不同的CPU平台的机器指令又千差万别；所以我们在java代码层写的各种Lock，其实最后依赖的是JVM的具体实现（不同版本会有不同实现）和CPU的指令，才能帮我们达到线程安全的效果。由于最终效果依赖处理器，不同处理器结果不一样，这样无法保证并发安全，所以需要一个标准，让多线程运行的结果可预期，这个标准就是JMM。
-三兄弟：JVM内存结构 VS Java内存模型 VS</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/JVM">JVM</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/JVM">JVM</a>&nbsp;
           
         
       </div>
