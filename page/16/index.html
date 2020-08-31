@@ -136,6 +136,120 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/24/%E5%89%8D%E7%AB%AF/JS/%E8%B5%8B%E5%80%BC%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
+        <p class="h4 index-header">赋值、浅拷贝和深拷贝的区别</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">赋值（Copy）赋值是将某一数值或对象赋给某个变量的过程，分为：
+
+基本数据类型：赋值，赋值之后两个变量互不影响
+
+引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响对基本类型进行赋值操作，两个变量互不影响。
+ // saucxs
+ let a = &quot;saucxs&quot;;
+ let b = a;
+ console.log(b);  // saucxs
+
+ a = &quot;change&quot;;
+ console.log(a);   // change
+
+ console.log(b);    // saucxs
+ 对引用类型进行赋址操作，两个变量指向同一个对象，改变变量 a 之后会影响变量 b，哪怕改变的只是对象 a 中的基本类型数据。
+ // saucxs
+ let a = {
+     name: &quot;saucxs&quot;,
+     book: {
+         title: &quot;You Don&#39;t Know JS&quot;,
+         price: &quot;45&quot;
+     </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-24&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/23/%E9%94%99%E8%AF%AF/HEXO%E7%9A%84%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">HEXO的图片上传问题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题状况
+如果你的hexo安装了img插件但是还是不显示，后台输出地址404。
+解决办法
+首先找到你的node_modules\hexo-asset-image@0.0.5@hexo-asset-image和node_modules\hexo-asset-image这两个文件包，删除。
+
+接下来
+ npm install https://github.com/CodeFalling/hexo-asset-image --save
+ 执行这条指令。
+
+打开/node_modules/hexo-asset-image/index.js，将内容更换为下面的代码
+ &#39;use strict&#39;;
+ var cheerio = require(&#39;cheerio&#39;);
+
+ // http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
+ function getPosition(str, m, i) {
+ return str.split(m, i).joi</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+            <a href="/categories/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
+          
+            <a href="/categories/%E5%9B%BE%E7%89%87">图片</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
+          
+            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/">
         <p class="h4 index-header">计算机网络</p>
         
@@ -571,96 +685,11 @@ Path：D:\Java\jdk1.8.0_191\bin
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/21/%E5%8D%9A%E5%AE%A2/hello-world/">
-        <p class="h4 index-header">Hello World</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server$ hexo server
-More info: Server
-Generate static files$ hexo generate
-More info: Generating
-Deploy to remote sites$ hexo deploy
-More info: Deployment
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          
-            <a href="/categories/HEXO">HEXO</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          
-            <a href="/tags/HEXO">HEXO</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/21/%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-        <p class="h4 index-header">我的第一篇博客</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">我的第一篇博客这是我的第一个博客，会记录一些我的学习经历，激励并警醒以后的自己
-主题参考指南Hevo网址一定要好好学习!!!!
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/15/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span>
+      <a class="extend prev" rel="prev" href="/page/15/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/17/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

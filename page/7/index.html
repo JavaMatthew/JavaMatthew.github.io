@@ -136,6 +136,111 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/SQL%E8%AF%AD%E5%8F%A5/">
+        <p class="h4 index-header">SQL语句</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SQL JOIN语法SELECT … FROM
+a,b
+WHERE a.x = b.x
+
+SELECT … FROM a
+INNER JOIN b
+on a.x = b.x
+
+SELECT … FROM a
+JOIN b
+on a.x = b.x
+Q：上述这些语法是否有区别？A：没有任何区别Q：哪个性能更好？A：没有任何区别A：好吧，如果要认真算的话，那么3最好，因为字节数最少Q：那为什么需要不同的语法？A：ANSI SQL 89、ANSI SQL 92语法标准A：ANSI 92标准开始支持OUTER JOINA：INNER JOIN可以省略INNER关键字
+算法• nested_loop join    • simple nested-loop join    • index nested-loop join    • block nested-loop join• classic hash join    • Only support in MariaDB• bached key access join    • from MySQL 5.6
+simple nested_loop </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E7%BB%B4%E6%8A%A4/">
+        <p class="h4 index-header">表的创建与维护</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">表
+表是关系数据库的核心
+表=关系
+表是记录的集合
+二维表格模型易于人类理解
+MySQL默认存储引擎都是基于行（记录）存储
+每行记录都是基于列进行组织的
+
+MySQL中数据库与表之间的关系
+
+CREATE TABLE语法CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+(create_definition,...)
+[table_options]
+[partition_options]
+create_definition:
+col_name column_definition
+| [CONSTRAINT [symbol]] PRIMARY KEY [index_type] 
+(index_col_name,...)
+[index_option] ...
+| {INDEX|KEY} [index_name] [index_type] (index_col_name,...)
+[index_option] ...
+| [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY]
+[index_name] [index_t</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
         <p class="h4 index-header">数据类型</p>
         
@@ -621,141 +726,11 @@ CountDownLatch是不能够重用的，如</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E9%98%9F%E5%88%97/">
-        <p class="h4 index-header">并发队列</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">为什么要适用队列
-队列可以在线程间传递数据：生产者消费者模式、银行转账
-考虑锁等线程安全问题的重任从你转移到了队列上
-
-什么是阻塞队列
-简介、地位
-
-阻塞队列是具有阻塞功能的队列，所以它首先是一个队列，其次是具有阻塞功能。
-通常，阻塞队列的一端是给生产者方数据用，另一端给消费者拿数据用。阻塞队列线程安全的，所以生产者和消费者都可以是多线程的
-
-
-阻塞功能：最有特色的两个带有阻塞功能的方法是
-
-take()方法：获取并逸出队列的头结点，一旦执行take的时候，队列里误数据，则阻塞，直到队列有数据
-
-put()方法：插入元素。但是如果队列已满，那么就无法继续插入，则阻塞，知道队列有了空闲空间
-
-是否有界（容量有多大）：这是一个非常重要的属性，无界队列意味着里面可以容纳非常多（Integer.MAX_VALUE,约为2的31次，是非常大的一个数，可以近似认为是无线容量）
-
-阻塞队列和线程池的关系：阻塞队列是线程池的重要组成部分
-
-
-BlockingQueue主要方法
-put，take
-add，remove，element
-offer，poll，peek
-
-常用实现
-ArrayBlocking</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/">
-        <p class="h4 index-header">并发容器</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">古老和过时的同步容器
-Vector和Hashtable
-并发性能差（synchronized修饰方法）
-
-
-ArrayList和HashMap
-虽然这两个类不是线程安全的，但是可以用Collections.synchronizedList(new ArrayList())和Collections.synchronizedMap(new HashMap&lt;K,V&gt;())使之变成线程安全的，用的同步代码块
-
-
-ConcurrentHashMap和CopyOnWriteArrayList
-取代同步的HashMap和同步的Arraylist（时代巨轮滚滚向前）
-绝大多数并发情况下，ConcurrentHashMap和CopyOnWriteArrayList的性能都更好
-
-
-
-ConcurrentHashMap（重点、面试常考）为什么需要ConcurrentHashMap
-为什么不用Collections.synchronizedMap()?
-为什么HashMap使线程不安全的？
-同时put碰撞导致数据丢失
-同时put扩容导致数据丢失
-死循环造成的CPU100%
-
-
-
-JDK1.7的C</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

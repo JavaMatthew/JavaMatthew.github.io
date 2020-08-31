@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    1.2k 字
+                    1.5k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      4 分钟
+                      5 分钟
                   </span>&nbsp;
                 
 
@@ -164,7 +164,9 @@
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <h2 id="使用脚本自动安装"><a href="#使用脚本自动安装" class="headerlink" title="使用脚本自动安装"></a>使用脚本自动安装</h2><pre><code class="shell">$ curl -fsSL get.docker.com -o get-docker.sh
-$ sh get-docker.sh --mirror Aliyun           # 从阿里云国内资源上下载</code></pre>
+$ sh get-docker.sh --mirror Aliyun           # 从阿里云国内资源上下载
+$ curl -L &quot;https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose # 安装docker compse
+$ chmod +x /usr/local/bin/docker-compose # 加可执行权限</code></pre>
 <h2 id="Ubuntu-16-04-、Debian8-、CentOS7"><a href="#Ubuntu-16-04-、Debian8-、CentOS7" class="headerlink" title="Ubuntu 16.04+、Debian8+、CentOS7"></a>Ubuntu 16.04+、Debian8+、CentOS7</h2><p>对于使用systemd的系统，请在<code>/etc/docker/daemon.json</code>中写入如下内容（如果文件不存在请新建该文件）</p>
 <pre><code class="json">{
     &quot;registry-mirrors&quot;: [
@@ -227,6 +229,27 @@ WORKDIR [工作目录]切换工作目录
 RUN 运行一个容器，后面可以接shell命令
 ADD [文件名] [粘贴的目标路径]复制文件，如果是压缩包并且格式为tar、gzip、bzip2、xz就会复制后解压缩
 EXPOSE &lt;端口1&gt; [&lt;端口2&gt; ...]暴露端口</code></pre>
+<h2 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker-compose"></a>Docker-compose</h2><blockquote>
+<p>Docker-Compose项目是Docker官方的开源项目，负责实现对Docker容器集群的快速编排。Docker-Compose将所管理的容器分为三层，分别是项目（project）-&gt;服务（service）-&gt;容器（container）。</p>
+</blockquote>
+<p>在<code>/usr/local/docker/tomcat/</code>下编写docker-compose.yml文件</p>
+<pre><code class="yml">version: &#39;4&#39; # docker-compose的版本号
+service: # 服务
+  tomcat: # 服务名（随便起名）
+    restart: always # 总是重启
+    image: tomcat:8.5.2   # 镜像名tomcat
+    container_name: tomcat:8.5.2 # 容器名
+    ports:
+      - 8080:8080
+
+  redis:
+    image: &quot;redis&quot;</code></pre>
+<p>如果没有tomcat：8.5.2会先下载然后再启动</p>
+<pre><code class="shell"># docker-compose命令必须在有docker-compose.yml文件所在的目录下，因为上下文
+docker-compose up # 运行配置文件
+docker-compose down # 删除容器
+docker-compose up -d # 运行配置文件中的服务，以守护态的形式
+docker-compose logs tomcat # 看tomcat容器日志</code></pre>
 
             <hr>
           </div>

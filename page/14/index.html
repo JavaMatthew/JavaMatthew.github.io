@@ -136,6 +136,123 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/08/%E5%89%8D%E7%AB%AF/Vue/%E9%94%9A%E7%82%B9%E6%A0%91/">
+        <p class="h4 index-header">锚点树</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">锚点树
+通过右侧的滚轮滚动，激活左侧目录，同时点击左侧目录右侧滚动
+锚点树代码
+&lt;template&gt;
+  &lt;div class=&quot;time-line&quot;&gt;
+    &lt;div v-for=&quot;(item,index) in array&quot;  :key=&quot;index&quot; class=&quot;time-item&quot; :id=&quot;&#39;timeline&#39; + index&quot; @click=&quot;scrolljump(item.fname)&quot;&gt;
+      &lt;!--点--&gt;
+      &lt;div class=&quot;time-item-point&quot;&gt;
+        &lt;div class=&quot;time-item-point-img&quot;  :class=&quot;active(item.fname)&quot;&gt;&lt;/div&gt;
+        &lt;div :class=&qu</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/Vue">Vue</a>&nbsp;
+          
+            <a href="/categories/%E9%94%9A%E7%82%B9%E6%A0%91">锚点树</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+            <a href="/tags/Vue">Vue</a>&nbsp;
+          
+            <a href="/tags/%E9%94%9A%E7%82%B9%E6%A0%91">锚点树</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        <p class="h4 index-header">Lambda表达式</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">主要内容
+Lambda 表达式
+函数式接口
+方法引用与构造器引用
+Stream API
+接口中的默认方法与静态方法
+新时间日期 API
+其他新特性
+
+Java 8新特性简介
+速度更快
+代码更少（增加了新的语法 Lambda 表达式）
+强大的 Stream API
+便于并行
+最大化减少空指针异常 Optional
+其中最为核心的为 Lambda 表达式与Stream API
+
+Lambda表达式
+Lambda表达式的基础语法：Java8中引入了一个新的操作符“-&gt;”该操作符成为箭头操作符或Lambda操作符 箭头操作符将Lambda表达式拆分成两部分： 左侧：Lambda表达式的参数列表 右侧：Lambda表达式中所需执行的功能，即Lambda体
+
+语法格式一：无参数，无返回值  ()-&gt;System.out.println(&quot;hello Lambda!&quot;);
+
+语法格式二：有一个参数，并且无返回值
+
+语法格式三：若只有一个参数，小括号可以省略不写
+
+语法格式四：又两个以上的参数，并且有多条语句
+
+语法格式五：若Lambda体中只有一条语句，return和</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD/">
         <p class="h4 index-header">计算机网络性能</p>
         
@@ -545,116 +662,11 @@ public class MyQueue{
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E5%90%8E%E7%AB%AF/Java/List/">
-        <p class="h4 index-header">List</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">链表ListArrayList（数组列表）
-java.utilClass ArrayList&lt;E&gt;java.lang.Objectextended by java.util.AbstractCollection&lt;E&gt;   extended by java.util.AbstractList&lt;E&gt;   extended by java.util.ArrayList\&lt;E&gt;
-
-
-
-
-构造方法（Constructor Summary）
-具体含义
-
-
-
-ArrayList()
-Constructs an empty list with an initial capacity of ten. 他是一个集合，通过add（E e） 添加
-
-
-
-
-
-Method Summary
-具体含义
-
-
-
-public boolean add(E e)
-Appends the specified element to the end of this list.
-
-
-public int size()
-Returns the number of elements in</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E5%90%8E%E7%AB%AF/Java/Iterator/">
-        <p class="h4 index-header">Iterator</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">iterator通常希望循环通过类集中的元素。例如，可能会希望显示每一个元素。到目前为止，处理这个问题的最简单方法是使用iterator，iterator是一个或者实现Iterator或者实现ListIterator接口的对象。 Iterator可以完成循环通过类集，从而获得或删除元素。 ListIterator扩展Iterator，允许双向遍历列表，并可以修改单元。
-对于执行List的类集，也可以通过调用ListIterator来获得迭代函数。正如上面解释的那样，列表迭代函数提供了前向或后向访问类集的能力，并可让你修改元素。否则， ListIterator如同Iterator功能一样
-public Iterator&lt;E&gt; iterator()Returns an iterator over the elements in this set. The elements are returned in no particular order.（返回一个迭代器针对于集合中所有的元素，元素不以特定的顺序返回）
-Interface Iterator&lt;E&gt;public i</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/13/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/13/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/15/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

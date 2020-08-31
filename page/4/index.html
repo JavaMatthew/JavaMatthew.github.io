@@ -136,6 +136,85 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/PreparedStatement%E5%92%8CStatement/">
+        <p class="h4 index-header">PreparedStatement和Statement</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">网上有很多文章讨论PrepardStatement与Statement的区别，不过要完完全全的作出比较难度很大，因为每个数据库对底层的实现及应用场合不一样，Oracle对PrepardStatement的支持最好，Mysql对PrepardStatement支持最差。Statement执行单个sql语句速度较快而PrepardStatement执行批处理的效率较高。
+以Oracle为例
+
+Statement为每一条Sql语句生成执行计划， 如果要执行两条sql语句 select colume from table where colume=1; select colume from table where colume=2; 会生成两个执行计划，一千个查询就生成一千个执行计划。而生成计划是非常消耗资源的
+
+PreparedStatement用于使用绑定变量重用执行计划 select * from xxx.sometable t where t.id=?; 通过set方法给sql语句按占位符”?”先后顺序赋值，只需要生成一个执行计划，可以重复使用。
+
+
+当处理批量SQL语句时，这个时候就</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E9%98%BF%E9%87%8C%E9%9D%A2%E8%AF%95%E9%A2%98/">
+        <p class="h4 index-header">前端/JS/堆栈练习题/阿里面试题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">let a = {
+    n:1
+}
+let b = a
+a.x = a = {
+    n:2
+}
+
+console.log(a.x)
+console.log(b)</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/">
         <p class="h4 index-header">前端/JS/堆栈练习题/数据类型检测</p>
         
@@ -502,121 +581,11 @@ sum(10,20,30)
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E5%88%A4%E6%96%AD%E6%95%B0%E5%AD%97%E6%A1%88%E4%BE%8B/">
-        <p class="h4 index-header">前端/JS/JS样例/判断数字案例</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-
-    
-    
-    
-    案例练习
-    
-        #numInp,#submit{
-            box-sizing: border-box;
-            padding: 0 15px;
-            height: 35px;
-            border: 2px solid red;
-        }
-        #submit{
-            cursor: pointer;
-        }
-    
-
-
-    
-    点击计算
-    
-        let numInp = document.getElementById('numInp')
-        let submit = document.getElementById('submit')
-
-        submit.onclick = function () {
-            //1.获取文本框种的信息
-            let n = numInp.value
-            // c</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E7%82%B9%E5%87%BB%E5%8F%98%E8%89%B2/">
-        <p class="h4 index-header">前端/JS/JS样例/点击变色</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-
-    
-    
-    Document
-    
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
-        html,body {
-            width: 100%;/* 可以省略 */
-            height: 100%;
-            overflow: hidden;
-        }
-
-        button {
-            margin: 20px;
-            padding: 40px;
-            line-height: 40px;
-        }
-    
-
-
-    点击变颜色白->红->绿->蓝->白...
-    
-    
-        let body = document.body
-        let changeBtn = document.getElementById('changeBtn')
-        let i = 0
-        </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

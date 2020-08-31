@@ -136,6 +136,159 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+        <p class="h4 index-header">线程池</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">线程池的自我介绍
+如果不使用线程池，每个任务都新开一个线程处理
+一个线程
+for循环创建线程
+当任务数量上升到1000
+
+
+这样开销太大，我们希望有固定数量的线程，来执行这1000个线程，这样就避免了反复创建闭关销毁线程锁带来的开销问题。
+
+为什么要使用线程池
+问题一：反复创建线程开销大
+
+问题二：过多的线程会占用太多内存
+
+解决以上两个问题的思路
+
+用少量的线程————避免内存占用过多
+让这部分线程都保持工作且可用反复执行任务————避免生命周期的损耗
+
+
+
+线程池的好处
+加快响应速度
+合理利用CPU和内存
+统一管理
+
+线程池使用应用的场合
+服务器接收到大量请求时，使用线程池技术时非常合适的，他可以大大减少线程的创建和销毁次数，提高服务器的工作效率
+实际上，在开发中，如果需要创建5个以上的线程，那么就可用使用线程池来管理
+
+创建和停止线程池线程池构造函数的参数
+
+参数中的corePoolSize和maxPoolSize
+corePoolSize指的是核心线程数:线程池在完成初始化后，默认情况下，线程池中并没有任何线程，线程池会等待会任务到来时。再创建新线程区执行任务
+线程池会可能胡i</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/12/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%AD%BB%E9%94%81/">
+        <p class="h4 index-header">死锁</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是死锁
+发生在并发中
+互不相让：当两个（或更多）线程（或进程）相互持有对方所需要的资源，又不主动释放，导致所有人都无法继续前进，导致程序陷入无尽的阻塞，这就是死锁
+
+
+
+
+死锁的影响死锁的影响在不同系统中是不一样的，这取决于系统对死锁的处理能力
+
+数据库中：检测并放弃事务
+JVM中：：无法自动处理
+
+几率不高但危害大
+不一定发生，但是遵守“墨菲定律”
+一旦发生，多是高并发常见，影响用户多
+整个系统崩溃、子系统崩溃、性能降低
+压力测试无法找出所有潜在的死锁
+
+实际生产中的里斯：转账
+需要两把锁
+获取两把锁成功，且余额大于0，则扣除转出人，增加收款人的余额，是原子操作
+
+死锁的4个必要条件
+互斥条件
+请求与保持条件
+不剥夺条件
+循环等待
+
+缺一不可，这个分析之前的例子
+如何定位死锁
+jstack
+ThreadMXBean代码演示
+
+修复死锁的策略
+线上问题都需要防患于未然，不造成损失地扑灭几乎已经是不可能
+保存案发现场然后立刻重启服务器
+暂时保证线上服务的安全，然后在利用刚才保存的信息，排查死锁，修改代码，重新发版
+
+常见修复策略
+避免策略：哲学家就餐的换手方案、转账换序方案
+
+死锁避</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/09/%E5%90%8E%E7%AB%AF/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
         <p class="h4 index-header">单例模式</p>
         
@@ -620,82 +773,11 @@ Terminated
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/03/%E5%90%8E%E7%AB%AF/Java/%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90native%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">如何分析native方法</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">分析navative方法
-进入github（也可以进openJDK网站）
-点“搜索文件”，搜索对应的c代码类Thread.c
-找到native方法对应的方法名
-去src/htspot/share/prims/jvm.cpp里看cpp代码
-
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/02/%E5%90%8E%E7%AB%AF/Java/Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB/">
-        <p class="h4 index-header">Java异常体系</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-Error和RuntimeException共同构成了非检查异常；IOException受检查异常，应该对其提前进行处理，提供程序的健壮性。
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

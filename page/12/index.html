@@ -136,6 +136,128 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/20/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/NIO/NIO%E4%B8%8EIO%E5%8C%BA%E5%88%AB/">
+        <p class="h4 index-header">NIO与IO区别</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">NIO主要内容
+Java NIO简介
+Java NIO 与 IO 的主要区别
+缓冲区(Buffer)和通道(Channel)
+文件通道(FileChannel)
+NIO 的非阻塞式网络通信
+选择器(Selector)
+SocketChannel、ServerSocketChannel、DatagramChannel
+
+
+管道(Pipe)
+Java NIO2 (Path、Paths 与 Files
+
+Java NIO简介Java NIO（New IO）是从Java 1.4版本开始引入的一个新的IO API，可以替代标准的Java IO API。NIO与原来的IO有同样的作用和目的，但是使用的方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。
+Java NIO 与 IO 的主要区别
+
+
+IO
+NIO
+
+
+
+面向流(Stream Oriented)
+面向缓冲区(Buffer Oriented)
+
+
+阻塞IO(Blocking IO)
+非阻塞IO(Non Blocking IO)
+
+
+(无)
+选择器(Selectors)
+
+
+通道（Chann</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          
+            <a href="/categories/NIO">NIO</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/18/%E5%89%8D%E7%AB%AF/Vue/vuex/">
+        <p class="h4 index-header">vuex</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">vuex理解vuex 是什么1) github 站点: https://github.com/vuejs/vuex2) 在线文档: https://vuex.vuejs.org/zh-cn/3) 简单来说: 对 vue 应用中多个组件的共享状态进行集中式的管理(读/写)
+使用vuex后，页面的属性就多store,getters属性了
+状态自管理应用1) state: 驱动应用的数据源2) view: 以声明方式将 state 映射到视图3) actions: 响应在 view 上的用户输入导致的状态变化(包含 n 个更新状态的方法)
+
+
+多组件共享状态的问题1) 多个视图依赖于同一状态2) 来自不同视图的行为需要变更同一状态3) 以前的解决办法a. 将数据以及操作数据的行为都定义在父组件b. 将数据以及操作数据的行为传递给需要的各个子组件(有可能需要多级传递)4) vuex 就是用来解决这个问题的
+
+
+vuex 核心概念和 APIstate1) vuex 管理的状态对象2) 它应该是唯一的
+const state = {
+xxx: initValue
+}
+mutations1) 包含多</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/Vue">Vue</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Vue">Vue</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/18/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/JUC/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
         <p class="h4 index-header">线程安全</p>
         
@@ -530,107 +652,11 @@ TemporalAdjusters : 该类通过静态方法提供了大量的常用 TemporalAdj
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">接口中的默认方法与静态方法</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">接口中的默认方法接口默认方法的”类优先”原则
-若一个接口中定义了一个默认方法，而另外一个父类或接口中又定义了一个同名的方法时    - 选择父类中的方法。如果一个父类提供了具体的实现，那么接口中具有相同名称和参数的默认方法会被忽略。    - 接口冲突。如果一个父接口提供一个默认方法，而另一个接口也提供了一个具有相同名称和参数列表的方法（不管方法是否是默认方法），那么必须覆盖该方法来解决冲突。
-
-public class Fclass {
-    public String Xiao(){
-        return &quot;呵呵呵呵呵呵&quot;;
-    }
-}
-public interface MyInterface1 {
-    default String Xiao(){
-        return &quot;哈哈哈哈哈哈&quot;;
-    }
-}
-public interface MyInterface2 {
-    default String Xiao(){
-        return &quot;嘿嘿嘿嘿嘿嘿嘿&quot;;
-    }
-}
-impo</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Optional%E7%B1%BB/">
-        <p class="h4 index-header">Optional类</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Optional 类
-Optional&lt;T&gt; 类(java.util.Optional) 是一个容器类，代表一个值存在或不存在，原来用 null 表示一个值不存在，现在 Optional 可以更好的表达这个概念。并且可以避免空指针异常。
-
-常用方法：Optional.of(T t) : 创建一个 Optional 实例Optional.empty() : 创建一个空的 Optional 实例Optional.ofNullable(T t):若 t 不为 null,创建 Optional 实例,否则创建空实例isPresent() : 判断是否包含值orElse(T t) : 如果调用对象包含值，返回该值，否则返回torElseGet(Supplier s) :如果调用对象包含值，返回该值，否则返回 s 获取的值map(Function f): 如果有值对其处理，并返回处理后的Optional，否则返回 Optional.empty()flatMap(Function mapper):与 map 类似，要求返回值必须是Option
-public class TestOptio</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
