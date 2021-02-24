@@ -136,504 +136,587 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%B1%82/">
-        <p class="h4 index-header">网络层</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">网络层提供的服务网络层协议网络层如何转发数据包网络设备IP协议    RIP    OSPFARP协议网际控制报文 ICMPInternet组播管理协议 IGMPIP数据包格式...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/02/%E5%89%8D%E7%AB%AF/JS/%E5%87%BD%E6%95%B0/">
-        <p class="h4 index-header">函数</p>
+      <a href="/2020/04/10/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/AQS/">
+        <p class="h4 index-header">AQS</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">函数 function
-函数就是一个方法或者一个功能体，函数就是把实现某个功能的代码放到一起进行分装，以后想要操作实现这个功能，只需要把函数执行极客=&gt;”封装”减少页面中的冗余代码，提高代码重复使用率（高内聚低耦合）
+          <div class="index-text mb-1">学习AQS的思路
+学习AQS的目的主要是想理解原理、提高技术、以及应对面试
+先从应用层面理解为什么需要他如何使用它，然后再看一看我们Java代码的设计者是如何使用它的了解它的应用场景
+这样之后我们再去分析它的结构，这样的话我们就学习得更加轻松了
 
-洗衣机就是一个函数，生成洗衣机就是封装一个函数（把实现某些功能的代码封装进来），生产的时候，不知道用户洗衣服的时候放什么水、衣服、洗衣液，我们需要提供出入口（提供的入口在函数中叫形参，执行的时候放的具体东西函数中叫做实参）洗完衣服选哟能拿出来，洗衣机提供一个出口（在函数中叫做返回值：把函数处理后的结果能够返回给外面用）
-
-创建函数
-形参
-返回值
-
-
-执行函数
-实参
+为什么需要AQS
+锁和协作类有共同点：闸门
+我们已经学过了ReentrantLock和Semaphore，有没有发现他们有共同点？很相似?
+事实上，不仅是ReentrantLock和Semaphore，包括CountDownLatch、ReentrantReadWriteLock都有这样类似得协作（或叫同步）功能，起始他们底层都用了一个共同得基类，这就是AQS
 
 
-arguments
-函数底层运行机制
-…
+因为上面得那些协作类，它们有很多工作都是类似得，所以如果能提取出一个工具类，那么就可以直接用，对于ReentrantLock和Semaphore而言就可以屏蔽很多细节，只关注它们自己得“业务逻辑”就可以了
 
-创建函数//=&gt; ES5老方式
-function[函数名]([形参变量],...){
-    // 函数体：基于JS完成需要实现的功能
-    return [处理后的结果]
-}
+Semaphore和AQS得关系
+Semaphore内部有一个Sync类，Sync类继承了AQS
+CountDownLatch也是一样的
 
-[函数名]([实参1],...);
-</div>
+如果没有AQS
+就需要每个协作工具自</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/02/%E5%89%8D%E7%AB%AF/JS/%E5%85%83%E7%B4%A0%E5%AF%B9%E8%B1%A1/">
-        <p class="h4 index-header">元素对象</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">元素对象
-通过元素方法获取的元素使对象数据类型的值 let box = document.getElementById(&#39;box&#39;) console.dir(box)基于.dir可以看到一个对象的详细信息
-对象中的属性 id：操作元素的ID值 className：操作元素的CLASS样式类的值 innerHTML：操作的元素的内容（可以识别标签） innerText：和innerHTML的区别使不能识别标签 tagName：获取元素的标签名（一般大写） … style：操作元素的行内样式 属性值使一个新的对象（CSSStyleDeclaration）
-
-因此下面这种情况不可行
-let box = document.getElementId(&#39;box&#39;)
-let aa = box.style.backgroundColor
-aa = &#39;red&#39;
-因为backgroundColor是属性名，所以aa获得的是backgroundColor的值而box和style都是对象传递的是引用更改的是堆内存中的值（只要堆内存中值被修改，浏览器会基于DOM映</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/CSS/CSS%E6%A0%B7%E4%BE%8B/">
-        <p class="h4 index-header">CSS样例</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">鼠标滑过显示详情鼠标滑过显示详情
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/CSS">CSS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/CSS">CSS</a>&nbsp;
-          
-            <a href="/tags/%E6%A0%B7%E4%BE%8B">样例</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/">
-        <p class="h4 index-header">JS样例</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">鼠标滑过显示详情鼠标滑过显示详情
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/%E6%A0%B7%E4%BE%8B">样例</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/">
-        <p class="h4 index-header">JS中的逻辑语句</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">JS中的操作语句：判断、循环判断
-条件成立做什么? 不成立做什么?
-
-
-if/else if/ else
-三元运算符
-switch case
-
-
-if/else
- if(条件){
-     条件成立执行
- }else if(条件2){
-     条件2成立执行
- }
- ...
- else{
-     以上条件都不成立
- }
-
-== VS ===
- == ：相等（如果左右两百年数据值类型不同，是默认向转换为相同的类型，然后比较） &#39;5&#39; == 5  =&gt;TRUE === : 绝对相等（如果类型不一样，肯定不相等） &#39;5&#39; == 5  =&gt;FALSE 项目中为了保证业务的严谨，推荐使用===
-
-
-循环
-重复做某些事情就是循环
-
-
-for循环
-for in循环
-for of循环（ES6新增）
-while循环
-do while循环
-
-for infor(var 变量(key) in 对象)对象中有多少组键值对，循环就执行几次（除非break结束）
-var obj = {
-    name: &#39;春亮&#39;,
-    age: 52,
-   </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/">
-        <p class="h4 index-header">堆栈练习题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">阿里面试题&lt;% asset_img 阿里面试题.png 阿里面试题%&gt;根据js引擎语法解析，会先去从左到右寻找有没有未声明的变量，如果有就把该变量提升至作用域顶部并声明该变量。那么恭喜js引擎他找到a.x这个属性没有声明，那么他会在{n: 1}这个内存区声明一个x属性等待赋值！所以最终的执行顺序是先声明a.x，然后a的值变为{n:2}，最后a.x = a,注意这里的a.x已经不是现在的a.x，而是b.x因此，现在的a中只有{n:2}而没有x属性，所以a.x是undefined
-JS中的数据类型检测
-typeof[val] : 用来检测数据类型的运算符  基于typeof检测出来的结果
-
-首先是一个字符串
-
-字符串中包含对应的类型&lt;% asset_img typeof1.png typeof1%&gt;&lt;% asset_img typeof2.png typeof2%&gt;
-局限性
-
-typeof null =&gt; “object” 但是null并不是对象
-
-基于typeof无法细分出当前值是普通对象还是数组对象等，应为只要是对象数据类型，返回的结果都是”o</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/">
-        <p class="h4 index-header">忘记密码</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">如何强制更改Docker容器中的Mysql密码（忘记密码）问题描述使用docker容器时，通过镜像安装了Mysql5.7版本，但忘记了root密码，需要重新设置root密码
-解决步骤
-增加“忘记密码启动”模式
-
-重新设置root密码
-
-删掉“忘记密码启动”模式
-
-重启容器镜像即可
-
-
-具体操作
-通过docker exec命令进入容器内 docker exec -it mysql5.7.28 /bin/sh 注：mysql5.7.8是我安装mysql数据库的容器名
-
-编辑mysql配置文件，增加“忘记密码启动”模式：skip-grant-tables vi /etc/mysql/conf.d/docker.cnf 注：编辑的配置文件不是/etc/mysql/my.cnf，也不是/etc/mysql/mysql.cnf或/etc/mysql/conf.d/mysql.cnf 最终配置文件docker.cnf内容如下：
- [mysqld]
- skip-host-cache
- skip-name-resolve
- skip-grant-tables
-
-退出容器，重启容器实例
- vi /etc/</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
-        <p class="h4 index-header">数据链路层</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">封装成帧透明封装无差错接收点到点线路的数据链路层 PPP国博信道的数据链路层能 CSMA/CD以太网 集线器 网桥 交换机100M 1000M 10000M以太网...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/20/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/NIO/%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/">
-        <p class="h4 index-header">缓冲区的数据存取</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">缓冲区（buffer）的数据存取
-缓冲区（Buffer）：一个用于特定基本数据类型的容器。由 java.nio 包定义的，所有缓冲区都是 Buffer 抽象类的子类。
-Java NIO 中的 Buffer 主要用于与 NIO 通道进行交互，数据是从通道读入缓冲区，从缓冲区写入通道中的。
-
-缓冲区（Buffer）：在Java NIO中负责数据的 存取。缓冲区就是数组，用于存储不同数据类型的数据
-根据数据类型不同（boolean除外），提供了相应类型的缓冲区：
-
-ByteBuffer
-CharBuffer
-ShortBuffer
-IntBuffer
-LongBuffer
-FloatBuffer
-DoubleBuffer
-
-上述缓冲区的管理方式几乎一致，通过allocate()获取缓存区。static XxxBuffer allocate(int capacity) : 创建一个容量为 capacity 的 XxxBuffer 对象
-缓冲区的基本属性Buffer 中的重要概念：
-
-容量 (capacity) ：表示 Buffer 最大数据容量，缓冲区容量不能为负，并且创建后不能更改。
-限制 </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/NIO">NIO</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/10/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%B5%81%E7%A8%8B/">
+        <p class="h4 index-header">并发流程</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是控制并发流程
+控制并发流程的工具类，作用就是帮助我们程序眼更容易得让线程之间合作
+让线程之间相互配合，来满足业务逻辑
+比如让线程A等待线程B执行完毕后再执行等合作策略
+
+
+
+CountDownLatch倒计时门闩CountDownLatch类的作用并发流程控制工具
+
+倒数门闩
+例子：购物拼团；大巴（游乐园坐过山车排队），人满发车
+流程：倒数结束之前，一直处于等待状态，直到倒计时结束了，此线程才继续工作。
+
+类的主要方法介绍
+CountDownLatch（int count）：仅有一个构造函数，参数count为需要倒数的数值。
+await（）：调用await（）方法的线程会被挂起，它会等待直到count值为0才继续执行
+countDown（）：将count值减1，直到为0时，等待的线程会被唤起。
+
+
+
+两个典型用法
+类的主要方法介绍
+用法一：一个线程邓艾多个线程都执行完毕，再继续自己的工作。
+用法二：多个线程等待某一个线程的信号，同时开始执行。
+
+CountDownLatch注意点
+扩展用法：多个线程等待多个线程完成执行后，再同时执行
+CountDownLatch是不能够重用的，如</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E9%98%9F%E5%88%97/">
+        <p class="h4 index-header">并发队列</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">为什么要适用队列
+队列可以在线程间传递数据：生产者消费者模式、银行转账
+考虑锁等线程安全问题的重任从你转移到了队列上
+
+什么是阻塞队列
+简介、地位
+
+阻塞队列是具有阻塞功能的队列，所以它首先是一个队列，其次是具有阻塞功能。
+通常，阻塞队列的一端是给生产者方数据用，另一端给消费者拿数据用。阻塞队列线程安全的，所以生产者和消费者都可以是多线程的
+
+
+阻塞功能：最有特色的两个带有阻塞功能的方法是
+
+take()方法：获取并逸出队列的头结点，一旦执行take的时候，队列里误数据，则阻塞，直到队列有数据
+
+put()方法：插入元素。但是如果队列已满，那么就无法继续插入，则阻塞，知道队列有了空闲空间
+
+是否有界（容量有多大）：这是一个非常重要的属性，无界队列意味着里面可以容纳非常多（Integer.MAX_VALUE,约为2的31次，是非常大的一个数，可以近似认为是无线容量）
+
+阻塞队列和线程池的关系：阻塞队列是线程池的重要组成部分
+
+
+BlockingQueue主要方法
+put，take
+add，remove，element
+offer，poll，peek
+
+常用实现
+ArrayBlocking</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/">
+        <p class="h4 index-header">并发容器</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">古老和过时的同步容器
+Vector和Hashtable
+并发性能差（synchronized修饰方法）
+
+
+ArrayList和HashMap
+虽然这两个类不是线程安全的，但是可以用Collections.synchronizedList(new ArrayList())和Collections.synchronizedMap(new HashMap&lt;K,V&gt;())使之变成线程安全的，用的同步代码块
+
+
+ConcurrentHashMap和CopyOnWriteArrayList
+取代同步的HashMap和同步的Arraylist（时代巨轮滚滚向前）
+绝大多数并发情况下，ConcurrentHashMap和CopyOnWriteArrayList的性能都更好
+
+
+
+ConcurrentHashMap（重点、面试常考）为什么需要ConcurrentHashMap
+为什么不用Collections.synchronizedMap()?
+为什么HashMap使线程不安全的？
+同时put碰撞导致数据丢失
+同时put扩容导致数据丢失
+死循环造成的CPU100%
+
+
+
+JDK1.7的C</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/nginx/nginx%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">nginx安装</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">准备工作
+打开虚拟机，使用远程连接工具连接 linux 操作系统
+到 nginx 官网下载软件 http://nginx.org
+
+
+
+开始进行 nginx 安装
+安装 pcre 依赖第一步 联网下载 pcre 压缩文件依赖wget http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz
+
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/nginx">nginx</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/nginx">nginx</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/nginx/nginx%E4%BB%8B%E7%BB%8D/">
+        <p class="h4 index-header">nginx介绍</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">nginx基本概念nginx是什么，做什么事情Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好Nginx专为性能优化而开发，性能是其最重要的考量，实现上非常注重效率，能经受高负载的考研，有报告表明能支持高达50,000个并发连接数。
+正向代理在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问
+
+
+反向代理我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户其，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器IP地址。
+
+
+负载均衡单个服务器解决不了，我们增加服务器的数量，然后将请求分发到各个服务器上，将原先请求几种到单个服务器上的情况改为将请求分发到多个服务器中，将负载分发到不同的服务器，也就是我们所说的负载均衡
+
+
+动静分离为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/nginx">nginx</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/nginx">nginx</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/final/">
+        <p class="h4 index-header">final</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">final关键字和不变性
+什么是不变性（Immutable）
+final的作用
+3中用法：修饰变量、方法、类
+
+什么是不变性（Immutable）
+如果对象在被创建后，状态就不能被修改，那么它就是不可变的
+具有不变性的对象一定是线程安全的，我们不需要对其采取任何额外的安全措施，也能保证线程安全。
+
+final的作用
+早期
+锁定
+效率：早期的Java实现版本中，会将final方法转为内嵌调用
+
+
+现在
+类防止被继承、方法防止被重写、变量防止被修改
+天生是线程安全的，而不需要额外的同步开销
+
+
+
+final的3种用法final修饰变量
+含义：被final修饰的变量，意味着值不能被修改。如果变量是对象，那么对象的引用不能变，但是对象自身的内容依然可以变化
+
+final Person person = new Person();
+person = new Person();// 会报错
+person.bag = &quot;book&quot;;
+final修饰：3种变量
+final instance variable(类中的final属性)
+final static variable(类中的</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/01/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/CAS/">
+        <p class="h4 index-header">CAS</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是CAS
+并发
+我认为V的值应该是A，如果是的话那我就把它改成B，如果不是A（说明被别人修改过了），那我就不修改了，避免多人同时修改导致出错
+CAS有三个操作数：内存值V、预期值A、要修改的值B，当且仅当预期值A和内存之V相同时，才将内存值修改为B，否则什么都不做。最后返回现在的V值
+CPU的特殊指令
+CAS的等价代码（语义）
+
+public class SimulatedCAS {
+    private volatile int value;
+
+    public synchronized int compareAndSwap(int expectedValue, int newValue) {
+        int oldValue = value;
+        if (oldValue == expectedValue) {
+            value = newValue;
+        }
+        return oldValue;
+    }
+}
+应用场景
+乐观锁
+并发容器
+原子类
+
+以AtomicInteger为例，分析在Java中是如何利用</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/30/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%8E%9F%E5%AD%90%E7%B1%BB/">
+        <p class="h4 index-header">原子类</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么时原子类，有什么作用
+原子类的作用和锁类似，是为了保证并发情况下线程安全。不过原子类相比于锁，有一定的优势：
+粒度更细：原子变量可以把竞争范围缩小到比变量级别，这是我们可以获得的最细粒度的情况了，通常锁的粒度都要大于原子变量的粒度
+效率更高：通常，适用原子类的效率会比使用锁的效率更高，除了高度竞争的情况。
+
+6类原子类纵览
+
+AtomicInteger常用方法
+public final int get() //获取当前的值
+public final int getAndSet(int newValue) //获取当前的值，并设置新的值
+public final int getAndIncrement() // 获取当前的值，并自增
+public final int getAndDecrement() // 获取当前的值，并自减
+public final int getAndAdd(int delta) // 获取当前的值，并加上预期的值
+boolean compareAndSet(int expect,int update) // 如果单曲的数值等于预期值，则以原子方式将该值设置为</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-30&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/27/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E9%94%81/">
+        <p class="h4 index-header">锁</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">锁的分类
+这些分类，是从各种不同角度出发去看的
+这些分类并不是互斥的，也就是多个类型可以并存：有可能一个锁，同时属于两种类型
+比如ReentrantLock既是互斥锁，又是可重入锁
+好比一个人可以同时时男人，又是军人
+
+
+
+互斥同步锁为什么会诞生非互斥同步锁————互斥同步锁的劣势
+互斥同步锁的劣势
+阻塞和唤醒带来的性能劣势
+永久阻塞：如果持有锁的线程被永久阻塞，比如遇到了无线循环、死锁等活跃性问题，那么等待该线程释放锁的那几个悲催的线程，将永远也得不到执行。
+优先级反转
+
+
+
+什么是乐观锁和悲观锁
+从是否锁住资源的角度分类
+
+悲观锁（互斥同步锁）
+如果我不锁住这个资源，别人就会来抢，就会造成数据结果错误，所有每次悲观锁为了确保结果的正确性，会在每次获取并修改数据时，把数据锁住，让别人无法访问该数据，这样就可以确保数据内容万无一失。
+Java中的悲观锁的实现就是synchronized和Lock相关类
+
+乐观锁（非互斥同步锁）
+认为自己在处理操作的时候不会有其他线程来干扰，所以并不会锁住被操作对象
+在更新的时候，去对比在我修改的期间数据有没有被其他人改变过：如果没被改变过，就说明真的是</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-27&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -644,7 +727,7 @@ DoubleBuffer
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/10/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/10/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/12/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

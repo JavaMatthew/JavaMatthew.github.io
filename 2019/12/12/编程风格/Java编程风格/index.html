@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    381 字
+                    602 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      2 分钟
                   </span>&nbsp;
                 
 
@@ -163,7 +163,26 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="实体类编写规范"><a href="#实体类编写规范" class="headerlink" title="实体类编写规范"></a>实体类编写规范</h2><pre><code class="java">/**
+            <h2 id="实体类编写规范"><a href="#实体类编写规范" class="headerlink" title="实体类编写规范"></a>实体类编写规范</h2><p>一般都是使用@DateTimeFormat把传给后台的时间字符串转成Date，使用@JsonFormat把后台传出的Date转成时间字符串，但是@DateTimeFormat只会在类似@RequestParam的请求参数（url拼接的参数才生效，如果是放到RequestBody中的form-data也是无效的）上生效，如果@DateTimeFormat放到@RequestBody下是无效的。</p>
+<p>在@RequestBody中则可以使用@JsonFormat把传给后台的时间字符串转成Date，也就是说@JsonFormat其实既可以把传给后台的时间字符串转成Date也可以把后台传出的Date转成时间字符串。</p>
+<pre><code class="java">@Data
+@ApiModel(&quot;礼堂入参&quot;)
+public class WeddingAppointmentHallPagePO {
+    @ApiModelProperty(&quot;cpId&quot;)
+    @NotNull
+    private Integer cpId;
+
+    @ApiModelProperty(&quot;页码，20条为1页&quot;)
+    @NotNull
+    @Min(value = 2,message = &quot;页码最小为2&quot;)
+    private Integer page;
+
+    @ApiModelProperty(&quot;日期&quot;)
+    @NotNull
+    @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;GMT+8&quot;)
+    private Date date;
+}</code></pre>
+<h2 id="controller编写规范"><a href="#controller编写规范" class="headerlink" title="controller编写规范"></a>controller编写规范</h2><pre><code class="java">/**
  * 通过卷宗主键和创建人Id获得批注列表，以最后修改时间升序排列
  * @return 批注实体列表
  * @author dingjsh

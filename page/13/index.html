@@ -136,133 +136,36 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">接口中的默认方法与静态方法</p>
+      <a href="/2020/03/04/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%847%E4%B8%AA%E9%87%8D%E8%A6%81%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">线程的7个重要方法</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">接口中的默认方法接口默认方法的”类优先”原则
-若一个接口中定义了一个默认方法，而另外一个父类或接口中又定义了一个同名的方法时    - 选择父类中的方法。如果一个父类提供了具体的实现，那么接口中具有相同名称和参数的默认方法会被忽略。    - 接口冲突。如果一个父接口提供一个默认方法，而另一个接口也提供了一个具有相同名称和参数列表的方法（不管方法是否是默认方法），那么必须覆盖该方法来解决冲突。
+          <div class="index-text mb-1">Thread和Object类中的重要方法详解方法概览
 
-public class Fclass {
-    public String Xiao(){
-        return &quot;呵呵呵呵呵呵&quot;;
-    }
-}
-public interface MyInterface1 {
-    default String Xiao(){
-        return &quot;哈哈哈哈哈哈&quot;;
-    }
-}
-public interface MyInterface2 {
-    default String Xiao(){
-        return &quot;嘿嘿嘿嘿嘿嘿嘿&quot;;
-    }
-}
-impo</div>
+wait,notify,notifyAll方法详解
+用必须先拥有monitor
+notify只能唤醒其中一个
+属于Object类
+类似功能的Condition
+同时持有多个锁的情况，让一个线程wait必须让他释放所有的锁，否则会进入死锁因为如果程序不运行完，而单一的线程运行完并不会释放这个线程当前持有的锁
+
+notify唤醒的对象必须是调用wait的对象要不无法唤醒。
+public class WaitNotifyReleaseOwnMonitor {
+    private static volatile Object resourceA = new Object();
+    private static volatile Object resourceB = new Object();
+
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(() -&gt; {
+            synchronized (re</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Optional%E7%B1%BB/">
-        <p class="h4 index-header">Optional类</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Optional 类
-Optional&lt;T&gt; 类(java.util.Optional) 是一个容器类，代表一个值存在或不存在，原来用 null 表示一个值不存在，现在 Optional 可以更好的表达这个概念。并且可以避免空指针异常。
-
-常用方法：Optional.of(T t) : 创建一个 Optional 实例Optional.empty() : 创建一个空的 Optional 实例Optional.ofNullable(T t):若 t 不为 null,创建 Optional 实例,否则创建空实例isPresent() : 判断是否包含值orElse(T t) : 如果调用对象包含值，返回该值，否则返回torElseGet(Supplier s) :如果调用对象包含值，返回该值，否则返回 s 获取的值map(Function f): 如果有值对其处理，并返回处理后的Optional，否则返回 Optional.empty()flatMap(Function mapper):与 map 类似，要求返回值必须是Option
-public class TestOptio</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/11/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Synchronized/">
-        <p class="h4 index-header">Synchronized</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">synchronized的作用
-同步方法支持一种简单的策略来防止线程干扰和内存一致性错误：如果一个对象对多个线程可见，则对该对象变量的所有读取或写入都是通过同步方法完成的。
-
-能够保证在同一时刻最多只有一个线程执行该段代码，以达到保证并发安全的效果。
-Synchronized的地位
-Synchronized是Java的关键字，被Java语言原生支持
-是最基本的额互斥同步手段
-是并发编程中的元老级角色，是并发编程的必学内容
-
-不使用并发手段会有什么后果代码实战：两个线程同时a++，最后结果会比预计的少
-代码public class DisppearRequest1 implements Runnable{
-
-    static DisppearRequest1 instance = new DisppearRequest1();
-
-    static int i = 0;
-
-    public static void main(String[] args) throws InterruptedException {
-        Thread t1 = new Thread(in</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-11&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-04&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -288,302 +191,53 @@ Synchronized是Java的关键字，被Java语言原生支持
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/11/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E5%B9%B6%E8%A1%8C%E6%B5%81%E5%92%8C%E4%B8%B2%E8%A1%8C%E6%B5%81/">
-        <p class="h4 index-header">并行流和串行流</p>
+      <a href="/2020/03/03/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+        <p class="h4 index-header">线程的生命周期</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">并行流与串行流并行流就是把一个内容分成多个数据块，并用不同的线程分别处理每个数据块的流。Java 8 中将并行进行了优化，我们可以很容易的对数据进行并行操作。Stream API 可以声明性地通过 parallel() 与sequential() 在并行流与顺序流之间进行切换。
-Fork/Join 框架Fork/Join 框架：就是在必要的情况下，将一个大任务，进行拆分(fork)成若干个小任务（拆到不可再拆时），再将一个个的小任务运算的结果进行 join 汇总。
-
-
-Fork/Join 框架与传统线程池的区别
-采用 “工作窃取”模式（work-stealing）：    当执行新的任务时它可以将其拆分分成更小的任务执行，并将小任务加到线程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己的队列中。相对于一般的线程池实现,fork/join框架的优势体现在对其中包含的任务的处理方式上.在一般的线程池中,如果一个线程正在执行的任务由于某些原因无法继续运行,那么该线程会处于等待状态.而在fork/join框架实现中,如果某个子问题由于等待另外一个子问题的完成而无法继续运行.那么处理该</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/JS%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
-        <p class="h4 index-header">JS命名规范</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">JS中的命名规范
-严格区分大小写
-
-let Test=100;
-console.log(test);//=&gt;无法输出，因为第一个字母小写了
-
-使用数字、字母、下划线、$，数字不能作为开头
-
-let $box; //=&gt;一般用JQ获取的以$开头
-let _box; //=&gt;一般公共变量都是_开头
-let 1box; //=&gt;不可以，但是可以写box1
-
-使用驼峰命名法：首字母小写，其余每一个有意义单词的首字母都要大写（命名尽可能语义化明显，使用英文单词）
-
-let studentInformation;
-let studentInfo;
-//常用的缩写：add/insert/create/new（新增）、update（修改）、delete/del/remove/rm（删除）、sel/select/query/get（查询）、info（信息）...
-
-//不正确的写法
-let xueshengInfo;
-let xueshengxinxi;
-let xsxx;
-
-不能使用关键字和保留字
-
-当下有特殊含义的是关键字，未来可能会成为关键字的叫做保留字(？)
-var le</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E5%B8%B8%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8/">
-        <p class="h4 index-header">常用浏览器</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">常用的浏览器
-webkit内核(V8引擎)
-谷歌Chrome
-Safari
-Opera &gt;=V14
-国产浏览器
-手机浏览器
-…
-
-
-Gecko
-火狐Firefox
-
-
-Presto
-Opera &lt;V14
-
-
-Trident
-IE
-IE EDGE开始采用双内核（其中包含chrome迷你）
+          <div class="index-text mb-1">线程的生命周期
+New
+Runnable
+Blocked
+Waiting
+Time Waiting
+Terminated
 
 
 
-谷歌浏览器的控制台（F12/Fn+F12）    - Elements：查看结构样式，可以修改这些内容    - Console：查看输出结果和报错信息，是JS调试的利器    - Sources：查看项目源码    - Network：查看当前网站所有资源的请求信息（包括和服务器传输的HTTP报文信息）、加载时间等（根据加载时间进行项目优化）    - Application：查看当前网站的数据存储和资源文件（可以盗图）
-JS做客户端语言
-按照相关的JS语法，去操作页面中的元素，有时还要操作浏览器里面的一些功能    - ECMAScript3/5/6…：JS的语法规范（变量、数据类型、操作语句等等）    - DOM（document object model）：文档对象模型，提供</div>
-        </div>
-      </a>
+阻塞状态一般习惯而言，把Blocked（被阻塞）、Waiting（等待）、Timed_waiting（计时等待）都称为阻塞状态不仅仅是Blocked。
+状态转化的特殊情况
+从Object.wait()状态刚被唤醒时，通常不能立刻抢到monitor锁，那就会从Waiting先进入Blocked状态，抢到锁后再转换到Runnable状态
+如果发生异常，可用直接跳到终止Terminated状态，不必再遵守路径，比如可用从Waiting直接到Terminated
 
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
+常见面试问题
+线程有哪几种状态？生命周期是什么？
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Stream/">
-        <p class="h4 index-header">Stream</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是 StreamJava8中有两大最为重要的改变。第一个是 Lambda 表达式；另外一个则是 Stream API(java.util.stream.*)。Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。使用Stream API 对集合数据进行操作，就类似于使用 SQL 执行的数据库查询。也可以使用 Stream API 来并行执行操作。简而言之，Stream API 提供了一种高效且易于使用的处理数据的方式。
-流(Stream) 到底是什么呢？是数据渠道，用于操作数据源（集合、数组等）所生成的元素序列。“集合讲的是数据，流讲的是计算！”注意：    1. Stream 自己不会存储元素。    2. Stream 不会改变源对象。相反，他们会返回一个持有结果的新Stream。    3. Stream 操作是延迟执行的。这意味着他们会等到需要结果的时候才执行。
-Stream 的操作三个步骤
-创建 Stream  一个数据源（如：集合、数组），获取一个流
-中间操作  一个中间操作链，对数据源的</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">
-        <p class="h4 index-header">数据过滤</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">filter对象中包含子对象如果需要用子对象中的属性过滤，需要用forEach套filter，然后再filter过滤
-// 声明中间变量，用于第一层filter过滤的深拷贝
-let newArr = []
-// 先将所有数据深拷贝给需要过滤的数据
-this.pzLeftData = JSON.parse(JSON.stringify(this.AllData))
-// 第一层过滤
-this.pzLeftData.forEach((value, index) =&gt; {
-    newArr[index] = value
-    // 将里层pzlist数组按照evidenceTypeCode过滤并声明一个新的数组复制给pzList
-    newArr[index].pzList = value.pzList.filter(item =&gt; item.evidenceTypeCode === &#39;2&#39;)
-})
-// 第二层过滤，讲里层数组个数为0的分类过滤掉
-this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/09/%E5%89%8D%E7%AB%AF/JS/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95%E5%8F%B2/">
-        <p class="h4 index-header">前端发展史</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">服务器渲染时代
-
-客户端渲染时代
-
-前端侵占移动端APP市场
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-09&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/JS">JS</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
-            <a href="/tags/JS">JS</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -594,21 +248,152 @@ this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%89%A9%E7%90%86%E5%B1%82/">
-        <p class="h4 index-header">物理层</p>
+      <a href="/2020/03/03/%E5%90%8E%E7%AB%AF/Java/%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90native%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">如何分析native方法</p>
         
         
           
-          
         
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">网络设备的机械特性 电器特性 功能特性 过程特性数据通信的基础知识    数字信号    模拟信号频分多路复用时分多路复用...</div>
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">分析navative方法
+进入github（也可以进openJDK网站）
+点“搜索文件”，搜索对应的c代码类Thread.c
+找到native方法对应的方法名
+去src/htspot/share/prims/jvm.cpp里看cpp代码
+
+
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-09&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/02/%E5%90%8E%E7%AB%AF/Java/Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB/">
+        <p class="h4 index-header">Java异常体系</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+Error和RuntimeException共同构成了非检查异常；IOException受检查异常，应该对其提前进行处理，提供程序的健壮性。
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/01/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B8%E5%A4%A7%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        <p class="h4 index-header">线程8大核心基础知识</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">多线程全部脉络
+
+多线程8大基础
+
+实现多线程的方法时1种2种还是4种
+实现多线程的官方正确方法：2种
+
+Oracle官网文档：There are two ways to create a new thread of execution. One is to declare a class to be a subclass of Thread. This subclass should override the run method of class Thread. An instance of the subclass can then be allocated and started. The other way to create a thread is to declare a class that implements the Runnable interface.创建一个新的执行线程有两种方法：一个是将一个类声明为Thread的子类，这个子类应该重写run类的方法Thread，然后可以分配并启动子类的实例。另一种方法来创建一个线程是声明实现类Runnable接口。
+两种方法</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+        <p class="h4 index-header">网络安全</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">网络安全数据存储安全应用程序安全操作系统安全网络安全物理安全用户安全教育
+计算机网络上的通信面来以下的四种威胁：（1） 截获–从网络上窃听他人的通信内容。（2） 中断–有意中断他人在网络上的通信（3） 篡改–故意篡改网络上传送的报文（4） 伪造–伪造信息在网络上传送截获信息的攻击称为被动攻击，而更改信息和拒绝用户使用资源的攻击称为主动攻击。
+恶意程序（rogue program）
+计算机病毒————会传染其他程序的程序，传染是通过修改其他程序来吧自身或其变种赋值进去完成的。
+计算机蠕虫————通过网络的通信功能将自身从一个结点发送到另一个结点并启动运行的程序。
+特洛伊木马————一种程序，它执行的功能超出所声称的功能
+逻辑炸弹————一种当运行环境满足某种特定条件时执行其他特殊功能的程序。
+
+木马程序
+查看会话 netstat -n 是否有可以的会话
+运行msconfig 服务 隐藏微软服务
+安装杀毒软件
+
+加密技术对称加密 优点：效率高        缺点：密钥不适合在网上传输 密钥维护麻烦
+非对称加密 加密密钥和解密密钥是不同 密钥对 公钥和私钥            公钥加密私钥</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -626,11 +411,215 @@ this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
     </div>
   </div>
 
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%BA%94%E7%94%A8%E5%B1%82/">
+        <p class="h4 index-header">应用层</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">域名DNS服务作用：负责解析域名，将域名解析成IP222.222.222.222是电信公司的服务器8.8.8.8是谷歌公司的服务器
+域名：    根    顶级域名    com    edu net cn org gov    二级域名    baidu    三级域名
+域名节序测试ping www.baidu.comnslookup www.souhu.com
+
+
+域名注册：百度然后花钱买域名解析过程安装自己的DNS服务器
+
+解析内网自己的域名
+节省到Internet的域名解析流量
+域环境
+
+DHCP动态主机配置静态IP地址动态IP地址
+DHCP客户端请求IP地址的过程DHCP服务器必须静态地址释放租约    ipconfig /release跨网段地址分配
+文件传输协议FTP（File Transfer Protocol）FTP协议    主动模式 ftp客户端高速FTP服务器使用什么端口侦听            FTP服务器和FTP客户端的这个端口建立连接 源端口20    被动模式 服务端在指定范围额你的某个端口被动等待客户端发起连接
+如果由防火墙许哟啊在防火墙打开21和2</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-27&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BC%A0%E8%BE%93%E5%B1%82/">
+        <p class="h4 index-header">传输层</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">传输层传输层的功能传输层协议UDP和TCP网络安全TCP可靠传输的实现TCP的流量控制TCP的拥塞控制TCP的运输连接管理
+OSI和DoD模型
+需要记住！！！！
+数据包65535 -&gt; 分段46-1500TCP 需要将传输的文件分段 传输建立会话 可靠传输 流量控制    文件传输 邮件传输 ftp下载文件UDP 一个数据包就能够完成数据通信 不分段 不需要建立会话 不需要流量控制 不可靠传输    qq聊天 屏幕广播 多播 广播
+查看会话 netstat -n查看简历会话的进程 netstat -nb
+传输层协议和应用层协议之间的关系
+
+常见的应用层协议使用的端口http = TCP + 80https = TCP + 443RDP = TCP + 3389ftp = TCP + 21共享文件夹 = TCP + 445SMTP = TCP + 25POP3 = TCP + 110telnet = TCP + 23SQL = TCP + 1433DNS = UDP + 53
+传输层–服务和端口
+服务和应用层协议之间关系 服务使用 TCP或UDP的端口侦听客户端请求 客户端使用IP</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/22/%E5%90%8E%E7%AB%AF/Java/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+        <p class="h4 index-header">动态规划</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">动态规划
+
+遇到动态规划问题，首先思考将大问题拆解成一个个小问题，写出解题方程，然后写出状态方程先用递归的思路解决问题，然后用记忆法进行优化，然后使用动态规划。
+01背包问题有一个背包，它的容量为C（Capacity），现在有n中不同的物品，编号为0…n-1，其中每一件物品的重量为w(i),价值为v(i).问可以向这个背包中盛放哪些物品，使得在不超过背包容量的基础上，物品的总价值最大
+ 暴力解法：每一件物品都可以放进背包，也可以不放进背包。 时间复杂度    O((2^n)*n)
+ F(n,C)考虑将n个物品放进容量为C的背包，使得价值最大 F(i,c) = F(i-1,c)        = v(i) + F(i-1,c - w(i)) F(i,c) = max(F(i-1,c), v(i) + F(i-1,c-w(i))
+
+
+/**
+ * @Description TODO 0-1背包问题
+ * 有一个背包，它的容量为C（Capacity），现在有n中不同的物品，编号为0...n-1，其中每一件物品的重量为w(i),
+ * 价值为v(i).问可以向这个背包中盛放哪些物品，使得在不超</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>&nbsp;
+          
+            <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>&nbsp;
+          
+            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/15/%E5%89%8D%E7%AB%AF/JS/this%E5%92%8C%E5%AF%B9%E8%B1%A1/">
+        <p class="h4 index-header">this和对象</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">this
+解析器在调用函数每次都会向函数内部传递进一共隐含的参数，
+这个隐含的额参数就是this，this指向的是一个对象，
+这个对象我们成为函数执行的上下文对象，
+根据函数的调用方式的不同，this会指向不同的对象。
+以函数的形式调用时，this永远都是window
+以方法的形式调用时，this就是调用方法的那个对象
+
+
+
+
+
+构造函数创建一共构造函数，专门用来创建Person对象的    构造函数就是一共普通函数，创建方式和普通函数没有区别，不同的时构造函数习惯上首字母大写构造函数和普通函数的区别就是调用方式的不同    普通函数时直接调用，而构造函数需要使用new关键字来调用
+function Person(name,age,gender) {
+    this.name = name
+    this.age= age
+    this.gender = gender
+    this.sayName = function(){
+        console.dir(obj)
+    }
+}
+var per = new Person() // [object Object]
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/12/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/12/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/14/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

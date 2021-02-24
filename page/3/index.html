@@ -136,44 +136,33 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/10/%E9%94%99%E8%AF%AF/PHP/PHP%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-        <p class="h4 index-header">PHP操作数据库的注意事项</p>
+      <a href="/2020/10/23/%E5%90%8E%E7%AB%AF/Spring/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
+        <p class="h4 index-header">项目搭建</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">关于时间的sql语句一定要将与时间比较的变量用单引号包起来
-public function weekIn($cpId, $start, $end) {
-    $pdo = $this-&gt;GetPdo();
-    $sql = &#39;SELECT SUM(intimacy_add) as weekIn FROM cp_intimacy_record 
-            WHERE delsign = 0 and cp_id = &#39; . $cpId . &#39; and createtime BETWEEN \&#39;&#39; . $start . &#39;\&#39; and \&#39;&#39; . $end . &#39;\&#39;&#39;;
-    $prepare = $pdo-&gt;prepare($sql);
-    $prepare-&gt;execute();
-    return $prepare-&gt;fetchAll(PDO::FETCH_ASSOC);
-}
+          <div class="index-text mb-1">https://blog.csdn.net/forezp/article/details/70148833
+https://gitee.com/huangxunhui/basic_project/tree/master/
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-10&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-23&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/PHP">PHP</a>&nbsp;
+            <a href="/categories/spring">spring</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/tags/PHP">PHP</a>&nbsp;
+            <a href="/tags/spring">spring</a>&nbsp;
           
         
       </div>
@@ -184,43 +173,69 @@ public function weekIn($cpId, $start, $end) {
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/02/%E5%90%8E%E7%AB%AF/php/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">
-        <p class="h4 index-header">错误处理</p>
+      <a href="/2020/10/21/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">数据类型</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">错误处理
-指的是系统（或者用户）在对某些代码进行执行的时候，发现有错误，就会通过错误处理的形式告知程序员
+          <div class="index-text mb-1">字符串
 
-错误分类
-语法错误：用户书写的代码不符合PHP的语法规范，语法错误会导致代码在编译过程中不通过，所以代码不会执行（Parse error）
-运行时错误：代码编译通过，但是代码在执行的过程中会出现一些条件不满足导致的错误（runtime error）
-逻辑错误：程序员在写代码的时候不够规范，出现了一些逻辑性错误，导致代码正常执行，但是得不到想要的结果
+使用场景
+缓存
+计数器
+分布式锁
+。。。
 
-错误代号所有看到的错误代码在PHP中都被定义成了系统常量（可以直接使用）
+get、set、del# 获取key对应的value
+get key
 
-系统错误： E_PARSE: 编译错误，代码不会执行 E_ERROR: fatal error,致命错误，会导致代码不能正确继续执行（出错的位置断掉） E_WARING: warning,警告错误，不会影响代码执行，但是可能得到意想不到的结果 E_NOTICE: 通知错误，不会影响代码执行
-用户错误: E_USER_ERROR、E_USER_WARNING、E_USER_NOTCE 用户在使用自定义错误出发的时候，会使用到的错误代号（系统不会用到）
-其他: </div>
+# 设置key-value
+set key value
+
+# 删除key-value
+del key
+incr、decr、incrby、decrby# key自增1，如果key不存在 ，自增后get(key) = 1
+incr key
+
+# key自减1，如果key不存在，自减后get(key) = -1
+decr key
+
+# key自增k，如果key不存在，自增后get(key)= k
+incrby key k
+
+# key自减k，如果key不存在，自减后get(key)= -k
+decrby key k
+实战
+记录网站每个用户个人主页的访问量？ incr userId:pageview (单线程：无竞争)
+缓存视频的基本信息（数据源在MySQL中）
+分布式id生成器 incr id
+
+set setnx setxx# 不管key是否存在，都设置
+set key value
+
+# key不存在，才设置
+setnx key value
+
+# key存在，才设置</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-02&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/php">php</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/php">php</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
           
         
       </div>
@@ -231,344 +246,60 @@ public function weekIn($cpId, $start, $end) {
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/22/%E9%94%99%E8%AF%AF/Java/JedisDataException/">
-        <p class="h4 index-header">Redis的查询异常</p>
+      <a href="/2020/10/16/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20API%20%E9%80%9A%E7%94%A8%E5%91%BD%E4%BB%A4/">
+        <p class="h4 index-header">Redis API 通用命令</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">[MG][ERROR][2020-06-19 09:08:58,904]|REDIS查询异常|[qtp1371957475-16]
-redis.clients.jedis.exceptions.JedisDataException: value sent to redis cannot be null
-    at redis.clients.util.SafeEncoder.encode(SafeEncoder.java:28) ~[werewolf-client-jp.jar:?]
-    at redis.clients.jedis.Client.hget(Client.java:211) ~[werewolf-client-jp.jar:?]
-    at redis.clients.jedis.Jedis.hget(Jedis.java:760) ~[werewolf-client-jp.jar:?]
-    at com.mega.server.jedis.MegaJedisUtil.getHashValue(MegaJedisUtil.java:24) ~[werewol</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E9%94%99%E8%AF%AF,Java">错误,Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/22/%E5%90%8E%E7%AB%AF/php/php%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
-        <p class="h4 index-header">php文件包含</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">文件包含
-定义：文件包含，就是在一个要运行的PHP脚本中，去将另外一个PHP脚本中的代码拿过来，并且可以使用其被包含的文件里的内容，或者说将自己的内容能够在另外一个被包含的文件中使用。
-
-
-文件包含基本语法：PHP中提供了四种文件包含的方法，分别是include和include_once，require和require_once，其中四种方式的用法完全一样 include/include_once/require/equire_once &#39;文件所在路径及文件名&#39;; include/include_once/require/equire_once(&#39;文件所在路径及文件名&#39;);
-文件包含的意义：文件包含的目的有两个
-向上包含：即先包含某个文件，目的为了使用某个文件中的代码或者数据（使用公共代码）
-向下包含：即先写好代码，后包含文件，目的是为了在被包含文件中使用当前的数据（使用已产生数据）
-
-
-文件包含的语法区别：四种包含方式都能够包含文件并使用 include和require的区别在于，如果包含的文件不存在的时候，include只是报警告错误，而不影响自身代</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/php">php</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/php">php</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/21/%E5%90%8E%E7%AB%AF/php/%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0/">
-        <p class="h4 index-header">常用系统函数</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">函数函数的基本概念函数：function,是一种语法结构，将实现某一个功能的代码块（多行代码）封装到一个结构中，从而实现代码的重复利用（复用）。
-函数定义语法函数有几个对应的关键点：function关键字、函数名、参数（形参和实参）、函数体和返回值
-基本语法如下：Function 函数名([参数]){    // 函数体    // 返回值：return 结果}
-定义函数的目的：是为了实现代码的重复利用，一个功能一个函数（简单明了）函数的使用：通过访问函数的名字+(); // 如果函数在定义的过程中有参数，那么在调用的时候就必须传入对应的参数：函数是一种结构不会自动运行，必须通过调用才会执行。函数是在代码执行阶段，碰到函数名字的时候才会调用，不是在编译阶段。
-函数执行的内存分析：
-
-读取代码进入到代码段（编译：将代码编程字节码存储带内存）
-根据代码逐行执行
-
-以上原因：编译和执行时分开的（先编译后执行）
-参数函数的参数分为两种：形参和实参
-形参形参：形式参数，不具有实际意义的参数，是在函数定义时使用的参数
-实参实参：实际参数，具有实际数据意义的参数，是在函数调用时使用的参数
-形参是实参</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/php">php</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/php">php</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/12/%E5%90%8E%E7%AB%AF/Elasticsearch/Elasticsearch%20%E6%96%B0%E6%97%A7%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB(_reindex)/">
-        <p class="h4 index-header">Elasticsearch 新旧索引数据迁移(_reindex)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Elasticsearch 新旧索引数据迁移(_reindex)
-举个例子，在输入“1992-02-27”这样格式的数据，es会把他默认为是date数据类型，但是有时候我们希望它是text类型，在原索引中已经有数据的情况下该如何操作。
-
-创建原索引
-
-PUT /aaron_index/aaron_type/1
-{
-  &quot;name&quot;:&quot;张辽&quot;,&quot;age&quot;:27,&quot;content&quot;:&quot;1992-02-27&quot;
-}
-PUT /aaron_index/aaron_type/2
-{
-  &quot;name&quot;:&quot;曹阿瞒&quot;,&quot;age&quot;:28,&quot;content&quot;:&quot;1991-02-19&quot;
-}
-创建新索引
-
-PUT /aaron_index_new
-{
-  &quot;mappings&quot;: {
-    &quot;aaron_type&quot;:{
-      &quot;properties&quot;</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Elasticsearch">Elasticsearch</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Elasticsearch">Elasticsearch</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/11/%E5%90%8E%E7%AB%AF/php/php%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
-        <p class="h4 index-header">php文件操作</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">读取文件readfile读取文件
-传入一个文件路径，输出一个文件。
-
-int readfile ( string $文件名)
-
-
-//linux类的读了方式
-readfile(&quot;/home/paul/test.txt&quot;);
-//windows类的读取方式
-readfile(&quot;c:\\boot.ini&quot;);
-注意：上面的代码中windows的斜线是\斜线，可能会转义掉一些字符。因此，我们写的时候写上两个斜线。
-file_get_contents打开文件
-传入一个文件或文件路径，打开这个文件返回文件的内容。文件的内容是一个字符串。
-
-string file_get_contents ( string filename)
-
-
-//假设我们有一个多行的文件叫NoAlike.txt，没有的话你可以新建一个这个文件
-$filename = &#39;NoAlike.txt&#39;;
-
-
-//打开这个文件，将文件内容赋值给$filestring
-$filestring = file_get_contents($filename);
-
-//因为每一行有一个回车</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/php">php</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/php">php</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/php/php%E6%95%B0%E7%BB%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-        <p class="h4 index-header">php数组与数据结构</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">数组数组声明
-数组可以存入多个不同类型的数据，是一个复合数据类型。
-数组的英文是array，学一了一下最简单的数组声明。
-
-$shu = array(1 , 1.5 , true ,&#39;天王盖地虎，小鸡炖蘑菇&#39;);
-
-echo &#39;&lt;pre&gt;&#39;;
-var_dump($shu);
-echo &#39;&lt;/pre&gt;&#39;;
-
-结果是：
-array(4) {
-  [0]=&gt;
-  int(1)
-  [1]=&gt;
-  float(1.5)
-  [2]=&gt;
-  bool(true)
-  [3]=&gt;
-  string(33) &quot;天王盖地虎，小鸡炖蘑菇&quot;
-}
-
-array(size = 4) 说明里面有4个元素
-0 =&gt; int 1 我们知道int是整型的意思，1是一个整型的数值。那前面的0,1,2,3和=&gt;代表什么意思呢？
-最新前的0，1，2，3代表的是值的读取标识号，我们称之为下标或者键（英文：key）
-=&gt; 是一个符号标准叫法叫作：键值对应符。因此，以后再看到 0=&gt; int</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/php">php</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/php">php</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResultSet/">
-        <p class="h4 index-header">ResultSet</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">继承Wrapper接口和AutoCloseable接口
-Wrapper是包装类，对原生的int、float。。。进行封装AutoCloseable是自动关闭资源
-ResultSet虽然继承了AutoCloseable可以自动关闭连接释放资源，但是还是要手动关闭，因为官方文档中说：通常，立即释放此Statement对象的数据库和JDBC资源，而不是等待它自动关闭时发生。 最好在资源使用完毕后立即释放资源，以避免占用数据库资源。
+          <div class="index-text mb-1">通用命令# 遍历所有key
+keys
+# 计算key的总数
+dbsize
+# 检查key是否存在
+exists key
+# 删除指定key-value
+del key [key...]
+# key在seconds秒后过期
+expire key seconds
+# 查看key剩余的过期时间
+ttl key
+# 去掉key的国企时间
+persist key
+# 返回key的类型
+type key
+例子127.0.0.1:6379&gt; keys *
+1) &quot;hello&quot;
+127.0.0.1:6379&gt; dbsize
+(integer) 1
+127.0.0.1:6379&gt; mset hel vo heh haha php gpo java his
+OK
+127.0.0.1:6379&gt; keys h*
+1) &quot;heh&quot;
+2) &quot;hel&quot;
+3) &quot;hello&quot;
+127.0.0.1:6379&gt; exists php
+(integer) 1
+127.0.0.1:6379&gt; del php
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-16&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
           
         
       </div>
@@ -579,37 +310,364 @@ ResultSet虽然继承了AutoCloseable可以自动关闭连接释放资源，但�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResourceBundle/">
-        <p class="h4 index-header">ResourceBundle</p>
+      <a href="/2020/10/16/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E5%90%AF%E5%8A%A8/">
+        <p class="h4 index-header">启动</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">
-这个类主要用来解决国际化和本地化问题。国际化和本地化可不是两个概念，两者都是一起出现的。可以说，国际化的目的就是为了实现本地化。比如对于“取消”，中文中我们使用“取消”来表示，而英文中我们使用“cancel”。若我们的程序是面向国际的（这也是软件发展的一个趋势），那么使用的人群必然是多语言环境的，实现国际化就非常有必要。而ResourceBundle可以帮助我们轻松完成这个任务：当程序需要一个特定于语言环境的资源时（如 String），程序可以从适合当前用户语言环境的资源包（大多数情况下也就是.properties文件）中加载它。这样可以编写很大程度上独立于用户语言环境的程序代码，它将资源包中大部分（即便不是全部）特定于语言环境的信息隔离开来。
-
-这使编写的程序可以：    轻松地本地化或翻译成不同的语言    一次处理多个语言环境    以后可以轻松进行修改，以便支持更多的语言环境
-说的简单点，这个类的作用就是读取资源属性文件（properties），然后根据.properties文件的名称信息（本地化信息），匹配当前系统的国别语言信息（也可以程序指定），然后获取相应的proper</div>
+          <div class="index-text mb-1">Docker 安装docker pull redis
+docker run -p 6379:6379 -v $PWD/data:/data  -d redis:latest redis-server
+Linux启动redisredis-server    # 默认配置启动
+redis-server --port 6380     # 动态参数启动
+redis-server config/redis-6382.conf   ## 通过配置文件启动
+redis 配置文件daemonize yes 
+port 6382
+dir &quot;/opt/soft/redis/data&quot;
+logfile &quot;6382.log&quot;连接redis-cli
+redis-cli -h 192.168.2.23 -p 6379
+docker exec -ti d0b86 redis-cli
+docker exec -it redis_s redis-cli -h 192.168.1.100 -p 6379 -a your_password //如果有密码 使用 -a参数
+注意因为r</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-16&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/10/16/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E4%BA%8B%E5%8A%A1/">
+        <p class="h4 index-header">事务</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">事务有关的表
+information_schema.innodb_trx–当前运行的所有事务，
+information_schema.innodb_locks–当前出现的锁
+information_schema.innodb_lock_waits–锁等待的对应关系
+
+information_schema.innodb_trx–当前运行的所有事务
+
+
+Field
+Type
+Null
+Key
+Default
+Extra
+
+
+
+trx_id
+varchar(18)
+NO
+
+
+事务ID
+
+
+trx_state
+varchar(13)
+NO
+
+
+事务状态：
+
+
+trx_started
+datetime
+NO
+
+0000-00-00 00:00:00
+事务开始时间；
+
+
+trx_requested_lock_id
+varchar(81)
+YES
+
+NULL
+innodb_locks.lock_id
+
+
+trx_wait_started
+datetime
+YES
+
+NULL
+事务开始等待的时间
+
+
+trx_weight
+bigint(21) unsigned
+NO
+
+0
+事务权重
+
+
+trx_mys</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-16&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/10/12/%E5%90%8E%E7%AB%AF/Spring/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">
+        <p class="h4 index-header">持续集成</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">持续集成
+互联网软件的开发和发布，已经形成了一套标准流程，最重要的组成部分就是持续集成（Continuous integration，简称CI）
+
+持续集成指的是，频繁地（一天多次）将代码集成到主干。他的好处有两个：
+
+快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。
+防止分支大幅偏离主干。如果不是京城集成，主干有在不断更新，会导致以后集成的难度变大，甚至难以集成。
+
+持续集成强调开发人员提交了新代码之后，立刻进行构建、（单元）测试。根据测试结果，我们可以确定新代码和源代码能否正确地集成在一起。与持续集成相关的，还有两个概念，分别是持续交付和持续部署。
+持续交付
+持续交付(Continuous delivery)指的是，频繁地将软件的新版本，交付给质量团队或者用户，一共评审。如果评审通过，代码就进入生产阶段。
+
+持续交付可以看做持续集成的下一步。它强调的是，不管怎么更新，软件是随时随地可以交付的。
+持续部署
+持续部署(continuous deployment) 是持续交付的下一步，指的是代码通过评审以后，自动部署到生产环境。
+
+持续部署的目标是，代码</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%90%8E%E7%AB%AF">后端</a>&nbsp;
+          
+            <a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90">持续集成</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90">持续集成</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/09/25/%E5%90%8E%E7%AB%AF/Docker/%E5%B8%B8%E7%94%A8docker/">
+        <p class="h4 index-header">常用docker</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">redisdocker run -p 6379:6379 --name redis  -d redis redis-server --appendonly yes
+docker run -p 6379:6379 -v $PWD/data:/data  -d redis:3.2 redis-server –appendonly yes
+命令说明：-p 6379:6379 : 将容器的6379端口映射到主机的6379端口-v $PWD/data:/data : 将主机中当前目录下的data挂载到容器的/dataredis-server –appendonly yes : 在容器执行redis-server启动命令，并打开redis持久化配置
+mysqldocker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7.29
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Docker">Docker</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Docker">Docker</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/09/23/%E5%90%8E%E7%AB%AF/Spring/%E5%8D%95%E7%82%B9%E6%95%85%E9%9A%9C/">
+        <p class="h4 index-header">单点故障</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">分布式锁应用场景在分布式锁服务中，有一种最典型应用场景，就是通过对集群进行Master选举。来解决分布式系统中的单点故障、双主问题。
+什么是分布式系统中的单点故障：通常分布式系统采用主从模式，就是一个主机连接多个处理节点。主节点负责处理任务，当我们的主节点发生故障时，那么整个系统就都瘫痪了，那么我们把这种故障叫做 单点故障。
+什么是双主问题：为了解决单点故障，我们准备了一个主节点B，每隔10s会ping一次主节点A，当因为某种网络原因没有即使返回请求，B主节点会自动晋升管理从节点，但是当A节点网络恢复时会自动管理从节点，这时从节点就会同时被两个主节点管理，这就是双主问题。
+分布式锁应该具备哪些条件
+在分布式系统环境下，一个方法在同一时间只能被一个机器的一个线程执行A
+高可用的获取锁与释放锁
+高性能的获取锁与释放锁
+具备可重入特性（可理解为重新进入，由于一个任务并发使用，而不必担心数据错误）
+具备锁失效机制，防止死锁
+具备非阻塞锁特性，即没有获得到锁将直接返回获取锁失败
+
+面试
+服务注册与发现中心常用的软件都有什么？
+
+Eureka
+Consul
+Zookeeper
+
+
+他能解决什么问题</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Spring">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/09/23/%E5%90%8E%E7%AB%AF/Spring/%E6%9C%8D%E5%8A%A1%E9%97%B4%E9%80%9A%E4%BF%A1/">
+        <p class="h4 index-header">服务器间通信</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">每个服务之间如何通信
+所有的微服务都是独立的 Java进程跑在独立的虚拟机上，所有服务间的通信就是IPC（Inter Process Communication），已经有很多成熟的 方案，现在基本最通用的有两种方式
+
+同步调用
+REST（JAX-RS，Spring Boot）
+RPC（Thrift，Dubbo）
+
+同步调用比较见到那，一致性强，但是容易出调用问题，性能 体验上也会差些，特别是调用层次多的时候。一般REST基于HTTP，更容易实现，更容易被接收，服务端实现技术也更灵活些，各个语言都能支持，同时能跨客户端，对客户端没有特殊的要求，只要封装了HTTP的SDK救恩那个调用，所以相对使用的广一些。RPC也有自己的优点，传输协议更高效，安全更可控，特别在一个公司内部，如果有统一的开发规范和统一的服务框架时，他的开发效率优势更明显些。就看各自的技术积累实际条件，自己的选择了。
+服务间通信  网络中只有字符串可以穿透防火墙    REST Http 通信    RPC  远程过程调用
+异步消息调用
+Kafka
+Notify
+MessageQueue
+
+异步消息的方式在分布式系统中有特别</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Spring">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/09/12/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%85%B3%E9%94%AE%E5%AD%97/">
+        <p class="h4 index-header">关键字</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">WHERE语句中的关键字Binarywhere子句的字符串比较是不区分大小写的，但是可以使用binary关键字设定where子句区分大小写
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
           
         
       </div>
@@ -620,7 +678,7 @@ ResultSet虽然继承了AutoCloseable可以自动关闭连接释放资源，但�
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

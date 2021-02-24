@@ -136,70 +136,44 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
-        <p class="h4 index-header">线程池</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/number%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/number数字类型</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">线程池的自我介绍
-如果不使用线程池，每个任务都新开一个线程处理
-一个线程
-for循环创建线程
-当任务数量上升到1000
+          <div class="index-text mb-1">//console.log([val]):在控制台输出内容
+//==:进行比较
+// console.log(1==2)
+// console.log('AA'==NaN)
+// console.log(10==NaN)
+// console.log(NaN==NaN)
+// console.log('---------------')
 
-
-这样开销太大，我们希望有固定数量的线程，来执行这1000个线程，这样就避免了反复创建闭关销毁线程锁带来的开销问题。
-
-为什么要使用线程池
-问题一：反复创建线程开销大
-
-问题二：过多的线程会占用太多内存
-
-解决以上两个问题的思路
-
-用少量的线程————避免内存占用过多
-让这部分线程都保持工作且可用反复执行任务————避免生命周期的损耗
-
-
-
-线程池的好处
-加快响应速度
-合理利用CPU和内存
-统一管理
-
-线程池使用应用的场合
-服务器接收到大量请求时，使用线程池技术时非常合适的，他可以大大减少线程的创建和销毁次数，提高服务器的工作效率
-实际上，在开发中，如果需要创建5个以上的线程，那么就可用使用线程池来管理
-
-创建和停止线程池线程池构造函数的参数
-
-参数中的corePoolSize和maxPoolSize
-corePoolSize指的是核心线程数:线程池在完成初始化后，默认情况下，线程池中并没有任何线程，线程池会等待会任务到来时。再创建新线程区执行任务
-线程池会可能胡i</div>
+//isNaN([val])
+// console.log(isNaN(10))//false
+// console.log(isNaN('AAA'))//true
+/*
+ * Number('AAA') => NaN
+ * isNaN(NaN) =>true
+ */
+// console.log(isNaN('10'))//false
+/*
+ * Number('10') => 10
+ * isNaN(10) =>FALSE
+ */
+// console.log(isNaN(NaN))//ture
+//把字符串转换为数字，只要字符串中包含任意一个非有效数字字符（第一个点除外）结果都是NaN，空字符串会变为数字零
+// console.log(Num</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-15&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -209,77 +183,42 @@ corePoolSize指的是核心线程数:线程池在完成初始化后，默认情�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/12/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%AD%BB%E9%94%81/">
-        <p class="h4 index-header">死锁</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/object对象数据类型</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是死锁
-发生在并发中
-互不相让：当两个（或更多）线程（或进程）相互持有对方所需要的资源，又不主动释放，导致所有人都无法继续前进，导致程序陷入无尽的阻塞，这就是死锁
+          <div class="index-text mb-1">// let person = {
+//     "name" : '易烊千玺',
+//     'age' : 40,
+//     height : '185cm',
+//     weight : '70kg',
+//     1 : 100
+// }
+// // 获取属性名对应的属性值
+// // 对象.属性名
+// // 对象[属性名] 属性名是数字或者字符串格式的
+// console.log(person.name)
+// console.log(person['age'])
+// // console.log(person[age]) 会报错
+// // 如果当前属性名不存在，默认的属性值是undefined
+// console.log(person.sex)//undefined
+// console.log(person['1'])
+// console.log(person[1])
+// // 如果属性名是数字，则不能使用点的方式获取属性值
+// // console.log(person.1) 报错SyntaxError：语法错误
 
-
-
-
-死锁的影响死锁的影响在不同系统中是不一样的，这取决于系统对死锁的处理能力
-
-数据库中：检测并放弃事务
-JVM中：：无法自动处理
-
-几率不高但危害大
-不一定发生，但是遵守“墨菲定律”
-一旦发生，多是高并发常见，影响用户多
-整个系统崩溃、子系统崩溃、性能降低
-压力测试无法找出所有潜在的死锁
-
-实际生产中的里斯：转账
-需要两把锁
-获取两把锁成功，且余额大于0，则扣除转出人，增加收款人的余额，是原子操作
-
-死锁的4个必要条件
-互斥条件
-请求与保持条件
-不剥夺条件
-循环等待
-
-缺一不可，这个分析之前的例子
-如何定位死锁
-jstack
-ThreadMXBean代码演示
-
-修复死锁的策略
-线上问题都需要防患于未然，不造成损失地扑灭几乎已经是不可能
-保存案发现场然后立刻重启服务器
-暂时保证线上服务的安全，然后在利用刚才保存的信息，排查死锁，修改代码，重新发版
-
-常见修复策略
-避免策略：哲学家就餐的换手方案、转账换序方案
-
-死锁避</div>
+// //设置属性名属性值</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -289,63 +228,36 @@ ThreadMXBean代码演示
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/09/%E5%90%8E%E7%AB%AF/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-        <p class="h4 index-header">单例模式</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/Boolean%E5%B8%83%E5%B0%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/Boolean布尔数据类型</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">单例模式饿汉式（静态常量）【可用】public class Singleton1 {
-    private final static Singleton1 INSTANCE = new Singleton1();
+          <div class="index-text mb-1">console.log(Boolean(0))
+console.log(Boolean(''))
+console.log(Boolean(' '))
+console.log(Boolean(null))
+console.log(Boolean(undefined))
+console.log(Boolean([]))
+console.log(Boolean([12]))
+// !:取反（先转为布尔，然后取反）
+// !!:取反（取反再取反，只相当于转换为布尔）《=》Boolean
+console.log(![12])//false
+console.log(!![12])//true
 
-    private Singleton1(){
-
-    }
-
-    public static Singleton1 getInstance() {
-        return INSTANCE;
-    }
-}
-饿汉式（静态代码块）（可用）public class Singleton2 {
-    private final static Singleton2 INSTANCE;
-
-    static {
-        INSTANCE = new Singleton2();
-    }
-
-    private Singleton2(){
-
-    }
-
-    public static Singleton2 getInstance() {
-        return INSTANCE;
-    }
-}
-懒汉式（线程不安全）【不可用】
-public </div>
+//如果条件只是一个值，不是==/===/!=/>=/NaN
+    console.log('哈哈')
+}</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
-          
         
       </div>
     </div>
@@ -355,82 +267,26 @@ public </div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/JVM/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
-        <p class="h4 index-header">Java内存模型</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/index</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">底层原理
-重要性：Java面试的必考知识点，只有学会了这个，才能说呢真正懂了并发。
+          <div class="index-text mb-1">
 
-从Java代码到CPU指令的变化过程
 
-我们在Java代码中，使用的控制并发的手段例如synchronized关键字，最终也是要转化为CPU指令来生效的，我们来回顾一下从Java代码到最终执行的CPU指令的流程：
+    
+    number数字类型
 
-最开始，我们编写的Java代码，是*.java文件
-在编译（javac命令）后，从刚才的.java文件会变出一个新的Java字节码文件（.class）
-JVM会执行刚才生成的字节码文件（*.class），并把字节码文件转化为机器指令
-机器指令可以直接在CPU上运行，也就是最终的程序执行
 
-而不同的JVM实现会带来不同的“翻译”，不同的CPU平台的机器指令又千差万别；所以我们在java代码层写的各种Lock，其实最后依赖的是JVM的具体实现（不同版本会有不同实现）和CPU的指令，才能帮我们达到线程安全的效果。由于最终效果依赖处理器，不同处理器结果不一样，这样无法保证并发安全，所以需要一个标准，让多线程运行的结果可预期，这个标准就是JMM。
-三兄弟：JVM内存结构 VS Java内存模型 VS</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/JVM">JVM</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/JVM">JVM</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
     
     
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
-        <p class="h4 index-header">多线程八大核心面试问题总结</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">常见面试问题总结有多少种实现线程的方法思路有5点
-
-从不同的角度看，会有不同的答案。
-
-典型答案时两种，分别是实现Runnable接口和继承Thread类，然后具体展开说；
-
-但是我们看原理，其实Thread类实现了Runnable接口，并且看Thread类的run方法，会发现其实那两种本质都是一样的，run方法的代码如下：
- @Override
- public void run() {
-     if (target != null){
-         target.run();
-     }
- }
- 方法一和方法二，也就是“继承Thread类然后重写run()和实现Runnable接口并传入Thread类在实现多线程的本质上，并没有区别，都是最终调用了start()方法来新建线程。这两个方法的最主要区别在于run()方法的内容来源：
- 方法一：最终调用target.run()
- 方法二：run()整个都被重写
-然后具体展开说其他方式； 还有其他的实现线程的方法，例如线程池等，他们也能新建线程，但是细看源码，从没有逃出过本质，也就是实现Runnable接口和继承Thread类。
+    
+    
+    
+    
 
 </div>
         </div>
@@ -438,23 +294,9 @@ JVM会执行刚才生成的字节码文件（*.class），并把字节码文件�
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -464,50 +306,93 @@ JVM会执行刚才生成的字节码文件（*.class），并把字节码文件�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BC%9A%E5%AF%BC%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">多线程会导致的问题</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/CSS/CSS%E6%A0%B7%E4%BE%8B/%E9%BC%A0%E6%A0%87%E6%BB%91%E8%BF%87%E6%98%BE%E7%A4%BA%E8%AF%A6%E6%83%85/">
+        <p class="h4 index-header">前端/CSS/CSS样例/鼠标滑过显示详情</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">线程安全问题什么是线程安全？
-《Java Concurrency In Practice》的左子Brian Gortz对“线程安全”有一共比较恰当的定义：“当多个线程访问一个对象是，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那这个对象是线程安全的。
-自己的理解：不管业务中遇到怎样的多个线程访问某对象或某方法的情况，而在编程这个业务逻辑的时候，都不需要额外做任何额外的处理（也就是可以想单线程编程一样）程序也可以正常运行（不会因为多线程而出错），就可以称为线程安全。
+          <div class="index-text mb-1">
 
-线程不安全：get同时set、额外同步
-全都线程安全？：运行速度、设计成本、trade off
-完全不用于多线程：不过度设计
 
-什么情况下会出现线程安全问题，怎么避免
-运行结果错误：a++多线程下出现消失的请求现象
-活跃性问题：死锁、活锁、饥饿
-对象发布和初始化的时候的安全问题
+    
+    鼠标滑过显示详情
+    
+    
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-什么是逸出
-方法返回一个private对象（private的本意是不让外部访问）
-还未完成初始化（构造函数没完全执行完毕）就把对象提供给外</div>
+        .box {
+            /* CSS3新盒子模型属性：控制WIDTH/HEIGHT是盒子最终的宽高*/
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid lightcoral;
+            position: relative;
+        }
+
+        .box:hover {
+            border-bottom-color: #ffffff;
+  </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/28/%E5%90%8E%E7%AB%AF/php/php%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">php语法基础</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">PHP语法
+PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中
+
+ASP标记：&lt;% php代码 %&gt;短标记：  ，以上两种基本启用，如果要使用那么需要在配置文件中开启脚本标记: &lt; script script script language=”php”&gt;php代码&lt; / script&gt;标准标记（常用）：&lt;?php php代码 ?&gt;
+PHP注释行注释//: 后面的所有内容都是注释#: 与//一样
+块注释/* */
+PHP语句分隔符语句分隔符：在PHP照片那个，代码是以行为单位，系统需要通过判断行的结束，该结束通常都是一个符号：分号
+特殊说明
+PHP中标记结束符?&gt;有自带语句结束符的效果，最后一行PHP代码可以没有语句结束符”;”
+PHP中起始很多代码的书写并不是嵌入到HTML中，而是单独存在，通常书写习惯中就不建议使用标记结束符?&gt;,PHP会自动从开始到最后全部认为是PHP代码，从而解析。
+
+变量PHP是一种动态网站开发的脚本语言，动态语言特点是交互性，会有数据的传递，而PHP作为中间人，需要进行数据的传递，传递的前提就</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/categories/php">php</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/tags/php">php</a>&nbsp;
           
         
       </div>
@@ -518,67 +403,41 @@ JVM会执行刚才生成的字节码文件（*.class），并把字节码文件�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%BC%82%E5%B8%B8/">
-        <p class="h4 index-header">线程异常</p>
+      <a href="/2020/05/28/%E9%94%99%E8%AF%AF/GO/%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">安装问题</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">线程异常
-线程的未捕获异常UncaughtException应该如何处理？
+          <div class="index-text mb-1">导包的问题安装GO需要配置的参数配置参数：
 
-为什么需要UncaughtException?
+GOROOT （GO的位置）
+GOPATH   （GO的工作空间位置）
+GOPROXY  （远程代理url）
+GO111MODULE = on
 
-主线程可用轻松发现异常，子线程却不行
-子线程异常无法用传统方法捕获
-不能直接捕获的后果、提高健壮性
-
-
-
-两个解决方案
-方案一（不推荐）：手动在每个run方法里面进行trycatch
-方案二（推荐）：利用UncaughtExceptionHandler
-UncaughtExceptionHandler接口
-void uncaughtException(Thread t, Throwable e);
-异常处理器的调用策略
-自己实现
-给程序统一设置
-给每个线程单独设置
-给线程池设置
-
-
-
-
-
-面试题
-Java异常体系
-如何全局处理异常？ 为什么要全局处理？ 不处理行不行？  设置一个自己的全局uncaughtException，不能不处理
-run方法是否可以抛出异常？如果抛出异常，线程的状态会怎么样？  不可以，如果抛出异常会离开终止执行
-线程中如何处理某个未处理异常？  使用全局处理器，对异常进行处理
-
+在配置正确，且项目路径正确的前提下输入go mod tudy下载mod，如果出现报错，就检查报错的文件所在位置是否正确正确的依赖位置应该在GOPATH里的pkg中，如果不是请删除该位置的包！！！！！
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java">Java</a>&nbsp;
+            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
           
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/categories/GO">GO</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/tags/%E9%94%99%E8%AF%AF,GO">错误,GO</a>&nbsp;
           
         
       </div>
@@ -589,72 +448,34 @@ run方法是否可以抛出异常？如果抛出异常，线程的状态会怎�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E4%B8%AA%E5%B1%9E%E6%80%A7/">
-        <p class="h4 index-header">线程各个属性</p>
+      <a href="/2020/05/26/%E5%90%8E%E7%AB%AF/php/php%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+        <p class="h4 index-header">php环境搭建</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">线程各属性
+          <div class="index-text mb-1">php执行流程
 
-线程IdID从1开始，JVM运行起来后，我们自己创建的线程的ID早已不是2.
-线程名字
-默认线程名字源码分析
-修改线程的名字（setName）
-
-守护线程
-作用：给用户线程提供服务
-
-特性：
-
-线程类型默认继承自父线程
-被谁启动,(由JVM自动启动)
-不影响JVM退出
-
-
-守护线程和普通线程的区别
-
-整体无区别
-唯一区别在于JVM的离开
-
-
-
-线程优先级
-10个级别，默认5
-程序设计不应依赖于优先级
-不同操作系统不一样
-优先级会被操作系统改变
-
-
-
-面试题
-什么时候我们需要设置守护线程？ 通常情况下我们不需要设置
-我们如何应用线程优先级来帮助程序运行？有哪些禁忌？ 我们不应该用优先级，来作为程序设计的逻辑，因为不同的操作系统有不同的优先级映射
-不同的操作系统如何处理优先级问题？ 不用优先级作为程序的设计逻辑
-
+下载xampp直接安装运行，在xamp-&gt;hits文件夹下放置项目,之后可本地访问
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-26&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/categories/php">php</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/tags/php">php</a>&nbsp;
           
         
       </div>
@@ -665,51 +486,45 @@ run方法是否可以抛出异常？如果抛出异常，线程的状态会怎�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/04/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%847%E4%B8%AA%E9%87%8D%E8%A6%81%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">线程的7个重要方法</p>
+      <a href="/2020/05/24/%E5%90%8E%E7%AB%AF/python/python%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+        <p class="h4 index-header">python的字符串</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Thread和Object类中的重要方法详解方法概览
+          <div class="index-text mb-1">原始字符串原始字符串的使用非常简单，只需要在字符串前加一个字母r即可，注意，原始字符串不能在结尾放\会报错
+str1 = r&#39;C:\now&#39;
+str2 = r&#39;C:\now\fish\a\&#39;
+会报错
+解决办法
+在后面拼接str = r&#39;C:\new\aaa\bbb&#39;+&#39;\\&#39;
+在后面加上[:-1] str = r&#39;C:\new\aaa\bbb\\&#39;[:-1]
 
-wait,notify,notifyAll方法详解
-用必须先拥有monitor
-notify只能唤醒其中一个
-属于Object类
-类似功能的Condition
-同时持有多个锁的情况，让一个线程wait必须让他释放所有的锁，否则会进入死锁因为如果程序不运行完，而单一的线程运行完并不会释放这个线程当前持有的锁
-
-notify唤醒的对象必须是调用wait的对象要不无法唤醒。
-public class WaitNotifyReleaseOwnMonitor {
-    private static volatile Object resourceA = new Object();
-    private static volatile Object resourceB = new Object();
-
-    public static void main(String[] args) {
-        Thread thread1 = new Thread(() -&gt; {
-            synchronized (re</div>
+长字符串如果想得到一个跨越多行的字符串，我们就需要使用三重引号&quot;&quot;&quot;dsdssdsds&quot;&quot;&quot;
+字符串的分片操作str1 = &quot;I love you&quot;
+str1[:6] =&gt; &#39;I love&#39;
+字符串的方法s = &#39;Wusirs22&#39;
+t1 = s.count(&#39;a&#39;) # 在字符串中查找指定字符有多少个
+t2 = s.upper() # 将字符串中的字符全部大写
+t3 = s.lower() # 将字符串中的字符全部小</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-04&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/categories/python">python</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/tags/python">python</a>&nbsp;
           
         
       </div>
@@ -720,53 +535,48 @@ public class WaitNotifyReleaseOwnMonitor {
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/03/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-        <p class="h4 index-header">线程的生命周期</p>
+      <a href="/2020/05/19/%E5%90%8E%E7%AB%AF/python/python%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">python基础</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">线程的生命周期
-New
-Runnable
-Blocked
-Waiting
-Time Waiting
-Terminated
+          <div class="index-text mb-1">变量
+在使用变量之前，需要对其赋值
+变量名可以报考字母、数字、下划线，但变量名不能以数字开头
 
+字符串原始字符串原始字符串的使用非常简单，只需要在字符串前加一个字母r即可，注意，原始字符串不能在结尾放\会报错
+str1 = r&#39;C:\now&#39;
+str2 = r&#39;C:\now\fish\a\&#39;
+会报错
+解决办法
+在后面拼接str = r&#39;C:\new\aaa\bbb&#39;+&#39;\\&#39;
+在后面加上[:-1] str = r&#39;C:\new\aaa\bbb\\&#39;[:-1]
 
-
-阻塞状态一般习惯而言，把Blocked（被阻塞）、Waiting（等待）、Timed_waiting（计时等待）都称为阻塞状态不仅仅是Blocked。
-状态转化的特殊情况
-从Object.wait()状态刚被唤醒时，通常不能立刻抢到monitor锁，那就会从Waiting先进入Blocked状态，抢到锁后再转换到Runnable状态
-如果发生异常，可用直接跳到终止Terminated状态，不必再遵守路径，比如可用从Waiting直接到Terminated
-
-常见面试问题
-线程有哪几种状态？生命周期是什么？
-
-</div>
+长字符串如果想得到一个跨越多行的字符串，我们就需要使用三重引号&quot;&quot;&quot;dsdssdsds&quot;&quot;&quot;
+字符串的分片操作str1 = &quot;I love you&quot;
+str1[:6] =&gt; &#39;I love&#39;
+字符串的方法s = &#39;Wusirs22&#39;
+t1 = s.count(&#39;a&#39;) # 在字符串中查找指定字符有多少个
+t2 = s.</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-19&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/categories/python">python</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+            <a href="/tags/python">python</a>&nbsp;
           
         
       </div>
@@ -777,7 +587,7 @@ Terminated
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

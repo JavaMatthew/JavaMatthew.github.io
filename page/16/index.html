@@ -136,41 +136,494 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/24/%E5%89%8D%E7%AB%AF/JS/%E8%B5%8B%E5%80%BC%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
-        <p class="h4 index-header">赋值、浅拷贝和深拷贝的区别</p>
+      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/MultiValueMap/">
+        <p class="h4 index-header">MultiValueMap</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">赋值（Copy）赋值是将某一数值或对象赋给某个变量的过程，分为：
+          <div class="index-text mb-1">MultiValueMap&lt;String, String&gt; stringMultiValueMap = new LinkedMultiValueMap&lt;&gt;();
 
-基本数据类型：赋值，赋值之后两个变量互不影响
-
-引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响对基本类型进行赋值操作，两个变量互不影响。
- // saucxs
- let a = &quot;saucxs&quot;;
- let b = a;
- console.log(b);  // saucxs
-
- a = &quot;change&quot;;
- console.log(a);   // change
-
- console.log(b);    // saucxs
- 对引用类型进行赋址操作，两个变量指向同一个对象，改变变量 a 之后会影响变量 b，哪怕改变的只是对象 a 中的基本类型数据。
- // saucxs
- let a = {
-     name: &quot;saucxs&quot;,
-     book: {
-         title: &quot;You Don&#39;t Know JS&quot;,
-         price: &quot;45&quot;
-     </div>
+stringMultiValueMap.add(&quot;早班 9:00-11:00&quot;, &quot;周一&quot;);
+stringMultiValueMap.add(&quot;早班 9:00-11:00&quot;, &quot;周二&quot;);
+stringMultiValueMap.add(&quot;中班 13:00-16:00&quot;, &quot;周三&quot;);
+stringMultiValueMap.add(&quot;早班 9:00-11:00&quot;, &quot;周四&quot;);
+stringMultiValueMap.add(&quot;测试1天2次 09:00 - 12:00&quot;, &quot;周五&quot;);
+stringMultiValueMap.add(&quot;测试1天2次 09:00 - 12:00&quot;, </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-24&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E6%96%B0%E6%97%B6%E9%97%B4API/">
+        <p class="h4 index-header">新时间API</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">新的时间API特点
+线程安全
+
+使用 LocalDate、LocalTime、LocalDateTime
+LocalDate、LocalTime、LocalDateTime 类的实例是不可变的对象，分别表示使用 ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息。也不包含与时区相关的信息。
+
+注：ISO-8601日历系统是国际标准化组织制定的现代公民的日期和时间的表示法
+
+
+Instant 时间戳用于“时间戳”的运算。它是以Unix元年(传统的设定为UTC时区1970年1月1日午夜时分)开始所经历的描述进行运算
+Duration 和 Period
+Duration:用于计算两个“时间”间隔
+Period:用于计算两个“日期”间隔
+
+日期的操纵
+TemporalAdjuster : 时间校正器。有时我们可能需要获取例如：将日期调整到“下个周日”等操作。
+TemporalAdjusters : 该类通过静态方法提供了大量的常用 TemporalAdjuster 的实现。例如获取下个周日：LocalDate nextSunday = Loca</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">接口中的默认方法与静态方法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">接口中的默认方法接口默认方法的”类优先”原则
+若一个接口中定义了一个默认方法，而另外一个父类或接口中又定义了一个同名的方法时    - 选择父类中的方法。如果一个父类提供了具体的实现，那么接口中具有相同名称和参数的默认方法会被忽略。    - 接口冲突。如果一个父接口提供一个默认方法，而另一个接口也提供了一个具有相同名称和参数列表的方法（不管方法是否是默认方法），那么必须覆盖该方法来解决冲突。
+
+public class Fclass {
+    public String Xiao(){
+        return &quot;呵呵呵呵呵呵&quot;;
+    }
+}
+public interface MyInterface1 {
+    default String Xiao(){
+        return &quot;哈哈哈哈哈哈&quot;;
+    }
+}
+public interface MyInterface2 {
+    default String Xiao(){
+        return &quot;嘿嘿嘿嘿嘿嘿嘿&quot;;
+    }
+}
+impo</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Optional%E7%B1%BB/">
+        <p class="h4 index-header">Optional类</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Optional 类
+Optional&lt;T&gt; 类(java.util.Optional) 是一个容器类，代表一个值存在或不存在，原来用 null 表示一个值不存在，现在 Optional 可以更好的表达这个概念。并且可以避免空指针异常。
+
+常用方法：Optional.of(T t) : 创建一个 Optional 实例Optional.empty() : 创建一个空的 Optional 实例Optional.ofNullable(T t):若 t 不为 null,创建 Optional 实例,否则创建空实例isPresent() : 判断是否包含值orElse(T t) : 如果调用对象包含值，返回该值，否则返回torElseGet(Supplier s) :如果调用对象包含值，返回该值，否则返回 s 获取的值map(Function f): 如果有值对其处理，并返回处理后的Optional，否则返回 Optional.empty()flatMap(Function mapper):与 map 类似，要求返回值必须是Option
+public class TestOptio</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/11/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Synchronized/">
+        <p class="h4 index-header">Synchronized</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">synchronized的作用
+同步方法支持一种简单的策略来防止线程干扰和内存一致性错误：如果一个对象对多个线程可见，则对该对象变量的所有读取或写入都是通过同步方法完成的。
+
+能够保证在同一时刻最多只有一个线程执行该段代码，以达到保证并发安全的效果。
+Synchronized的地位
+Synchronized是Java的关键字，被Java语言原生支持
+是最基本的额互斥同步手段
+是并发编程中的元老级角色，是并发编程的必学内容
+
+不使用并发手段会有什么后果代码实战：两个线程同时a++，最后结果会比预计的少
+代码public class DisppearRequest1 implements Runnable{
+
+    static DisppearRequest1 instance = new DisppearRequest1();
+
+    static int i = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(in</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/11/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E5%B9%B6%E8%A1%8C%E6%B5%81%E5%92%8C%E4%B8%B2%E8%A1%8C%E6%B5%81/">
+        <p class="h4 index-header">并行流和串行流</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">并行流与串行流并行流就是把一个内容分成多个数据块，并用不同的线程分别处理每个数据块的流。Java 8 中将并行进行了优化，我们可以很容易的对数据进行并行操作。Stream API 可以声明性地通过 parallel() 与sequential() 在并行流与顺序流之间进行切换。
+Fork/Join 框架Fork/Join 框架：就是在必要的情况下，将一个大任务，进行拆分(fork)成若干个小任务（拆到不可再拆时），再将一个个的小任务运算的结果进行 join 汇总。
+
+
+Fork/Join 框架与传统线程池的区别
+采用 “工作窃取”模式（work-stealing）：    当执行新的任务时它可以将其拆分分成更小的任务执行，并将小任务加到线程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己的队列中。相对于一般的线程池实现,fork/join框架的优势体现在对其中包含的任务的处理方式上.在一般的线程池中,如果一个线程正在执行的任务由于某些原因无法继续运行,那么该线程会处于等待状态.而在fork/join框架实现中,如果某个子问题由于等待另外一个子问题的完成而无法继续运行.那么处理该</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/JS%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
+        <p class="h4 index-header">JS命名规范</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JS中的命名规范
+严格区分大小写
+
+let Test=100;
+console.log(test);//=&gt;无法输出，因为第一个字母小写了
+
+使用数字、字母、下划线、$，数字不能作为开头
+
+let $box; //=&gt;一般用JQ获取的以$开头
+let _box; //=&gt;一般公共变量都是_开头
+let 1box; //=&gt;不可以，但是可以写box1
+
+使用驼峰命名法：首字母小写，其余每一个有意义单词的首字母都要大写（命名尽可能语义化明显，使用英文单词）
+
+let studentInformation;
+let studentInfo;
+//常用的缩写：add/insert/create/new（新增）、update（修改）、delete/del/remove/rm（删除）、sel/select/query/get（查询）、info（信息）...
+
+//不正确的写法
+let xueshengInfo;
+let xueshengxinxi;
+let xsxx;
+
+不能使用关键字和保留字
+
+当下有特殊含义的是关键字，未来可能会成为关键字的叫做保留字(？)
+var le</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E5%B8%B8%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8/">
+        <p class="h4 index-header">常用浏览器</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">常用的浏览器
+webkit内核(V8引擎)
+谷歌Chrome
+Safari
+Opera &gt;=V14
+国产浏览器
+手机浏览器
+…
+
+
+Gecko
+火狐Firefox
+
+
+Presto
+Opera &lt;V14
+
+
+Trident
+IE
+IE EDGE开始采用双内核（其中包含chrome迷你）
+
+
+
+谷歌浏览器的控制台（F12/Fn+F12）    - Elements：查看结构样式，可以修改这些内容    - Console：查看输出结果和报错信息，是JS调试的利器    - Sources：查看项目源码    - Network：查看当前网站所有资源的请求信息（包括和服务器传输的HTTP报文信息）、加载时间等（根据加载时间进行项目优化）    - Application：查看当前网站的数据存储和资源文件（可以盗图）
+JS做客户端语言
+按照相关的JS语法，去操作页面中的元素，有时还要操作浏览器里面的一些功能    - ECMAScript3/5/6…：JS的语法规范（变量、数据类型、操作语句等等）    - DOM（document object model）：文档对象模型，提供</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/Stream/">
+        <p class="h4 index-header">Stream</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是 StreamJava8中有两大最为重要的改变。第一个是 Lambda 表达式；另外一个则是 Stream API(java.util.stream.*)。Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。使用Stream API 对集合数据进行操作，就类似于使用 SQL 执行的数据库查询。也可以使用 Stream API 来并行执行操作。简而言之，Stream API 提供了一种高效且易于使用的处理数据的方式。
+流(Stream) 到底是什么呢？是数据渠道，用于操作数据源（集合、数组等）所生成的元素序列。“集合讲的是数据，流讲的是计算！”注意：    1. Stream 自己不会存储元素。    2. Stream 不会改变源对象。相反，他们会返回一个持有结果的新Stream。    3. Stream 操作是延迟执行的。这意味着他们会等到需要结果的时候才执行。
+Stream 的操作三个步骤
+创建 Stream  一个数据源（如：集合、数组），获取一个流
+中间操作  一个中间操作链，对数据源的</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">
+        <p class="h4 index-header">数据过滤</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">filter对象中包含子对象如果需要用子对象中的属性过滤，需要用forEach套filter，然后再filter过滤
+// 声明中间变量，用于第一层filter过滤的深拷贝
+let newArr = []
+// 先将所有数据深拷贝给需要过滤的数据
+this.pzLeftData = JSON.parse(JSON.stringify(this.AllData))
+// 第一层过滤
+this.pzLeftData.forEach((value, index) =&gt; {
+    newArr[index] = value
+    // 将里层pzlist数组按照evidenceTypeCode过滤并声明一个新的数组复制给pzList
+    newArr[index].pzList = value.pzList.filter(item =&gt; item.evidenceTypeCode === &#39;2&#39;)
+})
+// 第二层过滤，讲里层数组个数为0的分类过滤掉
+this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -190,506 +643,11 @@
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/23/%E9%94%99%E8%AF%AF/HEXO%E7%9A%84%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">HEXO的图片上传问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">问题状况
-如果你的hexo安装了img插件但是还是不显示，后台输出地址404。
-解决办法
-首先找到你的node_modules\hexo-asset-image@0.0.5@hexo-asset-image和node_modules\hexo-asset-image这两个文件包，删除。
-
-接下来
- npm install https://github.com/CodeFalling/hexo-asset-image --save
- 执行这条指令。
-
-打开/node_modules/hexo-asset-image/index.js，将内容更换为下面的代码
- &#39;use strict&#39;;
- var cheerio = require(&#39;cheerio&#39;);
-
- // http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
- function getPosition(str, m, i) {
- return str.split(m, i).joi</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          
-            <a href="/categories/%E5%9B%BE%E7%89%87">图片</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/">
-        <p class="h4 index-header">计算机网络</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">计算机网络概述
-局域网 覆盖范围小 自己花钱购买设备 带宽固定 自己维护 100米 带宽 10M 100M 1000M 设计的时候应该分层设计，一个交换机作为汇聚层（作为中心，接入其他接入层交换机），其余的交换机作为接入层（接入每台电脑，要求接口多）； 接入层的交换机都连接到汇聚层交换机上，并且汇聚层每条线的带宽应该等于接入层带宽总和，这样既不会浪费，也不会限制。
-
-广域网 距离远 花钱租带宽
-
-Internet ISP 自己的机房 对网民提供访问Internet连接
-
-
-规划IP地址介绍MAC地址IP地址IP地址分为网络部分和主机部分，具体如何分辨看子网掩码例如：
-IP        13.0.0.0子网掩码  255.0.0.0
-那么13就是网络部分0.0.0是主机部分，加入子网掩码是255.255那么13.0就是网络部分，0.0就是主机部分。
-互联网连接的路由器的地址往往是这个网段的第一个地址。如果你这个电脑想要给其他网段传输信息，需要配置网关，这个网关就是路由器的IP地址
-
-
-如图，ip地址的网络部分就是前三个部分，主机就是最后一个部分。
-MAC地址在计算机出厂的时候就布置到芯</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/%E5%90%8E%E7%AB%AF/Java/String%E7%B1%BB%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B8%97%E6%9E%90/">
-        <p class="h4 index-header">String类源代码渗析</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">相等性的比较（==）
-对于原生数据类型来说，比较的是左右两边的值是否相等。
-对于引用类型来说，比较左右两边的引用是否指向同一个对象，或者说左右两边的引用地址是否相同。
-java.lang.Object 类。 java.lang 包在使用的时候无需显式导入，编译时由编译器自动帮助我们导入。
-API （Application Programming Interface），应用编程接口。
-当打印引用时，实际上会打印出引用所指对象的 toString()方法的返回值，因为每个类都直接或间接地继承自 Object，而 Object 类中定义了 toString()，因此每个类都有toString()这个方法。
-
-equals方法该方法定义在 Object 类当中，因此 Java 中的每个类都具有该方法，对于 Object 类的 equals()方法来说，它是判断调用 equals()方法的引用与传进来的引用是否一致，即这两个引用是否指向的是同一个对象。对于 Object 类的 equals()方法来说，它等价于==。
-public class StringTest {
- public stati</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/%E5%90%8E%E7%AB%AF/Java/%E7%90%86%E8%A7%A3%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-        <p class="h4 index-header">理解面向对象程序设计</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">面向对象程序设计（Object Oriented Programming， OOP； Object Oriented Design, OOD）什么是面向对象？ 在面向对象程序设计中有两个重要的概念：类（class）与对象（object）。
-
-类： 类是一种抽象的概念， 类中包含了数据（通常使用名词来表示） 与对数据的操纵（通常使用动词来表示）。 比如说人就是一种抽象的概念，人具有姓名、年龄、身高等数据，还有吃饭、跑步等操纵数据的动作。
-
-对象：对象是一种具体的概念，是类的一种具体表示方式。比如说人是一个类，而张三、李四、王五等具体的人就是对象。
-
-类所包含的内容，类一共包含两部分内容：
-
-
-a) 数据，数据在类中称作属性（Property 或者 Attribute） 或者叫成员变量（Member variable）。
-b) 对数据的操纵，这种操纵在类中称作方法（method）。
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3">Java设计思想</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/%E5%90%8E%E7%AB%AF/Java/Java%E5%9F%BA%E6%9C%AC%E8%AF%AD%E5%8F%A5/">
-        <p class="h4 index-header">Java基本语句</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1、流程控制语句if的用法
-第一种形式：
- if(布尔表达式){
- //待执行的代码
- }
- 第二种形式：
- if(布尔表达式){
- //待执行的代码
- }
- else{
- //待执行的代码
- }
- 第三种形式：
- if(布尔表达式){
- //待执行的代码
- } else if(布尔表达式){
- //待执行的代码
- } else if(布尔表达式){
- //待执行的代码
- } else{
- //待执行的代码
- }
-
-switch 语句，使用形式为：
- switch(变量) //此处的变量类型就目前所学内容来看，只能为 4 种类型： byte, short, int,char。
- {
- case 常量 1:
- //待执行的代码
- break;
- case 常量 2:
- //待执行的代码
- break;
- case 常量 3:
- //待执行的代码
- break;
- default：
- //待执行的代码
- }
- 虽然 case 语句中的 break 是可选的，但在绝大多数情况下，如果没有 break，程序的逻辑就会发生错误，因此，通常情况下都需要加上 break。
-
-
-2、循环控制语句
-Ja</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/%E5%90%8E%E7%AB%AF/Java/%E8%BF%90%E7%AE%97%E7%AC%A6-Operator/">
-        <p class="h4 index-header">运算符 Operator</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1、运算精度等级
-当有若干个变量参与运算时， 结果类型取决于这些变量中表示范围最大的那个变量类型。比如，参与运算的变量中，有整型 int，有双精度浮点型 double，有短整型 short，那么最后的结果类型就是 double。
-
- int a = 1;
- int b = 2;
- double c = (double)a / b;```
- 上面的代码中， a 与 b 都是整型，但是通过(double)a 这种转换将 a 转换为一个匿名的变量，该变量的类型是 double，但是要注意： a 本身依旧是 int 类型，而不是 double 类型，这样， (double)a / b 就是 double 类型除以 int 类型，结果自然是 double 类型。
-
-取模运算符：使用%表示。
- int a = 5;
- int b = 3;
- int c = a % b;
- 上面代码的运行结果是 2，因为 5 除以 3 结果是 1 余 2。 取模的规律：取模的结果符号永远与被除 数的符号相同
- int a = 5;
- int b = -3;
- int c = a % b;
- 被除数是 5，那么取模的</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/%E5%90%8E%E7%AB%AF/Java/%E6%B3%A8%E9%87%8A/">
-        <p class="h4 index-header">注释</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">注释注释是给人看的，不是给计算机看的。 Java 中共有 3 种类型的注释：
-
-单行注释： 以//开头， //后面的所有内容均被当作注释处理。
-
-多行注释： 以/* 开头，以 * /结束，中间的所有内容均被当作注释处理。 多行注释来源于C/C++。 关于多行注释，需要注意的是，多行注释不能嵌套。
-
-另一种多行注释。 用于产生 Java Doc 帮助文档。 暂且不介绍
-
-
-//
-
-/*
-*/
-
-/**
-*/
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/%E5%90%8E%E7%AB%AF/Java/%E5%8E%9F%E7%94%9F%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-Primitive-Data-Type/">
-        <p class="h4 index-header">原生数据类型(Primitive Data Type)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">轻量级编辑器Windows：notepad、editplus、ultraedit、gvim
-Linux：vi、vim、gedit
-1、Java 中的数据类型分为两大类1） 原生数据类型 （Primitive Data Type）
-2） 引用类型（对象类型） （Reference Type）
-2、变量与常量所谓常量，就是值不会变化的量；所谓变量，就是值可以变化的量。
-（1）如何定义变量变量类型 变量名;
-int a;
-（2）如何为变量赋值变量名 = 变量值;
-a = 2;
-= 表示赋值，将等号右边的值赋给了左边的变量。
-Java 中使用==表示相等，等价于数学中的=。
-（3）综合变量定义与赋值变量类型 变量名;
-变量名 = 变量值;
-int a;
-a = 1;
-可以将上面两个步骤合二为一：变量类型 变量名 = 变量值;
-int a = 1;
-package JavaBase.PrimitiveDataType;
-
-public class Vairable {
-    public static void main(String[] args) {
-        int a = 1;
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/21/%E5%90%8E%E7%AB%AF/Java/Java%E7%AE%80%E4%BB%8B/">
-        <p class="h4 index-header">Java简介</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1、Java的版本Java SE：Java Standard Edition         基础版本
-Java ME：Java Micro Edition           手机开发
-Java EE:：Java Enterprise Edition       企业开发
-Java是由Sun公司推出的（后被Oracle公司收购）。收购价格：74亿美金J2SE、J2ME、J2EE
-2、下载JDKJDK：Java Development Kit（Java开发包）(Java开发必备）
-JRE：Java Runtime Environment（java执行环境）
-JDK包含了JRE
-jdk 1.4 ，jdk1.5（5.0），jdk1.6（6.0）
-jdk1.5（5.0）：Tiger，老虎
-jdk1.6（6.0）：Mustang，野马
-最新免费版是1.8
-3、配置环境变量设定环境变量（可以是用户变量，也可以是系统变量)，指向JDK安装目录中的bin目录
-CLASSPATH：D:\Java\jdk1.8.0_191\lib
-Path：D:\Java\jdk1.8.0_191\bin
-通过运行，输</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/15/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/17/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/15/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/17/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

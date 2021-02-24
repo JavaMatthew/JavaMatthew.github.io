@@ -136,36 +136,319 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/22/%E5%90%8E%E7%AB%AF/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/Java%E5%AE%9E%E4%BD%93%E7%B1%BB%E4%B8%AD%E4%B8%BA%E4%BD%95%E4%B8%8D%E7%94%A8%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">Java实体类中为何不用基本数据类型</p>
+      <a href="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/">
+        <p class="h4 index-header">Redis持久化</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">阿里巴巴开发手册中写的很明确，基本类型接收NULL值有NPE风险（java.lang.NullPointerException  NPE 空值异常），而且默认值和NULL值不能传达同一种信息。
+          <div class="index-text mb-1">持久化的作用什么是持久化
+redis所有数据保存在内存中，对数据的更新将一部保存到磁盘上。
+
+
+
+持久化方式
+
+RDB什么是RDB
+
+触发机制-主要三种方式
+save（同步）
+bgsavve（异步）
+自动
+
+save命令
+
+因为是同步命令，并且redis是单线程，所以会阻塞其他命令
+bgsave命令
+一般fork命令执行比较快，所以不会阻塞redis文件策略和复杂度与save命令相同。
+自动生成RDB
+
+
+配置
+seconds
+changes
+
+
+
+save
+900
+1
+
+
+save
+300
+10
+
+
+save
+60
+10000
+
+
+配置save 900 1
+save 300 10
+save 60 10000                       # 可以做自己策略的修改
+dbfilename dump.rdb                 # 文件名字
+dir ./                              # 生成文件路径为当前路径
+stop-writes-on-bgsave-error yes     # 遇到错误停止生成
+rdbcompression y</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/redis">redis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/GEO/">
+        <p class="h4 index-header">GEO</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">GEO
+GEO(地理信息定位)：存经纬度，计算两地距离，范围计算等
+
+例：
+北京：116.28，39.55天津：117.12，39.08
+应用场景
+
+APIgeoaddgeoadd key longitude latitude memeber
+[longitude latitude memeber]
+# 增加地理位置信息
+
+127.0.0.1:6379&gt; geoadd city:location 120.17759030553346 30.250102922876387 保佑桥西弄5号
+(integer) 1
+127.0.0.1:6379&gt; geoadd city:location 120.17095719788504 30.262918390984563 延安路306号天阳明珠商业中心A座701
+(integer) 1
+geoposgeopos key  memeber [memeber]
+# 获取地理位置信息
+
+127.0.0.1:6379&gt; geopos city:location 保佑桥西弄5号
+1) 1) &quot;120.1775899529457092</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/redis">redis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/BitMap/">
+        <p class="h4 index-header">Bitmap</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">位图
+
+APIsetbitsetbit key offset value
+# 给位图指定索引设置值
+127.0.0.1:6379&gt; setbit unique:users:2016-04-05 0 1
+(integer) 0
+127.0.0.1:6379&gt; setbit unique:users:2016-04-05 5 1
+(integer) 0
+127.0.0.1:6379&gt; setbit unique:users:2016-04-05 11 1
+(integer) 0
+127.0.0.1:6379&gt; setbit unique:users:2016-04-05 15 1
+(integer) 0
+127.0.0.1:6379&gt; setbit unique:users:2016-04-05 19 1
+(integer) 0
+
+
+getbitgetbit keyy offset
+# 获取位图指定索引的值
+
+127.0.0.1:6379&gt; getbit unique:users:2016-04-05 8
+(integer) 0
+127.0.0.1:63</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/redis">redis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/">
+        <p class="h4 index-header">发布订阅</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">角色
+发布者（publisher）
+订阅者（subscriber）
+频道（channel）
+
+模型
+
+没有消息堆积的功能，无法查询历史发布消息
+APIpublish（发布命令）publish  channel message
+
+127.0.0.1:6379&gt; publish sohu:tv &quot;hello world&quot;
+(integer) 0 # 订阅者个数
+subcribe（订阅）subscribe [channel] # 一个或多个
+
+127.0.0.1:6379&gt; subscribe sohu:tv
+Reading messages... (press Ctrl-C to quit)
+1) &quot;subscribe&quot;
+2) &quot;sohu:tv&quot;
+3) (integer) 1
+unsubcribe（取消订阅）unsubscribe [channel] # 一个或多个
+
+127.0.0.1:6379&gt; unsubscribe sohu:tv
+1) &quot;unsubscribe&quot;
+2) &quot;s</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/redis">redis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/17/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/pipeline/">
+        <p class="h4 index-header">pipeline</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是流水线
+
+流水线的作用
+
+
+命令
+N个命令操作
+1次 pipeline（n个命令）
+
+
+
+时间
+n次网络 + n次命令
+1次网络 + n次命令
+
+
+数据量
+1条命令
+n条命令
+
+
+两点注意
+
+Redis的命令时间是微妙级别。
+pipeline每次条数要控制（网络）。
+
+
+
+与原生M操作的区别
+
+
+使用建议
+注意每次pipeline携带数据量
+pipeline每次只能作用在一个Redis节点上
+M操作与pipeline区别
+
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-22&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-17&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
-          
-            <a href="/categories/Java">Java</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
           
         
       </div>
@@ -176,340 +459,244 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/22/%E5%90%8E%E7%AB%AF/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/java%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%83%85%E5%86%B5/">
-        <p class="h4 index-header">java内存泄漏可能出现的情况</p>
+      <a href="/2020/11/14/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E6%85%A2%E6%9F%A5%E8%AF%A2/">
+        <p class="h4 index-header">慢查询</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">生命周期
+
+两点说明
+
+慢查询发生在第三阶段
+客户端超时不一定慢查询，但慢查询是客户端超时的一个可能因素
+
+两个配置slowlog-max-len
+先进先出队列
+固定长度
+保存在内存内
+
+
+
+slowlog-log-slower-than
+慢查询阈值（单位：微妙）
+slowlog-log-slower-than = 0 , 记录所有命令
+slowlog-log-slower-than &lt; 0 , 不记录任何命令
+
+配置方法
+默认值
+
+config get slowlog-max-len = 128
+config get slowlog-log-slower-than = 10000
+
+修改配置文件重启
+动态配置
+
+config set slowlog-max-len 128
+config set slowlog-log-slower-than 10000
+慢查询命令
+slowlog get[n] : 获取慢查询队列
+slowlog len : 获取慢查询队列长度
+slowlog reset : 清空慢查询队列
+
+运维经验
+slowlog-max-len不要设置过大，默认10ms，</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/redis">redis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/13/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Jedis%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96/">
+        <p class="h4 index-header">Jedis配置优化</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Jedis配置优化初始化Jedis连接池，通常来讲JedisPool是单例的。
+GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
+JedisPool jedisPool = new JedisPool(poolConfig,&quot;127.0.0.1&quot;,6379);
+
+
+
+适合的maxTotal比较难确定的，举个例子：
+
+命令平均执行时间0.1ms=0.001s
+业务需要5wQPS
+maxTotal理论值 = 0.001 * 50000 = 50个。实际值要偏大一些
+业务希望Redis并发量
+客户端执行命令时间
+Redis资源：例如nodes（例如应用个数） * maxTotal是不能超过redis的最大连接数。（config get maxclients）
+资源开销: 例如虽然希望控制空闲连接，但是不希望因为连接池的频繁释放创建连接造成不必要开销。
+
+适合的maxIdle和minIdle建议maxIdle = maxTotal
+
+减少新连接的开销。  建议预热minIdle
+减少第一次</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/redis">redis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/13/%E5%90%8E%E7%AB%AF/Java/%E5%B0%8F%E6%95%B0%E7%9A%84%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/">
+        <p class="h4 index-header">小数的四舍五入</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">四舍五入
+Math.round((float) reputation.get(i) / commentNum)
+四舍五入保留一位小数
+(float) Math.round(sum / commentNum * 10) / 10
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/13/%E5%90%8E%E7%AB%AF/Mybatis/%E6%90%9C%E7%B4%A2%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">搜索复杂数据类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Insert之后返回自增主键mapper.xml&lt;insert id=&quot;insertScript&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;script.id&quot; keyColumn=&quot;id&quot;&gt;
+INSERT INTO merchant_script(script_desc, tips, name, cover_oss_url, difficulty, role_num)
+VALUE (#{script.desc}, #{script.tips}, #{script.name}, #{script.img}, #{script.difficulty},#{script.roleNum});
+&lt;/insert&gt;
+dao.javaInteger insertScript(@Param(&quot;script&quot;) ScriptDto script);
+实体类实体类不需要进行特殊处理
+例子ScriptDto scriptDto = new Scri</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Maybatis">Maybatis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Maybatis">Maybatis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/13/%E9%94%99%E8%AF%AF/Java/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/">
+        <p class="h4 index-header">字符串截取</p>
         
         
           
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">
-由于java的JVM引入了垃圾回收机制，垃圾回收器会自动回收不再使用的对象，了解JVM回收机制的都知道JVM是使用引用计数法和可达性分析算法来判断对象是否是不再使用的对象，本质都是判断一个对象是否还被引用。那么对于这种情况下，由于代码的实现不同就会出现很多种内存泄漏问题（让JVM误以为此对象还在引用中，无法回收，造成内存泄漏）。    在支持垃圾回收的语言中，内存泄漏是很隐蔽的（称这类内存泄漏为“无疑是的对象保持” unintentional object retention 更为恰当）如果一个对象
+出现场景：在mina，redis等传输的过程中，原本的名字中有表情，一个emoji有时候占2个或多个字符，使得字符串截取有问题显示报错，因此要使用java的offsetByCodePoints方法来截取字符。
 
-
-静态集合类，如HashMap、LinkedList等等。如果这些容器为静态的，那么它们的生命周期与程序一致，则容器中的对象在程序结束之前将不能被释放，从而造成内存泄漏。简单而言，长生命周期的对象持有短生命周期对象的引用，尽管短生命周期的对象不再使用，但是因为长生命周期对象持有它的引用而导致不能被回收。
-
-各种连接，如数据库连接、网络连接和IO连接等。在对数据库进行操作的过程中，首先需要建立与数据库的连接，当不再使用时，需要调用close方法来释放与数据库的连接。只有连接被关闭后，垃圾</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
-        <p class="h4 index-header">Linux操作命令</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">系统管理命令参考手册
-交换空间内存 1GB 超过   内存溢出 会造成阻塞崩溃宕机磁盘 1TB swap 交换空间，虽然会防止内存溢出，但是会减慢速度拖垮系统云服务器    一台超级计算机 1TB 硬盘 128G 内存，云服务器是没有交换空间的                开辟一个空间    20GB 1G
-Linuxw文件操作命令如果无法找到ls或其他命令
-export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
-压缩文件
-# tar -xzvf test.tar.gz
-重启
-reboot
-shutdown -r now
-
-关机
-shutdown -h now
-
-Linux编辑器vim
-编辑模式：等待编辑命令输入
-插入模式：编辑模式下，输入i进入插入模式，插入文本信息
-命令模式：在编辑模式下，输入:进行命令模式
-
-命令
-:q 直接退出vi
-:wq 保存后退出vi，并可以新建文件
-:q! 强制退出
-:w file 将当前内容保存成某个文件
-:set number 在编辑文件显示</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux">Linux</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux">Linux</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/21/%E9%94%99%E8%AF%AF/swagger/swagger%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">swagger跨域问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Swagger的跨域问题
-
-必须保证三处ip相同,访问页面的url和Server的访问地址，以及index的url
-
-
-&lt;!-- HTML for static distribution bundle build --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Swagger UI&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./swagger-ui.css&quot; &gt;
-    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;./favicon-32x32.png&quot; sizes=&quot;32x32&quot; /</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/swagger">swagger</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/tags/swagger">swagger</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E7%AE%80%E4%BB%8B/">
-        <p class="h4 index-header">Linux简介</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Linux简介Linux 是内核，具备图灵完备。Ubuntu、CentOS、RedHat、深度。。。是Linux的操作系统Windows Nt 是Windows的内核
-Linux有超级管理员账户root
-Windows 一块硬盘 1TB        C 100 D 100 Movies        E 500 F 300Linux   一块硬盘 第0块硬盘        挂载            Movies sc0 20GB            Games sc0 100GBLVM技术 磁盘扩容技术        500GB   C        500GB   D
-服务器远程控制Open SSH
-连接    服务端        创建监听端口    客户端        请求服务端的监听端口免密登录    客户端创建一对密钥        公钥    私钥XShell
-查看端口
-ifconfig    inet是端口
-
-Linux目录结构
-
-
-一级目录
-功能（作用）
-
-
-
-/bin/
-存放系统命令，普通用户和 root 都可以执行。放在 /bin 下的命令在单用户模式下也可</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux">Linux</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux">Linux</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/18/%E5%89%8D%E7%AB%AF/Antd/Antd%E6%A0%87%E7%AD%BE/">
-        <p class="h4 index-header">Antd标签</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">制作的页面代码里面有时间，下拉框（可清除），表单分页（子目录）
-/*
- * @Description: 奖池分组
- * @version: 1.0.0
- * @Company: sdbean
- * @Author: zhangyi
- * @Date: 2020-7-18
- */
-
-import {IawardGroup, Igachats} from &#39;./models/gacha&#39;;
-import React, {Component} from &#39;react&#39;;
-import * as styles from &#39;./CoinWeightManager.less&#39;;
-import PageHeaderWrapper from &#39;@/components/PageHeaderWrapper&#39;;
-import {connect} from &#39;dva&#39;;
-import {ILogin} from &#39;@/models/login&#39;;
-import EditorAwardGroup from &#39</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/Antd">Antd</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/Antd">Antd</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/13/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/PHP%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/">
-        <p class="h4 index-header">PHP编程风格</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">方法调用普通的方法调用要使用对象-&gt;方法的防止来进行调用，静态方法使用类::静态方法的方式
-$wishService-&gt;crystal($userNo,$cpId);
-
-Controller::validatePostForm([
-    &quot;userNo&quot; =&gt; &quot;present&quot;,
-    &quot;cookie&quot; =&gt; &quot;present&quot;,
-    &quot;cpId&quot; =&gt; &quot;present&quot;,
-]);
-DAO编写规范用双引号包裹sql语句，因为php中双引号字符串里的内容可以翻译变量
-public function updateUserAnimationState($itemId, $userNo) {
-    try {
-        $pdo = $this-&gt;GetPdo();
-        $sql = &quot;INSERT INTO user_animation_state (user_id,role_id,type,an</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
-          
-            <a href="/categories/PHP%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">PHP编程风格</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/13/%E9%94%99%E8%AF%AF/Java/List%E8%BD%ACMap/">
-        <p class="h4 index-header">key问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">list转map的时候，忘记了map的key不能重复的问题；其实初衷就是想 利用map的key不能重复的问题.
-将list转为map，原以为是遍历list的方式，存map，然后map的key重复的话，直接覆盖,但是java8 中stream 确给我挖了个坑
 /**
-* List -&gt; Map
-* 需要注意的是：
-* toMap 如果集合对象有重复的key，会报错Duplicate key ....
-*  apple1,apple12的id都为1。
-*  可以用 (k1,k2)-&gt;k1 来设置，如果有重复的key,则保留key1,舍弃key2
+* 截取出包含emoji表情字符串的前四位
+*
+* @param source 包含emoji表情的源字符串
+* @return 截取前四位后的结果
 */
-Map&lt;Integer, Apple&gt; appleMap = appleList.stream().collect(Collectors.toMap(Apple::getId, a -&gt; a, (k1, k2) -&gt; k1));
-List里面的对象元素，以某个属性来分组，例如，以id分组，将id相同的放在一起：
-//List 以ID分组 Map&lt;Integer,List&lt;Apple&gt;&gt</div>
+private String subStrIncludeEmojiFour(String source) {
+    String result;
+    try {
+        result = source.substring(source.offsetByCodePoints(0, 0),
+                source.offsetByCodePoints(0, 4));
+    } catch (Exception e) {
+        result = &quot;&quot;;
+    }
+    return result;
+}
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-13&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -525,106 +712,6 @@ List里面的对象元素，以某个属性来分组，例如，以id分组，�
             <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
           
             <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/13/%E5%90%8E%E7%AB%AF/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/Java%E7%9A%84Lambda%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">
-        <p class="h4 index-header">Java的LLambda性能分析</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">for循环和lambda的性能比较代码public class main {
-    public static void main(String[] args) {
-        List&lt;User&gt; listUser = getListUsers();
-        //一般forEach
-        long startSimpleTime = System.currentTimeMillis();
-        for (User user : listUser) {
-            user.toString();
-        }
-        long endSimpleTime = System.currentTimeMillis();
-        System.out.println(&quot;Simple:&quot; + (endSimpleTime - startSimpleTime));
-
-        //java8中新的forEach
-        long startLambda = System.curren</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/10/%E9%94%99%E8%AF%AF/Mybatis/springboot%E5%92%8Cmybatis%E7%9A%84%E7%BB%84%E5%90%88%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">SpringBoot和Mybatis的组合问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">问题状况List&lt;Audioconverttochn&gt; audioConvertToCHNList = gameService.selectAudioConvertToCHN(hangUpList);
-audioConvertToCHNList.removeIf(audioConvertToCHN -&gt; StringUtils.isNotBlank(audioConvertToCHN.getResult()));
-
-
-public List&lt;Audioconverttochn&gt; selectAudioConvertToCHN(List&lt;UserCreditReport&gt; list) {
-    if (CollectionUtils.isEmpty(list)) {
-        list = new ArrayList&lt;&gt;();
-        UserCreditReport userCreditReport = new UserCreditReport();
-        userCreditReport.setUserN</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/SpringBoot">SpringBoot</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/tags/SpringBoot">SpringBoot</a>&nbsp;
-          
-            <a href="/tags/Mybatis">Mybatis</a>&nbsp;
           
         
       </div>
@@ -635,7 +722,7 @@ public List&lt;Audioconverttochn&gt; selectAudioConvertToCHN(List&lt;UserCreditR
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

@@ -136,29 +136,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/03/%E5%90%8E%E7%AB%AF/Java/%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90native%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">如何分析native方法</p>
+      <a href="/2020/05/14/%E5%90%8E%E7%AB%AF/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/Socket%E5%A5%97%E6%8E%A5%E5%AD%97/TCP%E9%80%9A%E4%BF%A1%E7%A8%8B%E5%BA%8F/">
+        <p class="h4 index-header">TCP通信程序</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">分析navative方法
-进入github（也可以进openJDK网站）
-点“搜索文件”，搜索对应的c代码类Thread.c
-找到native方法对应的方法名
-去src/htspot/share/prims/jvm.cpp里看cpp代码
+          <div class="index-text mb-1">概述TCP通信能实现两台计算机之间的数据交互，通信的两端，要严格区分为客户端（Client）与服务端（Server）。
+两端通信时步骤
+服务器端先启动
+服务器端不会主动的请求客户端
+必须使用客户端请求服务器端
+客户端和服务端就会建立一个逻辑连接
+而这个连接中包含一个对象
+这个对象就是IO对象
+客户端和服务器端就可以使用
+IO对象进行通信
+通信的数据不仅仅是字符
+所以IO对象是字节流对象
 
+服务端程序，需要事先启动，等待客户端的连接客户端主动连接服务器端，连接成功才能通信。服务端不可以主动连接客户端。
+服务端必须明确两件事情：
 
-</div>
+多个客户端同时和服务器进行交互，服务器必须明确和哪个客户端进行的交互在服务器端有一个方法，叫accept客户端获取到请求的客户端对象
+多个客户端同时和服务器进行交互，就需要使用多个IO流对象 服务器是没有IO流的，服务器可以获取到请求的客户端对象Socket 使用每个客户单Socket中提供的IO流和客户端进行交互 服务器使用客户端的字节流读取客户端发送的数据
+ 服务器使用客户端的字节流输出给客户端回写数据
+
+在Java中，提供了两个类用于事先TCP通信程序
+客</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-14&nbsp;&nbsp;
         
         
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Socket">Socket</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Socket">Socket</a>&nbsp;
+          
         
       </div>
     </div>
@@ -168,29 +192,266 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/02/%E5%90%8E%E7%AB%AF/Java/Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB/">
-        <p class="h4 index-header">Java异常体系</p>
+      <a href="/2020/05/14/%E5%90%8E%E7%AB%AF/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/Socket%E5%A5%97%E6%8E%A5%E5%AD%97/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
+        <p class="h4 index-header">网络编程入门</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">
-Error和RuntimeException共同构成了非检查异常；IOException受检查异常，应该对其提前进行处理，提供程序的健壮性。
-</div>
+          <div class="index-text mb-1">软件结构
+C/S结构：全程为Client/Server结构，是指客户端和服务器结构。常见程序有QQ、迅雷等软件。
+B/S结构：全称为Browser/Server结构，是指浏览器和服务器结构。常见浏览器有谷歌、火狐等。
+
+
+
+两种架构各有优势，但是无论哪种架构，都离不开网络的支持。网络编程，就是在一定的协议下，实现两台计算机的通信的程序。
+网络通信协议
+网络通信协议：通过计算机网络可以使多台计算机实现连接，位于同一个网络中的计算机在进行连接和通信时需要遵守一定的规则，这就好比在道路中行驶的汽车一定要遵守交通规则一样。在计算机网络中，这些连接和通信的规则被称为网络通信协议，它对数据的传输格式、传输速率、传输步骤等做了统一规定，通信双方必须同时遵守才能完成数据交换。
+TCP/IP协议：传输控制协议/因特网互联协议（Transmission Control Protocol/Internet Protocol）是Internet最基本、最广泛的协议。它定义了计算机如何连入因特网，以及数据如何在他们之间传输的标准。它的内部包含一系列的用于处理数据通信的协议，并采用了4层的分层模型，每一层都呼叫它</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-02&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Socket">Socket</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Socket">Socket</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/SQL%E8%AF%AD%E5%8F%A5/">
+        <p class="h4 index-header">SQL语句</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SQL JOIN语法SELECT … FROM
+a,b
+WHERE a.x = b.x
+
+SELECT … FROM a
+INNER JOIN b
+on a.x = b.x
+
+SELECT … FROM a
+JOIN b
+on a.x = b.x
+Q：上述这些语法是否有区别？A：没有任何区别Q：哪个性能更好？A：没有任何区别A：好吧，如果要认真算的话，那么3最好，因为字节数最少Q：那为什么需要不同的语法？A：ANSI SQL 89、ANSI SQL 92语法标准A：ANSI 92标准开始支持OUTER JOINA：INNER JOIN可以省略INNER关键字
+算法• nested_loop join    • simple nested-loop join    • index nested-loop join    • block nested-loop join• classic hash join    • Only support in MariaDB• bached key access join    • from MySQL 5.6
+simple nested_loop </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E7%BB%B4%E6%8A%A4/">
+        <p class="h4 index-header">表的创建与维护</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">表
+表是关系数据库的核心
+表=关系
+表是记录的集合
+二维表格模型易于人类理解
+MySQL默认存储引擎都是基于行（记录）存储
+每行记录都是基于列进行组织的
+
+MySQL中数据库与表之间的关系
+
+CREATE TABLE语法CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+(create_definition,...)
+[table_options]
+[partition_options]
+create_definition:
+col_name column_definition
+| [CONSTRAINT [symbol]] PRIMARY KEY [index_type] 
+(index_col_name,...)
+[index_option] ...
+| {INDEX|KEY} [index_name] [index_type] (index_col_name,...)
+[index_option] ...
+| [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY]
+[index_name] [index_t</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">数据类型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Int类型
+
+属性
+UNSIGNED/SIGNED
+是否有符号
+
+
+ZEROFILL
+填充0（例如：0001）
+显式属性
+只不做任何修改
+
+
+AUTO_INCREMENT
+自增
+每张表一个
+必须是索引的一部分
+
+
+
+总结
+推荐不要使用UNSIGNED
+范围本质上没有大的改变
+UNSIGNED可能会有一处现象发生
+自增INT类型逐渐建议使用BIGINT
+
+数字类型• 单精度类型：FLOAT• 双精度类型：DOUBLE    单精度类型和双精度类型精度较低，M*G/G不一定等于M• 高精度类型：DECIMAL
+
+财务系统必须用DECIMAL类型FLOAT(M,D)/DOUBLE(M,D)/DECIMAL(M,D) 表示显示M位整数，其中D位位于小数点后面
+字符串类型
+BLOB =&gt; VARBINARYTEXT =&gt; VARCHAR
+
+在BLOB和TEXT列上创建索引时，必须制定索引前缀的长度
+VARCHAR和VARBINARY前缀长度是可选的。
+BLOB和TEXT列不能有默认值
+BLOB和TEXT列排序时只使用该列的前max_sort_length个字节
+
+mysql &gt;</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/25/%E5%90%8E%E7%AB%AF/Java/JVM/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA/">
+        <p class="h4 index-header">运行时数据区</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">运行时数据区
+
+Java虚拟机定义了若干种程序运行期间会使用到的运行时数据区,其中由一些会随着虚拟机启动而创建,随着虚拟机退出而销毁.另外一些则是与线程一一对应的,这些与线程对应的数据区域会随着线程开始和结束而创建和销毁.灰色的为单独线程私有的,红色的为多个线程共享的.即:
+
+每个线程:独立包括程序计数器、栈、本地栈线程间共享：堆、堆外内存（永久代或元空间、代码缓存）
+
+线程
+线程是一个程序里的运行单元。JVM允许一个应用有多个线程并行的执行。
+
+在Hotspot JVM里，每个线程都与操作系统的本地线程直接映射。
+
+当一个Java线程准备好执行以后，此时一个操作系统的本地线程也同事创建。Java线程执行终止后，本地线程也会回收。
+
+
+操作系统负责所有线程的安排调度到任何一个可用的CPU上。一旦本地线程初始化成功，它就会调用Java线程中的run()方法
+
+如果你是用jconsole或者是任何一个调试工具，都能看到在后台有许多线程在运行。这些后台线程不包括调用public static void main(String[])的main线程以及所有这个main线程自己创建的线程。
+
+这些</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+            <a href="/categories/JVM">JVM</a>&nbsp;
           &nbsp;
         
         
@@ -198,6 +459,8 @@ Error和RuntimeException共同构成了非检查异常；IOException受检查异
           
             <a href="/tags/Java">Java</a>&nbsp;
           
+            <a href="/tags/JVM">JVM</a>&nbsp;
+          
         
       </div>
     </div>
@@ -207,28 +470,162 @@ Error和RuntimeException共同构成了非检查异常；IOException受检查异
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/01/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B8%E5%A4%A7%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-        <p class="h4 index-header">线程8大核心基础知识</p>
+      <a href="/2020/04/24/%E5%90%8E%E7%AB%AF/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">
+        <p class="h4 index-header">类加载子系统</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">多线程全部脉络
+          <div class="index-text mb-1">内存结构概述
 
-多线程8大基础
+类加载子系统类加载子系统的作用
 
-实现多线程的方法时1种2种还是4种
-实现多线程的官方正确方法：2种
 
-Oracle官网文档：There are two ways to create a new thread of execution. One is to declare a class to be a subclass of Thread. This subclass should override the run method of class Thread. An instance of the subclass can then be allocated and started. The other way to create a thread is to declare a class that implements the Runnable interface.创建一个新的执行线程有两种方法：一个是将一个类声明为Thread的子类，这个子类应该重写run类的方法Thread，然后可以分配并启动子类的实例。另一种方法来创建一个线程是声明实现类Runnable接口。
-两种方法</div>
+类加载子系统负责从文件系统或者网络中加载Class文件，class文件在文件开头有特定的文件表示
+ClassLoader治负责class文件的加载，至于它是否可以运行则由Execution Engine决定。
+加载的类信息存放于一块成为方法区的内存空间。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串紫米那里和数字常量（这部分常量信息是Class文件中常量池部分的内存映射）
+
+类的加载过程加载
+通过一个类的全限定名获取定义此类的二进制字节流
+讲这个字节流所代表的静态存储结构转化为方法区的运行时数据结构
+在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口
+
+链接验证（Verify）：
+
+目的在于确保Class文件的字节流中包含信息符合当前虚拟机的要求，保证加载类的正确性，不会危害虚拟机自身安全。
+主要包括四种验证：文件格式验证，元数据验证，字节码验证，符号引用验证
+
+准备（Prepare）：
+
+为类变了分配内存并且设置该类变了的默认初始值，即零值。
+这里不包含用fina</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-01&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-24&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/JVM">JVM</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/JVM">JVM</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/21/%E5%90%8E%E7%AB%AF/Java/JVM/JVM%E4%B8%8EJava%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
+        <p class="h4 index-header">JVM与Java体系结构</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JVM的位置
+JVM是运行在操作系统之上的，它与硬件没有直接的交互。
+JVM的整体结构HotSpot VM是目前市面上高性能虚拟机的代表作之一
+
+它采用解释器与即时编译器并存的架构。在今天，Java程序的云心性能早已脱胎换骨，已经达到了可以和C/C++程序一较高下的地步。
+JVM的架构模型Java编译器输入的指令流基本上是一种基于栈的指令集架构，另外一种指令集结构则是基于寄存器的指令集架构。
+具体来说：这两种架构之间的区别：
+
+基于栈式架构的特点
+设计和实现更简单，适用于资源受限的系统；
+避开了寄存器的分配难题，使用领地址指令方式分配。
+指令流中的指令大部分是零地址指令，其执行过程依赖于操作栈。指令集更小，编译器更容易实现。
+不需要硬件支持，可移植性更好，更好实现跨平台
+
+
+基于寄存器架构的特点
+典型的应用是x86的二进制指令集:比如传统的PC以及Android的Davlik虚拟机
+指令集架构则完全依赖硬件，可移植性差
+性能优秀和执行更高效；
+花费更少的指令去完成一项操作。
+在大部分情况下，基于寄存器架构的指令集往往都以一地址指令、二地址指令和三地址指令为主，而基于栈式架构的指令集却是</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/JVM">JVM</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/JVM">JVM</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/20/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98/">
+        <p class="h4 index-header">高性能缓存</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">最简单缓存入手————HashMap并发安全要保证————用synchronized实现
+性能差
+代码复用能力差
+
+给HashMap加final关键字
+属性被声明为final后，该变量则只能被复制一次，且一旦被复制，final的百年来就不能再被改变。
+所以我们把它加上final关键字，增强安全性。
+
+代码有重构空间————用装饰者模式
+我们假设ExpensiveFunction类是耗时计算的实现类，实现了Computable接口，但是其本身不具备缓存功能，也不需要考虑缓存的事情
+缺点
+性能差
+当多个线程同时想计算的时候，需要慢慢等待，严重时，性能甚至比不用缓存更差
+
+
+
+性能待优化————引出锁性能优化经验：缩小锁的粒度
+虽然提高了并发效率，但是并不意味着就是线程安全的，还需要考虑到同时读写等情况
+但是起始没必要自己实现线程安全的HashMap，也不应该加synchronized，因为我们自己实现的性能远不如现有的并发集合
+我们来使用ConcurrentHashMap优化我们的缓存
+
+用并发集合————ConcurrentHashMap
+缺点：在计算完成前，另一个要求计算相同值得请求到</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-20&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -254,350 +651,52 @@ Oracle官网文档：There are two ways to create a new thread of execution. One
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-        <p class="h4 index-header">网络安全</p>
+      <a href="/2020/04/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Future%E5%92%8CCallable/">
+        <p class="h4 index-header">Future和Callable</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">网络安全数据存储安全应用程序安全操作系统安全网络安全物理安全用户安全教育
-计算机网络上的通信面来以下的四种威胁：（1） 截获–从网络上窃听他人的通信内容。（2） 中断–有意中断他人在网络上的通信（3） 篡改–故意篡改网络上传送的报文（4） 伪造–伪造信息在网络上传送截获信息的攻击称为被动攻击，而更改信息和拒绝用户使用资源的攻击称为主动攻击。
-恶意程序（rogue program）
-计算机病毒————会传染其他程序的程序，传染是通过修改其他程序来吧自身或其变种赋值进去完成的。
-计算机蠕虫————通过网络的通信功能将自身从一个结点发送到另一个结点并启动运行的程序。
-特洛伊木马————一种程序，它执行的功能超出所声称的功能
-逻辑炸弹————一种当运行环境满足某种特定条件时执行其他特殊功能的程序。
+          <div class="index-text mb-1">Runnable的缺陷
+不能返回一个返回值
+不能抛出checked Exception
 
-木马程序
-查看会话 netstat -n 是否有可以的会话
-运行msconfig 服务 隐藏微软服务
-安装杀毒软件
+Callable接口类似于Runnable，被其他线程执行的任务
 
-加密技术对称加密 优点：效率高        缺点：密钥不适合在网上传输 密钥维护麻烦
-非对称加密 加密密钥和解密密钥是不同 密钥对 公钥和私钥            公钥加密私钥</div>
+实现call方法
+有返回值
+
+Future主要方法：一共5个get()方法：获取结果get方法的行为取决于Callable任务的状态，只有以下这5种情况：
+
+任务正常完成：get方法回立刻返回结果
+任务尚未完成（任务还没开始或进行中）：get将阻塞并直到任务完成
+任务执行过程中抛出Exception：get方法回抛出ExecutionException：这里的抛出异常，是call()执行时产生的那个异常，看到这个异常类型时java.util.concurrent.ExecutionException。不论call()执行时抛出的异常类型时什么，最后get方法抛出的异常类型都是ExecutionException。
+任务呗取消：get方法会抛出CancellationException
+任务超时：get方法有一个重载方法，时传入一共延迟时间的，如果时间到了还没有获得结果，get方法就会抛出TimeoutException。
+
+get</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-28&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-15&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%BA%94%E7%94%A8%E5%B1%82/">
-        <p class="h4 index-header">应用层</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">域名DNS服务作用：负责解析域名，将域名解析成IP222.222.222.222是电信公司的服务器8.8.8.8是谷歌公司的服务器
-域名：    根    顶级域名    com    edu net cn org gov    二级域名    baidu    三级域名
-域名节序测试ping www.baidu.comnslookup www.souhu.com
-
-
-域名注册：百度然后花钱买域名解析过程安装自己的DNS服务器
-
-解析内网自己的域名
-节省到Internet的域名解析流量
-域环境
-
-DHCP动态主机配置静态IP地址动态IP地址
-DHCP客户端请求IP地址的过程DHCP服务器必须静态地址释放租约    ipconfig /release跨网段地址分配
-文件传输协议FTP（File Transfer Protocol）FTP协议    主动模式 ftp客户端高速FTP服务器使用什么端口侦听            FTP服务器和FTP客户端的这个端口建立连接 源端口20    被动模式 服务端在指定范围额你的某个端口被动等待客户端发起连接
-如果由防火墙许哟啊在防火墙打开21和2</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-27&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BC%A0%E8%BE%93%E5%B1%82/">
-        <p class="h4 index-header">传输层</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">传输层传输层的功能传输层协议UDP和TCP网络安全TCP可靠传输的实现TCP的流量控制TCP的拥塞控制TCP的运输连接管理
-OSI和DoD模型
-需要记住！！！！
-数据包65535 -&gt; 分段46-1500TCP 需要将传输的文件分段 传输建立会话 可靠传输 流量控制    文件传输 邮件传输 ftp下载文件UDP 一个数据包就能够完成数据通信 不分段 不需要建立会话 不需要流量控制 不可靠传输    qq聊天 屏幕广播 多播 广播
-查看会话 netstat -n查看简历会话的进程 netstat -nb
-传输层协议和应用层协议之间的关系
-
-常见的应用层协议使用的端口http = TCP + 80https = TCP + 443RDP = TCP + 3389ftp = TCP + 21共享文件夹 = TCP + 445SMTP = TCP + 25POP3 = TCP + 110telnet = TCP + 23SQL = TCP + 1433DNS = UDP + 53
-传输层–服务和端口
-服务和应用层协议之间关系 服务使用 TCP或UDP的端口侦听客户端请求 客户端使用IP</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/22/%E5%90%8E%E7%AB%AF/Java/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-        <p class="h4 index-header">动态规划</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">动态规划
-
-遇到动态规划问题，首先思考将大问题拆解成一个个小问题，写出解题方程，然后写出状态方程先用递归的思路解决问题，然后用记忆法进行优化，然后使用动态规划。
-01背包问题有一个背包，它的容量为C（Capacity），现在有n中不同的物品，编号为0…n-1，其中每一件物品的重量为w(i),价值为v(i).问可以向这个背包中盛放哪些物品，使得在不超过背包容量的基础上，物品的总价值最大
- 暴力解法：每一件物品都可以放进背包，也可以不放进背包。 时间复杂度    O((2^n)*n)
- F(n,C)考虑将n个物品放进容量为C的背包，使得价值最大 F(i,c) = F(i-1,c)        = v(i) + F(i-1,c - w(i)) F(i,c) = max(F(i-1,c), v(i) + F(i-1,c-w(i))
-
-
-/**
- * @Description TODO 0-1背包问题
- * 有一个背包，它的容量为C（Capacity），现在有n中不同的物品，编号为0...n-1，其中每一件物品的重量为w(i),
- * 价值为v(i).问可以向这个背包中盛放哪些物品，使得在不超</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>&nbsp;
-          
-            <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>&nbsp;
-          
-            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/15/%E5%89%8D%E7%AB%AF/JS/this%E5%92%8C%E5%AF%B9%E8%B1%A1/">
-        <p class="h4 index-header">this和对象</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">this
-解析器在调用函数每次都会向函数内部传递进一共隐含的参数，
-这个隐含的额参数就是this，this指向的是一个对象，
-这个对象我们成为函数执行的上下文对象，
-根据函数的调用方式的不同，this会指向不同的对象。
-以函数的形式调用时，this永远都是window
-以方法的形式调用时，this就是调用方法的那个对象
-
-
-
-
-
-构造函数创建一共构造函数，专门用来创建Person对象的    构造函数就是一共普通函数，创建方式和普通函数没有区别，不同的时构造函数习惯上首字母大写构造函数和普通函数的区别就是调用方式的不同    普通函数时直接调用，而构造函数需要使用new关键字来调用
-function Person(name,age,gender) {
-    this.name = name
-    this.age= age
-    this.gender = gender
-    this.sayName = function(){
-        console.dir(obj)
-    }
-}
-var per = new Person() // [object Object]
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/14/%E5%89%8D%E7%AB%AF/JS/%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F/">
-        <p class="h4 index-header">全局作用域</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">作用域作用域指一个变量的作用的范围在js中一共有两种作用域
-
-全局作用域
-直接编写在script标签中的JS代码，都在全局作用域中
-全局作用域在页面打开时创建，在页面关闭时销毁
-在全局作用域中有一个全局对象window，它代表的时一共浏览器的窗口，它由浏览器创建我们可以直接使用
-在全局作用域中：创建的变量都会作为window对象的属性保存,创建的函数都会作为window对象的方法保存
-全局作用域中的变量都是全局变量，在页面的任意的部分都可以访问的到
-
-
-函数作用域
-调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁
-每调用一次函数就会创建一共新的函数作用域，他们之间时互相独立的
-在函数作用域中可以访问到全局作用域的变量，在全局作用域中无法访问到函数作用域的变量
-当在函数作用域操作一共变量时，它会先在自身作用域中寻找，如果有就直接使用  如果没有则向上一级作用域中寻找，知道找到全局作用域，  如果全局作用域中仍然没有找到，则会报错ReferenceError
-
-
-
-变量的声明提前变量的声明提前使用var关键字声明的变量，会在所有的代码执行之前被声明（但是不会赋值)但是如果声明变量</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-14&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/11/%E5%89%8D%E7%AB%AF/JS/script%E4%BD%8D%E7%BD%AE%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">script位置问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">页面自上而下加载如果你的script标签放在开头，将会无法加载body中的元素，但是你放在结尾就不会有问题，但是如果你非要放在开头可以按照下方的样子做
-window.onload = function () {
-    ...
-}
-或者从外部引用js文件
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -608,7 +707,7 @@ window.onload = function () {
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

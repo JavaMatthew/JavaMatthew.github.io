@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    328 字
+                    959 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      3 分钟
                   </span>&nbsp;
                 
 
@@ -169,6 +169,7 @@
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
 压缩文件
 # tar -xzvf test.tar.gz</code></pre>
+<p>tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件。<br>tail -f filename 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，只要 filename 更新就可以看到最新的文件内容。<br>显示文件 notes.log 的内容，从第 20 行至文件末尾:<code>tail +20 notes.log</code><br>显示文件 notes.log 的最后 10 个字符: <code>tail -c 10 notes.log</code></p>
 <h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><ul>
 <li>reboot</li>
 <li>shutdown -r now</li>
@@ -176,11 +177,24 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/b
 <h3 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h3><ul>
 <li>shutdown -h now</li>
 </ul>
+<h3 id="查询正在运行的进程"><a href="#查询正在运行的进程" class="headerlink" title="查询正在运行的进程"></a>查询正在运行的进程</h3><p>使用ps -ef查看所有进程<br>使用ps axu，查看所有进程<br>如果想查询特定进程，可以使用</p>
+<p>（1）ps -ef|grep 名称</p>
+<p>（2）ps aux|grep 名称</p>
+<h3 id="停止进程"><a href="#停止进程" class="headerlink" title="停止进程"></a>停止进程</h3><p>通过kill 进程id的方式可以实现,<br>首先需要知道进程id, 例如,想要杀死firefox的进程,通过 ps -ef|grep firefox,可以查到firefox的进程id:<br>然后通过 kill 3781 就可以关闭进程了.<br>补充: 1. kill -9 来强制终止退出, 例如: kill -9 3781</p>
+<h3 id="查询程序内存或cpu的使用情况"><a href="#查询程序内存或cpu的使用情况" class="headerlink" title="查询程序内存或cpu的使用情况"></a>查询程序内存或cpu的使用情况</h3><ul>
+<li><p>htop常用功能键</p>
+<p>  F1 : 查看htop使用说明<br>  F2 : 设置<br>  F3 : 搜索进程<br>  F4 : 过滤器，按关键字搜索<br>  F5 : 显示树形结构<br>  F6 : 选择排序方式<br>  F7 : 减少nice值，这样就可以提高对应进程的优先级<br>  F8 : 增加nice值，这样可以降低对应进程的优先级<br>  F9 : 杀掉选中的进程<br>  F10 : 退出htop</p>
+<p>  / : 搜索字符<br>  h : 显示帮助<br>  l ：显示进程打开的文件: 如果安装了lsof，按此键可以显示进程所打开的文件<br>  u ：显示所有用户，并可以选择某一特定用户的进程<br>  s : 将调用strace追踪进程的系统调用<br>  t : 显示树形结构</p>
+<p>  H ：显示/隐藏用户线程<br>  I ：倒转排序顺序<br>  K ：显示/隐藏内核线程<br>  M ：按内存占用排序<br>  P ：按CPU排序<br>  T ：按运行时间排序</p>
+<p>  上下键或PgUP, PgDn : 移动选中进程<br>  左右键或Home, End : 移动列表<br>  Space(空格) : 标记/取消标记一个进程。命令可以作用于多个进程，<br>例如 “kill”，将应用于所有已标记的进程</p>
+</li>
+</ul>
 <h2 id="Linux编辑器"><a href="#Linux编辑器" class="headerlink" title="Linux编辑器"></a>Linux编辑器</h2><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><ul>
 <li>编辑模式：等待编辑命令输入</li>
 <li>插入模式：编辑模式下，输入i进入插入模式，插入文本信息</li>
 <li>命令模式：在编辑模式下，输入:进行命令模式</li>
 </ul>
+<pre><code class="vim">sheft + g 直达文件底部</code></pre>
 <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><ol>
 <li>:q 直接退出vi</li>
 <li>:wq 保存后退出vi，并可以新建文件</li>
@@ -190,6 +204,16 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/b
 <li>:set nonumber 在编辑文件不显示行号</li>
 </ol>
 <h3 id="nano"><a href="#nano" class="headerlink" title="nano"></a>nano</h3><p>nano是一个字符中断的文本编辑器，有点像DOS下的editor程序。它比vi/vim要简单的多，比较审核Linux初学者使用。某些Linux发行版的默认编辑器就是nano。</p>
+<h2 id="查看Linux服务器的外网访问地址"><a href="#查看Linux服务器的外网访问地址" class="headerlink" title="查看Linux服务器的外网访问地址"></a>查看Linux服务器的外网访问地址</h2><pre><code class="linux">1、curl ifconfig.me
+2、curl cip.cc
+3、curl icanhazip.com
+4、curl ident.me
+5、curl ipecho.net/plain
+6、curl whatismyip.akamai.com
+7、curl tnx.nl/ip
+8、curl myip.dnsomatic.com
+9、curl ip.appspot.com
+10、curl -s checkip.dyndns.org | sed &#39;s/.*IP Address: \([0-9\.]*\).*/\1/g&#39;</code></pre>
 
             <hr>
           </div>

@@ -136,171 +136,47 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/Boolean%E5%B8%83%E5%B0%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/Boolean布尔数据类型</p>
+      <a href="/2020/07/13/%E5%90%8E%E7%AB%AF/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/Java%E7%9A%84Lambda%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">
+        <p class="h4 index-header">Java的LLambda性能分析</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">console.log(Boolean(0))
-console.log(Boolean(''))
-console.log(Boolean(' '))
-console.log(Boolean(null))
-console.log(Boolean(undefined))
-console.log(Boolean([]))
-console.log(Boolean([12]))
-// !:取反（先转为布尔，然后取反）
-// !!:取反（取反再取反，只相当于转换为布尔）《=》Boolean
-console.log(![12])//false
-console.log(!![12])//true
-
-//如果条件只是一个值，不是==/===/!=/>=/NaN
-    console.log('哈哈')
-}</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index/">
-        <p class="h4 index-header">前端/JS/JS中常用的数据类型/index</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-
-    
-    number数字类型
-
-
-    
-    
-    
-    
-    
-    
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/CSS/CSS%E6%A0%B7%E4%BE%8B/%E9%BC%A0%E6%A0%87%E6%BB%91%E8%BF%87%E6%98%BE%E7%A4%BA%E8%AF%A6%E6%83%85/">
-        <p class="h4 index-header">前端/CSS/CSS样例/鼠标滑过显示详情</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-
-    
-    鼠标滑过显示详情
-    
-    
-        * {
-            margin: 0;
-            padding: 0;
+          <div class="index-text mb-1">for循环和lambda的性能比较代码public class main {
+    public static void main(String[] args) {
+        List&lt;User&gt; listUser = getListUsers();
+        //一般forEach
+        long startSimpleTime = System.currentTimeMillis();
+        for (User user : listUser) {
+            user.toString();
         }
+        long endSimpleTime = System.currentTimeMillis();
+        System.out.println(&quot;Simple:&quot; + (endSimpleTime - startSimpleTime));
 
-        .box {
-            /* CSS3新盒子模型属性：控制WIDTH/HEIGHT是盒子最终的宽高*/
-            box-sizing: border-box;
-            margin: 20px auto;
-            width: 200px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            border: 1px solid lightcoral;
-            position: relative;
-        }
-
-        .box:hover {
-            border-bottom-color: #ffffff;
-  </div>
+        //java8中新的forEach
+        long startLambda = System.curren</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/28/%E5%90%8E%E7%AB%AF/php/php%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">php语法基础</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">PHP语法
-PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中
-
-ASP标记：&lt;% php代码 %&gt;短标记：  ，以上两种基本启用，如果要使用那么需要在配置文件中开启脚本标记: &lt; script script script language=”php”&gt;php代码&lt; / script&gt;标准标记（常用）：&lt;?php php代码 ?&gt;
-PHP注释行注释//: 后面的所有内容都是注释#: 与//一样
-块注释/* */
-PHP语句分隔符语句分隔符：在PHP照片那个，代码是以行为单位，系统需要通过判断行的结束，该结束通常都是一个符号：分号
-特殊说明
-PHP中标记结束符?&gt;有自带语句结束符的效果，最后一行PHP代码可以没有语句结束符”;”
-PHP中起始很多代码的书写并不是嵌入到HTML中，而是单独存在，通常书写习惯中就不建议使用标记结束符?&gt;,PHP会自动从开始到最后全部认为是PHP代码，从而解析。
-
-变量PHP是一种动态网站开发的脚本语言，动态语言特点是交互性，会有数据的传递，而PHP作为中间人，需要进行数据的传递，传递的前提就</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-28&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/php">php</a>&nbsp;
+            <a href="/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
+          
+            <a href="/categories/Java">Java</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/php">php</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>&nbsp;
           
         
       </div>
@@ -311,41 +187,45 @@ PHP中起始很多代码的书写并不是嵌入到HTML中，而是单独存在�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/28/%E9%94%99%E8%AF%AF/GO/%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">安装问题</p>
+      <a href="/2020/07/10/%E9%94%99%E8%AF%AF/Mybatis/springboot%E5%92%8Cmybatis%E7%9A%84%E7%BB%84%E5%90%88%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">SpringBoot和Mybatis的组合问题</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">导包的问题安装GO需要配置的参数配置参数：
+          <div class="index-text mb-1">问题状况List&lt;Audioconverttochn&gt; audioConvertToCHNList = gameService.selectAudioConvertToCHN(hangUpList);
+audioConvertToCHNList.removeIf(audioConvertToCHN -&gt; StringUtils.isNotBlank(audioConvertToCHN.getResult()));
 
-GOROOT （GO的位置）
-GOPATH   （GO的工作空间位置）
-GOPROXY  （远程代理url）
-GO111MODULE = on
 
-在配置正确，且项目路径正确的前提下输入go mod tudy下载mod，如果出现报错，就检查报错的文件所在位置是否正确正确的依赖位置应该在GOPATH里的pkg中，如果不是请删除该位置的包！！！！！
-</div>
+public List&lt;Audioconverttochn&gt; selectAudioConvertToCHN(List&lt;UserCreditReport&gt; list) {
+    if (CollectionUtils.isEmpty(list)) {
+        list = new ArrayList&lt;&gt;();
+        UserCreditReport userCreditReport = new UserCreditReport();
+        userCreditReport.setUserN</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-28&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
           
-            <a href="/categories/GO">GO</a>&nbsp;
+            <a href="/categories/SpringBoot">SpringBoot</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E9%94%99%E8%AF%AF,GO">错误,GO</a>&nbsp;
+            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+            <a href="/tags/SpringBoot">SpringBoot</a>&nbsp;
+          
+            <a href="/tags/Mybatis">Mybatis</a>&nbsp;
           
         
       </div>
@@ -356,23 +236,80 @@ GO111MODULE = on
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/26/%E5%90%8E%E7%AB%AF/php/php%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-        <p class="h4 index-header">php环境搭建</p>
+      <a href="/2020/07/10/%E9%94%99%E8%AF%AF/PHP/PHP%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
+        <p class="h4 index-header">PHP操作数据库的注意事项</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">php执行流程
-
-下载xampp直接安装运行，在xamp-&gt;hits文件夹下放置项目,之后可本地访问
+          <div class="index-text mb-1">关于时间的sql语句一定要将与时间比较的变量用单引号包起来
+public function weekIn($cpId, $start, $end) {
+    $pdo = $this-&gt;GetPdo();
+    $sql = &#39;SELECT SUM(intimacy_add) as weekIn FROM cp_intimacy_record 
+            WHERE delsign = 0 and cp_id = &#39; . $cpId . &#39; and createtime BETWEEN \&#39;&#39; . $start . &#39;\&#39; and \&#39;&#39; . $end . &#39;\&#39;&#39;;
+    $prepare = $pdo-&gt;prepare($sql);
+    $prepare-&gt;execute();
+    return $prepare-&gt;fetchAll(PDO::FETCH_ASSOC);
+}
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-26&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+            <a href="/categories/PHP">PHP</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+            <a href="/tags/PHP">PHP</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/02/%E5%90%8E%E7%AB%AF/php/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">
+        <p class="h4 index-header">错误处理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">错误处理
+指的是系统（或者用户）在对某些代码进行执行的时候，发现有错误，就会通过错误处理的形式告知程序员
+
+错误分类
+语法错误：用户书写的代码不符合PHP的语法规范，语法错误会导致代码在编译过程中不通过，所以代码不会执行（Parse error）
+运行时错误：代码编译通过，但是代码在执行的过程中会出现一些条件不满足导致的错误（runtime error）
+逻辑错误：程序员在写代码的时候不够规范，出现了一些逻辑性错误，导致代码正常执行，但是得不到想要的结果
+
+错误代号所有看到的错误代码在PHP中都被定义成了系统常量（可以直接使用）
+
+系统错误： E_PARSE: 编译错误，代码不会执行 E_ERROR: fatal error,致命错误，会导致代码不能正确继续执行（出错的位置断掉） E_WARING: warning,警告错误，不会影响代码执行，但是可能得到意想不到的结果 E_NOTICE: 通知错误，不会影响代码执行
+用户错误: E_USER_ERROR、E_USER_WARNING、E_USER_NOTCE 用户在使用自定义错误出发的时候，会使用到的错误代号（系统不会用到）
+其他: </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-02&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -394,45 +331,38 @@ GO111MODULE = on
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/24/%E5%90%8E%E7%AB%AF/python/python%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-        <p class="h4 index-header">python的字符串</p>
+      <a href="/2020/06/22/%E9%94%99%E8%AF%AF/Java/JedisDataException/">
+        <p class="h4 index-header">Redis的查询异常</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">原始字符串原始字符串的使用非常简单，只需要在字符串前加一个字母r即可，注意，原始字符串不能在结尾放\会报错
-str1 = r&#39;C:\now&#39;
-str2 = r&#39;C:\now\fish\a\&#39;
-会报错
-解决办法
-在后面拼接str = r&#39;C:\new\aaa\bbb&#39;+&#39;\\&#39;
-在后面加上[:-1] str = r&#39;C:\new\aaa\bbb\\&#39;[:-1]
-
-长字符串如果想得到一个跨越多行的字符串，我们就需要使用三重引号&quot;&quot;&quot;dsdssdsds&quot;&quot;&quot;
-字符串的分片操作str1 = &quot;I love you&quot;
-str1[:6] =&gt; &#39;I love&#39;
-字符串的方法s = &#39;Wusirs22&#39;
-t1 = s.count(&#39;a&#39;) # 在字符串中查找指定字符有多少个
-t2 = s.upper() # 将字符串中的字符全部大写
-t3 = s.lower() # 将字符串中的字符全部小</div>
+          <div class="index-text mb-1">[MG][ERROR][2020-06-19 09:08:58,904]|REDIS查询异常|[qtp1371957475-16]
+redis.clients.jedis.exceptions.JedisDataException: value sent to redis cannot be null
+    at redis.clients.util.SafeEncoder.encode(SafeEncoder.java:28) ~[werewolf-client-jp.jar:?]
+    at redis.clients.jedis.Client.hget(Client.java:211) ~[werewolf-client-jp.jar:?]
+    at redis.clients.jedis.Jedis.hget(Jedis.java:760) ~[werewolf-client-jp.jar:?]
+    at com.mega.server.jedis.MegaJedisUtil.getHashValue(MegaJedisUtil.java:24) ~[werewol</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-24&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-22&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/python">python</a>&nbsp;
+            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+            <a href="/categories/Java">Java</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/python">python</a>&nbsp;
+            <a href="/tags/%E9%94%99%E8%AF%AF,Java">错误,Java</a>&nbsp;
           
         
       </div>
@@ -443,48 +373,41 @@ t3 = s.lower() # 将字符串中的字符全部小</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/19/%E5%90%8E%E7%AB%AF/python/python%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">python基础</p>
+      <a href="/2020/06/22/%E5%90%8E%E7%AB%AF/php/php%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
+        <p class="h4 index-header">php文件包含</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">变量
-在使用变量之前，需要对其赋值
-变量名可以报考字母、数字、下划线，但变量名不能以数字开头
+          <div class="index-text mb-1">文件包含
+定义：文件包含，就是在一个要运行的PHP脚本中，去将另外一个PHP脚本中的代码拿过来，并且可以使用其被包含的文件里的内容，或者说将自己的内容能够在另外一个被包含的文件中使用。
 
-字符串原始字符串原始字符串的使用非常简单，只需要在字符串前加一个字母r即可，注意，原始字符串不能在结尾放\会报错
-str1 = r&#39;C:\now&#39;
-str2 = r&#39;C:\now\fish\a\&#39;
-会报错
-解决办法
-在后面拼接str = r&#39;C:\new\aaa\bbb&#39;+&#39;\\&#39;
-在后面加上[:-1] str = r&#39;C:\new\aaa\bbb\\&#39;[:-1]
 
-长字符串如果想得到一个跨越多行的字符串，我们就需要使用三重引号&quot;&quot;&quot;dsdssdsds&quot;&quot;&quot;
-字符串的分片操作str1 = &quot;I love you&quot;
-str1[:6] =&gt; &#39;I love&#39;
-字符串的方法s = &#39;Wusirs22&#39;
-t1 = s.count(&#39;a&#39;) # 在字符串中查找指定字符有多少个
-t2 = s.</div>
+文件包含基本语法：PHP中提供了四种文件包含的方法，分别是include和include_once，require和require_once，其中四种方式的用法完全一样 include/include_once/require/equire_once &#39;文件所在路径及文件名&#39;; include/include_once/require/equire_once(&#39;文件所在路径及文件名&#39;);
+文件包含的意义：文件包含的目的有两个
+向上包含：即先包含某个文件，目的为了使用某个文件中的代码或者数据（使用公共代码）
+向下包含：即先写好代码，后包含文件，目的是为了在被包含文件中使用当前的数据（使用已产生数据）
+
+
+文件包含的语法区别：四种包含方式都能够包含文件并使用 include和require的区别在于，如果包含的文件不存在的时候，include只是报警告错误，而不影响自身代</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-19&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-22&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/python">python</a>&nbsp;
+            <a href="/categories/php">php</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/python">python</a>&nbsp;
+            <a href="/tags/php">php</a>&nbsp;
           
         
       </div>
@@ -495,52 +418,44 @@ t2 = s.</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/14/%E5%90%8E%E7%AB%AF/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/Socket%E5%A5%97%E6%8E%A5%E5%AD%97/TCP%E9%80%9A%E4%BF%A1%E7%A8%8B%E5%BA%8F/">
-        <p class="h4 index-header">TCP通信程序</p>
+      <a href="/2020/06/21/%E5%90%8E%E7%AB%AF/php/%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0/">
+        <p class="h4 index-header">常用系统函数</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">概述TCP通信能实现两台计算机之间的数据交互，通信的两端，要严格区分为客户端（Client）与服务端（Server）。
-两端通信时步骤
-服务器端先启动
-服务器端不会主动的请求客户端
-必须使用客户端请求服务器端
-客户端和服务端就会建立一个逻辑连接
-而这个连接中包含一个对象
-这个对象就是IO对象
-客户端和服务器端就可以使用
-IO对象进行通信
-通信的数据不仅仅是字符
-所以IO对象是字节流对象
+          <div class="index-text mb-1">函数函数的基本概念函数：function,是一种语法结构，将实现某一个功能的代码块（多行代码）封装到一个结构中，从而实现代码的重复利用（复用）。
+函数定义语法函数有几个对应的关键点：function关键字、函数名、参数（形参和实参）、函数体和返回值
+基本语法如下：Function 函数名([参数]){    // 函数体    // 返回值：return 结果}
+定义函数的目的：是为了实现代码的重复利用，一个功能一个函数（简单明了）函数的使用：通过访问函数的名字+(); // 如果函数在定义的过程中有参数，那么在调用的时候就必须传入对应的参数：函数是一种结构不会自动运行，必须通过调用才会执行。函数是在代码执行阶段，碰到函数名字的时候才会调用，不是在编译阶段。
+函数执行的内存分析：
 
-服务端程序，需要事先启动，等待客户端的连接客户端主动连接服务器端，连接成功才能通信。服务端不可以主动连接客户端。
-服务端必须明确两件事情：
+读取代码进入到代码段（编译：将代码编程字节码存储带内存）
+根据代码逐行执行
 
-多个客户端同时和服务器进行交互，服务器必须明确和哪个客户端进行的交互在服务器端有一个方法，叫accept客户端获取到请求的客户端对象
-多个客户端同时和服务器进行交互，就需要使用多个IO流对象 服务器是没有IO流的，服务器可以获取到请求的客户端对象Socket 使用每个客户单Socket中提供的IO流和客户端进行交互 服务器使用客户端的字节流读取客户端发送的数据
- 服务器使用客户端的字节流输出给客户端回写数据
-
-在Java中，提供了两个类用于事先TCP通信程序
-客</div>
+以上原因：编译和执行时分开的（先编译后执行）
+参数函数的参数分为两种：形参和实参
+形参形参：形式参数，不具有实际意义的参数，是在函数定义时使用的参数
+实参实参：实际参数，具有实际数据意义的参数，是在函数调用时使用的参数
+形参是实参</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-14&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Socket">Socket</a>&nbsp;
+            <a href="/categories/php">php</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Socket">Socket</a>&nbsp;
+            <a href="/tags/php">php</a>&nbsp;
           
         
       </div>
@@ -551,40 +466,169 @@ IO对象进行通信
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/14/%E5%90%8E%E7%AB%AF/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/Socket%E5%A5%97%E6%8E%A5%E5%AD%97/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-        <p class="h4 index-header">网络编程入门</p>
+      <a href="/2020/06/12/%E5%90%8E%E7%AB%AF/Elasticsearch/Elasticsearch%20%E6%96%B0%E6%97%A7%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB(_reindex)/">
+        <p class="h4 index-header">Elasticsearch 新旧索引数据迁移(_reindex)</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">软件结构
-C/S结构：全程为Client/Server结构，是指客户端和服务器结构。常见程序有QQ、迅雷等软件。
-B/S结构：全称为Browser/Server结构，是指浏览器和服务器结构。常见浏览器有谷歌、火狐等。
+          <div class="index-text mb-1">Elasticsearch 新旧索引数据迁移(_reindex)
+举个例子，在输入“1992-02-27”这样格式的数据，es会把他默认为是date数据类型，但是有时候我们希望它是text类型，在原索引中已经有数据的情况下该如何操作。
 
+创建原索引
 
+PUT /aaron_index/aaron_type/1
+{
+  &quot;name&quot;:&quot;张辽&quot;,&quot;age&quot;:27,&quot;content&quot;:&quot;1992-02-27&quot;
+}
+PUT /aaron_index/aaron_type/2
+{
+  &quot;name&quot;:&quot;曹阿瞒&quot;,&quot;age&quot;:28,&quot;content&quot;:&quot;1991-02-19&quot;
+}
+创建新索引
 
-两种架构各有优势，但是无论哪种架构，都离不开网络的支持。网络编程，就是在一定的协议下，实现两台计算机的通信的程序。
-网络通信协议
-网络通信协议：通过计算机网络可以使多台计算机实现连接，位于同一个网络中的计算机在进行连接和通信时需要遵守一定的规则，这就好比在道路中行驶的汽车一定要遵守交通规则一样。在计算机网络中，这些连接和通信的规则被称为网络通信协议，它对数据的传输格式、传输速率、传输步骤等做了统一规定，通信双方必须同时遵守才能完成数据交换。
-TCP/IP协议：传输控制协议/因特网互联协议（Transmission Control Protocol/Internet Protocol）是Internet最基本、最广泛的协议。它定义了计算机如何连入因特网，以及数据如何在他们之间传输的标准。它的内部包含一系列的用于处理数据通信的协议，并采用了4层的分层模型，每一层都呼叫它</div>
+PUT /aaron_index_new
+{
+  &quot;mappings&quot;: {
+    &quot;aaron_type&quot;:{
+      &quot;properties&quot;</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-14&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-12&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Socket">Socket</a>&nbsp;
+            <a href="/categories/Elasticsearch">Elasticsearch</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Socket">Socket</a>&nbsp;
+            <a href="/tags/Elasticsearch">Elasticsearch</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/11/%E5%90%8E%E7%AB%AF/php/php%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+        <p class="h4 index-header">php文件操作</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">读取文件readfile读取文件
+传入一个文件路径，输出一个文件。
+
+int readfile ( string $文件名)
+
+
+//linux类的读了方式
+readfile(&quot;/home/paul/test.txt&quot;);
+//windows类的读取方式
+readfile(&quot;c:\\boot.ini&quot;);
+注意：上面的代码中windows的斜线是\斜线，可能会转义掉一些字符。因此，我们写的时候写上两个斜线。
+file_get_contents打开文件
+传入一个文件或文件路径，打开这个文件返回文件的内容。文件的内容是一个字符串。
+
+string file_get_contents ( string filename)
+
+
+//假设我们有一个多行的文件叫NoAlike.txt，没有的话你可以新建一个这个文件
+$filename = &#39;NoAlike.txt&#39;;
+
+
+//打开这个文件，将文件内容赋值给$filestring
+$filestring = file_get_contents($filename);
+
+//因为每一行有一个回车</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/php">php</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/php">php</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/php/php%E6%95%B0%E7%BB%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+        <p class="h4 index-header">php数组与数据结构</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">数组数组声明
+数组可以存入多个不同类型的数据，是一个复合数据类型。
+数组的英文是array，学一了一下最简单的数组声明。
+
+$shu = array(1 , 1.5 , true ,&#39;天王盖地虎，小鸡炖蘑菇&#39;);
+
+echo &#39;&lt;pre&gt;&#39;;
+var_dump($shu);
+echo &#39;&lt;/pre&gt;&#39;;
+
+结果是：
+array(4) {
+  [0]=&gt;
+  int(1)
+  [1]=&gt;
+  float(1.5)
+  [2]=&gt;
+  bool(true)
+  [3]=&gt;
+  string(33) &quot;天王盖地虎，小鸡炖蘑菇&quot;
+}
+
+array(size = 4) 说明里面有4个元素
+0 =&gt; int 1 我们知道int是整型的意思，1是一个整型的数值。那前面的0,1,2,3和=&gt;代表什么意思呢？
+最新前的0，1，2，3代表的是值的读取标识号，我们称之为下标或者键（英文：key）
+=&gt; 是一个符号标准叫法叫作：键值对应符。因此，以后再看到 0=&gt; int</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/php">php</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/php">php</a>&nbsp;
           
         
       </div>
@@ -595,7 +639,7 @@ TCP/IP协议：传输控制协议/因特网互联协议（Transmission Control P
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

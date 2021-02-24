@@ -136,349 +136,327 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E9%98%9F%E5%88%97/">
-        <p class="h4 index-header">并发队列</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E9%BC%A0%E6%A0%87%E6%BB%91%E8%BF%87%E6%98%BE%E7%A4%BA%E8%AF%A6%E6%83%85/">
+        <p class="h4 index-header">前端/JS/JS样例/鼠标滑过显示详情</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">为什么要适用队列
-队列可以在线程间传递数据：生产者消费者模式、银行转账
-考虑锁等线程安全问题的重任从你转移到了队列上
-
-什么是阻塞队列
-简介、地位
-
-阻塞队列是具有阻塞功能的队列，所以它首先是一个队列，其次是具有阻塞功能。
-通常，阻塞队列的一端是给生产者方数据用，另一端给消费者拿数据用。阻塞队列线程安全的，所以生产者和消费者都可以是多线程的
+          <div class="index-text mb-1">
 
 
-阻塞功能：最有特色的两个带有阻塞功能的方法是
-
-take()方法：获取并逸出队列的头结点，一旦执行take的时候，队列里误数据，则阻塞，直到队列有数据
-
-put()方法：插入元素。但是如果队列已满，那么就无法继续插入，则阻塞，知道队列有了空闲空间
-
-是否有界（容量有多大）：这是一个非常重要的属性，无界队列意味着里面可以容纳非常多（Integer.MAX_VALUE,约为2的31次，是非常大的一个数，可以近似认为是无线容量）
-
-阻塞队列和线程池的关系：阻塞队列是线程池的重要组成部分
-
-
-BlockingQueue主要方法
-put，take
-add，remove，element
-offer，poll，peek
-
-常用实现
-ArrayBlocking</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
+    
+    鼠标滑过显示详情
     
     
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/">
-        <p class="h4 index-header">并发容器</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">古老和过时的同步容器
-Vector和Hashtable
-并发性能差（synchronized修饰方法）
-
-
-ArrayList和HashMap
-虽然这两个类不是线程安全的，但是可以用Collections.synchronizedList(new ArrayList())和Collections.synchronizedMap(new HashMap&lt;K,V&gt;())使之变成线程安全的，用的同步代码块
-
-
-ConcurrentHashMap和CopyOnWriteArrayList
-取代同步的HashMap和同步的Arraylist（时代巨轮滚滚向前）
-绝大多数并发情况下，ConcurrentHashMap和CopyOnWriteArrayList的性能都更好
-
-
-
-ConcurrentHashMap（重点、面试常考）为什么需要ConcurrentHashMap
-为什么不用Collections.synchronizedMap()?
-为什么HashMap使线程不安全的？
-同时put碰撞导致数据丢失
-同时put扩容导致数据丢失
-死循环造成的CPU100%
-
-
-
-JDK1.7的C</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/04/%E5%90%8E%E7%AB%AF/nginx/nginx%E5%AE%89%E8%A3%85/">
-        <p class="h4 index-header">nginx安装</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">准备工作
-打开虚拟机，使用远程连接工具连接 linux 操作系统
-到 nginx 官网下载软件 http://nginx.org
-
-
-
-开始进行 nginx 安装
-安装 pcre 依赖第一步 联网下载 pcre 压缩文件依赖wget http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz
-
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/nginx">nginx</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/nginx">nginx</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/nginx/nginx%E4%BB%8B%E7%BB%8D/">
-        <p class="h4 index-header">nginx介绍</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">nginx基本概念nginx是什么，做什么事情Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好Nginx专为性能优化而开发，性能是其最重要的考量，实现上非常注重效率，能经受高负载的考研，有报告表明能支持高达50,000个并发连接数。
-正向代理在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问
-
-
-反向代理我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户其，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器IP地址。
-
-
-负载均衡单个服务器解决不了，我们增加服务器的数量，然后将请求分发到各个服务器上，将原先请求几种到单个服务器上的情况改为将请求分发到多个服务器中，将负载分发到不同的服务器，也就是我们所说的负载均衡
-
-
-动静分离为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/nginx">nginx</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/nginx">nginx</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/02/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/final/">
-        <p class="h4 index-header">final</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">final关键字和不变性
-什么是不变性（Immutable）
-final的作用
-3中用法：修饰变量、方法、类
-
-什么是不变性（Immutable）
-如果对象在被创建后，状态就不能被修改，那么它就是不可变的
-具有不变性的对象一定是线程安全的，我们不需要对其采取任何额外的安全措施，也能保证线程安全。
-
-final的作用
-早期
-锁定
-效率：早期的Java实现版本中，会将final方法转为内嵌调用
-
-
-现在
-类防止被继承、方法防止被重写、变量防止被修改
-天生是线程安全的，而不需要额外的同步开销
-
-
-
-final的3种用法final修饰变量
-含义：被final修饰的变量，意味着值不能被修改。如果变量是对象，那么对象的引用不能变，但是对象自身的内容依然可以变化
-
-final Person person = new Person();
-person = new Person();// 会报错
-person.bag = &quot;book&quot;;
-final修饰：3种变量
-final instance variable(类中的final属性)
-final static variable(类中的</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/01/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/CAS/">
-        <p class="h4 index-header">CAS</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是CAS
-并发
-我认为V的值应该是A，如果是的话那我就把它改成B，如果不是A（说明被别人修改过了），那我就不修改了，避免多人同时修改导致出错
-CAS有三个操作数：内存值V、预期值A、要修改的值B，当且仅当预期值A和内存之V相同时，才将内存值修改为B，否则什么都不做。最后返回现在的V值
-CPU的特殊指令
-CAS的等价代码（语义）
-
-public class SimulatedCAS {
-    private volatile int value;
-
-    public synchronized int compareAndSwap(int expectedValue, int newValue) {
-        int oldValue = value;
-        if (oldValue == expectedValue) {
-            value = newValue;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        return oldValue;
+
+        .box {
+            /* CSS3新盒子模型属性：控制WIDTH/HEIGHT是盒子最终的宽高*/
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid lightcoral;
+            position: relative;
+        }
+
+        .box .detail{
+            display: none;
+            widt</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E9%9A%94%E8%A1%8C%E5%8F%98%E8%89%B2/">
+        <p class="h4 index-header">前端/JS/JS样例/隔行变色</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    
+    
+    隔行变色
+    
+    
+    * {
+        margin: 0;
+        padding: 0;
     }
+    ul {
+        list-style: none;
+    }
+    #newsBox {
+        box-sizing: border-box;
+        width: 300px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid lightblue;
+    }
+    #newsBox li {
+        line-height: 35px;
+        border-bottom: 1px dashed lightcoral;
+    }
+    #newsBox li:nth-last-child(1) {
+        /* 获取LI中的倒数第一个 */
+        border-bottom: none;
+    }
+    /* 基于CSS实</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E5%88%A4%E6%96%AD%E6%95%B0%E5%AD%97%E6%A1%88%E4%BE%8B/">
+        <p class="h4 index-header">前端/JS/JS样例/判断数字案例</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    
+    
+    案例练习
+    
+        #numInp,#submit{
+            box-sizing: border-box;
+            padding: 0 15px;
+            height: 35px;
+            border: 2px solid red;
+        }
+        #submit{
+            cursor: pointer;
+        }
+    
+
+
+    
+    点击计算
+    
+        let numInp = document.getElementById('numInp')
+        let submit = document.getElementById('submit')
+
+        submit.onclick = function () {
+            //1.获取文本框种的信息
+            let n = numInp.value
+            // c</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E7%82%B9%E5%87%BB%E5%8F%98%E8%89%B2/">
+        <p class="h4 index-header">前端/JS/JS样例/点击变色</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    
+    Document
+    
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        html,body {
+            width: 100%;/* 可以省略 */
+            height: 100%;
+            overflow: hidden;
+        }
+
+        button {
+            margin: 20px;
+            padding: 40px;
+            line-height: 40px;
+        }
+    
+
+
+    点击变颜色白->红->绿->蓝->白...
+    
+    
+        let body = document.body
+        let changeBtn = document.getElementById('changeBtn')
+        let i = 0
+        </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E9%80%89%E9%A1%B9%E5%8D%A1%E6%A1%88%E4%BE%8B/">
+        <p class="h4 index-header">前端/JS/JS样例/选项卡案例</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    
+    
+    选项卡
+    
+    
+
+
+    
+        
+            编程
+            读书
+            运动
+        
+        编程使我快乐
+        读书使我幸福
+        运动使我健康
+    
+    
+    
+        let tabBox = document.getElementById('tabBox')
+        var tabList = tabBox.getElementsByTagName('div')
+        var navBox = document.getElementById('navBox')
+        var navList = navBox.getElementsByTagName('li')
+        // 解决办法一：自定义属性解决办法
+        // 循环三个LI，给每一个LI都绑定点击事件
+        for (var i = 0; i < navList.length; i++) {
+ </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/css/tab/">
+        <p class="h4 index-header">前端/JS/JS样例/css/tab</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">* {
+    margin: 0;
+    padding: 0;
 }
-应用场景
-乐观锁
-并发容器
-原子类
 
-以AtomicInteger为例，分析在Java中是如何利用</div>
+ul {
+    list-style: none111;
+}
+
+#tabBox{
+    box-sizing: border-box;
+    width: 500px;
+    margin: 20px auto;   
+}
+
+#navBox {
+    /* 只要把容器设置为FLEX弹性盒子容器，那么容器中的子元素默认在容器主轴（x轴）水平靠左排列 */
+    display: flex;
+    position: relative;
+    top: 1px;
+}
+
+#navBox li{
+    box-sizing: border-box;
+    margin-right: 10px;
+    padding: 0 10px;
+    line-height: 35px;
+    border: 1px solid #999;
+    list-style: none;
+    cursor: pointer;
+}
+
+#navBox li.active{
+    border-bottom-</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-01&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -488,49 +466,43 @@ public class SimulatedCAS {
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/30/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%8E%9F%E5%AD%90%E7%B1%BB/">
-        <p class="h4 index-header">原子类</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/">
+        <p class="h4 index-header">前端/JS/JS中的逻辑语句/JS中的逻辑语句</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">什么时原子类，有什么作用
-原子类的作用和锁类似，是为了保证并发情况下线程安全。不过原子类相比于锁，有一定的优势：
-粒度更细：原子变量可以把竞争范围缩小到比变量级别，这是我们可以获得的最细粒度的情况了，通常锁的粒度都要大于原子变量的粒度
-效率更高：通常，适用原子类的效率会比使用锁的效率更高，除了高度竞争的情况。
+          <div class="index-text mb-1">let a = 10;
+if (a  0 && a < 10) {
+    console.log('呵呵')
+} else {
+    console.log('吼吼')
+}
+if(!a) {
+    // 条件可以多样性：等于、大于、小于的比较或一个值或者取反等 =>最后都是要计算出TRUE或FALSE
+}
 
-6类原子类纵览
+// 三元运算符
+// 条件？条件成立处理的事情：不成立处理的事情
+// 1. 如果处理的事情比较多，我们用括号抱起来，每一件事情用逗号分隔
+// 2. 如果不需要处理事情，可以使用null/undefined占位
+a >= 10 ? console.log('呵呵') : console.log('吼吼')
 
-AtomicInteger常用方法
-public final int get() //获取当前的值
-public final int getAndSet(int newValue) //获取当前的值，并设置新的值
-public final int getAndIncrement() // 获取当前的值，并自增
-public final int getAndDecrement() // 获取当前的值，并自减
-public final int getAndAdd(int delta) // 获取当前的值，并加上预期的值
-boolean compareAndSet(int expect,int update) // 如果单曲的数值等于预期值，则以原子方式将该值设置为</div>
+(a > 0 && a < 20) ? (a++, console.log(a)) : null
+
+// switch case: 一个变量再不同值情况下的不同操作
+// 1. 每一种case情况结束后最好都加上BREAK
+// 2. default等价于else，以上都不成立干的事情
+// 3. 不加break，当前条件成立执行完成后，后面条件不论是否成立都要执行，</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-30&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -540,61 +512,33 @@ boolean compareAndSet(int expect,int update) // 如果单曲的数值等于预�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/27/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E9%94%81/">
-        <p class="h4 index-header">锁</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/JS%E7%A7%8D%E7%9A%84for%E5%BE%AA%E7%8E%AF/">
+        <p class="h4 index-header">前端/JS/JS中的逻辑语句/JS种的for循环</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">锁的分类
-这些分类，是从各种不同角度出发去看的
-这些分类并不是互斥的，也就是多个类型可以并存：有可能一个锁，同时属于两种类型
-比如ReentrantLock既是互斥锁，又是可重入锁
-好比一个人可以同时时男人，又是军人
+          <div class="index-text mb-1">/**
+ * 1. 创建循环初始值
+ * 2. 设置（验证）循环执行的条件
+ * 3. 条件成立执行循环体种的内容
+ * 4. 当前循环结束执行步长累计操作
+ */
+// for (var i = 0; i < 5; i++) {
+//     console.log(i)
+// }
+// console.log(i)
 
-
-
-互斥同步锁为什么会诞生非互斥同步锁————互斥同步锁的劣势
-互斥同步锁的劣势
-阻塞和唤醒带来的性能劣势
-永久阻塞：如果持有锁的线程被永久阻塞，比如遇到了无线循环、死锁等活跃性问题，那么等待该线程释放锁的那几个悲催的线程，将永远也得不到执行。
-优先级反转
-
-
-
-什么是乐观锁和悲观锁
-从是否锁住资源的角度分类
-
-悲观锁（互斥同步锁）
-如果我不锁住这个资源，别人就会来抢，就会造成数据结果错误，所有每次悲观锁为了确保结果的正确性，会在每次获取并修改数据时，把数据锁住，让别人无法访问该数据，这样就可以确保数据内容万无一失。
-Java中的悲观锁的实现就是synchronized和Lock相关类
-
-乐观锁（非互斥同步锁）
-认为自己在处理操作的时候不会有其他线程来干扰，所以并不会锁住被操作对象
-在更新的时候，去对比在我修改的期间数据有没有被其他人改变过：如果没被改变过，就说明真的是</div>
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-27&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -604,53 +548,55 @@ Java中的悲观锁的实现就是synchronized和Lock相关类
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/20/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Lock%E6%8E%A5%E5%8F%A3/">
-        <p class="h4 index-header">Lock接口</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/数据类型的区别</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Lock简介、地位、作用
-锁是一种工具，用于控制对共享资源的访问。
-Lock和synchronized，这两个是最常见的锁，它们都可以达到线程安全的目的，但是在使用上和功能上又有较大的不同。
-Lock并不是用来代替synchronized的，而是当使用synchronized不合适或不足以满足要求的时候，来提供高级功能的。
-Lock接口最常见的实现类是ReentrantLock
-通常情况下，Lock只允许一个线程来访问这个共享资源。不过有的时候，一些特殊的实现也可允许并发访问，比如ReadWriteLock里面的ReadLock。
+          <div class="index-text mb-1">// let a = 12
+// let b = a
+// b = 13
+// console.log(a)
 
-为什么需要Lock
-为什么synchronized不够用
+// let n = { name: '张议' }
+// let m = n
+// m.name = '周家豪'
+// console.log(n.name)
 
+// let n = [10,20]
+// let m = n
+// let x = m
+// m[0] = 100
+// x = [30,40]
+// x[0] = 200
+// m = x
+// m[1] = 300
+// n[2] = 400
+// // n,m,x分别时多少
+// console.log('n:',n)
+// console.log('m:',m)
+// console.log('x:',x)
+// 答案 n：【100，20，400】m：【200，300】x：【200，300】
 
-效率低：锁的释放情况少、试图获得锁时不能设定超时、不饿能中断一个正在试图获得锁的线程。
-不够灵活（读写锁更灵活）：加锁和释放的实际单一，每个锁仅有单一的条件（某个对象），可能时不够的。
-无法知道是否成功获得到锁
-
-Lock主要方法介绍
-在Lock中声明了四个方法来获取锁
-lock()、tryLock()、tryLock(long time,TimeUnit unit)和lockInterrypt</div>
+let a = {
+    n:1
+}
+let b = a
+a.x = a = {
+    n:2
+}
+console.log(a.x)
+console.log(b)</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-20&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -660,51 +606,39 @@ lock()、tryLock()、tryLock(long time,TimeUnit unit)和lockInterrypt</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/16/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/ThreadLocal/">
-        <p class="h4 index-header">ThreadLocal</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/string%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <p class="h4 index-header">前端/JS/JS中常用的数据类型/string字符串数据类型</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">两大使用场景————ThreadLocal的用途
-典型场景1：每个线程需要一个独享的对象（通常时工具类，典型需要使用的类又SimpleDateFormat和Random）
-典型场景2：每个线程内需要保存全局变量（例如再拦截器种获取用户信息），可以让不同方法直接使用，避免参数传递的麻烦
+          <div class="index-text mb-1">// let a = 12
+// console.log(a.toString()) // =>'12'
+// console.log((NaN).toString())
 
-典型场景1——SimpleDateFormat的进化之路
-2个线程分别用自己的SimpleDateFormat，这没问题。
-后来延伸出10个，那就又10个线程和10个SimpleDateFormat，这随人写法不优雅（应该复用对象），但勉强可以接受。
-但是当需求变成了1000个，那么必然要用线程池（否则消耗内存太多）。
-所有的线程都公用同一个simpleDateFormat对象。
-这是线程不安全的，出现了并发安全问题。
-我们可以选择加锁，加锁后结果正常，但是效率低。
-在这里更好的解决方案是使用ThreadLocal，每个线程有独享的对象，在这里有10个对象对应10个线程。
+//null和undefined是禁止直接toString的
+//(null).toString // =>报错
+// 但是和undefined一样转换为字符串的结果就是'null'/'undefined'
 
-ThreadLocal的两个作用
-让某个需要用到的对象在线程间隔离（每个线程都有自己的独立的对象）
-在任何方法种都可以轻松获取到对</div>
+// console.log([].toString())
+// console.log([12].toString())
+// console.log([12,23].toString())
+// console.log(/^$/.toString())
+//普通对象.toString()的结果是"[object Object]" => ?
+//Object.prototype.toString方法不是转换为字符串的，而是用来检测数据类型的
+console.log({name:'xxx',age:12}.toString())
+
+//===========字符串拼接
+//四则运算法则中，除加法之外，其余都是</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -714,7 +648,7 @@ ThreadLocal的两个作用
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/9/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

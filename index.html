@@ -136,51 +136,41 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/08/28/%E5%90%8E%E7%AB%AF/Elasticsearch/ElasticSearch%E7%B4%A2%E5%BC%95/">
-        <p class="h4 index-header">ElasticSearch索引</p>
+      <a href="/2021/02/23/%E5%90%8E%E7%AB%AF/Mybatis/MyBatis%20%E4%B8%89%E7%A7%8D%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%96%B9%E5%BC%8F%E7%9A%84%E5%AF%B9%E6%AF%94/">
+        <p class="h4 index-header">MyBatis 三种批量插入方式的对比</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">索引的操作
+          <div class="index-text mb-1">三种方式数据库使用的是sqlserver，JDK版本1.8，运行在SpringBoot环境下对比3种可用的方式：
 
-kibana创建一个索引的基本流程：
+反复执行单条插入语句
+xml拼接sql
+批处理执行
 
-确定索引名
-创建索引轮循器
-创建索引模板
-上传索引
-创建索引模式
-观察数据
-
-创建索引轮循器Name：名称
-Hot phase先选择是否开启rollover三个max共同限制回滚界限
-Delect phase如果开启，超过设定时间会删除索引
-创建索引模板LogisticsName: 索引模板的名称Index patterns：适用于哪些索引例如：rongyun-*适用于所有以rongyun-开头的索引
-Index settingslifecycle.name: 轮循器的名称lifecycle.rollover_alias: 索引别名，用于轮循器迭代标记索引时使用refresh_interval: 索引刷新时间
-{
-  &quot;index&quot;: {
-    &quot;lifecycle&quot;: {
-      &quot;name&quot;: &quot;rongcloud-history&quot;,
-      &quot;rollover_alias&quot;: &quot;rongcloud-histo</div>
+先说结论：少量插入请使用反复插入单条数据，方便。数量较多请使用批处理方式。（可以考虑以有需求的插入数据量20条左右为界吧，在我的测试和数据库环境下耗时都是百毫秒级的，方便最重要）。无论何时都不用xml拼接sql的方式。拼接SQL的xmlnewId()是sqlserver生成UUID的函数，与本文内容无关
+&lt;insert id=&quot;insertByBatch&quot; parameterType=&quot;java.util.List&quot;&gt;
+    INSERT INTO tb_item VALUES
+    &lt;foreach collection=&quot;list&quot; item=&quot;item&quot; index=&quot;index&quot; separator=&quot;,&quot;&gt;
+        (newId(),#{item.uniq</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-28&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2021-02-23&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Elasticsearch">Elasticsearch</a>&nbsp;
+            <a href="/categories/Maybatis">Maybatis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Elasticsearch">Elasticsearch</a>&nbsp;
+            <a href="/tags/Maybatis">Maybatis</a>&nbsp;
           
         
       </div>
@@ -191,43 +181,161 @@ Index settingslifecycle.name: 轮循器的名称lifecycle.rollover_alias: 索引
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/08/27/%E5%90%8E%E7%AB%AF/Java/JVM/%E5%A0%86/">
-        <p class="h4 index-header">堆</p>
+      <a href="/2021/02/21/%E6%95%B0%E6%8D%AE%E5%BA%93/Mongo/%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2/">
+        <p class="h4 index-header">复杂查询</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">概述
-一个JVM实例只存在一个堆内存，堆也是Java内存管理的核心区域。
-Java堆区在JVM启动的时候即被创建，其空间大小也就确定了。是JVM管理的最大一块内存空间。
-堆内存的大小是可以调节的。
-《Java虚拟机规范》规定，堆可以处于物理撒花姑娘不连续的内存空间中，但在逻辑上它应该被视为连续的。
-所有的线程共享Java堆，在这里还可以划分线程私有的缓冲区（Thread Local Allocation Buffer，TLAB）
-
-内存细分
-
-新生区+养老区+元空间
-
-Young Generation Space 新生区 Young/New
-又被划分为Eden区和Survivor区
-
-
-Tenure generation space 养老区 Old/Tenure
-Meta Space 元空间 Meta
-
-
-
-堆空间的大小设置和查看
-Java堆区用于存储Java对象实例，那么堆的大小在JVM启动时就已经设定好了，大家可以通过选项”-Xmx”和”-Xms”来进行设置。
-“-Xms”用于表示堆区的起始内存，等价于-XX:InitialHeapSize
-“-Xmx”则用于表示堆区的最大内存，等</div>
+          <div class="index-text mb-1">当一个集合中的属性是数组，并且你需要按照数组中的对象字段进行排序和limit。这样你需要按照该数组进行聚合，unwind，这样每一个数组中的对象都对应一整条记录。
+需要注意的是聚合的参数顺序影响最终的结果
+Sort.Order orderId = new Sort.Order(Sort.Direction.DESC, &quot;commentList.id&quot;);
+Sort sort = Sort.by(orderId);
+Criteria lt = Criteria.where(&quot;commentList.createTime&quot;).gt(tuserHang.getWatchTime()).and(&quot;commentList&quot; +
+                            &quot;._id&quot;).lt(po.getId()).orOperator(Criteria.where(&quot;commentList.userId&quot;).is(po.getUserId()),
+                  </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-27&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2021-02-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Mongo">Mongo</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mongo">Mongo</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2021/02/21/%E6%95%B0%E6%8D%AE%E5%BA%93/Neo4j/%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+        <p class="h4 index-header">基本操作</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">基本操作
+neo4j 查询时带箭头代表单向关系，不带箭头代表双向关系
+
+package com.mega.werewolf.cloud.jp.contact.neo4j;
+
+import lombok.Data;
+import lombok.experimental.Accessors;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Data
+@Node
+@Accessors(chain = true)
+public class Person {
+    @Id
+    private Integer userId;
+
+    // 用户名称
+    private Stri</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2021-02-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Neo4j">Neo4j</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Neo4j">Neo4j</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2021/02/21/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%8F%92%E5%85%A5%E5%B9%B6%E6%9B%B4%E6%96%B0/">
+        <p class="h4 index-header">插入并更新</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">INSERT ON DUPLICATE KEY UPDATE
+如果行作为新记录被插入，则受影响行的值为1；如果原有的记录被更新，则受影响行的值为2；如果更新的数据和已有的数据一模一样，则受影响的行数是1。
+
+原因是再插入之前会先查询一次，如果没有就插入，返回1，如果有但是值相同，不用更新则也返回1，如果更新则返回2。
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2021-02-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2021/02/01/%E5%90%8E%E7%AB%AF/Java/JVM/%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/">
+        <p class="h4 index-header">对象实例化</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">对象实例化
+
+创建对象的步骤判断对象对应的类是否加载、链接、初始化虚拟机遇到一条new指令，首先去检查这个指令的参数能否在Metaspace的常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已经被加载、解析和初始化。（即判断类元信息是否存在）。如果没有，那么在双亲委派模式下，使用当前类加载器ClassLoader+包名+类名为Key进行查找对应的.class文件。如果没有找到文件，则跑出ClassNotFoundException异常，如果找到，则进行类加载，并生成对应的Class类对象
+为对象分配内存首先计算对象占用空间大小，接着在堆中划分一块内存给新对象。如果实例成员变量是引用变量，仅分配引用变量空间即可，即4个字节大小。
+如果内存是规整的，那么虚拟机将采用的是指针碰撞法（Bump The Pointer）来为对象分配内存。意思是所有用过的内存在一边，空闲的内存在另外一边，中间放着一个指针作为分界点的指示器，分配内存就仅仅是把指针向空闲那边挪动一段与对象大小相等的距离罢了。如果垃圾收集器选择的是Serial、ParNew这种基于压缩算法的，虚拟机采用这种分配方式。一</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2021-02-01&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -253,46 +361,52 @@ Java堆区用于存储Java对象实例，那么堆的大小在JVM启动时就已
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/08/17/%E5%90%8E%E7%AB%AF/Mina/Mina%E7%AE%80%E4%BB%8B/">
-        <p class="h4 index-header">Mina简介</p>
+      <a href="/2020/12/17/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20Cluster/">
+        <p class="h4 index-header">Redis Cluster</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Mina服务端
-Mina apache 开发的一个开源的网络通信框架，基于我们java NIO来实现
+          <div class="index-text mb-1">呼唤集群为什么呼唤
+并发量
+数据量
 
+分区分布式数据库-数据分区
 
-NIOSocket
-设置编码解码过滤器
-设置一些session属性
-绑定一个端口
+顺序分区和哈希分区
 
-cmd访问本地服务器
-telnet 127.0.0.1 7080
-Mina客户端替代cmd的telnet
-结构分析
-mina在应用程序中出于什么地位 主要屏蔽了网络通信的一些细节，对socket进行封装，并且是NIOde一个实现架构，可以帮助我们快速的开发网络通信。常常用于游戏的开发，中间件等服务端程序。
-IOService接口 用于描述我们的客户端和服务端接口，其子类是connector和Acceptor，分别用于描述我们的客户端和服务端。IOproceser多线程环境来处理我们的连接请求流程。IOFilter提供数据的过滤工作：包括编解码，日志等信息的过滤，Hanlder就是我们的业务对象，自定义的handler需要实现IOHandlerAcceptor
-大致看看我的类图结构                 IOService IOconnector                       </div>
+对比
+
+Redis Cluster架构
+节点     cluster有16384个节点 cluster-enabled:yes
+meet     节点通讯的基础
+指派槽    每个节点都有自己的指派槽，用于存储hash计算后的数据
+复制、高可用、分片
+
+meetcluster meet ip portredis-cli -h 127.0.0.1 -p 7000 cluster meet 127.0.0.1 7001
+分配槽cluster addslots slot[slot...]
+redis-cli -h 127.0.0.1 -p 7000 cluster addslots {0...5461}
+redis-cli -h 127.0.0.1 -p 7001 cluster addslots {5462...10922}
+redis-cli -h 127.0.0.1 -p 7002 cluster addslots {10923...16383}
+设置主从cluster replicate nod</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-17&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-12-17&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Mina">Mina</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Mina">Mina</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
           
         
       </div>
@@ -303,96 +417,41 @@ IOService接口 用于描述我们的客户端和服务端接口，其子类是c
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/08/05/%E5%90%8E%E7%AB%AF/Docker/Docker%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/">
-        <p class="h4 index-header">Docker容器数据持久化</p>
+      <a href="/2020/12/13/%E5%90%8E%E7%AB%AF/Java/JVM/%E6%96%B9%E6%B3%95%E5%8C%BA/">
+        <p class="h4 index-header">方法区</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">数据卷
-数据卷是一个可供一个或多个容器使用的特殊目录，它绕过UFS，可以提供很多有用的特性：
+          <div class="index-text mb-1">栈、堆、方法区的交互关系
+从线程共享与否的角度来看
 
 
-数据卷可以在容器之间共享和重用
-对数据卷的修改会立马生效
-对数据卷的更新，不会影响镜像
-数据卷默认会一直存在，及时容器被删除
 
-注意：数据卷的使用，类似于Linux下对目录或文件进行mount，镜像中的被指定为挂载点的目录中的文件会隐藏掉，能显示看的是挂载的数据卷
-docker run -p 3306:3306 --name mysql \
--v /usr/local/docker/mysql/conf:/etc/mysql \
--v /usr/local/docker/mysql/logs:/var/log/mysql \
--v /usr/local/docker/mysql/data:/var/lib/mysql \
--e MYSQL_ROOT_PASSWORD=root \
--d mysql
-如果执行sql失败吧/etc/mysql.conf.d/mysqldump.cnf的max_allowed_packet = 16M追加到配置文件末尾echo &quot;max_allow_p</div>
+
+方法区的理解
+方法区和java堆一样，是各个线程共享的内存区域
+方法区在JVM启动的时候被创建，并且它的实际物理内存空间和Java堆区一样都可以是不连续的。
+方法区的大小，跟堆空间一样，可以选择固定大小或者可扩展。
+方法区的大小决定了系统可以保存多少个类，如果系统定义了太多的类，导致方法区溢出，虚拟机同样会抛出内存一处错误：java.lang.OutOfMemoryError:PermGen space 或者 java.lang.OutOfMemoryError: Metaspace
+关闭JVM就会释放这个区域的内存。
+
+设置方法区大小的参数
+jdk8以后  元数据区大小可以使用参数-XX:MetaspaceSize=100m和-XX:MaxMetaspaceSize=100m指定，替代上述原有的两个参数。  默认值依赖于平台。windows下，-XX:MetaspaceSize是21M，-XX:MaxMetaspaceSize的值是-1，即没有限制。  与永久代不同，如果不指定大小，默认情况下，虚拟机会耗尽所有的可用系统内存</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Docker">Docker</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Docker">Docker</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/31/%E5%90%8E%E7%AB%AF/Java/%E4%BD%BF%E7%94%A8%E5%90%84%E7%A7%8D%E5%B5%8C%E5%A5%97%E7%B1%BB%E7%9A%84%E6%97%B6%E6%9C%BA/">
-        <p class="h4 index-header">使用各种嵌套类的时机</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">嵌套类（nested class）
-嵌套类是指被定义在另一个类内部的类
-
-嵌套类的分类：
-
-静态成员类（static member class）
-非静态成员类（nonstatic member class）
-匿名类（anonymous class）
-局部类（local class）
-
-除了第一种之外，其他三种被称为内部类（inner class）
-静态成员类用法
-常见的用法是作为公有的辅助类，仅当与它的外部类一起使用时才有意义。
-
-例如：考虑一个枚举类，它描述了计算机支持的各种操作。Operation枚举应该时Calculator类的公有静态成员类，然后，Calculator类的客户端就可以用诸如Calculator.Operation.PLUS和Calculator.Operation.MINUS这样的名称来引用 这些操作。
-非静态成员类用法
-常见的用法时定义一个Adapter，它允许外部类的实例被看作时另一个不相关的类的实例。
-
-例如：Map接口的是西安往往 使用非静态成员类来实现他们的集合试图（collection view），这些集合视图时由Map的keySet、entrySe</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-31&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-12-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+            <a href="/categories/JVM">JVM</a>&nbsp;
           &nbsp;
         
         
@@ -400,6 +459,8 @@ docker run -p 3306:3306 --name mysql \
           
             <a href="/tags/Java">Java</a>&nbsp;
           
+            <a href="/tags/JVM">JVM</a>&nbsp;
+          
         
       </div>
     </div>
@@ -409,38 +470,51 @@ docker run -p 3306:3306 --name mysql \
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/28/%E5%90%8E%E7%AB%AF/Docker/Docker%E5%91%BD%E4%BB%A4/">
-        <p class="h4 index-header">Docker命令</p>
+      <a href="/2020/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20Sentinel/">
+        <p class="h4 index-header">Redis Sentinel</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">使用脚本自动安装$ curl -fsSL get.docker.com -o get-docker.sh
-$ sh get-docker.sh --mirror Aliyun           # 从阿里云国内资源上下载
-$ curl -L &quot;https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose # 安装docker compse
-$ chmod +x /usr/local/bin/docker-compose # 加可执行权限
-Ubuntu 16.04+、Debian8+、CentOS7对于使用systemd的系统，请在/etc/docker/daemon.json中写入如下内容（如果文件不存在请新建该文件）
-{
-    &quot;registry-mirrors&quot;: [
-        &quot;https://registry.docke</div>
+          <div class="index-text mb-1">主从复制高可用redis sentinel架构
+
+可以使用一套sentinel监控多套maseter，slave
+
+
+安装与配置Redis主节点启动redis-server redis-7000.conf
+配置
+port 7000
+daemonize yes
+pidfile /var/run/redis-7000.pid
+logfile &quot;7000.log&quot;
+dir &quot;/opt/soft/redis/data/&quot;Redis从节点启动redis-server redis-7001.conf
+配置
+port 7001
+daemonize yes
+pidfile /var/run/redis-7001.pid
+logfile &quot;7001.log&quot;
+dir &quot;/opt/soft/redis/data/&quot;
+slaveof 127.0.0.1 7000sentinel主要配置port ${port}
+dir &quot;/opt/soft/redis/data/&quot;
+logfile &quot;${port}.</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-28&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-12-02&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Docker">Docker</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Docker">Docker</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
           
         
       </div>
@@ -451,71 +525,102 @@ Ubuntu 16.04+、Debian8+、CentOS7对于使用systemd的系统，请在/etc/dock
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/27/%E5%90%8E%E7%AB%AF/Docker/Docker%E7%AE%80%E4%BB%8B/">
-        <p class="h4 index-header">Docker简介</p>
+      <a href="/2020/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+        <p class="h4 index-header">主从复制</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">简介
-更高效的利用云资源
-更快速的启动时间
-一致的运行环境
-持续交付和部署
-更轻松的迁移
-更轻松的维护和扩展
+          <div class="index-text mb-1">作用
+数据副本
+扩展读性能
+
+实现方式slaveof命令slaveof 复制（异步）
+slaveof no one 取消复制（不会清除历史数据，只是不再同步新的数据）配置slaveof ip port
+slave-read-only yes比较
 
 
-Docker使用客户端-服务器(C/S)架构模式，使用原厂API来管理和创建Docker容器。  Docker容器通过Docker镜像来创建。  容器与镜像的关系类似于面向对象编程中的对象与类
-
-
-
-
-标题
-说明
+方式
+命令
+配置
 
 
 
-镜像（Images）
-Docker镜像是用于创建Docker容器的模板
+优点
+无需重启
+统一配置
 
 
-容器（Container）
-容器是独立运行的一个或一组应用
+缺点
+不便于管理
+需要重启
 
 
-客户端（Client）
-Docker客户端通过命令行或者其他工具使用Docker API与Docker的守护进程通信。
+全量复制
+
+全量复制开销
+bgsave时间
+RDB文件网络传输时间
+从节点清空数据时间
+从节点加载RDB的时间
+可能的AOF重写时间
+
+部分复制
+
+故障转移
+故障发现
+故障恢复
+资格检查
+准备选举时间
+发起选举
+选举投票
+替换主节点
 
 
-主机（Host）
-一个物理或者虚拟的机器用于执行DOcker守护进程和容器。
+
+开发与运维中的问题读写分离
+读写分离：读流量分摊到从节点。
+可能遇到问题：
+复制数据延迟
+读到过期数据
+从节点故障
 
 
-仓库（Registry）
-Docker仓库用来保存镜像，可以理解为代码控制中的代码仓库。Docker Hub提供了庞大的镜像集合供使用。
+
+主从配置不一致
+例如maxmemory不一致：丢失数据
+例如数据结构优化参数（例如hash-max-ziplist-entries）:内存不一致
+
+规避全量复制
+第一次全量复制
+第一次不可避免
+小主节点、低峰
 
 
-Docker Machine
-Docker Machine是一个简化Docker安装的命令行工具，通过一个简单的命令行即可在相应的平台撒花姑娘安装Docker，比如Vitrual</div>
+节点运行ID不匹配
+主节点重起（运行ID变化）
+故障转移，例如哨兵或集群
+
+
+复制积压缓</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-27&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-19&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Docker">Docker</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Docker">Docker</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
           
         
       </div>
@@ -526,147 +631,68 @@ Docker Machine是一个简化Docker安装的命令行工具，通过一个简单
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
-        <p class="h4 index-header">Linux文件权限管理</p>
+      <a href="/2020/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">开发运维常见问题</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">查看文件和目录的权限ls -al使用ls不带参数只显示文件名称，通过ls -al可以显示文件或者目录的权限信息。ls -l 文件名 显示信息包括：第一个为文件类型，以后三个符号为一组。文件类型（d 目录，- 普通文件，l 链接文件），文件权限，文件的用户，文件的所属组，文件的大小，文件的创建时间，文件的名称|-rw-r–r–|  1 |root| root|  322 |7月  21 22:25 |.bash_history||———-|—-|—-|——|—–|————–|————-||文档类型及权限|连接数|文档所属用户|文档所属组|文档大小|文档最后被修改日期|文档名称|
+          <div class="index-text mb-1">fork操作
+同步操作
+内存量息息相关：内存越大，耗时越长（与机器类型有关）
+info：latest_fork_usec
+
+改善fork
+优先使用物理机或者高效支持fork操作的虚拟化技术
+控制Redis实例最大可用内存：maxmemory
+合理配置Linux内存分配策略：vm.overcommit_memory = 1
+降低fork频率：例如放宽AOF重写自动触发时机，不必要的全量复制
+
+子进程开销和优化
+CPU：
 
 
-
--
-rw-
-r–
-r–
+开销：RDB和AOF文件生成，属于CPU密集型
+优化：不做CPU绑定，不和CPU密集型部署
 
 
-
-文档类型
-文档所有者权限（user）
-文档所属用户组权限（group）
-其他用户权限（other）
+内存：
 
 
+开销：fork内存开销，copy-on-wirte
+优化：echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled
 
--: 普通文件
-rw-: 说明用户组root有读写权限，没有运行权限
-r–: 表示用户root只有读权限，没有写和运行的权限
-r–: 其他用户只有读权限，没有写权限和运行的权限
 
-文档所属用户和所属组就是文档属于哪个用户和用户组。文件所属用户和组时可以更改的
-文档大小默认是</div>
-        </div>
-      </a>
+硬盘
 
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux">Linux</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux">Linux</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%AE%A1%E7%90%86/">
-        <p class="h4 index-header">Linux用户和组管理</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Linux操作系统个还是一个多用户系统，他允许多用户同时登录到系统上并使用资源。系统会根据账户来区分每个用户的文件，进程，任务和工作环境，是的每个用户工作都不受干扰。
-使用Root用户给root账户设置密码sudo passwd root切换到root账户su允许root账户远程连接 vi /etc/ssh/sshd_config
-# Authentication:
+开销：AOF和RDB文件写入，可用结合iostat，iotop分析
 
-LoginGraceTime 2m
-# PermiRootLogin prohibit-password  注释此行
-PermitRootLogin yes            #  加入此行
-StrictModes yes
+硬盘优化
+不要和高硬盘负载服务部署一起：存储服务、消息队列等
+no-appendfsync-on-rewrite = yes
+根据写入量 决定磁盘类型：例如ssd
+单机多实例持久化文件目录可用考虑分盘
 
-更改完文件后保存
-重启服务
-service ssh restart
-组账户说明私有组当创建一个用户时没有指定属于哪个组，Linux救护建立一个与用户同名的私有组，次私有组只含有该用户
-标准组当创建一个用户时可以选定一个标准组，如果一个用户同时属于多个组时，登录后所属的组为主组，其他的位附加组。
-账户文件说明/etc/passwd每一行代表一个账户，众多账户是系统正常运行所必须的，例如bin，no</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux">Linux</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux">Linux</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/">
-        <p class="h4 index-header">Linux软件的安装与卸载</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">软件的安装与卸载apt 软件包管理程序ubuntu 下载软件包管理是通过aptcentos通过yum来进行软件包管理程序
-安装文件    安装版    绿色版  压缩包
-命令安装：sudo apt-get install nano删除：sudo apt-get remove nano查看系统版本：lsb_release -a
-Distributor ID: Deepin
-Description:    Deepin 20 Beta
-Release:        20 Beta
-Codename:       n/a
-编辑数据源：vi /etc/apt/sources.list将数据源改为阿里的镜像数据源deb [by-hash=force] https://mirrors.aliyun.com/deepin/ panda main contrib non-free更新数据源：sudo apt-get update更新软件,就重新安装一遍纯净卸载：sudo apt-get autoremove nano,连带nano依赖一起删除
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-22&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-19&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Linux">Linux</a>&nbsp;
+            <a href="/categories/redis">redis</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Linux">Linux</a>&nbsp;
+            <a href="/tags/redis">redis</a>&nbsp;
           
         
       </div>
@@ -677,7 +703,7 @@ Codename:       n/a
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

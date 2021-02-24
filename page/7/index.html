@@ -136,222 +136,30 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/05/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/SQL%E8%AF%AD%E5%8F%A5/">
-        <p class="h4 index-header">SQL语句</p>
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResultSet/">
+        <p class="h4 index-header">ResultSet</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">SQL JOIN语法SELECT … FROM
-a,b
-WHERE a.x = b.x
-
-SELECT … FROM a
-INNER JOIN b
-on a.x = b.x
-
-SELECT … FROM a
-JOIN b
-on a.x = b.x
-Q：上述这些语法是否有区别？A：没有任何区别Q：哪个性能更好？A：没有任何区别A：好吧，如果要认真算的话，那么3最好，因为字节数最少Q：那为什么需要不同的语法？A：ANSI SQL 89、ANSI SQL 92语法标准A：ANSI 92标准开始支持OUTER JOINA：INNER JOIN可以省略INNER关键字
-算法• nested_loop join    • simple nested-loop join    • index nested-loop join    • block nested-loop join• classic hash join    • Only support in MariaDB• bached key access join    • from MySQL 5.6
-simple nested_loop </div>
+          <div class="index-text mb-1">继承Wrapper接口和AutoCloseable接口
+Wrapper是包装类，对原生的int、float。。。进行封装AutoCloseable是自动关闭资源
+ResultSet虽然继承了AutoCloseable可以自动关闭连接释放资源，但是还是要手动关闭，因为官方文档中说：通常，立即释放此Statement对象的数据库和JDBC资源，而不是等待它自动关闭时发生。 最好在资源使用完毕后立即释放资源，以避免占用数据库资源。
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E7%BB%B4%E6%8A%A4/">
-        <p class="h4 index-header">表的创建与维护</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">表
-表是关系数据库的核心
-表=关系
-表是记录的集合
-二维表格模型易于人类理解
-MySQL默认存储引擎都是基于行（记录）存储
-每行记录都是基于列进行组织的
-
-MySQL中数据库与表之间的关系
-
-CREATE TABLE语法CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
-(create_definition,...)
-[table_options]
-[partition_options]
-create_definition:
-col_name column_definition
-| [CONSTRAINT [symbol]] PRIMARY KEY [index_type] 
-(index_col_name,...)
-[index_option] ...
-| {INDEX|KEY} [index_name] [index_type] (index_col_name,...)
-[index_option] ...
-| [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY]
-[index_name] [index_t</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-26&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">数据类型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Int类型
-
-属性
-UNSIGNED/SIGNED
-是否有符号
-
-
-ZEROFILL
-填充0（例如：0001）
-显式属性
-只不做任何修改
-
-
-AUTO_INCREMENT
-自增
-每张表一个
-必须是索引的一部分
-
-
-
-总结
-推荐不要使用UNSIGNED
-范围本质上没有大的改变
-UNSIGNED可能会有一处现象发生
-自增INT类型逐渐建议使用BIGINT
-
-数字类型• 单精度类型：FLOAT• 双精度类型：DOUBLE    单精度类型和双精度类型精度较低，M*G/G不一定等于M• 高精度类型：DECIMAL
-
-财务系统必须用DECIMAL类型FLOAT(M,D)/DOUBLE(M,D)/DECIMAL(M,D) 表示显示M位整数，其中D位位于小数点后面
-字符串类型
-BLOB =&gt; VARBINARYTEXT =&gt; VARCHAR
-
-在BLOB和TEXT列上创建索引时，必须制定索引前缀的长度
-VARCHAR和VARBINARY前缀长度是可选的。
-BLOB和TEXT列不能有默认值
-BLOB和TEXT列排序时只使用该列的前max_sort_length个字节
-
-mysql &gt;</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/25/%E5%90%8E%E7%AB%AF/Java/JVM/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA/">
-        <p class="h4 index-header">运行时数据区</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">运行时数据区
-
-Java虚拟机定义了若干种程序运行期间会使用到的运行时数据区,其中由一些会随着虚拟机启动而创建,随着虚拟机退出而销毁.另外一些则是与线程一一对应的,这些与线程对应的数据区域会随着线程开始和结束而创建和销毁.灰色的为单独线程私有的,红色的为多个线程共享的.即:
-
-每个线程:独立包括程序计数器、栈、本地栈线程间共享：堆、堆外内存（永久代或元空间、代码缓存）
-
-线程
-线程是一个程序里的运行单元。JVM允许一个应用有多个线程并行的执行。
-
-在Hotspot JVM里，每个线程都与操作系统的本地线程直接映射。
-
-当一个Java线程准备好执行以后，此时一个操作系统的本地线程也同事创建。Java线程执行终止后，本地线程也会回收。
-
-
-操作系统负责所有线程的安排调度到任何一个可用的CPU上。一旦本地线程初始化成功，它就会调用Java线程中的run()方法
-
-如果你是用jconsole或者是任何一个调试工具，都能看到在后台有许多线程在运行。这些后台线程不包括调用public static void main(String[])的main线程以及所有这个main线程自己创建的线程。
-
-这些</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/JVM">JVM</a>&nbsp;
+            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
           &nbsp;
         
         
@@ -359,7 +167,46 @@ Java虚拟机定义了若干种程序运行期间会使用到的运行时数据�
           
             <a href="/tags/Java">Java</a>&nbsp;
           
-            <a href="/tags/JVM">JVM</a>&nbsp;
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/ResourceBundle/">
+        <p class="h4 index-header">ResourceBundle</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+这个类主要用来解决国际化和本地化问题。国际化和本地化可不是两个概念，两者都是一起出现的。可以说，国际化的目的就是为了实现本地化。比如对于“取消”，中文中我们使用“取消”来表示，而英文中我们使用“cancel”。若我们的程序是面向国际的（这也是软件发展的一个趋势），那么使用的人群必然是多语言环境的，实现国际化就非常有必要。而ResourceBundle可以帮助我们轻松完成这个任务：当程序需要一个特定于语言环境的资源时（如 String），程序可以从适合当前用户语言环境的资源包（大多数情况下也就是.properties文件）中加载它。这样可以编写很大程度上独立于用户语言环境的程序代码，它将资源包中大部分（即便不是全部）特定于语言环境的信息隔离开来。
+
+这使编写的程序可以：    轻松地本地化或翻译成不同的语言    一次处理多个语言环境    以后可以轻松进行修改，以便支持更多的语言环境
+说的简单点，这个类的作用就是读取资源属性文件（properties），然后根据.properties文件的名称信息（本地化信息），匹配当前系统的国别语言信息（也可以程序指定），然后获取相应的proper</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -370,57 +217,41 @@ Java虚拟机定义了若干种程序运行期间会使用到的运行时数据�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/24/%E5%90%8E%E7%AB%AF/Java/JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">
-        <p class="h4 index-header">类加载子系统</p>
+      <a href="/2020/06/03/%E5%90%8E%E7%AB%AF/Java/%E5%B7%A5%E5%85%B7%E7%B1%BB/PreparedStatement%E5%92%8CStatement/">
+        <p class="h4 index-header">PreparedStatement和Statement</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">内存结构概述
+          <div class="index-text mb-1">网上有很多文章讨论PrepardStatement与Statement的区别，不过要完完全全的作出比较难度很大，因为每个数据库对底层的实现及应用场合不一样，Oracle对PrepardStatement的支持最好，Mysql对PrepardStatement支持最差。Statement执行单个sql语句速度较快而PrepardStatement执行批处理的效率较高。
+以Oracle为例
 
-类加载子系统类加载子系统的作用
+Statement为每一条Sql语句生成执行计划， 如果要执行两条sql语句 select colume from table where colume=1; select colume from table where colume=2; 会生成两个执行计划，一千个查询就生成一千个执行计划。而生成计划是非常消耗资源的
+
+PreparedStatement用于使用绑定变量重用执行计划 select * from xxx.sometable t where t.id=?; 通过set方法给sql语句按占位符”?”先后顺序赋值，只需要生成一个执行计划，可以重复使用。
 
 
-类加载子系统负责从文件系统或者网络中加载Class文件，class文件在文件开头有特定的文件表示
-ClassLoader治负责class文件的加载，至于它是否可以运行则由Execution Engine决定。
-加载的类信息存放于一块成为方法区的内存空间。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串紫米那里和数字常量（这部分常量信息是Class文件中常量池部分的内存映射）
-
-类的加载过程加载
-通过一个类的全限定名获取定义此类的二进制字节流
-讲这个字节流所代表的静态存储结构转化为方法区的运行时数据结构
-在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口
-
-链接验证（Verify）：
-
-目的在于确保Class文件的字节流中包含信息符合当前虚拟机的要求，保证加载类的正确性，不会危害虚拟机自身安全。
-主要包括四种验证：文件格式验证，元数据验证，字节码验证，符号引用验证
-
-准备（Prepare）：
-
-为类变了分配内存并且设置该类变了的默认初始值，即零值。
-这里不包含用fina</div>
+当处理批量SQL语句时，这个时候就</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-24&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-03&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/JVM">JVM</a>&nbsp;
+            <a href="/categories/Java%E5%B7%A5%E5%85%B7%E7%B1%BB">Java工具类</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/JVM">JVM</a>&nbsp;
           
         
       </div>
@@ -431,56 +262,31 @@ ClassLoader治负责class文件的加载，至于它是否可以运行则由Exec
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/21/%E5%90%8E%E7%AB%AF/Java/JVM/JVM%E4%B8%8EJava%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-        <p class="h4 index-header">JVM与Java体系结构</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E9%98%BF%E9%87%8C%E9%9D%A2%E8%AF%95%E9%A2%98/">
+        <p class="h4 index-header">前端/JS/堆栈练习题/阿里面试题</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">JVM的位置
-JVM是运行在操作系统之上的，它与硬件没有直接的交互。
-JVM的整体结构HotSpot VM是目前市面上高性能虚拟机的代表作之一
+          <div class="index-text mb-1">let a = {
+    n:1
+}
+let b = a
+a.x = a = {
+    n:2
+}
 
-它采用解释器与即时编译器并存的架构。在今天，Java程序的云心性能早已脱胎换骨，已经达到了可以和C/C++程序一较高下的地步。
-JVM的架构模型Java编译器输入的指令流基本上是一种基于栈的指令集架构，另外一种指令集结构则是基于寄存器的指令集架构。
-具体来说：这两种架构之间的区别：
-
-基于栈式架构的特点
-设计和实现更简单，适用于资源受限的系统；
-避开了寄存器的分配难题，使用领地址指令方式分配。
-指令流中的指令大部分是零地址指令，其执行过程依赖于操作栈。指令集更小，编译器更容易实现。
-不需要硬件支持，可移植性更好，更好实现跨平台
-
-
-基于寄存器架构的特点
-典型的应用是x86的二进制指令集:比如传统的PC以及Android的Davlik虚拟机
-指令集架构则完全依赖硬件，可移植性差
-性能优秀和执行更高效；
-花费更少的指令去完成一项操作。
-在大部分情况下，基于寄存器架构的指令集往往都以一地址指令、二地址指令和三地址指令为主，而基于栈式架构的指令集却是</div>
+console.log(a.x)
+console.log(b)</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-21&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/JVM">JVM</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/JVM">JVM</a>&nbsp;
-          
         
       </div>
     </div>
@@ -490,58 +296,35 @@ JVM的架构模型Java编译器输入的指令流基本上是一种基于栈的�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/20/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98/">
-        <p class="h4 index-header">高性能缓存</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/">
+        <p class="h4 index-header">前端/JS/堆栈练习题/数据类型检测</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">最简单缓存入手————HashMap并发安全要保证————用synchronized实现
-性能差
-代码复用能力差
+          <div class="index-text mb-1">/*
+基于typeof检测出来的结果
+1. 首先是一个字符串
+2. 字符串中包含对应的类型
+局限性
+1. typeof null => "object" 但是null并不是对象
+2. 基于typeof无法细分出当前值是普通对象还是数组对象等，应为只要是对象数据类型，返回的结果都是"object"
+*/
+console.log(typeof 1)
+let a = NaN
+console.log(typeof a)
+console.log(1)
 
-给HashMap加final关键字
-属性被声明为final后，该变量则只能被复制一次，且一旦被复制，final的百年来就不能再被改变。
-所以我们把它加上final关键字，增强安全性。
-
-代码有重构空间————用装饰者模式
-我们假设ExpensiveFunction类是耗时计算的实现类，实现了Computable接口，但是其本身不具备缓存功能，也不需要考虑缓存的事情
-缺点
-性能差
-当多个线程同时想计算的时候，需要慢慢等待，严重时，性能甚至比不用缓存更差
-
-
-
-性能待优化————引出锁性能优化经验：缩小锁的粒度
-虽然提高了并发效率，但是并不意味着就是线程安全的，还需要考虑到同时读写等情况
-但是起始没必要自己实现线程安全的HashMap，也不应该加synchronized，因为我们自己实现的性能远不如现有的并发集合
-我们来使用ConcurrentHashMap优化我们的缓存
-
-用并发集合————ConcurrentHashMap
-缺点：在计算完成前，另一个要求计算相同值得请求到</div>
+console.log(typeof typeof typeof [])</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-20&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -551,53 +334,32 @@ JVM的架构模型Java编译器输入的指令流基本上是一种基于栈的�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Future%E5%92%8CCallable/">
-        <p class="h4 index-header">Future和Callable</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%A0%86%E6%A0%88%E7%BB%83%E4%B9%A0%E9%A2%98/index/">
+        <p class="h4 index-header">前端/JS/堆栈练习题/index</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Runnable的缺陷
-不能返回一个返回值
-不能抛出checked Exception
+          <div class="index-text mb-1">
 
-Callable接口类似于Runnable，被其他线程执行的任务
 
-实现call方法
-有返回值
+    
+    Document
+    
 
-Future主要方法：一共5个get()方法：获取结果get方法的行为取决于Callable任务的状态，只有以下这5种情况：
 
-任务正常完成：get方法回立刻返回结果
-任务尚未完成（任务还没开始或进行中）：get将阻塞并直到任务完成
-任务执行过程中抛出Exception：get方法回抛出ExecutionException：这里的抛出异常，是call()执行时产生的那个异常，看到这个异常类型时java.util.concurrent.ExecutionException。不论call()执行时抛出的异常类型时什么，最后get方法抛出的异常类型都是ExecutionException。
-任务呗取消：get方法会抛出CancellationException
-任务超时：get方法有一个重载方法，时传入一共延迟时间的，如果时间到了还没有获得结果，get方法就会抛出TimeoutException。
+    
 
-get</div>
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-15&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -607,54 +369,33 @@ get</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/10/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/AQS/">
-        <p class="h4 index-header">AQS</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%87%BD%E6%95%B0/index/">
+        <p class="h4 index-header">前端/JS/函数/index</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">学习AQS的思路
-学习AQS的目的主要是想理解原理、提高技术、以及应对面试
-先从应用层面理解为什么需要他如何使用它，然后再看一看我们Java代码的设计者是如何使用它的了解它的应用场景
-这样之后我们再去分析它的结构，这样的话我们就学习得更加轻松了
-
-为什么需要AQS
-锁和协作类有共同点：闸门
-我们已经学过了ReentrantLock和Semaphore，有没有发现他们有共同点？很相似?
-事实上，不仅是ReentrantLock和Semaphore，包括CountDownLatch、ReentrantReadWriteLock都有这样类似得协作（或叫同步）功能，起始他们底层都用了一个共同得基类，这就是AQS
+          <div class="index-text mb-1">
 
 
-因为上面得那些协作类，它们有很多工作都是类似得，所以如果能提取出一个工具类，那么就可以直接用，对于ReentrantLock和Semaphore而言就可以屏蔽很多细节，只关注它们自己得“业务逻辑”就可以了
+    
+    
+    
+    Document
 
-Semaphore和AQS得关系
-Semaphore内部有一个Sync类，Sync类继承了AQS
-CountDownLatch也是一样的
 
-如果没有AQS
-就需要每个协作工具自</div>
+    
+
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-10&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
         
       </div>
     </div>
@@ -664,63 +405,151 @@ CountDownLatch也是一样的
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/10/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%B5%81%E7%A8%8B/">
-        <p class="h4 index-header">并发流程</p>
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%87%BD%E6%95%B0/1/">
+        <p class="h4 index-header">前端/JS/函数/1</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是控制并发流程
-控制并发流程的工具类，作用就是帮助我们程序眼更容易得让线程之间合作
-让线程之间相互配合，来满足业务逻辑
-比如让线程A等待线程B执行完毕后再执行等合作策略
+          <div class="index-text mb-1">// 求两个数的和,算完和后乘以10，然除以2
+// sum使函数名，代表这个函数本身
+// sum（）是让函数执行，代表的使函数执行返回的结果
+function sum(a,b) {
+    console.log('形参变量',a,b)
+    if(a === undefined){
+        a = 0
+    }
+    if (typeof b === 'undefined') { 
+        b = 0
+    }
+    console.log('结果',(a + b)*5)
+    return (a + b)*5
+}
 
+// ========= 形参的细节
+// 创建函数的时候我们设置了形参变量，但如果执行的时候并没有给传递对应的实参值，那么形参变量默认的值是：undefined
+sum()
+sum(10)
+sum(10,20)
+sum(10,20,30)
 
-
-CountDownLatch倒计时门闩CountDownLatch类的作用并发流程控制工具
-
-倒数门闩
-例子：购物拼团；大巴（游乐园坐过山车排队），人满发车
-流程：倒数结束之前，一直处于等待状态，直到倒计时结束了，此线程才继续工作。
-
-类的主要方法介绍
-CountDownLatch（int count）：仅有一个构造函数，参数count为需要倒数的数值。
-await（）：调用await（）方法的线程会被挂起，它会等待直到count值为0才继续执行
-countDown（）：将count值减1，直到为0时，等待的线程会被唤起。
-
-
-
-两个典型用法
-类的主要方法介绍
-用法一：一个线程邓艾多个线程都执行完毕，再继续自己的工作。
-用法二：多个线程等待某一个线程的信号，同时开始执行。
-
-CountDownLatch注意点
-扩展用法：多个线程等待多个线程完成执行后，再同时执行
-CountDownLatch是不能够重用的，如</div>
+// =========== 函数中的返回值
+// 函数执行的时候，函数体内部创建的变量我们是无法获取和操作的（闭包），如果想要获取内部信息，我们需要基于return返回值机制，把信息返回才可以
+/</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-10&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F/%E4%BE%8B%E5%AD%90/">
+        <p class="h4 index-header">前端/JS/全局作用域/例子</p>
         
         
-          <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    
+    Document
+
+
+    
+    
+        var obj = {
+            name: '孙悟空',
+            age:18,
+            gender:'男',
+            sayName:function(){
+                alert(this.name)
+            }
+        }
+        /*
+        * 使用工程方法创建对象
+        */
+        function createPerson(){
+            // 创建一个新的对象
+            var obj = new Object()
+            // 向对象中添加属性
+            obj.name = "孙悟空"
+            obj.age= 18
+            obj.gender = '男'
+            obj.sayName = function(){
+     </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/02/%E5%89%8D%E7%AB%AF/JS/JS%E6%A0%B7%E4%BE%8B/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E5%88%87%E6%8D%A2%E6%98%BE%E7%A4%BA%E8%AF%A6%E6%83%85/">
+        <p class="h4 index-header">前端/JS/JS样例/鼠标点击切换显示详情</p>
+        
+        
           
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+    
+    鼠标滑过显示详情
+    
+    
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            /* CSS3新盒子模型属性：控制WIDTH/HEIGHT是盒子最终的宽高*/
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid lightcoral;
+            position: relative;
+        }
+
+        .box .detail{
+            display: none;
+            widt</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-02&nbsp;&nbsp;
+        
+        
         
       </div>
     </div>
@@ -730,7 +559,7 @@ CountDownLatch是不能够重用的，如</div>
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

@@ -136,69 +136,52 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/20/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/NIO/NIO%E4%B8%8EIO%E5%8C%BA%E5%88%AB/">
-        <p class="h4 index-header">NIO与IO区别</p>
+      <a href="/2020/03/20/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Lock%E6%8E%A5%E5%8F%A3/">
+        <p class="h4 index-header">Lock接口</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">NIO主要内容
-Java NIO简介
-Java NIO 与 IO 的主要区别
-缓冲区(Buffer)和通道(Channel)
-文件通道(FileChannel)
-NIO 的非阻塞式网络通信
-选择器(Selector)
-SocketChannel、ServerSocketChannel、DatagramChannel
+          <div class="index-text mb-1">Lock简介、地位、作用
+锁是一种工具，用于控制对共享资源的访问。
+Lock和synchronized，这两个是最常见的锁，它们都可以达到线程安全的目的，但是在使用上和功能上又有较大的不同。
+Lock并不是用来代替synchronized的，而是当使用synchronized不合适或不足以满足要求的时候，来提供高级功能的。
+Lock接口最常见的实现类是ReentrantLock
+通常情况下，Lock只允许一个线程来访问这个共享资源。不过有的时候，一些特殊的实现也可允许并发访问，比如ReadWriteLock里面的ReadLock。
+
+为什么需要Lock
+为什么synchronized不够用
 
 
-管道(Pipe)
-Java NIO2 (Path、Paths 与 Files
+效率低：锁的释放情况少、试图获得锁时不能设定超时、不饿能中断一个正在试图获得锁的线程。
+不够灵活（读写锁更灵活）：加锁和释放的实际单一，每个锁仅有单一的条件（某个对象），可能时不够的。
+无法知道是否成功获得到锁
 
-Java NIO简介Java NIO（New IO）是从Java 1.4版本开始引入的一个新的IO API，可以替代标准的Java IO API。NIO与原来的IO有同样的作用和目的，但是使用的方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。
-Java NIO 与 IO 的主要区别
-
-
-IO
-NIO
-
-
-
-面向流(Stream Oriented)
-面向缓冲区(Buffer Oriented)
-
-
-阻塞IO(Blocking IO)
-非阻塞IO(Non Blocking IO)
-
-
-(无)
-选择器(Selectors)
-
-
-通道（Chann</div>
+Lock主要方法介绍
+在Lock中声明了四个方法来获取锁
+lock()、tryLock()、tryLock(long time,TimeUnit unit)和lockInterrypt</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-20&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/NIO">NIO</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -209,96 +192,261 @@ NIO
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/18/%E5%89%8D%E7%AB%AF/Vue/vuex/">
-        <p class="h4 index-header">vuex</p>
+      <a href="/2020/03/16/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/ThreadLocal/">
+        <p class="h4 index-header">ThreadLocal</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">vuex理解vuex 是什么1) github 站点: https://github.com/vuejs/vuex2) 在线文档: https://vuex.vuejs.org/zh-cn/3) 简单来说: 对 vue 应用中多个组件的共享状态进行集中式的管理(读/写)
-使用vuex后，页面的属性就多store,getters属性了
-状态自管理应用1) state: 驱动应用的数据源2) view: 以声明方式将 state 映射到视图3) actions: 响应在 view 上的用户输入导致的状态变化(包含 n 个更新状态的方法)
+          <div class="index-text mb-1">两大使用场景————ThreadLocal的用途
+典型场景1：每个线程需要一个独享的对象（通常时工具类，典型需要使用的类又SimpleDateFormat和Random）
+典型场景2：每个线程内需要保存全局变量（例如再拦截器种获取用户信息），可以让不同方法直接使用，避免参数传递的麻烦
+
+典型场景1——SimpleDateFormat的进化之路
+2个线程分别用自己的SimpleDateFormat，这没问题。
+后来延伸出10个，那就又10个线程和10个SimpleDateFormat，这随人写法不优雅（应该复用对象），但勉强可以接受。
+但是当需求变成了1000个，那么必然要用线程池（否则消耗内存太多）。
+所有的线程都公用同一个simpleDateFormat对象。
+这是线程不安全的，出现了并发安全问题。
+我们可以选择加锁，加锁后结果正常，但是效率低。
+在这里更好的解决方案是使用ThreadLocal，每个线程有独享的对象，在这里有10个对象对应10个线程。
+
+ThreadLocal的两个作用
+让某个需要用到的对象在线程间隔离（每个线程都有自己的独立的对象）
+在任何方法种都可以轻松获取到对</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+        <p class="h4 index-header">线程池</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">线程池的自我介绍
+如果不使用线程池，每个任务都新开一个线程处理
+一个线程
+for循环创建线程
+当任务数量上升到1000
 
 
-多组件共享状态的问题1) 多个视图依赖于同一状态2) 来自不同视图的行为需要变更同一状态3) 以前的解决办法a. 将数据以及操作数据的行为都定义在父组件b. 将数据以及操作数据的行为传递给需要的各个子组件(有可能需要多级传递)4) vuex 就是用来解决这个问题的
+这样开销太大，我们希望有固定数量的线程，来执行这1000个线程，这样就避免了反复创建闭关销毁线程锁带来的开销问题。
+
+为什么要使用线程池
+问题一：反复创建线程开销大
+
+问题二：过多的线程会占用太多内存
+
+解决以上两个问题的思路
+
+用少量的线程————避免内存占用过多
+让这部分线程都保持工作且可用反复执行任务————避免生命周期的损耗
 
 
-vuex 核心概念和 APIstate1) vuex 管理的状态对象2) 它应该是唯一的
-const state = {
-xxx: initValue
+
+线程池的好处
+加快响应速度
+合理利用CPU和内存
+统一管理
+
+线程池使用应用的场合
+服务器接收到大量请求时，使用线程池技术时非常合适的，他可以大大减少线程的创建和销毁次数，提高服务器的工作效率
+实际上，在开发中，如果需要创建5个以上的线程，那么就可用使用线程池来管理
+
+创建和停止线程池线程池构造函数的参数
+
+参数中的corePoolSize和maxPoolSize
+corePoolSize指的是核心线程数:线程池在完成初始化后，默认情况下，线程池中并没有任何线程，线程池会等待会任务到来时。再创建新线程区执行任务
+线程池会可能胡i</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/12/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%AD%BB%E9%94%81/">
+        <p class="h4 index-header">死锁</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是死锁
+发生在并发中
+互不相让：当两个（或更多）线程（或进程）相互持有对方所需要的资源，又不主动释放，导致所有人都无法继续前进，导致程序陷入无尽的阻塞，这就是死锁
+
+
+
+
+死锁的影响死锁的影响在不同系统中是不一样的，这取决于系统对死锁的处理能力
+
+数据库中：检测并放弃事务
+JVM中：：无法自动处理
+
+几率不高但危害大
+不一定发生，但是遵守“墨菲定律”
+一旦发生，多是高并发常见，影响用户多
+整个系统崩溃、子系统崩溃、性能降低
+压力测试无法找出所有潜在的死锁
+
+实际生产中的里斯：转账
+需要两把锁
+获取两把锁成功，且余额大于0，则扣除转出人，增加收款人的余额，是原子操作
+
+死锁的4个必要条件
+互斥条件
+请求与保持条件
+不剥夺条件
+循环等待
+
+缺一不可，这个分析之前的例子
+如何定位死锁
+jstack
+ThreadMXBean代码演示
+
+修复死锁的策略
+线上问题都需要防患于未然，不造成损失地扑灭几乎已经是不可能
+保存案发现场然后立刻重启服务器
+暂时保证线上服务的安全，然后在利用刚才保存的信息，排查死锁，修改代码，重新发版
+
+常见修复策略
+避免策略：哲学家就餐的换手方案、转账换序方案
+
+死锁避</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/09/%E5%90%8E%E7%AB%AF/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+        <p class="h4 index-header">单例模式</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">单例模式饿汉式（静态常量）【可用】public class Singleton1 {
+    private final static Singleton1 INSTANCE = new Singleton1();
+
+    private Singleton1(){
+
+    }
+
+    public static Singleton1 getInstance() {
+        return INSTANCE;
+    }
 }
-mutations1) 包含多</div>
+饿汉式（静态代码块）（可用）public class Singleton2 {
+    private final static Singleton2 INSTANCE;
+
+    static {
+        INSTANCE = new Singleton2();
+    }
+
+    private Singleton2(){
+
+    }
+
+    public static Singleton2 getInstance() {
+        return INSTANCE;
+    }
+}
+懒汉式（线程不安全）【不可用】
+public </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/Vue">Vue</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Vue">Vue</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/18/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/JUC/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
-        <p class="h4 index-header">线程安全</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">创建线程的方式
-继承Thread
-实现Runnable
-实现Callable 一、相较于实现Runnable接口的方式，方法可以有返回值，并且可以抛出异常。 二、执行Callable方式，需要FutureTask实现类的支持，用于接收运算结果。FutureTask是Futrue接口的实现类
-通过线程池声明
-
-显示锁 Lock同步锁
-在 Java 5.0 之前，协调共享对象的访问时可以使用的机制只有 synchronized 和 volatile 。Java 5.0 后增加了一些新的机制，但并不是一种替代内置锁的方法，而是当内置锁不适用时，作为一种可选择的高级功能。
-ReentrantLock 实现了 Lock 接口，并提供了与synchronized 相同的互斥性和内存可见性。但相较于synchronized 提供了更高的处理锁的灵活性。
-
-
-用于解决多线程安全问题的范式： synchronized：隐式锁
-同步代码块
-同步方法jdk1.5后：
-同步锁Lock 注意：是一个显示锁，需要通过lock()方法上锁，必须通过unlock()方法进行释放锁
-
-
-
-注意：在可能出现线程异常的地方</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-18&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/JUC%E7%BA%BF%E7%A8%8B">JUC线程</a>&nbsp;
+            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
           &nbsp;
         
         
@@ -306,6 +454,8 @@ ReentrantLock 实现了 Lock 接口，并提供了与synchronized 相同的互�
           
             <a href="/tags/Java">Java</a>&nbsp;
           
+            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;
+          
         
       </div>
     </div>
@@ -315,40 +465,40 @@ ReentrantLock 实现了 Lock 接口，并提供了与synchronized 相同的互�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/17/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/JUC/volatile/">
-        <p class="h4 index-header">volatile</p>
+      <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/JVM/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+        <p class="h4 index-header">Java内存模型</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Java JUC 简介在 Java 5.0 提供了 java.util.concurrent （简称JUC ）包，在此包中增加了在并发编程中很常用的实用工具类，用于定义类似于线程的自定义子系统，包括线程池、异步 IO 和轻量级任务框架。提供可调的、灵活的线程池。还提供了设计用于多线程上下文中的 Collection 实现等。
-内存可见性
-内存可见性（Memory Visibility）是指当某个线程正在使用对象状态而另一个线程在同时修改该状态，需要确保当一个线程修改了对象状态后，其他线程能够看到发生的状态变化。
-可见性错误是指当读操作与写操作在不同的线程中执行时，我们无法确保执行读操作的线程能适时地看到其他线程写入的值，有时甚至是根本不可能的事情。
-我们可以通过同步来保证对象被安全地发布。除此之外我们也可以使用一种更加轻量级的 volatile 变量。
+          <div class="index-text mb-1">底层原理
+重要性：Java面试的必考知识点，只有学会了这个，才能说呢真正懂了并发。
 
-volatile 关键字
-Java 提供了一种稍弱的同步机制，即 volatile 变量，用来确保将变量的更新操作通知到其他线程。可以将 volatile 看做一个轻量级的锁，但是又与锁有些不同：
+从Java代码到CPU指令的变化过程
 
+我们在Java代码中，使用的控制并发的手段例如synchronized关键字，最终也是要转化为CPU指令来生效的，我们来回顾一下从Java代码到最终执行的CPU指令的流程：
 
-对于多线程，不是一种互斥关系
-不</div>
+最开始，我们编写的Java代码，是*.java文件
+在编译（javac命令）后，从刚才的.java文件会变出一个新的Java字节码文件（.class）
+JVM会执行刚才生成的字节码文件（*.class），并把字节码文件转化为机器指令
+机器指令可以直接在CPU上运行，也就是最终的程序执行
+
+而不同的JVM实现会带来不同的“翻译”，不同的CPU平台的机器指令又千差万别；所以我们在java代码层写的各种Lock，其实最后依赖的是JVM的具体实现（不同版本会有不同实现）和CPU的指令，才能帮我们达到线程安全的效果。由于最终效果依赖处理器，不同处理器结果不一样，这样无法保证并发安全，所以需要一个标准，让多线程运行的结果可预期，这个标准就是JMM。
+三兄弟：JVM内存结构 VS Java内存模型 VS</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-17&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          
-            <a href="/categories/JUC%E7%BA%BF%E7%A8%8B">JUC线程</a>&nbsp;
+            <a href="/categories/JVM">JVM</a>&nbsp;
           &nbsp;
         
         
@@ -356,6 +506,8 @@ Java 提供了一种稍弱的同步机制，即 volatile 变量，用来确保�
           
             <a href="/tags/Java">Java</a>&nbsp;
           
+            <a href="/tags/JVM">JVM</a>&nbsp;
+          
         
       </div>
     </div>
@@ -365,34 +517,53 @@ Java 提供了一种稍弱的同步机制，即 volatile 变量，用来确保�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/13/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-        <p class="h4 index-header">快捷键</p>
+      <a href="/2020/03/07/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
+        <p class="h4 index-header">多线程八大核心面试问题总结</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">同时编辑多行Shift+Alt 加上鼠标左键点击
+          <div class="index-text mb-1">常见面试问题总结有多少种实现线程的方法思路有5点
+
+从不同的角度看，会有不同的答案。
+
+典型答案时两种，分别是实现Runnable接口和继承Thread类，然后具体展开说；
+
+但是我们看原理，其实Thread类实现了Runnable接口，并且看Thread类的run方法，会发现其实那两种本质都是一样的，run方法的代码如下：
+ @Override
+ public void run() {
+     if (target != null){
+         target.run();
+     }
+ }
+ 方法一和方法二，也就是“继承Thread类然后重写run()和实现Runnable接口并传入Thread类在实现多线程的本质上，并没有区别，都是最终调用了start()方法来新建线程。这两个方法的最主要区别在于run()方法的内容来源：
+ 方法一：最终调用target.run()
+ 方法二：run()整个都被重写
+然后具体展开说其他方式； 还有其他的实现线程的方法，例如线程池等，他们也能新建线程，但是细看源码，从没有逃出过本质，也就是实现Runnable接口和继承Thread类。
+
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-13&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE">快捷键</a>&nbsp;
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8">编辑器</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
-            <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE">快捷键</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -403,28 +574,113 @@ Java 提供了一种稍弱的同步机制，即 volatile 变量，用来确保�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/13/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E9%87%8D%E5%A4%8D%E6%B3%A8%E8%A7%A3/">
-        <p class="h4 index-header">重复注解</p>
+      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BC%9A%E5%AF%BC%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">多线程会导致的问题</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">重复注解与类型注解Java 8对注解处理提供了两点改进：可重复的注解及可用于类型的注解。
+          <div class="index-text mb-1">线程安全问题什么是线程安全？
+《Java Concurrency In Practice》的左子Brian Gortz对“线程安全”有一共比较恰当的定义：“当多个线程访问一个对象是，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那这个对象是线程安全的。
+自己的理解：不管业务中遇到怎样的多个线程访问某对象或某方法的情况，而在编程这个业务逻辑的时候，都不需要额外做任何额外的处理（也就是可以想单线程编程一样）程序也可以正常运行（不会因为多线程而出错），就可以称为线程安全。
+
+线程不安全：get同时set、额外同步
+全都线程安全？：运行速度、设计成本、trade off
+完全不用于多线程：不过度设计
+
+什么情况下会出现线程安全问题，怎么避免
+运行结果错误：a++多线程下出现消失的请求现象
+活跃性问题：死锁、活锁、饥饿
+对象发布和初始化的时候的安全问题
+
+什么是逸出
+方法返回一个private对象（private的本意是不让外部访问）
+还未完成初始化（构造函数没完全执行完毕）就把对象提供给外</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%BC%82%E5%B8%B8/">
+        <p class="h4 index-header">线程异常</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">线程异常
+线程的未捕获异常UncaughtException应该如何处理？
+
+为什么需要UncaughtException?
+
+主线程可用轻松发现异常，子线程却不行
+子线程异常无法用传统方法捕获
+不能直接捕获的后果、提高健壮性
+
+
+
+两个解决方案
+方案一（不推荐）：手动在每个run方法里面进行trycatch
+方案二（推荐）：利用UncaughtExceptionHandler
+UncaughtExceptionHandler接口
+void uncaughtException(Thread t, Throwable e);
+异常处理器的调用策略
+自己实现
+给程序统一设置
+给每个线程单独设置
+给线程池设置
+
+
+
+
+
+面试题
+Java异常体系
+如何全局处理异常？ 为什么要全局处理？ 不处理行不行？  设置一个自己的全局uncaughtException，不能不处理
+run方法是否可以抛出异常？如果抛出异常，线程的状态会怎么样？  不可以，如果抛出异常会离开终止执行
+线程中如何处理某个未处理异常？  使用全局处理器，对异常进行处理
+
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-13&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
@@ -432,75 +688,7 @@ Java 提供了一种稍弱的同步机制，即 volatile 变量，用来确保�
           
             <a href="/tags/Java">Java</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E5%89%8D%E7%AB%AF/JS/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        <p class="h4 index-header">JS中常用的数据类型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">JS中常用的数据类型
-基本数据类型
-数字number：常规数字和NaN
-字符串string：所有用单引号、双引号、反引号（撇）包起来的都是字符串
-布尔boolean：true/false
-空对象指针：null
-未定义：undefined
-
-
-引用数据类型
-对象数据类型object- {} 普通对象
-- [] 数组对象
-- /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/ 正则对象
-- Math数学函数对象
-- 日期对象
-- ...
-函数数据类型function
-
-
-
-基本数据类型number数字类型
-包含：常规数字、NaN
-
-NaN ：not a number
-
-不是一个数，但它属于数字类型
-
-NaN和任何值（包括自己）都不相等：NaN！=NaN，所以我们不能用相等的方式判断是否为有效数字
-isNaN ：检测一个值是否为非有效数字，如果不是有效数字返回TRUE，反之返回false。
-在使用isNaN进行检测的时候，受限会验证检测的值是否为数字类型，如果不是，先基于Number()这个方法，把值转换为数字类型，然后再检测
-把其他类型值转换为数字类型
-Number([val</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -511,82 +699,64 @@ Number([val</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/Java%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/">
-        <p class="h4 index-header">Java编程风格</p>
+      <a href="/2020/03/05/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E4%B8%AA%E5%B1%9E%E6%80%A7/">
+        <p class="h4 index-header">线程各个属性</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">实体类编写规范/**
- * 通过卷宗主键和创建人Id获得批注列表，以最后修改时间升序排列
- * @return 批注实体列表
- * @author dingjsh
- * time 2018年1月28日上午10:56:08
- * @version 4.0.0
- */
-@ApiOperation(value = &quot;根据卷宗Id和创建人id查询批注&quot;, notes = &quot;用于iframe的pdf渲染批注位置&quot;)
-@GetMapping(value = &quot;/iframe/{caseId}&quot;, produces = &quot;application/json;charset=UTF-8&quot;)
-@ApiResponses({ @ApiResponse(code = 200, message = &quot;操作成功, 返回数据.&quot;),
-@ApiResponse(code = 400, message = &quot;参数不正确&quot;), })
-public ResponseEntity&lt;List&lt;Jz</div>
+          <div class="index-text mb-1">线程各属性
+
+线程IdID从1开始，JVM运行起来后，我们自己创建的线程的ID早已不是2.
+线程名字
+默认线程名字源码分析
+修改线程的名字（setName）
+
+守护线程
+作用：给用户线程提供服务
+
+特性：
+
+线程类型默认继承自父线程
+被谁启动,(由JVM自动启动)
+不影响JVM退出
+
+
+守护线程和普通线程的区别
+
+整体无区别
+唯一区别在于JVM的离开
+
+
+
+线程优先级
+10个级别，默认5
+程序设计不应依赖于优先级
+不同操作系统不一样
+优先级会被操作系统改变
+
+
+
+面试题
+什么时候我们需要设置守护线程？ 通常情况下我们不需要设置
+我们如何应用线程优先级来帮助程序运行？有哪些禁忌？ 我们不应该用优先级，来作为程序设计的逻辑，因为不同的操作系统有不同的优先级映射
+不同的操作系统如何处理优先级问题？ 不用优先级作为程序的设计逻辑
+
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
-          
-            <a href="/categories/Java%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">Java编程风格</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/MultiValueMap/">
-        <p class="h4 index-header">MultiValueMap</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">MultiValueMap&lt;String, String&gt; stringMultiValueMap = new LinkedMultiValueMap&lt;&gt;();
-
-stringMultiValueMap.add(&quot;早班 9:00-11:00&quot;, &quot;周一&quot;);
-stringMultiValueMap.add(&quot;早班 9:00-11:00&quot;, &quot;周二&quot;);
-stringMultiValueMap.add(&quot;中班 13:00-16:00&quot;, &quot;周三&quot;);
-stringMultiValueMap.add(&quot;早班 9:00-11:00&quot;, &quot;周四&quot;);
-stringMultiValueMap.add(&quot;测试1天2次 09:00 - 12:00&quot;, &quot;周五&quot;);
-stringMultiValueMap.add(&quot;测试1天2次 09:00 - 12:00&quot;, </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Java">Java</a>&nbsp;
           
-            <a href="/categories/Java%20SE">Java SE</a>&nbsp;
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           &nbsp;
         
         
@@ -594,58 +764,7 @@ stringMultiValueMap.add(&quot;测试1天2次 09:00 - 12:00&quot;, </div>
           
             <a href="/tags/Java">Java</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/Java8%E6%96%B0%E7%89%B9%E6%80%A7/%E6%96%B0%E6%97%B6%E9%97%B4API/">
-        <p class="h4 index-header">新时间API</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">新的时间API特点
-线程安全
-
-使用 LocalDate、LocalTime、LocalDateTime
-LocalDate、LocalTime、LocalDateTime 类的实例是不可变的对象，分别表示使用 ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息。也不包含与时区相关的信息。
-
-注：ISO-8601日历系统是国际标准化组织制定的现代公民的日期和时间的表示法
-
-
-Instant 时间戳用于“时间戳”的运算。它是以Unix元年(传统的设定为UTC时区1970年1月1日午夜时分)开始所经历的描述进行运算
-Duration 和 Period
-Duration:用于计算两个“时间”间隔
-Period:用于计算两个“日期”间隔
-
-日期的操纵
-TemporalAdjuster : 时间校正器。有时我们可能需要获取例如：将日期调整到“下个周日”等操作。
-TemporalAdjusters : 该类通过静态方法提供了大量的常用 TemporalAdjuster 的实现。例如获取下个周日：LocalDate nextSunday = Loca</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/Java8%E6%96%B0%E7%89%B9%E6%80%A7">Java8新特性</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
           
         
       </div>
@@ -656,7 +775,7 @@ TemporalAdjusters : 该类通过静态方法提供了大量的常用 TemporalAdj
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
