@@ -136,6 +136,78 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">开发运维常见问题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">fork操作
+同步操作
+内存量息息相关：内存越大，耗时越长（与机器类型有关）
+info：latest_fork_usec
+
+改善fork
+优先使用物理机或者高效支持fork操作的虚拟化技术
+控制Redis实例最大可用内存：maxmemory
+合理配置Linux内存分配策略：vm.overcommit_memory = 1
+降低fork频率：例如放宽AOF重写自动触发时机，不必要的全量复制
+
+子进程开销和优化
+CPU：
+
+
+开销：RDB和AOF文件生成，属于CPU密集型
+优化：不做CPU绑定，不和CPU密集型部署
+
+
+内存：
+
+
+开销：fork内存开销，copy-on-wirte
+优化：echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled
+
+
+硬盘
+
+
+开销：AOF和RDB文件写入，可用结合iostat，iotop分析
+
+硬盘优化
+不要和高硬盘负载服务部署一起：存储服务、消息队列等
+no-appendfsync-on-rewrite = yes
+根据写入量 决定磁盘类型：例如ssd
+单机多实例持久化文件目录可用考虑分盘
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/redis">redis</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/">
         <p class="h4 index-header">Redis持久化</p>
         
@@ -654,64 +726,6 @@ dao.javaInteger insertScript(@Param(&quot;script&quot;) ScriptDto script);
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Maybatis">Maybatis</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/11/13/%E9%94%99%E8%AF%AF/Java/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/">
-        <p class="h4 index-header">字符串截取</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-出现场景：在mina，redis等传输的过程中，原本的名字中有表情，一个emoji有时候占2个或多个字符，使得字符串截取有问题显示报错，因此要使用java的offsetByCodePoints方法来截取字符。
-
-/**
-* 截取出包含emoji表情字符串的前四位
-*
-* @param source 包含emoji表情的源字符串
-* @return 截取前四位后的结果
-*/
-private String subStrIncludeEmojiFour(String source) {
-    String result;
-    try {
-        result = source.substring(source.offsetByCodePoints(0, 0),
-                source.offsetByCodePoints(0, 4));
-    } catch (Exception e) {
-        result = &quot;&quot;;
-    }
-    return result;
-}
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>

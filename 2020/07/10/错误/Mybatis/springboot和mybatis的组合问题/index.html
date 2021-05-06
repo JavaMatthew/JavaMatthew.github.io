@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    144 字
+                    172 字
                   </span>&nbsp;
                 
 
@@ -181,7 +181,7 @@ public List&lt;Audioconverttochn&gt; selectAudioConvertToCHN(List&lt;UserCreditR
 // 第二次返回的接口地址和第一次的相同，正常sql查询 会有3条记录，但是对象中只存在一条
 List&lt;Audioconverttochn&gt; audioConvertToCHNList = gameService.selectAudioConvertToCHN(hangUpList);</code></pre>
 <p>传入一个参数<br>如果你在service方法中传入相同的参数，会得到同一个对象</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>new ArrayList(creditDao.selectxxx());</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在mybatis上添加flushCache=”true”<br><code>&lt;select id=&quot;getItemByItemDicId&quot; resultType=&quot;com.mega.werewolf.cloud.jp.common.dto.ItemDTO&quot; flushCache=&quot;true&quot;&gt;</code><br>new ArrayList(creditDao.selectxxx());</p>
 
             <hr>
           </div>

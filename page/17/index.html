@@ -136,6 +136,55 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">
+        <p class="h4 index-header">数据过滤</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">filter对象中包含子对象如果需要用子对象中的属性过滤，需要用forEach套filter，然后再filter过滤
+// 声明中间变量，用于第一层filter过滤的深拷贝
+let newArr = []
+// 先将所有数据深拷贝给需要过滤的数据
+this.pzLeftData = JSON.parse(JSON.stringify(this.AllData))
+// 第一层过滤
+this.pzLeftData.forEach((value, index) =&gt; {
+    newArr[index] = value
+    // 将里层pzlist数组按照evidenceTypeCode过滤并声明一个新的数组复制给pzList
+    newArr[index].pzList = value.pzList.filter(item =&gt; item.evidenceTypeCode === &#39;2&#39;)
+})
+// 第二层过滤，讲里层数组个数为0的分类过滤掉
+this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/09/%E5%89%8D%E7%AB%AF/JS/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95%E5%8F%B2/">
         <p class="h4 index-header">前端发展史</p>
         
@@ -560,56 +609,6 @@ HTML由一些普通文本组成。如果服务器通过XMLHttpRequest发送HTML�
 
         window.onload = function () {
             var aNod</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-27&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Ajax">Ajax</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Ajax">Ajax</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/Ajax/%E4%BD%BF%E7%94%A8XMLHttpRequest%E5%AE%9E%E7%8E%B0Ajax/">
-        <p class="h4 index-header">使用XMLHttpRequest实现Ajax</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">XMLHttpRequest的概述
-XMLHttpRequest最早是在IE5中以ActiveX组件的形式实现的。非W3C标准。
-创建XMLHttpRequest对象（由于非标准所有实现方法不统一）
-Internet Explor把XMLHttpRequest实现为一个ActiveX对象
-其他浏览器（Firefox、Safari、Opera。。。）把它实现为一个本地的JavaScript
-XMLHttpRequest在不同浏览器上的实现是兼容的。所有可以用同样的方式访问XMLHttpRequest实例的属性和方法，而不论这个实例创建的方法是什么。
-
-
-
-创建XMLHttpRequest对象为了每次下Ajax的时候都节省一点时间，可以把对象检查的内容打包成一个可服用的函数；
-function getHTTPObject(){
-    var xhr = false;
-    if(window.XMLHttpRequest){
-        xhr = new XMLHttpRequest();
-    } else if(window.ActiveXObject){
-        </div>
         </div>
       </a>
 

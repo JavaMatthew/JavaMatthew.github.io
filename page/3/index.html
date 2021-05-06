@@ -136,6 +136,64 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/11/13/%E9%94%99%E8%AF%AF/Java/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/">
+        <p class="h4 index-header">字符串截取</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+出现场景：在mina，redis等传输的过程中，原本的名字中有表情，一个emoji有时候占2个或多个字符，使得字符串截取有问题显示报错，因此要使用java的offsetByCodePoints方法来截取字符。
+
+/**
+* 截取出包含emoji表情字符串的前四位
+*
+* @param source 包含emoji表情的源字符串
+* @return 截取前四位后的结果
+*/
+private String subStrIncludeEmojiFour(String source) {
+    String result;
+    try {
+        result = source.substring(source.offsetByCodePoints(0, 0),
+                source.offsetByCodePoints(0, 4));
+    } catch (Exception e) {
+        result = &quot;&quot;;
+    }
+    return result;
+}
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/10/23/%E5%90%8E%E7%AB%AF/Spring/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
         <p class="h4 index-header">项目搭建</p>
         
@@ -210,15 +268,16 @@ decrby key k
 实战
 记录网站每个用户个人主页的访问量？ incr userId:pageview (单线程：无竞争)
 缓存视频的基本信息（数据源在MySQL中）
-分布式id生成器 incr id
+分布式id生成器 incr idset setnx setxx
 
-set setnx setxx# 不管key是否存在，都设置
+# 不管key是否存在，都设置
 set key value
 
 # key不存在，才设置
-setnx key value
+     key value
 
-# key存在，才设置</div>
+# key存在，才设置
+</div>
         </div>
       </a>
 
@@ -632,42 +691,6 @@ MessageQueue
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Spring">Spring</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/09/12/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%85%B3%E9%94%AE%E5%AD%97/">
-        <p class="h4 index-header">关键字</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">WHERE语句中的关键字Binarywhere子句的字符串比较是不区分大小写的，但是可以使用binary关键字设定where子句区分大小写
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
           
         
       </div>

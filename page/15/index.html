@@ -136,6 +136,62 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/">
+        <p class="h4 index-header">忘记密码</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">如何强制更改Docker容器中的Mysql密码（忘记密码）问题描述使用docker容器时，通过镜像安装了Mysql5.7版本，但忘记了root密码，需要重新设置root密码
+解决步骤
+增加“忘记密码启动”模式
+
+重新设置root密码
+
+删掉“忘记密码启动”模式
+
+重启容器镜像即可
+
+
+具体操作
+通过docker exec命令进入容器内 docker exec -it mysql5.7.28 /bin/sh 注：mysql5.7.8是我安装mysql数据库的容器名
+
+编辑mysql配置文件，增加“忘记密码启动”模式：skip-grant-tables vi /etc/mysql/conf.d/docker.cnf 注：编辑的配置文件不是/etc/mysql/my.cnf，也不是/etc/mysql/mysql.cnf或/etc/mysql/conf.d/mysql.cnf 最终配置文件docker.cnf内容如下：
+ [mysqld]
+ skip-host-cache
+ skip-name-resolve
+ skip-grant-tables
+
+退出容器，重启容器实例
+ vi /etc/</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/MySQL">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
         <p class="h4 index-header">数据链路层</p>
         
@@ -595,52 +651,6 @@ Number([val</div>
             <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
           
             <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/Java%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/">
-        <p class="h4 index-header">Java编程风格</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">实体类编写规范一般都是使用@DateTimeFormat把传给后台的时间字符串转成Date，使用@JsonFormat把后台传出的Date转成时间字符串，但是@DateTimeFormat只会在类似@RequestParam的请求参数（url拼接的参数才生效，如果是放到RequestBody中的form-data也是无效的）上生效，如果@DateTimeFormat放到@RequestBody下是无效的。
-在@RequestBody中则可以使用@JsonFormat把传给后台的时间字符串转成Date，也就是说@JsonFormat其实既可以把传给后台的时间字符串转成Date也可以把后台传出的Date转成时间字符串。
-@Data
-@ApiModel(&quot;礼堂入参&quot;)
-public class WeddingAppointmentHallPagePO {
-    @ApiModelProperty(&quot;cpId&quot;)
-    @NotNull
-    private Integer cpId;
-
-    @ApiModelProperty(&quot;页码</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
-          
-            <a href="/categories/Java%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">Java编程风格</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
           
         
       </div>

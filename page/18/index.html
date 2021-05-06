@@ -136,6 +136,56 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/Ajax/%E4%BD%BF%E7%94%A8XMLHttpRequest%E5%AE%9E%E7%8E%B0Ajax/">
+        <p class="h4 index-header">使用XMLHttpRequest实现Ajax</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">XMLHttpRequest的概述
+XMLHttpRequest最早是在IE5中以ActiveX组件的形式实现的。非W3C标准。
+创建XMLHttpRequest对象（由于非标准所有实现方法不统一）
+Internet Explor把XMLHttpRequest实现为一个ActiveX对象
+其他浏览器（Firefox、Safari、Opera。。。）把它实现为一个本地的JavaScript
+XMLHttpRequest在不同浏览器上的实现是兼容的。所有可以用同样的方式访问XMLHttpRequest实例的属性和方法，而不论这个实例创建的方法是什么。
+
+
+
+创建XMLHttpRequest对象为了每次下Ajax的时候都节省一点时间，可以把对象检查的内容打包成一个可服用的函数；
+function getHTTPObject(){
+    var xhr = false;
+    if(window.XMLHttpRequest){
+        xhr = new XMLHttpRequest();
+    } else if(window.ActiveXObject){
+        </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-27&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Ajax">Ajax</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Ajax">Ajax</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/Ajax/Ajax%E6%A6%82%E8%BF%B0/">
         <p class="h4 index-header">Ajax概述</p>
         
@@ -578,49 +628,6 @@ public class ArraySearchTest {
             <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
           
             <a href="/tags/%E6%9F%A5%E6%89%BE">查找</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">
-        <p class="h4 index-header">排序</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">冒泡排序。（掌握交换排序，快速排序的原理与实现方式）arraycopy方法这个方法是JDK提供的API，这个方法在java.lang.System。public static void arraycopy(Object src,int srcPos,Object dest,int destPos,int length)
-Parameters:src - the source array（原数组）.srcPos - starting position in the source array（原数组中的起始位置，从此位置开始拷贝）.dest - the destination array（目标数组）.destPos - starting position in the destination data（目标数组的起始位置，从此位置开始接收）.length - the number of array elements to be copied（待拷贝的的数组的个数）.
-public class ArrayCopy {
-
-    public static void main(String[]</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          
-            <a href="/categories/%E6%8E%92%E5%BA%8F">排序</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          
-            <a href="/tags/%E6%8E%92%E5%BA%8F">排序</a>&nbsp;
           
         
       </div>

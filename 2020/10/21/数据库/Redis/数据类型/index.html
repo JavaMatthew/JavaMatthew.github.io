@@ -193,13 +193,13 @@ decrby key k</code></pre>
 <h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><ol>
 <li>记录网站每个用户个人主页的访问量？<br> <code>incr userId:pageview (单线程：无竞争)</code></li>
 <li>缓存视频的基本信息（数据源在MySQL中）</li>
-<li>分布式id生成器 incr id</li>
+<li>分布式id生成器 incr id<h3 id="set-setnx-setxx"><a href="#set-setnx-setxx" class="headerlink" title="set setnx setxx"></a>set setnx setxx</h3></li>
 </ol>
-<h3 id="set-setnx-setxx"><a href="#set-setnx-setxx" class="headerlink" title="set setnx setxx"></a>set setnx setxx</h3><pre><code class="sql"># 不管key是否存在，都设置
+<pre><code class="sql"># 不管key是否存在，都设置
 set key value
 
 # key不存在，才设置
-setnx key value
+     key value
 
 # key存在，才设置
 set key value xx</code></pre>

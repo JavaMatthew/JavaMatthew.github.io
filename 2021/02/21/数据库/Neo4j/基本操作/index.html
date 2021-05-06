@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    427 字
+                    986 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      2 分钟
+                      4 分钟
                   </span>&nbsp;
                 
 
@@ -163,7 +163,38 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><blockquote>
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Neo4j是一个世界领先的开源图形数据库。 它是由Neo技术使用Java语言完全开发的。<br>简单地说，我们可以说图数据库主要用于存储更多的连接数据。<br>如果我们使用 RDBMS 数据库来存储更多连接的数据，那么它们不能提供用于遍历大量数据的适当性能。 在这些情况下，Graph Database 提高了应用程序性能。<br>如今，大多数社交网络应用程序（如Facebook，Google +，LinkedIn，Twitter，Yammer 等）和视频托管应用程序（如 Google YouTube，Flickr，Yahoo Video等）都在使用更多连接的数据。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>SQL就像简单的查询语言Neo4j CQL</li>
+<li>它遵循属性图数据模型</li>
+<li>它通过使用Apache Lucence支持索引</li>
+<li>它支持UNIQUE约束</li>
+<li>它包含一个用于执行CQL命令的UI：Neo4j数据浏览器</li>
+<li>它支持完整的ACID（原子性，一致性，隔离性和持久性）规则</li>
+<li>它采用原生图形库与本地GPE（图形处理引擎）</li>
+<li>它支持查询的数据导出到JSON和XLS格式</li>
+<li>它提供了REST API，可以被任何编程语言（如Java，Spring，Scala等）访问</li>
+<li>它提供了可以通过任何UI MVC框架（如Node JS）访问的Java脚本</li>
+<li>它支持两种Java API：Cypher API和Native Java API来开发Java应用程序</li>
+</ul>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>它很容易表示连接的数据</li>
+<li>检索/遍历/导航更多的连接数据是非常容易和快速的</li>
+<li>它非常容易地表示半结构化数据</li>
+<li>Neo4j CQL查询语言命令是人性化的可读格式，非常容易学习</li>
+<li>使用简单而强大的数据模型</li>
+<li>它不需要复杂的连接来检索连接的/相关的数据，因为它很容易检索它的相邻节点或关系细节没有连接或索引 </li>
+</ul>
+<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><blockquote>
+<p>Neo4j图数据库遵循属性图模型来存储和管理其数据。</p>
+</blockquote>
+<p>图形数据库数据模型的主要构建块是: </p>
+<ol>
+<li>节点</li>
+<li>关系</li>
+<li>属性</li>
+</ol>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><blockquote>
 <p>neo4j 查询时带箭头代表单向关系，不带箭头代表双向关系</p>
 </blockquote>
 <pre><code class="java">package com.mega.werewolf.cloud.jp.contact.neo4j;
@@ -254,6 +285,15 @@ void updateRemark(Integer userId, Integer friendId, String name);</code></pre>
     &quot;WHERE u.userId = $userId AND f.userId = $friendId &quot; +
     &quot;DELETE a&quot;)
 void deleteFriend(Integer userId, Integer friendId);</code></pre>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><pre><code class="cql">创建索引
+CREATE INDEX ON :Customer (name)
+
+删除索引
+DROP INDEX ON :&lt;label_name&gt; (&lt;property_name&gt;)
+
+设置唯一索引
+CREATE CONSTRAINT ON (cc:CreditCard)
+ASSERT cc.number IS UNIQUE</code></pre>
 
             <hr>
           </div>

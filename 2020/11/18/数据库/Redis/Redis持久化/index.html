@@ -166,21 +166,21 @@
             <h2 id="持久化的作用"><a href="#持久化的作用" class="headerlink" title="持久化的作用"></a>持久化的作用</h2><h3 id="什么是持久化"><a href="#什么是持久化" class="headerlink" title="什么是持久化"></a>什么是持久化</h3><blockquote>
 <p>redis所有数据保存在内存中，对数据的更新将一部保存到磁盘上。</p>
 </blockquote>
+<img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/%E6%8C%81%E4%B9%85%E5%8C%96.png" srcset="undefined" class="" title="持久化">
 
+<h3 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h3><img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E5%BC%8F.png" srcset="undefined" class="" title="持久化方式">
 
-<h3 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h3>
-
-<h2 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h2><h3 id="什么是RDB"><a href="#什么是RDB" class="headerlink" title="什么是RDB"></a>什么是RDB</h3>
+<h2 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h2><h3 id="什么是RDB"><a href="#什么是RDB" class="headerlink" title="什么是RDB"></a>什么是RDB</h3><img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/RDB.png" srcset="undefined" class="" title="RDB">
 
 <h3 id="触发机制-主要三种方式"><a href="#触发机制-主要三种方式" class="headerlink" title="触发机制-主要三种方式"></a>触发机制-主要三种方式</h3><ol>
 <li>save（同步）</li>
 <li>bgsavve（异步）</li>
 <li>自动</li>
 </ol>
-<h4 id="save命令"><a href="#save命令" class="headerlink" title="save命令"></a>save命令</h4>
+<h4 id="save命令"><a href="#save命令" class="headerlink" title="save命令"></a>save命令</h4><img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/save.png" srcset="undefined" class="" title="save">
 
 <p>因为是同步命令，并且redis是单线程，所以会阻塞其他命令</p>
-<h3 id="bgsave命令"><a href="#bgsave命令" class="headerlink" title="bgsave命令"></a>bgsave命令</h3>
+<h3 id="bgsave命令"><a href="#bgsave命令" class="headerlink" title="bgsave命令"></a>bgsave命令</h3><img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/bgsave.png" srcset="undefined" class="" title="bgsave">
 <p>一般fork命令执行比较快，所以不会阻塞redis<br>文件策略和复杂度与save命令相同。</p>
 <h3 id="自动生成RDB"><a href="#自动生成RDB" class="headerlink" title="自动生成RDB"></a>自动生成RDB</h3><table>
 <thead>
@@ -233,18 +233,39 @@ rdbchecksum yes                     # 是否对rdb文件进行校验和检验</c
 <li>fork() : 消耗内存，copy-on-write策略</li>
 <li>DiskI/O : IO性能</li>
 </ul>
-<h2 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h2><h3 id="AOF运行原理-创建"><a href="#AOF运行原理-创建" class="headerlink" title="AOF运行原理-创建"></a>AOF运行原理-创建</h3>
+<h2 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h2><h3 id="AOF运行原理-创建"><a href="#AOF运行原理-创建" class="headerlink" title="AOF运行原理-创建"></a>AOF运行原理-创建</h3><img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/%E5%88%9B%E5%BB%BA.png" srcset="undefined" class="" title="创建">
 
-<h3 id="AOF运行原理-恢复"><a href="#AOF运行原理-恢复" class="headerlink" title="AOF运行原理-恢复"></a>AOF运行原理-恢复</h3>
+<h3 id="AOF运行原理-恢复"><a href="#AOF运行原理-恢复" class="headerlink" title="AOF运行原理-恢复"></a>AOF运行原理-恢复</h3><img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/%E6%81%A2%E5%A4%8D.png" srcset="undefined" class="" title="恢复">
 
 <h3 id="AOF的三种策略"><a href="#AOF的三种策略" class="headerlink" title="AOF的三种策略"></a>AOF的三种策略</h3><ul>
-<li>always</li>
-<li>everysec</li>
-<li>no
+<li>always<img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/always.png" srcset="undefined" class="" title="always"></li>
+<li>everysec<img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/everysec.png" srcset="undefined" class="" title="everysec"></li>
+<li>no<img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/no.png" srcset="undefined" class="" title="no">
 
 </li>
 </ul>
-<p>|命令|always|everysec|no|<br>|优点|不丢失数据|每秒一次fsync丢1秒数据|不用管|<br>|缺点|IO开销较大，一般的sata盘只有几百TPS|丢1秒数据|不可控|</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>always</th>
+<th>everysec</th>
+<th>no</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>不丢失数据</td>
+<td>每秒一次fsync丢1秒数据</td>
+<td>不用管</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>IO开销较大，一般的sata盘只有几百TPS</td>
+<td>丢1秒数据</td>
+<td>不可控</td>
+</tr>
+</tbody></table>
 <h3 id="AOF重新作用"><a href="#AOF重新作用" class="headerlink" title="AOF重新作用"></a>AOF重新作用</h3><ul>
 <li>减少硬盘占用量</li>
 <li>加速恢复速度</li>
@@ -266,7 +287,7 @@ rdbchecksum yes                     # 是否对rdb文件进行校验和检验</c
 <li>aof_current_size &gt; auto-aof-rewrite-min-size</li>
 <li>aof_current_size - aof_base_size / aof_base_size &gt; auto-aof-rewrite-percentage</li>
 </ul>
-
+<img src="/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/AOF%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.png" srcset="undefined" class="" title="AOF重写流程">
 
 <h5 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h5><pre><code class="properties">appendonly yes
 appendfilename &quot;appendonly-${port}.aof&quot;
@@ -275,7 +296,40 @@ dir /bigdiskpath
 no-appendfsync-on-rewrite yes
 auto-aof-rewrite-percentage 100
 auto-aof-rewrite-min-size 64mb</code></pre>
-<h2 id="RDB与AOF对比"><a href="#RDB与AOF对比" class="headerlink" title="RDB与AOF对比"></a>RDB与AOF对比</h2><p>|命令|RDB|AOF|<br>|启动优先级|低|高|<br>|体积|小|大|<br>|恢复速度|快|慢|<br>|数据安全性|丢数据|根据策略决定|<br>|轻重|重|轻|</p>
+<h2 id="RDB与AOF对比"><a href="#RDB与AOF对比" class="headerlink" title="RDB与AOF对比"></a>RDB与AOF对比</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>RDB</th>
+<th>AOF</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动优先级</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>体积</td>
+<td>小</td>
+<td>大</td>
+</tr>
+<tr>
+<td>恢复速度</td>
+<td>快</td>
+<td>慢</td>
+</tr>
+<tr>
+<td>数据安全性</td>
+<td>丢数据</td>
+<td>根据策略决定</td>
+</tr>
+<tr>
+<td>轻重</td>
+<td>重</td>
+<td>轻</td>
+</tr>
+</tbody></table>
 <h3 id="RDB最佳策略"><a href="#RDB最佳策略" class="headerlink" title="RDB最佳策略"></a>RDB最佳策略</h3><ul>
 <li>“关”</li>
 <li>集中管理</li>

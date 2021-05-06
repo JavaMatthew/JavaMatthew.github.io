@@ -136,6 +136,65 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+        <p class="h4 index-header">Linux文件权限管理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">查看文件和目录的权限ls -al使用ls不带参数只显示文件名称，通过ls -al可以显示文件或者目录的权限信息。ls -l 文件名 显示信息包括：第一个为文件类型，以后三个符号为一组。文件类型（d 目录，- 普通文件，l 链接文件），文件权限，文件的用户，文件的所属组，文件的大小，文件的创建时间，文件的名称|-rw-r–r–|  1 |root| root|  322 |7月  21 22:25 |.bash_history||———-|—-|—-|——|—–|————–|————-||文档类型及权限|连接数|文档所属用户|文档所属组|文档大小|文档最后被修改日期|文档名称|
+
+
+
+-
+rw-
+r–
+r–
+
+
+
+文档类型
+文档所有者权限（user）
+文档所属用户组权限（group）
+其他用户权限（other）
+
+
+
+-: 普通文件
+rw-: 说明用户组root有读写权限，没有运行权限
+r–: 表示用户root只有读权限，没有写和运行的权限
+r–: 其他用户只有读权限，没有写权限和运行的权限
+
+文档所属用户和所属组就是文档属于哪个用户和用户组。文件所属用户和组时可以更改的
+文档大小默认是</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux">Linux</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux">Linux</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/Linux%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%AE%A1%E7%90%86/">
         <p class="h4 index-header">Linux用户和组管理</p>
         
@@ -550,56 +609,6 @@ public function updateUserAnimationState($itemId, $userNo) {
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/07/13/%E9%94%99%E8%AF%AF/Java/List%E8%BD%ACMap/">
-        <p class="h4 index-header">key问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">list转map的时候，忘记了map的key不能重复的问题；其实初衷就是想 利用map的key不能重复的问题.
-将list转为map，原以为是遍历list的方式，存map，然后map的key重复的话，直接覆盖,但是java8 中stream 确给我挖了个坑
-/**
-* List -&gt; Map
-* 需要注意的是：
-* toMap 如果集合对象有重复的key，会报错Duplicate key ....
-*  apple1,apple12的id都为1。
-*  可以用 (k1,k2)-&gt;k1 来设置，如果有重复的key,则保留key1,舍弃key2
-*/
-Map&lt;Integer, Apple&gt; appleMap = appleList.stream().collect(Collectors.toMap(Apple::getId, a -&gt; a, (k1, k2) -&gt; k1));
-List里面的对象元素，以某个属性来分组，例如，以id分组，将id相同的放在一起：
-//List 以ID分组 Map&lt;Integer,List&lt;Apple&gt;&gt</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>&nbsp;
-          
-            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>

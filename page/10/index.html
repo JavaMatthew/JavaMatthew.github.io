@@ -136,6 +136,58 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/19/%E5%90%8E%E7%AB%AF/python/python%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">python基础</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">变量
+在使用变量之前，需要对其赋值
+变量名可以报考字母、数字、下划线，但变量名不能以数字开头
+
+字符串原始字符串原始字符串的使用非常简单，只需要在字符串前加一个字母r即可，注意，原始字符串不能在结尾放\会报错
+str1 = r&#39;C:\now&#39;
+str2 = r&#39;C:\now\fish\a\&#39;
+会报错
+解决办法
+在后面拼接str = r&#39;C:\new\aaa\bbb&#39;+&#39;\\&#39;
+在后面加上[:-1] str = r&#39;C:\new\aaa\bbb\\&#39;[:-1]
+
+长字符串如果想得到一个跨越多行的字符串，我们就需要使用三重引号&quot;&quot;&quot;dsdssdsds&quot;&quot;&quot;
+字符串的分片操作str1 = &quot;I love you&quot;
+str1[:6] =&gt; &#39;I love&#39;
+字符串的方法s = &#39;Wusirs22&#39;
+t1 = s.count(&#39;a&#39;) # 在字符串中查找指定字符有多少个
+t2 = s.</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/python">python</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/python">python</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/05/14/%E5%90%8E%E7%AB%AF/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/Socket%E5%A5%97%E6%8E%A5%E5%AD%97/TCP%E9%80%9A%E4%BF%A1%E7%A8%8B%E5%BA%8F/">
         <p class="h4 index-header">TCP通信程序</p>
         
@@ -626,62 +678,6 @@ JVM的架构模型Java编译器输入的指令流基本上是一种基于栈的�
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Future%E5%92%8CCallable/">
-        <p class="h4 index-header">Future和Callable</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Runnable的缺陷
-不能返回一个返回值
-不能抛出checked Exception
-
-Callable接口类似于Runnable，被其他线程执行的任务
-
-实现call方法
-有返回值
-
-Future主要方法：一共5个get()方法：获取结果get方法的行为取决于Callable任务的状态，只有以下这5种情况：
-
-任务正常完成：get方法回立刻返回结果
-任务尚未完成（任务还没开始或进行中）：get将阻塞并直到任务完成
-任务执行过程中抛出Exception：get方法回抛出ExecutionException：这里的抛出异常，是call()执行时产生的那个异常，看到这个异常类型时java.util.concurrent.ExecutionException。不论call()执行时抛出的异常类型时什么，最后get方法抛出的异常类型都是ExecutionException。
-任务呗取消：get方法会抛出CancellationException
-任务超时：get方法有一个重载方法，时传入一共延迟时间的，如果时间到了还没有获得结果，get方法就会抛出TimeoutException。
-
-get</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-15&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

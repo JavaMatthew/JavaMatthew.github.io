@@ -136,6 +136,62 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/15/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/Future%E5%92%8CCallable/">
+        <p class="h4 index-header">Future和Callable</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Runnable的缺陷
+不能返回一个返回值
+不能抛出checked Exception
+
+Callable接口类似于Runnable，被其他线程执行的任务
+
+实现call方法
+有返回值
+
+Future主要方法：一共5个get()方法：获取结果get方法的行为取决于Callable任务的状态，只有以下这5种情况：
+
+任务正常完成：get方法回立刻返回结果
+任务尚未完成（任务还没开始或进行中）：get将阻塞并直到任务完成
+任务执行过程中抛出Exception：get方法回抛出ExecutionException：这里的抛出异常，是call()执行时产生的那个异常，看到这个异常类型时java.util.concurrent.ExecutionException。不论call()执行时抛出的异常类型时什么，最后get方法抛出的异常类型都是ExecutionException。
+任务呗取消：get方法会抛出CancellationException
+任务超时：get方法有一个重载方法，时传入一共延迟时间的，如果时间到了还没有获得结果，get方法就会抛出TimeoutException。
+
+get</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java">Java</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/10/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/AQS/">
         <p class="h4 index-header">AQS</p>
         
@@ -638,70 +694,6 @@ boolean compareAndSet(int expect,int update) // 如果单曲的数值等于预�
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-30&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java">Java</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/27/%E5%90%8E%E7%AB%AF/Java/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E9%94%81/">
-        <p class="h4 index-header">锁</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">锁的分类
-这些分类，是从各种不同角度出发去看的
-这些分类并不是互斥的，也就是多个类型可以并存：有可能一个锁，同时属于两种类型
-比如ReentrantLock既是互斥锁，又是可重入锁
-好比一个人可以同时时男人，又是军人
-
-
-
-互斥同步锁为什么会诞生非互斥同步锁————互斥同步锁的劣势
-互斥同步锁的劣势
-阻塞和唤醒带来的性能劣势
-永久阻塞：如果持有锁的线程被永久阻塞，比如遇到了无线循环、死锁等活跃性问题，那么等待该线程释放锁的那几个悲催的线程，将永远也得不到执行。
-优先级反转
-
-
-
-什么是乐观锁和悲观锁
-从是否锁住资源的角度分类
-
-悲观锁（互斥同步锁）
-如果我不锁住这个资源，别人就会来抢，就会造成数据结果错误，所有每次悲观锁为了确保结果的正确性，会在每次获取并修改数据时，把数据锁住，让别人无法访问该数据，这样就可以确保数据内容万无一失。
-Java中的悲观锁的实现就是synchronized和Lock相关类
-
-乐观锁（非互斥同步锁）
-认为自己在处理操作的时候不会有其他线程来干扰，所以并不会锁住被操作对象
-在更新的时候，去对比在我修改的期间数据有没有被其他人改变过：如果没被改变过，就说明真的是</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-27&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

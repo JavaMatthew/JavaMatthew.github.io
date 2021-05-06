@@ -136,6 +136,67 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/15/%E5%89%8D%E7%AB%AF/JS/this%E5%92%8C%E5%AF%B9%E8%B1%A1/">
+        <p class="h4 index-header">this和对象</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">this
+解析器在调用函数每次都会向函数内部传递进一共隐含的参数，
+这个隐含的额参数就是this，this指向的是一个对象，
+这个对象我们成为函数执行的上下文对象，
+根据函数的调用方式的不同，this会指向不同的对象。
+以函数的形式调用时，this永远都是window
+以方法的形式调用时，this就是调用方法的那个对象
+
+
+
+
+
+构造函数创建一共构造函数，专门用来创建Person对象的    构造函数就是一共普通函数，创建方式和普通函数没有区别，不同的时构造函数习惯上首字母大写构造函数和普通函数的区别就是调用方式的不同    普通函数时直接调用，而构造函数需要使用new关键字来调用
+function Person(name,age,gender) {
+    this.name = name
+    this.age= age
+    this.gender = gender
+    this.sayName = function(){
+        console.dir(obj)
+    }
+}
+var per = new Person() // [object Object]
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/02/14/%E5%89%8D%E7%AB%AF/JS/%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F/">
         <p class="h4 index-header">全局作用域</p>
         
@@ -585,62 +646,6 @@ typeof null =&gt; “object” 但是null并不是对象
             <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
           
             <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/">
-        <p class="h4 index-header">忘记密码</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">如何强制更改Docker容器中的Mysql密码（忘记密码）问题描述使用docker容器时，通过镜像安装了Mysql5.7版本，但忘记了root密码，需要重新设置root密码
-解决步骤
-增加“忘记密码启动”模式
-
-重新设置root密码
-
-删掉“忘记密码启动”模式
-
-重启容器镜像即可
-
-
-具体操作
-通过docker exec命令进入容器内 docker exec -it mysql5.7.28 /bin/sh 注：mysql5.7.8是我安装mysql数据库的容器名
-
-编辑mysql配置文件，增加“忘记密码启动”模式：skip-grant-tables vi /etc/mysql/conf.d/docker.cnf 注：编辑的配置文件不是/etc/mysql/my.cnf，也不是/etc/mysql/mysql.cnf或/etc/mysql/conf.d/mysql.cnf 最终配置文件docker.cnf内容如下：
- [mysqld]
- skip-host-cache
- skip-name-resolve
- skip-grant-tables
-
-退出容器，重启容器实例
- vi /etc/</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/MySQL">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/MySQL">MySQL</a>&nbsp;
           
         
       </div>

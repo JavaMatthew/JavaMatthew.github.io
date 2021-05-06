@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    959 字
+                    1.3k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      3 分钟
+                      5 分钟
                   </span>&nbsp;
                 
 
@@ -200,8 +200,9 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/b
 <li>:wq 保存后退出vi，并可以新建文件</li>
 <li>:q! 强制退出</li>
 <li>:w file 将当前内容保存成某个文件</li>
-<li>:set number 在编辑文件显示行号</li>
+<li>:set nu/number 在编辑文件显示行号</li>
 <li>:set nonumber 在编辑文件不显示行号</li>
+<li>:set ic 查找不区分大小写配合<code>/</code>查找命令,:set noic 查找区分大小写</li>
 </ol>
 <h3 id="nano"><a href="#nano" class="headerlink" title="nano"></a>nano</h3><p>nano是一个字符中断的文本编辑器，有点像DOS下的editor程序。它比vi/vim要简单的多，比较审核Linux初学者使用。某些Linux发行版的默认编辑器就是nano。</p>
 <h2 id="查看Linux服务器的外网访问地址"><a href="#查看Linux服务器的外网访问地址" class="headerlink" title="查看Linux服务器的外网访问地址"></a>查看Linux服务器的外网访问地址</h2><pre><code class="linux">1、curl ifconfig.me
@@ -214,6 +215,12 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/b
 8、curl myip.dnsomatic.com
 9、curl ip.appspot.com
 10、curl -s checkip.dyndns.org | sed &#39;s/.*IP Address: \([0-9\.]*\).*/\1/g&#39;</code></pre>
+<h2 id="解压压缩包"><a href="#解压压缩包" class="headerlink" title="解压压缩包"></a>解压压缩包</h2><pre><code>gzip -d  压缩文件    // 不保留原来的压缩文件</code></pre><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h3><h4 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h4><p>命令名称： touch<br>命令所在路径： /bin/touch<br>执行权限：所有用户<br>语法： touch [文件名]<br>功能描述：创建空文件<br>范例：<code>$ touch newfile</code></p>
+<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>命令名称： mkdir<br>命令所在路径： /bin/mkdir<br>执行权限：所有用户<br>语法： mkdir [目录名]<br>功能描述：创建空文件夹<br>范例：<code>$ mkdir newdir</code></p>
+<h4 id="mkdir-1"><a href="#mkdir-1" class="headerlink" title="mkdir"></a>mkdir</h4><p>命令名称： ln<br>命令所在路径： /bin/ln<br>执行权限：所有用户<br>语法： ln -s [源文件] [目标文件]<br>          -s 创建软连接<br>功能描述：创建链接文件<br>范例：<code>$ ln -s /etc/issue /issue.soft</code><br>      创建文件/etc/issue的软链接/issue.soft<br>      <code>$ ln /etc/issue /issue.hard</code><br>      创建文件/etc/issue的硬链接/issue.soft，硬链接相当于复制+同步更新</p>
+<h4 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h4><p>改变文件或目录权限<br>chmod [mode=421] [文件或目录]<br>读r-4、写w-2、可执行x-1</p>
+<p>文件<br>r-cat、more、head、tail<br>w-echo、vi<br>x-命令、脚本<br>目录<br>r-ls<br>w-创建删除文件、touch、mkdir、rm<br>x-cd</p>
+<h3 id="系统常用快捷键"><a href="#系统常用快捷键" class="headerlink" title="系统常用快捷键"></a>系统常用快捷键</h3><p>ctrl+u 清空当前行<br>ctrl+l 清空当前页面</p>
 
             <hr>
           </div>

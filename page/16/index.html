@@ -136,6 +136,52 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/12/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/Java%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/">
+        <p class="h4 index-header">Java编程风格</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">实体类编写规范一般都是使用@DateTimeFormat把传给后台的时间字符串转成Date，使用@JsonFormat把后台传出的Date转成时间字符串，但是@DateTimeFormat只会在类似@RequestParam的请求参数（url拼接的参数才生效，如果是放到RequestBody中的form-data也是无效的）上生效，如果@DateTimeFormat放到@RequestBody下是无效的。
+在@RequestBody中则可以使用@JsonFormat把传给后台的时间字符串转成Date，也就是说@JsonFormat其实既可以把传给后台的时间字符串转成Date也可以把后台传出的Date转成时间字符串。
+@Data
+@ApiModel(&quot;礼堂入参&quot;)
+public class WeddingAppointmentHallPagePO {
+    @ApiModelProperty(&quot;cpId&quot;)
+    @NotNull
+    private Integer cpId;
+
+    @ApiModelProperty(&quot;页码</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
+          
+            <a href="/categories/Java%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">Java编程风格</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC">编程风格</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/12/%E5%90%8E%E7%AB%AF/Java/MultiValueMap/">
         <p class="h4 index-header">MultiValueMap</p>
         
@@ -588,55 +634,6 @@ Stream 的操作三个步骤
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%89%8D%E7%AB%AF/JS/%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">
-        <p class="h4 index-header">数据过滤</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">filter对象中包含子对象如果需要用子对象中的属性过滤，需要用forEach套filter，然后再filter过滤
-// 声明中间变量，用于第一层filter过滤的深拷贝
-let newArr = []
-// 先将所有数据深拷贝给需要过滤的数据
-this.pzLeftData = JSON.parse(JSON.stringify(this.AllData))
-// 第一层过滤
-this.pzLeftData.forEach((value, index) =&gt; {
-    newArr[index] = value
-    // 将里层pzlist数组按照evidenceTypeCode过滤并声明一个新的数组复制给pzList
-    newArr[index].pzList = value.pzList.filter(item =&gt; item.evidenceTypeCode === &#39;2&#39;)
-})
-// 第二层过滤，讲里层数组个数为0的分类过滤掉
-this.pzLeftData = this.pzLeftData.filter(pzType =&gt;</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JS">JS</a>&nbsp;
           
         
       </div>
